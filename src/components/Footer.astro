@@ -1,0 +1,177 @@
+---
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Areas", href: "/areas" },
+  { label: "Listings", href: "/listings" },
+  { label: "Blog", href: "/blog" },
+  { label: "Buyers", href: "/buyers" },
+  { label: "Sellers", href: "/sellers" },
+  { label: "Contact", href: "/contact" },
+];
+
+const serviceAreas = ["Sanpete County", "Sevier County", "Millard County", "Juab County"];
+---
+
+<footer class="bg-navy text-white">
+  <!-- Main Footer Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <!-- Column 1: About -->
+      <div>
+        <a href="/" class="inline-block mb-4">
+          <img
+            src="/images/site/heritage-logo.svg"
+            alt="Heritage Realty Group"
+            class="h-10 w-auto"
+          />
+        </a>
+        <p class="font-display italic text-gold text-lg mb-4">
+          Helping You Land the Perfect Property
+        </p>
+        <address class="not-italic text-white/80 text-sm space-y-1.5">
+          <p>149 East 300 North</p>
+          <p>Spring City, UT 84662</p>
+          <p class="pt-2">
+            <a href="tel:4356600401" class="hover:text-gold transition-colors">
+              435-660-0401
+            </a>
+          </p>
+          <p>
+            <a href="mailto:mikesellsut@gmail.com" class="hover:text-gold transition-colors">
+              mikesellsut@gmail.com
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <h3 class="font-heading text-lg uppercase tracking-wider text-gold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          {quickLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-white/80 text-sm hover:text-gold transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Column 3: Connect -->
+      <div>
+        <h3 class="font-heading text-lg uppercase tracking-wider text-gold mb-4">Connect</h3>
+        <div class="space-y-3">
+          <a
+            href="https://www.instagram.com/mikesellsut"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 text-white/80 hover:text-gold transition-colors duration-200 group"
+          >
+            <!-- Instagram SVG Icon -->
+            <svg
+              class="w-5 h-5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm">Instagram</span>
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61577587227657"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 text-white/80 hover:text-gold transition-colors duration-200 group"
+          >
+            <!-- Facebook SVG Icon -->
+            <svg
+              class="w-5 h-5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm">Facebook</span>
+          </a>
+        </div>
+        <p class="mt-4 text-white/60 text-sm italic">
+          I typically respond within a few hours.
+        </p>
+      </div>
+
+      <!-- Column 4: Service Areas -->
+      <div>
+        <h3 class="font-heading text-lg uppercase tracking-wider text-gold mb-4">Service Areas</h3>
+        <ul class="space-y-2">
+          {serviceAreas.map((area) => (
+            <li class="text-white/80 text-sm">{area}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="bg-navy border-t border-white/10" style="background-color: #131f3d;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <!-- Left: Copyright & Licensing -->
+        <div class="text-center lg:text-left text-white/50 text-xs space-y-1">
+          <p>&copy; 2026 Mike Price, Heritage Realty Group LLC. All rights reserved.</p>
+          <p>Licensed in the State of Utah.</p>
+          <p>Agent License: 5957476-LA00 | Office License: 6232680</p>
+          <p>149 East 300 North, Spring City, UT 84662</p>
+          <p class="pt-2">
+            <a href="/privacy" class="hover:text-gold transition-colors">Privacy Policy</a>
+            <span class="mx-1">|</span>
+            <a href="/terms" class="hover:text-gold transition-colors">Terms of Service</a>
+          </p>
+        </div>
+
+        <!-- Center: Fair Housing -->
+        <div class="flex items-center gap-3 text-white/50">
+          <!-- Fair Housing Logo SVG -->
+          <svg
+            class="w-8 h-8 flex-shrink-0"
+            viewBox="0 0 40 40"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <rect x="2" y="2" width="36" height="36" rx="2" stroke="currentColor" stroke-width="1.5" fill="none" />
+            <path d="M20 6L6 17h4v14h20V17h4L20 6z" fill="currentColor" />
+            <text x="20" y="28" text-anchor="middle" fill="#131f3d" font-size="6" font-weight="bold">=</text>
+          </svg>
+          <span class="text-xs">Equal Housing<br />Opportunity</span>
+        </div>
+
+        <!-- Right: REALTOR -->
+        <div class="flex items-center gap-3 text-white/50">
+          <!-- REALTOR R Logo SVG -->
+          <svg
+            class="w-7 h-8 flex-shrink-0"
+            viewBox="0 0 28 32"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <rect x="1" y="1" width="26" height="30" rx="3" stroke="currentColor" stroke-width="1.5" fill="none" />
+            <text x="14" y="23" text-anchor="middle" font-size="18" font-weight="bold" fill="currentColor">R</text>
+          </svg>
+          <span class="text-xs font-semibold tracking-wide">REALTOR&reg;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

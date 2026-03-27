@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #F5F0E8;
+    font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+    color: #1B2E5A;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5F0E8;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1B2E5A;
+    border-radius: 5px;
+    border: 2px solid #F5F0E8;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4A9BD9;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #1B2E5A #F5F0E8;
+  }
+}
+
+@layer components {
+  /* Runway-stripe section divider */
+  .vintage-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 1.5rem 0;
+  }
+
+  .vintage-divider::before,
+  .vintage-divider::after {
+    content: '';
+    flex: 1;
+    height: 0;
+    border-top: 3px dashed #D4A629;
+    max-width: 200px;
+  }
+
+  .vintage-divider::before {
+    margin-left: auto;
+  }
+
+  .vintage-divider::after {
+    margin-right: auto;
+  }
+
+  /* Dot accents for the divider - use with an inner span or pseudo */
+  .vintage-divider-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #C62828;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Thin decorative pinstripe lines */
+  .pinstripe {
+    position: relative;
+  }
+
+  .pinstripe::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #D4A629 20%,
+      #D4A629 80%,
+      transparent
+    );
+  }
+
+  .pinstripe::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #1B2E5A 20%,
+      #1B2E5A 80%,
+      transparent
+    );
+  }
+}

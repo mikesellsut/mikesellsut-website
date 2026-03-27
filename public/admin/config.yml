@@ -1,0 +1,143 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "The headline for your blog post"
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        hint: "When this post should be published"
+
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        default: "Mike Price"
+        hint: "Usually just leave this as Mike Price"
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Market Updates"
+          - "Neighborhood Guides"
+          - "Buyer Tips"
+          - "Seller Tips"
+          - "Community Events"
+          - "Utah Living"
+        hint: "Pick the category that best fits this post"
+
+      - label: "Featured Image"
+        name: "featured_image"
+        widget: "image"
+        required: false
+        hint: "Upload a photo for the post header and preview card. Landscape orientation works best (roughly 1200x600 pixels)."
+
+      - label: "Excerpt"
+        name: "excerpt"
+        widget: "text"
+        hint: "A 1-2 sentence summary that appears on the blog listing page and in Google search results. Keep it under 160 characters for best SEO."
+
+      - label: "Published"
+        name: "published"
+        widget: "boolean"
+        default: true
+        hint: "Toggle off to save as a draft without publishing"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        hint: "The main content of your blog post. You can use headings, bold, italics, links, and images."
+
+  - name: "testimonials"
+    label: "Testimonials"
+    label_singular: "Testimonial"
+    folder: "src/content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Client Name"
+        name: "client_name"
+        widget: "string"
+        hint: "Use first name and last initial for privacy (e.g., 'Sarah M.')"
+
+      - label: "Quote"
+        name: "quote"
+        widget: "text"
+        hint: "The client's testimonial text. Keep it genuine and conversational."
+
+      - label: "Client Photo"
+        name: "client_photo"
+        widget: "image"
+        required: false
+        hint: "Optional photo of the client. Square crop works best."
+
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        required: false
+        hint: "When this testimonial was received"
+
+      - label: "Featured"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Turn this ON to display this testimonial on the home page. Aim for 2-3 featured testimonials."
+
+  - name: "areas"
+    label: "Area Guides"
+    label_singular: "Area Guide"
+    folder: "src/content/areas"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Area Name"
+        name: "area_name"
+        widget: "string"
+        hint: "Name of the area or town"
+
+      - label: "County"
+        name: "county"
+        widget: "select"
+        options:
+          - "Sanpete"
+          - "Sevier"
+          - "Millard"
+          - "Juab"
+        hint: "Which county is this area in?"
+
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+        hint: "Describe what makes this area special — community, scenery, lifestyle, etc."
+
+      - label: "Photo"
+        name: "photo"
+        widget: "image"
+        required: false
+        hint: "A landscape photo representing this area"
+
+      - label: "Market Highlights"
+        name: "market_highlights"
+        widget: "text"
+        required: false
+        hint: "Brief notes about the local real estate market"
+
+      - label: "Towns"
+        name: "towns"
+        widget: "list"
+        hint: "List the towns in this area (one per line)"

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
+  <defs>
+    <linearGradient id="compassGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4A629"/>
+      <stop offset="100%" stop-color="#B8911F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer decorative ring -->
+  <circle cx="30" cy="30" r="28" fill="none" stroke="#1B2E5A" stroke-width="1.2"/>
+  <circle cx="30" cy="30" r="26" fill="none" stroke="#D4A629" stroke-width="0.5"/>
+
+  <!-- Tick marks around edge -->
+  <g stroke="#1B2E5A" stroke-width="0.6">
+    <line x1="30" y1="2" x2="30" y2="6"/>
+    <line x1="30" y1="54" x2="30" y2="58"/>
+    <line x1="2" y1="30" x2="6" y2="30"/>
+    <line x1="54" y1="30" x2="58" y2="30"/>
+    <!-- Diagonal ticks -->
+    <line x1="9.2" y1="9.2" x2="11.8" y2="11.8"/>
+    <line x1="48.2" y1="48.2" x2="50.8" y2="50.8"/>
+    <line x1="50.8" y1="9.2" x2="48.2" y2="11.8"/>
+    <line x1="9.2" y1="50.8" x2="11.8" y2="48.2"/>
+  </g>
+
+  <!-- Cardinal points - large (N, S, E, W) -->
+  <!-- North - navy -->
+  <polygon points="30,4 34,24 30,20 26,24" fill="#1B2E5A"/>
+  <!-- North highlight -->
+  <polygon points="30,4 34,24 30,20" fill="#1B2E5A" opacity="0.9"/>
+  <polygon points="30,4 26,24 30,20" fill="#1B2E5A" opacity="0.6"/>
+
+  <!-- South - gold -->
+  <polygon points="30,56 34,36 30,40 26,36" fill="url(#compassGold)"/>
+  <polygon points="30,56 34,36 30,40" fill="#D4A629" opacity="0.9"/>
+  <polygon points="30,56 26,36 30,40" fill="#D4A629" opacity="0.6"/>
+
+  <!-- East - navy -->
+  <polygon points="56,30 36,34 40,30 36,26" fill="#1B2E5A"/>
+  <polygon points="56,30 36,34 40,30" fill="#1B2E5A" opacity="0.6"/>
+  <polygon points="56,30 36,26 40,30" fill="#1B2E5A" opacity="0.9"/>
+
+  <!-- West - gold -->
+  <polygon points="4,30 24,34 20,30 24,26" fill="url(#compassGold)"/>
+  <polygon points="4,30 24,34 20,30" fill="#D4A629" opacity="0.6"/>
+  <polygon points="4,30 24,26 20,30" fill="#D4A629" opacity="0.9"/>
+
+  <!-- Intercardinal points (NE, SE, SW, NW) - smaller -->
+  <!-- NE -->
+  <polygon points="47,13 35,25 37,23" fill="#1B2E5A" opacity="0.5"/>
+  <polygon points="47,13 35,25 37,27" fill="#D4A629" opacity="0.5"/>
+  <!-- SE -->
+  <polygon points="47,47 35,35 37,33" fill="#D4A629" opacity="0.5"/>
+  <polygon points="47,47 35,35 33,37" fill="#1B2E5A" opacity="0.5"/>
+  <!-- SW -->
+  <polygon points="13,47 25,35 23,33" fill="#1B2E5A" opacity="0.5"/>
+  <polygon points="13,47 25,35 23,37" fill="#D4A629" opacity="0.5"/>
+  <!-- NW -->
+  <polygon points="13,13 25,25 23,27" fill="#D4A629" opacity="0.5"/>
+  <polygon points="13,13 25,25 27,23" fill="#1B2E5A" opacity="0.5"/>
+
+  <!-- Center circle -->
+  <circle cx="30" cy="30" r="4" fill="#1B2E5A"/>
+  <circle cx="30" cy="30" r="2.5" fill="#D4A629"/>
+  <circle cx="30" cy="30" r="1" fill="#1B2E5A"/>
+
+  <!-- Cardinal letters -->
+  <text x="30" y="14" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="5" fill="#D4A629" font-weight="700">N</text>
+  <text x="30" y="52" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="5" fill="#1B2E5A" font-weight="700">S</text>
+  <text x="49" y="32" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="5" fill="#D4A629" font-weight="700">E</text>
+  <text x="11" y="32" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="5" fill="#1B2E5A" font-weight="700">W</text>
+</svg>

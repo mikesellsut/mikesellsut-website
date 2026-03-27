@@ -1,0 +1,125 @@
+---
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Areas", href: "/areas" },
+  { label: "Listings", href: "/listings" },
+  { label: "Blog", href: "/blog" },
+  { label: "Buyers", href: "/buyers" },
+  { label: "Sellers", href: "/sellers" },
+  { label: "Contact", href: "/contact" },
+];
+---
+
+<header class="sticky top-0 z-50 bg-navy shadow-lg">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0" aria-label="Heritage Realty Group - Home">
+        <img
+          src="/images/site/heritage-logo.svg"
+          alt="Heritage Realty Group"
+          class="h-10 md:h-[50px] w-auto"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-white font-heading text-sm xl:text-base uppercase tracking-wider hover:text-gold transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="lg:hidden relative z-50 flex flex-col items-center justify-center w-10 h-10 space-y-1.5 group"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+      >
+        <span
+          class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center"
+          id="hamburger-top"></span>
+        <span
+          class="block w-6 h-0.5 bg-white transition-all duration-300"
+          id="hamburger-mid"></span>
+        <span
+          class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center"
+          id="hamburger-bot"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Gold accent line -->
+  <div class="h-[2px] bg-gold"></div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 z-40 bg-navy/[0.98] flex flex-col items-center justify-center transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+  >
+    <ul class="flex flex-col items-center space-y-6">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-white font-heading text-2xl uppercase tracking-widest hover:text-gold transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="mt-10 flex flex-col items-center text-white/60 text-sm space-y-1">
+      <a href="tel:4356600401" class="hover:text-gold transition-colors">435-660-0401</a>
+      <a href="mailto:mikesellsut@gmail.com" class="hover:text-gold transition-colors">
+        mikesellsut@gmail.com
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const top = document.getElementById("hamburger-top");
+  const mid = document.getElementById("hamburger-mid");
+  const bot = document.getElementById("hamburger-bot");
+  let isOpen = false;
+
+  btn?.addEventListener("click", () => {
+    isOpen = !isOpen;
+    btn.setAttribute("aria-expanded", String(isOpen));
+
+    if (isOpen) {
+      menu?.classList.remove("translate-x-full");
+      menu?.classList.add("translate-x-0");
+      top?.classList.add("rotate-45", "translate-y-2");
+      mid?.classList.add("opacity-0");
+      bot?.classList.add("-rotate-45", "-translate-y-2");
+      document.body.style.overflow = "hidden";
+    } else {
+      menu?.classList.add("translate-x-full");
+      menu?.classList.remove("translate-x-0");
+      top?.classList.remove("rotate-45", "translate-y-2");
+      mid?.classList.remove("opacity-0");
+      bot?.classList.remove("-rotate-45", "-translate-y-2");
+      document.body.style.overflow = "";
+    }
+  });
+
+  // Close menu when clicking a link
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (isOpen) btn?.click();
+    });
+  });
+</script>

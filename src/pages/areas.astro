@@ -1,0 +1,150 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+const counties = [
+  {
+    id: "sanpete",
+    name: "Sanpete County",
+    towns: "Fairview, Mt. Pleasant, Ephraim, Manti, Spring City, Moroni, Gunnison",
+    image: "/images/areas/sanpete-county-sign.jpg",
+    image2: "/images/areas/sanpete-mountain.jpg",
+    description: `Sanpete County is the heart of Central Utah — and it's one of the most underrated places in the entire state. Nestled between the Wasatch Plateau and the San Pitch Mountains, this valley offers a way of life that's increasingly hard to find: genuine community, stunning natural beauty, and homes you can actually afford.
+
+The historic towns here each have their own personality. Manti is known for its stunning temple and small-town charm. Ephraim is home to Snow College, bringing youthful energy and cultural events year-round. Spring City is an artist's haven with beautifully preserved pioneer-era architecture. Mt. Pleasant offers a growing downtown and strong community spirit. Fairview sits at the north end of the valley with incredible mountain views, while Moroni and Gunnison anchor the southern stretch with agricultural heritage and wide-open spaces.
+
+Whether you're looking for a historic fixer-upper, a modern family home, a cabin retreat, or a piece of land to build on, Sanpete County has options across every price range. The market here has been steadily growing, but prices remain well below the Wasatch Front — making it an excellent time to invest.`,
+    highlights: "Affordable housing compared to Wasatch Front | Growing market with strong appreciation | Rich cultural heritage and community events | Access to world-class outdoor recreation | Snow College brings economic stability",
+  },
+  {
+    id: "sevier",
+    name: "Sevier County",
+    towns: "Richfield, Salina, Monroe, Aurora",
+    image: "/images/areas/sevier-river.jpg",
+    image2: "/images/areas/sevier-ute-stampede.jpg",
+    description: `Sevier County is Central Utah's commercial hub, anchored by Richfield — the largest city in the region. If you want the convenience of shopping, dining, and services without the sprawl and traffic of the Wasatch Front, this is your spot.
+
+Richfield serves as the economic center for a wide swath of rural Utah, with a regional hospital, retail corridors, and a growing job market. Salina sits at the crossroads of I-70 and US-89, making it a natural gateway to Capitol Reef, Fishlake National Forest, and some of the best fly-fishing in the state. Monroe is a quieter, family-oriented town known for its hot springs and stunning red rock surroundings. Aurora offers rural charm with agricultural roots and mountain views.
+
+The Sevier River valley provides spectacular scenery — lush green corridors winding through dramatic canyon country. Outdoor enthusiasts love the area for its access to ATV trails, fishing, hunting, camping, and skiing at nearby Eagle Point Resort.
+
+Real estate in Sevier County ranges from affordable starter homes to custom-built properties on acreage. Land is available and reasonably priced, and new construction is picking up as more families discover what this area has to offer.`,
+    highlights: "Richfield serves as the regional commercial center | Gateway to Fishlake National Forest and Capitol Reef | Eagle Point ski resort nearby | Strong healthcare and education infrastructure | Diverse housing options from starter homes to acreage",
+  },
+  {
+    id: "millard",
+    name: "Millard County",
+    towns: "Fillmore, Delta",
+    image: "/images/areas/millard-veterans-memorial.jpg",
+    image2: "/images/areas/millard-meadow-hotsprings.jpg",
+    description: `Millard County is where wide-open spaces meet rich history. As home to Utah's original territorial capital, Fillmore carries a deep sense of heritage — and today it's a charming, affordable community that's attracting families and remote workers looking for a quieter pace of life.
+
+Fillmore is a small town with big character. The Territorial Statehouse State Park Museum anchors the downtown, and the surrounding area offers stunning views of the Pahvant Range. It's the kind of place where neighbors know each other and the community rallies together.
+
+Delta, to the west, serves as the agricultural heartbeat of the county. The farming economy here is strong, and the wide desert landscapes offer a sense of space and freedom that's hard to find elsewhere. Nearby attractions like Meadow Hot Springs (a hidden gem of natural thermal pools) and the Great Basin landscape create a unique living environment.
+
+Property in Millard County is some of the most affordable in the state, making it an excellent option for first-time buyers, investors, or anyone looking for land. Whether you want a home in town or acreage outside city limits, the options are plentiful.`,
+    highlights: "Some of the most affordable property in Utah | Utah's original territorial capital (Fillmore) | Meadow Hot Springs and natural attractions | Strong agricultural economy | Excellent value for land buyers and investors",
+  },
+  {
+    id: "juab",
+    name: "Juab County",
+    towns: "Nephi, Mona, Levan",
+    image: "/images/areas/juab-mt-nebo.jpg",
+    image2: "/images/areas/juab-yuba.jpg",
+    description: `Juab County offers the best of both worlds: rural Utah charm with remarkably easy access to the Wasatch Front. Nephi, the county seat, sits right off I-15 — putting Provo about 45 minutes away and Salt Lake City just over an hour. For commuters and remote workers, this is a game-changer.
+
+Dominated by the towering Mt. Nebo — the highest peak in the Wasatch Range at 11,928 feet — Juab County delivers some of the most dramatic mountain scenery in the state. The Nebo Loop Scenic Byway is a world-class drive that winds through alpine meadows and ancient forests.
+
+Nephi has been growing steadily as families priced out of Utah County discover its affordability and quality of life. The town has good schools, essential services, a welcoming community, and home prices that are a fraction of what you'd pay 45 minutes up the freeway. Mona and Levan are even smaller communities that offer true rural living with incredible mountain backdrops.
+
+Yuba State Park, with its reservoir and recreational opportunities, adds another dimension to outdoor life in Juab County. Fishing, boating, hiking, and hunting are all within easy reach.`,
+    highlights: "45 minutes to Provo, just over an hour to SLC | Mt. Nebo — tallest peak in the Wasatch Range | Yuba State Park for boating and fishing | Rapidly growing due to affordability | Strong value compared to Utah County prices",
+  },
+];
+---
+
+<BaseLayout
+  title="Areas I Serve"
+  description="Mike Price serves Sanpete, Sevier, Millard & Juab Counties in Central Utah. Explore each area and discover your next home."
+>
+  <!-- Hero Banner -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Areas I Serve
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        Central Utah is one of the best-kept secrets in the state. Affordable living, stunning mountain scenery, tight-knit communities, and room to breathe. Here's a closer look at the counties I serve.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- County Sections -->
+  {counties.map((county, i) => (
+    <section id={county.id} class:list={["py-16 lg:py-24 px-4 sm:px-6 lg:px-8", i % 2 === 1 ? "bg-white" : ""]}>
+      <div class="max-w-7xl mx-auto">
+        <div class:list={["grid grid-cols-1 lg:grid-cols-2 gap-12 items-start", i % 2 === 1 ? "lg:direction-rtl" : ""]}>
+          <!-- Images -->
+          <div class:list={["space-y-4", i % 2 === 1 ? "lg:order-2" : ""]} data-animate>
+            <img
+              src={county.image}
+              alt={`${county.name} landscape`}
+              class="w-full h-64 lg:h-80 object-cover rounded-lg shadow-md"
+              loading="lazy"
+            />
+            {county.image2 && (
+              <img
+                src={county.image2}
+                alt={`${county.name} scenic view`}
+                class="w-full h-48 lg:h-56 object-cover rounded-lg shadow-md"
+                loading="lazy"
+              />
+            )}
+          </div>
+
+          <!-- Content -->
+          <div class:list={[i % 2 === 1 ? "lg:order-1" : ""]} data-animate>
+            <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-2">
+              {county.name}
+            </h2>
+            <p class="text-sky font-semibold text-sm mb-4">{county.towns}</p>
+            <div class="w-16 h-1 bg-gold mb-6"></div>
+
+            {county.description.split("\n\n").map((para) => (
+              <p class="font-body text-navy/80 leading-relaxed mb-4">{para}</p>
+            ))}
+
+            <!-- Market Highlights -->
+            <div class="mt-6 bg-cream border border-gold/20 rounded-lg p-6">
+              <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">
+                Market Highlights
+              </h3>
+              <ul class="space-y-2">
+                {county.highlights.split(" | ").map((h) => (
+                  <li class="flex items-start gap-2 text-sm text-navy/80">
+                    <svg class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Thinking About a Move to Central Utah?"
+        subheading="I'd love to tell you more about any of these areas. Let's talk about what you're looking for."
+      />
+    </div>
+  </section>
+</BaseLayout>

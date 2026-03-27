@@ -1,0 +1,312 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import AreaCard from "../components/AreaCard.astro";
+import BlogCard from "../components/BlogCard.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import PlaceholderImage from "../components/PlaceholderImage.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = (await getCollection("blog"))
+  .filter((p) => p.data.published)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const featuredTestimonials = (await getCollection("testimonials"))
+  .filter((t) => t.data.featured)
+  .slice(0, 3);
+
+const areas = [
+  {
+    name: "Sanpete County",
+    image: "/images/areas/sanpete-county-sign.jpg",
+    description: "Historic towns, stunning valleys, and a tight-knit community feel that makes Sanpete one of Utah's most charming places to call home.",
+    href: "/areas#sanpete",
+  },
+  {
+    name: "Sevier County",
+    image: "/images/areas/sevier-river.jpg",
+    description: "A gateway to outdoor adventure with a growing economy, affordable living, and breathtaking mountain scenery in every direction.",
+    href: "/areas#sevier",
+  },
+  {
+    name: "Millard County",
+    image: "/images/areas/millard-meadow-hotsprings.jpg",
+    description: "Wide-open spaces, rich agricultural heritage, and hidden gems like Meadow Hot Springs make Millard a land of opportunity.",
+    href: "/areas#millard",
+  },
+  {
+    name: "Juab County",
+    image: "/images/areas/juab-mt-nebo.jpg",
+    description: "From the towering peak of Mt. Nebo to the welcoming town of Nephi, Juab County offers rural charm with easy access to the Wasatch Front.",
+    href: "/areas#juab",
+  },
+];
+---
+
+<BaseLayout
+  title="Home"
+  description="Mike Price is a Central Utah REALTOR® with Heritage Realty Group, serving Sanpete, Sevier, Millard & Juab Counties. 20 years of local market expertise."
+>
+  <!-- Schema.org RealEstateAgent structured data -->
+  <Fragment slot="default">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Mike Price",
+      "alternateName": "Mike Sells UT",
+      "description": "Central Utah REALTOR® with 20 years of market expertise serving Sanpete, Sevier, Millard & Juab Counties.",
+      "url": "https://mikesellsut.com",
+      "telephone": "+1-435-660-0401",
+      "email": "mikesellsut@gmail.com",
+      "image": "https://mikesellsut.com/images/site/realtor-sign.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "149 East 300 North",
+        "addressLocality": "Spring City",
+        "addressRegion": "UT",
+        "postalCode": "84662",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Sanpete County, Utah" },
+        { "@type": "AdministrativeArea", "name": "Sevier County, Utah" },
+        { "@type": "AdministrativeArea", "name": "Millard County, Utah" },
+        { "@type": "AdministrativeArea", "name": "Juab County, Utah" }
+      ],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Heritage Realty Group LLC"
+      }
+    })} />
+  </Fragment>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="/images/site/hero-horseshoe-mountain.jpg"
+        alt="Horseshoe Mountain panoramic landscape in Central Utah"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-navy/60"></div>
+    </div>
+
+    <!-- Biplane decoration -->
+    <div class="absolute top-12 right-8 md:top-16 md:right-16 opacity-30 md:opacity-40 pointer-events-none" id="hero-biplane">
+      <img src="/images/site/biplane.svg" alt="" class="w-24 md:w-40 lg:w-52" aria-hidden="true" />
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center md:text-left">
+      <div class="max-w-3xl">
+        <h1 class="hero-heading font-display italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-4" style="opacity:0;">
+          Helping You Land the Perfect Property
+        </h1>
+        <p class="hero-sub font-body text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-2xl" style="opacity:0;">
+          Central Utah Real Estate — Sanpete, Sevier, Millard &amp; Juab Counties
+        </p>
+        <div class="hero-ctas flex flex-col sm:flex-row gap-4 justify-center md:justify-start" style="opacity:0;">
+          <a
+            href="/listings"
+            class="inline-block px-8 py-4 bg-gold text-white font-heading uppercase tracking-wider text-lg rounded-md hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-lg text-center"
+          >
+            Start Your Search
+          </a>
+          <a
+            href="/contact"
+            class="inline-block px-8 py-4 bg-transparent border-2 border-white text-white font-heading uppercase tracking-wider text-lg rounded-md hover:bg-white hover:text-navy transition-all duration-200 text-center"
+          >
+            Contact Mike
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom gradient fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-cream to-transparent"></div>
+  </section>
+
+  <!-- ===== ABOUT PREVIEW ===== -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8" data-animate>
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Headshot -->
+        <div class="flex justify-center md:justify-end">
+          <PlaceholderImage
+            label="HEADSHOT — Professional photo of Mike Price, 600x600"
+            width={600}
+            height={600}
+            class="w-full max-w-md rounded-lg"
+          />
+        </div>
+
+        <!-- Text -->
+        <div>
+          <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+            Meet Mike Price
+          </h2>
+          <div class="w-16 h-1 bg-gold mb-6"></div>
+          <p class="font-body text-lg text-navy/80 leading-relaxed mb-4">
+            With 20 years of hands-on real estate market expertise across Central Utah, I bring a deep understanding of property values, pricing trends, and neighborhood dynamics to every transaction.
+          </p>
+          <p class="font-body text-navy/80 leading-relaxed mb-6">
+            Whether you're buying your first home, selling a family property, or searching for the perfect piece of land, I'm here to guide you with honest advice and local knowledge you won't find anywhere else.
+          </p>
+          <a
+            href="/about"
+            class="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all duration-200"
+          >
+            Learn More About Mike
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VINTAGE DIVIDER ===== -->
+  <div class="vintage-divider max-w-4xl mx-auto">
+    <span class="vintage-divider-dot"></span>
+  </div>
+
+  <!-- ===== AREAS I SERVE ===== -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" data-animate>
+        <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+          Areas I Serve
+        </h2>
+        <p class="font-body text-navy/70 text-lg max-w-2xl mx-auto">
+          From the valleys of Sanpete to the peaks of Juab, I know Central Utah inside and out.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-animate-stagger>
+        {areas.map((area) => (
+          <AreaCard
+            name={area.name}
+            image={area.image}
+            description={area.description}
+            href={area.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LATEST FROM THE BLOG ===== -->
+  {allPosts.length > 0 && (
+    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12" data-animate>
+          <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+            Latest From the Blog
+          </h2>
+          <p class="font-body text-navy/70 text-lg max-w-2xl mx-auto">
+            Market updates, buyer tips, and local insights from Central Utah.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-animate-stagger>
+          {allPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              slug={post.slug}
+              image={post.data.featured_image}
+              category={post.data.category}
+            />
+          ))}
+        </div>
+        <div class="text-center mt-10" data-animate>
+          <a
+            href="/blog"
+            class="inline-flex items-center gap-2 text-gold font-semibold text-lg hover:gap-3 transition-all duration-200"
+          >
+            View All Posts
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ===== TESTIMONIALS ===== -->
+  {featuredTestimonials.length > 0 && (
+    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12" data-animate>
+          <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+            What My Clients Say
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto" data-animate-stagger>
+          {featuredTestimonials.map((t) => (
+            <TestimonialCard
+              clientName={t.data.client_name}
+              quote={t.data.quote}
+              date={t.data.date?.toLocaleDateString("en-US", { year: "numeric", month: "long" })}
+              featured={t.data.featured}
+            />
+          ))}
+        </div>
+        <div class="text-center mt-10" data-animate>
+          <a
+            href="/testimonials"
+            class="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all duration-200"
+          >
+            Read More Testimonials
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ===== LEAD CAPTURE ===== -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Ready to Make Your Move?"
+        subheading="Whether you're buying, selling, or just exploring your options — I'd love to hear from you."
+      />
+    </div>
+  </section>
+
+  <!-- Hero animation script -->
+  <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero fade-in sequence
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+    tl.to(".hero-heading", { opacity: 1, y: 0, duration: 0.8 }, 0.2)
+      .from(".hero-heading", { y: 40 }, 0.2)
+      .to(".hero-sub", { opacity: 1, y: 0, duration: 0.8 }, 0.5)
+      .from(".hero-sub", { y: 30 }, 0.5)
+      .to(".hero-ctas", { opacity: 1, y: 0, duration: 0.8 }, 0.8)
+      .from(".hero-ctas", { y: 20 }, 0.8);
+
+    // Biplane gentle drift
+    ScrollTrigger.matchMedia({
+      "(min-width: 768px)": function () {
+        gsap.to("#hero-biplane", {
+          x: -80,
+          y: 15,
+          duration: 12,
+          ease: "none",
+          repeat: -1,
+          yoyo: true,
+        });
+      },
+    });
+  </script>
+</BaseLayout>

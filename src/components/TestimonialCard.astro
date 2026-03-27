@@ -1,0 +1,43 @@
+---
+interface Props {
+  clientName: string;
+  quote: string;
+  date?: string;
+  featured?: boolean;
+}
+
+const { clientName, quote, date, featured = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "bg-cream border rounded-lg p-6 sm:p-8 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 relative",
+    featured ? "border-gold" : "border-navy/10",
+  ]}
+>
+  <!-- Decorative opening quote mark -->
+  <span
+    class="absolute top-3 left-4 text-gold/30 font-display text-6xl sm:text-7xl leading-none select-none pointer-events-none"
+    aria-hidden="true"
+  >
+    &ldquo;
+  </span>
+
+  <!-- Quote text -->
+  <blockquote class="relative z-10 pt-6">
+    <p class="font-body italic text-navy/80 text-base sm:text-lg leading-relaxed">
+      {quote}
+    </p>
+  </blockquote>
+
+  <!-- Attribution -->
+  <div class="mt-5 pt-3">
+    <p class="font-body font-semibold text-navy text-sm sm:text-base">
+      {clientName}
+    </p>
+    <div class="w-12 h-[2px] bg-gold mt-1"></div>
+    {date && (
+      <p class="text-navy/50 text-xs mt-2">{date}</p>
+    )}
+  </div>
+</div>

@@ -1,0 +1,139 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import PlaceholderImage from "../components/PlaceholderImage.astro";
+
+const values = [
+  {
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`,
+    title: "20 Years of Market Expertise",
+    desc: "Two decades of deep knowledge in Central Utah property values, pricing trends, and market dynamics. I know what properties are truly worth.",
+  },
+  {
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+    title: "Unmatched Local Knowledge",
+    desc: "I know every town, every road, and every neighborhood across Sanpete, Sevier, Millard, and Juab Counties. This is my home — and I'd love to help you make it yours.",
+  },
+  {
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    title: "Honest, Straight-Up Guidance",
+    desc: "No pressure, no games. I'll give you my honest assessment of every property and every situation. My reputation depends on it — and so does your investment.",
+  },
+  {
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+    title: "Full-Service Support",
+    desc: "From the first showing to the closing table, I'm with you every step of the way. I also work with trusted local lenders, inspectors, and title companies to make the process seamless.",
+  },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about Mike Price, a Central Utah REALTOR® with Heritage Realty Group and 20 years of market expertise across Sanpete, Sevier, Millard & Juab Counties."
+>
+  <!-- Hero Banner -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        About Mike
+      </h1>
+      <p class="font-display italic text-xl md:text-2xl text-gold">
+        Your Trusted Central Utah REALTOR&reg;
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Bio Section -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8" data-animate>
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div class="flex justify-center">
+          <PlaceholderImage
+            label="HEADSHOT — Professional photo of Mike Price, 600x600"
+            width={600}
+            height={600}
+            class="w-full max-w-md rounded-lg sticky top-24"
+          />
+        </div>
+
+        <div class="space-y-5">
+          <h2 class="font-heading text-3xl text-navy uppercase tracking-wide">My Story</h2>
+          <div class="w-16 h-1 bg-gold"></div>
+
+          <p class="font-body text-lg text-navy/80 leading-relaxed">
+            I'm Mike Price, and I've spent the last 20 years getting to know Central Utah real estate better than just about anyone. I'm a REALTOR&reg; with Heritage Realty Group LLC, based right here in Spring City — and I wouldn't have it any other way.
+          </p>
+
+          <p class="font-body text-navy/80 leading-relaxed">
+            I serve Sanpete, Sevier, Millard, and Juab Counties, and I specialize in residential homes, land, cabins, rural properties, and mountain homes. I have a particular soft spot for working with first-time homebuyers — there's nothing quite like helping someone find their first place and watching that moment when they realize, "This is it."
+          </p>
+
+          <p class="font-body text-navy/80 leading-relaxed">
+            What sets me apart? Twenty years of hands-on real estate market expertise. I have a deep understanding of property values across this region — pricing trends, land values, neighborhood dynamics, and what properties are truly worth. When you work with me, you're not getting guesswork. You're getting expert-level guidance backed by two decades of experience.
+          </p>
+
+          <p class="font-body text-navy/80 leading-relaxed">
+            I believe in being straight-up with my clients. If a property isn't right for you, I'll tell you. If the price doesn't make sense, I'll say so. My goal isn't to make a quick sale — it's to help you make the best decision for your family and your future.
+          </p>
+
+          <p class="font-body text-navy/80 leading-relaxed">
+            Central Utah is one of the best-kept secrets in the state. Affordable living, stunning scenery, tight-knit communities, and room to breathe. If you're thinking about making a move out here — or if you already call this place home — I'd love to help.
+          </p>
+
+          <p class="font-body text-navy/80 leading-relaxed font-semibold">
+            Let's talk. Give me a call at <a href="tel:4356600401" class="text-gold hover:underline">435-660-0401</a> or <a href="/contact" class="text-gold hover:underline">send me a message</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Work With Mike -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" data-animate>
+        <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+          Why Work With Mike
+        </h2>
+        <div class="w-16 h-1 bg-gold mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-animate-stagger>
+        {values.map((v) => (
+          <div class="text-center p-6 bg-cream rounded-lg border border-navy/5">
+            <div class="text-gold mb-4 flex justify-center" set:html={v.icon} />
+            <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">{v.title}</h3>
+            <p class="font-body text-sm text-navy/70 leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8" data-animate>
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-heading text-2xl md:text-3xl text-navy uppercase tracking-wide mb-8">
+        Credentials
+      </h2>
+      <div class="bg-white rounded-lg p-8 shadow-sm border border-navy/5 space-y-3 text-navy/80">
+        <p><span class="font-semibold text-navy">Licensed REALTOR&reg;</span> — State of Utah</p>
+        <p>Agent License: 5957476-LA00</p>
+        <p>Heritage Realty Group LLC — Broker: Lawny R. Hunt</p>
+        <p>Office License: 6232680</p>
+        <p>149 East 300 North, Spring City, UT 84662</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Let's Work Together"
+        subheading="Ready to start your real estate journey? Reach out and let's chat — no pressure, just honest conversation."
+      />
+    </div>
+  </section>
+</BaseLayout>

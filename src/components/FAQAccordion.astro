@@ -1,0 +1,82 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+  heading?: string;
+}
+
+const { items, heading = "Frequently Asked Questions" } = Astro.props;
+---
+
+<section class="py-16 px-4 sm:px-6 lg:px-8" data-animate>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-heading text-3xl md:text-4xl text-navy text-center uppercase tracking-wide mb-10">
+      {heading}
+    </h2>
+    <div class="space-y-4" id="faq-accordion">
+      {items.map((item, index) => (
+        <div class="border-2 border-navy/10 rounded-lg overflow-hidden bg-white">
+          <button
+            type="button"
+            class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left font-body font-semibold text-navy text-lg hover:bg-navy/5 transition-colors duration-200"
+            aria-expanded="false"
+            aria-controls={`faq-panel-${index}`}
+          >
+            <span>{item.question}</span>
+            <svg
+              class="faq-icon w-5 h-5 text-gold flex-shrink-0 ml-4 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            id={`faq-panel-${index}`}
+            class="faq-panel hidden px-6 pb-5"
+            role="region"
+          >
+            <p class="font-body text-navy/80 leading-relaxed" set:html={item.answer} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const panelId = btn.getAttribute('aria-controls');
+      const panel = document.getElementById(panelId!);
+      const icon = btn.querySelector('.faq-icon');
+
+      // Close all others
+      document.querySelectorAll('.faq-trigger').forEach((otherBtn) => {
+        if (otherBtn !== btn) {
+          otherBtn.setAttribute('aria-expanded', 'false');
+          const otherId = otherBtn.getAttribute('aria-controls');
+          const otherPanel = document.getElementById(otherId!);
+          otherPanel?.classList.add('hidden');
+          otherBtn.querySelector('.faq-icon')?.classList.remove('rotate-180');
+        }
+      });
+
+      // Toggle current
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if (expanded) {
+        panel?.classList.add('hidden');
+        icon?.classList.remove('rotate-180');
+      } else {
+        panel?.classList.remove('hidden');
+        icon?.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

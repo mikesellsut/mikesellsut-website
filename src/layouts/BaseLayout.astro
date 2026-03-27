@@ -1,0 +1,137 @@
+---
+import SEO from "../components/SEO.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+import "@fontsource/oswald/400.css";
+import "@fontsource/oswald/700.css";
+import "@fontsource/source-sans-3/400.css";
+import "@fontsource/source-sans-3/600.css";
+import "@fontsource/playfair-display/700.css";
+import "@fontsource/playfair-display/700-italic.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalUrl?: string;
+  type?: string;
+}
+
+const { title, description, image, canonicalUrl, type } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      canonicalUrl={canonicalUrl}
+      type={type}
+    />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMXYY3Z3FT"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-QMXYY3Z3FT");
+    </script>
+
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Netlify Identity Widget (for CMS login) -->
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-cream text-navy font-body">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Netlify Identity redirect after login -->
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function (user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function () {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+
+    <script>
+      import { gsap } from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      ScrollTrigger.matchMedia({
+        // Desktop: full animations
+        "(min-width: 768px)": function () {
+          document.querySelectorAll("[data-animate]").forEach((el) => {
+            gsap.from(el, {
+              scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                toggleActions: "play none none none",
+              },
+              y: 30,
+              opacity: 0,
+              duration: 0.8,
+              ease: "power2.out",
+            });
+          });
+
+          document
+            .querySelectorAll("[data-animate-stagger]")
+            .forEach((container) => {
+              const children = container.children;
+              gsap.from(children, {
+                scrollTrigger: {
+                  trigger: container,
+                  start: "top 85%",
+                  toggleActions: "play none none none",
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.15,
+                ease: "power2.out",
+              });
+            });
+        },
+        // Mobile: simple fade-in only
+        "(max-width: 767px)": function () {
+          document.querySelectorAll("[data-animate], [data-animate-stagger]").forEach((el) => {
+            gsap.from(el, {
+              scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+                toggleActions: "play none none none",
+              },
+              opacity: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            });
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

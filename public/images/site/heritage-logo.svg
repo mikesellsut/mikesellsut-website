@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <defs>
+    <linearGradient id="wingGradLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B8911F"/>
+      <stop offset="100%" stop-color="#D4A629"/>
+    </linearGradient>
+    <linearGradient id="wingGradRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4A629"/>
+      <stop offset="100%" stop-color="#B8911F"/>
+    </linearGradient>
+    <linearGradient id="bannerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B2E5A"/>
+      <stop offset="100%" stop-color="#142247"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Wing - 4 feather layers -->
+  <!-- Layer 4 (outermost) -->
+  <path d="M25 78 Q40 65 60 68 Q80 71 95 78 Q100 82 95 86 Q75 82 55 80 Q40 79 25 85 Z"
+        fill="url(#wingGradLeft)" stroke="#B8911F" stroke-width="0.5"/>
+  <!-- Layer 3 -->
+  <path d="M35 84 Q50 72 70 75 Q90 78 105 84 Q110 88 105 92 Q85 88 65 86 Q50 85 35 91 Z"
+        fill="#D4A629" stroke="#B8911F" stroke-width="0.5"/>
+  <!-- Layer 2 -->
+  <path d="M45 90 Q60 80 80 82 Q100 85 115 90 Q120 94 115 98 Q95 94 75 92 Q60 91 45 97 Z"
+        fill="url(#wingGradLeft)" stroke="#B8911F" stroke-width="0.5"/>
+  <!-- Layer 1 (innermost) -->
+  <path d="M55 96 Q70 87 90 89 Q110 92 125 96 Q128 100 125 104 Q105 100 85 98 Q70 97 55 103 Z"
+        fill="#D4A629" stroke="#B8911F" stroke-width="0.5"/>
+
+  <!-- Right Wing - 4 feather layers -->
+  <!-- Layer 4 (outermost) -->
+  <path d="M275 78 Q260 65 240 68 Q220 71 205 78 Q200 82 205 86 Q225 82 245 80 Q260 79 275 85 Z"
+        fill="url(#wingGradRight)" stroke="#B8911F" stroke-width="0.5"/>
+  <!-- Layer 3 -->
+  <path d="M265 84 Q250 72 230 75 Q210 78 195 84 Q190 88 195 92 Q215 88 235 86 Q250 85 265 91 Z"
+        fill="#D4A629" stroke="#B8911F" stroke-width="0.5"/>
+  <!-- Layer 2 -->
+  <path d="M255 90 Q240 80 220 82 Q200 85 185 90 Q180 94 185 98 Q205 94 225 92 Q240 91 255 97 Z"
+        fill="url(#wingGradRight)" stroke="#B8911F" stroke-width="0.5"/>
+  <!-- Layer 1 (innermost) -->
+  <path d="M245 96 Q230 87 210 89 Q190 92 175 96 Q172 100 175 104 Q195 100 215 98 Q230 97 245 103 Z"
+        fill="#D4A629" stroke="#B8911F" stroke-width="0.5"/>
+
+  <!-- Central Roundel -->
+  <!-- Navy outer ring -->
+  <circle cx="150" cy="92" r="32" fill="#1B2E5A"/>
+  <!-- Gold ring -->
+  <circle cx="150" cy="92" r="26" fill="#D4A629"/>
+  <!-- Navy inner ring -->
+  <circle cx="150" cy="92" r="20" fill="#1B2E5A"/>
+  <!-- Gold inner ring -->
+  <circle cx="150" cy="92" r="14" fill="#D4A629"/>
+  <!-- Red bullseye -->
+  <circle cx="150" cy="92" r="9" fill="#C62828"/>
+  <!-- Center dot -->
+  <circle cx="150" cy="92" r="3" fill="#1B2E5A"/>
+
+  <!-- Small decorative stars on wings -->
+  <polygon points="70,74 71.5,77 75,77.5 72.5,79.5 73,83 70,81 67,83 67.5,79.5 65,77.5 68.5,77"
+           fill="#1B2E5A" opacity="0.4" transform="scale(0.6) translate(47,50)"/>
+  <polygon points="230,74 231.5,77 235,77.5 232.5,79.5 233,83 230,81 227,83 227.5,79.5 225,77.5 228.5,77"
+           fill="#1B2E5A" opacity="0.4" transform="scale(0.6) translate(155,50)"/>
+
+  <!-- HERITAGE text -->
+  <text x="150" y="140" text-anchor="middle" font-family="'Oswald', 'Arial Narrow', sans-serif"
+        font-weight="700" font-size="28" fill="#1B2E5A" letter-spacing="6">HERITAGE</text>
+
+  <!-- Banner behind REALTY GROUP -->
+  <path d="M85 148 L95 152 L95 168 L85 164 Z" fill="#D4A629"/>
+  <rect x="95" y="148" width="110" height="20" rx="0" fill="url(#bannerGrad)"/>
+  <path d="M215 148 L205 152 L205 168 L215 164 Z" fill="#D4A629"/>
+
+  <!-- Banner fold triangles -->
+  <path d="M85 148 L95 148 L95 152 Z" fill="#B8911F"/>
+  <path d="M215 148 L205 148 L205 152 Z" fill="#B8911F"/>
+
+  <!-- REALTY GROUP text on banner -->
+  <text x="150" y="163" text-anchor="middle" font-family="'Oswald', 'Arial Narrow', sans-serif"
+        font-weight="400" font-size="13" fill="#FFFFFF" letter-spacing="4">REALTY GROUP</text>
+
+  <!-- Thin decorative lines under banner -->
+  <line x1="100" y1="175" x2="200" y2="175" stroke="#D4A629" stroke-width="1"/>
+  <line x1="110" y1="178" x2="190" y2="178" stroke="#D4A629" stroke-width="0.5"/>
+</svg>

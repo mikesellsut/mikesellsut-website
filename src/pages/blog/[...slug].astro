@@ -1,0 +1,136 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formattedDate = post.data.date.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+// Related posts (same category, exclude current)
+const allPosts = await getCollection("blog");
+const related = allPosts
+  .filter((p) => p.data.published && p.data.category === post.data.category && p.slug !== post.slug)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const shareUrl = `https://mikesellsut.com/blog/${post.slug}`;
+const shareText = encodeURIComponent(post.data.title);
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.excerpt}
+  image={post.data.featured_image}
+  type="article"
+>
+  <!-- Featured Image -->
+  {post.data.featured_image ? (
+    <div class="w-full h-64 md:h-96 overflow-hidden">
+      <img
+        src={post.data.featured_image}
+        alt={post.data.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+  ) : (
+    <div class="w-full h-32 bg-gradient-to-r from-navy to-sky"></div>
+  )}
+
+  <article class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <!-- Header -->
+      <header class="mb-10">
+        {post.data.category && (
+          <span class="inline-block text-sm font-bold uppercase tracking-wider text-sky mb-3">
+            {post.data.category}
+          </span>
+        )}
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl text-navy uppercase tracking-wide leading-tight mb-4">
+          {post.data.title}
+        </h1>
+        <div class="flex items-center gap-4 text-navy/60 text-sm">
+          <span>By {post.data.author}</span>
+          <span>&bull;</span>
+          <time datetime={post.data.date.toISOString()}>{formattedDate}</time>
+        </div>
+        <div class="w-16 h-1 bg-gold mt-6"></div>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-navy prose-p:text-navy/80 prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-navy prose-li:text-navy/80">
+        <Content />
+      </div>
+
+      <!-- Share -->
+      <div class="mt-12 pt-8 border-t border-navy/10">
+        <p class="font-heading text-sm uppercase tracking-wider text-navy/60 mb-3">Share This Post</p>
+        <div class="flex gap-3">
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 bg-navy/10 rounded-md text-navy text-sm font-semibold hover:bg-navy hover:text-white transition-colors"
+          >
+            Facebook
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 bg-navy/10 rounded-md text-navy text-sm font-semibold hover:bg-navy hover:text-white transition-colors"
+          >
+            Twitter
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  {related.length > 0 && (
+    <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-heading text-2xl text-navy uppercase tracking-wide text-center mb-8">
+          Related Posts
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto" data-animate-stagger>
+          {related.map((r) => (
+            <BlogCard
+              title={r.data.title}
+              excerpt={r.data.excerpt}
+              date={r.data.date}
+              slug={r.slug}
+              image={r.data.featured_image}
+              category={r.data.category}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading={`Have Questions About ${post.data.category}?`}
+        subheading="Reach out and let's talk about what's happening in the Central Utah market."
+      />
+    </div>
+  </section>
+</BaseLayout>

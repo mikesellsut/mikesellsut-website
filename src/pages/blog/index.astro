@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = (await getCollection("blog"))
+  .filter((p) => p.data.published)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categories = [
+  "All",
+  "Market Updates",
+  "Neighborhood Guides",
+  "Buyer Tips",
+  "Seller Tips",
+  "Community Events",
+  "Utah Living",
+];
+---
+
+<BaseLayout
+  title="Blog"
+  description="Real estate tips, market updates, and local insights for Central Utah from Mike Price, REALTOR®."
+>
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Blog
+      </h1>
+      <p class="font-body text-lg text-white/80 max-w-2xl mx-auto">
+        Market updates, buyer tips, and local insights from Central Utah.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Category Filters -->
+      <div class="flex flex-wrap gap-2 mb-10 justify-center" data-animate>
+        {categories.map((cat) => (
+          <button
+            data-filter={cat === "All" ? "all" : cat}
+            class:list={[
+              "blog-filter px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border-2",
+              cat === "All"
+                ? "bg-navy text-white border-navy"
+                : "bg-transparent text-navy border-navy/20 hover:border-navy hover:bg-navy hover:text-white",
+            ]}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Posts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="blog-grid" data-animate-stagger>
+        {allPosts.map((post) => (
+          <div data-category={post.data.category}>
+            <BlogCard
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              slug={post.slug}
+              image={post.data.featured_image}
+              category={post.data.category}
+            />
+          </div>
+        ))}
+      </div>
+
+      {allPosts.length === 0 && (
+        <p class="text-center text-navy/60 py-12 text-lg">
+          Blog posts coming soon! Check back for market updates and local insights.
+        </p>
+      )}
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll(".blog-filter").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+
+        // Update active button styles
+        document.querySelectorAll(".blog-filter").forEach((b) => {
+          b.classList.remove("bg-navy", "text-white", "border-navy");
+          b.classList.add("bg-transparent", "text-navy", "border-navy/20");
+        });
+        btn.classList.add("bg-navy", "text-white", "border-navy");
+        btn.classList.remove("bg-transparent", "text-navy", "border-navy/20");
+
+        // Filter posts
+        document.querySelectorAll("#blog-grid > div").forEach((card) => {
+          if (filter === "all" || card.getAttribute("data-category") === filter) {
+            (card as HTMLElement).style.display = "";
+          } else {
+            (card as HTMLElement).style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

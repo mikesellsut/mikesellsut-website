@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120">
+  <defs>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D93030"/>
+      <stop offset="50%" stop-color="#C62828"/>
+      <stop offset="100%" stop-color="#A12020"/>
+    </linearGradient>
+    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D93030"/>
+      <stop offset="100%" stop-color="#C62828"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Contrails -->
+  <line x1="10" y1="52" x2="55" y2="52" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+  <line x1="5" y1="57" x2="50" y2="57" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="8" y1="62" x2="48" y2="62" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Contrail fading tails -->
+  <line x1="2" y1="52" x2="10" y2="52" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="0" y1="57" x2="5" y2="57" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+  <line x1="1" y1="62" x2="8" y2="62" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+
+  <!-- Top wing -->
+  <rect x="70" y="30" width="72" height="8" rx="2" fill="url(#wingGrad)" stroke="#1B2E5A" stroke-width="1"/>
+  <!-- Top wing details -->
+  <line x1="75" y1="34" x2="137" y2="34" stroke="#1B2E5A" stroke-width="0.3" opacity="0.5"/>
+  <!-- Top wing tips -->
+  <ellipse cx="70" cy="34" rx="2" ry="4" fill="#C62828" stroke="#1B2E5A" stroke-width="0.5"/>
+  <ellipse cx="142" cy="34" rx="2" ry="4" fill="#C62828" stroke="#1B2E5A" stroke-width="0.5"/>
+
+  <!-- Bottom wing -->
+  <rect x="75" y="62" width="68" height="8" rx="2" fill="url(#wingGrad)" stroke="#1B2E5A" stroke-width="1"/>
+  <!-- Bottom wing details -->
+  <line x1="80" y1="66" x2="138" y2="66" stroke="#1B2E5A" stroke-width="0.3" opacity="0.5"/>
+  <!-- Bottom wing tips -->
+  <ellipse cx="75" cy="66" rx="2" ry="4" fill="#C62828" stroke="#1B2E5A" stroke-width="0.5"/>
+  <ellipse cx="143" cy="66" rx="2" ry="4" fill="#C62828" stroke="#1B2E5A" stroke-width="0.5"/>
+
+  <!-- Wing struts (left pair) -->
+  <line x1="85" y1="38" x2="87" y2="62" stroke="#1B2E5A" stroke-width="1.5"/>
+  <line x1="90" y1="38" x2="92" y2="62" stroke="#1B2E5A" stroke-width="1"/>
+  <!-- Wing struts (right pair) -->
+  <line x1="120" y1="38" x2="122" y2="62" stroke="#1B2E5A" stroke-width="1.5"/>
+  <line x1="125" y1="38" x2="127" y2="62" stroke="#1B2E5A" stroke-width="1"/>
+  <!-- Cross-wire between struts -->
+  <line x1="85" y1="38" x2="92" y2="62" stroke="#1B2E5A" stroke-width="0.4" opacity="0.6"/>
+  <line x1="90" y1="38" x2="87" y2="62" stroke="#1B2E5A" stroke-width="0.4" opacity="0.6"/>
+  <line x1="120" y1="38" x2="127" y2="62" stroke="#1B2E5A" stroke-width="0.4" opacity="0.6"/>
+  <line x1="125" y1="38" x2="122" y2="62" stroke="#1B2E5A" stroke-width="0.4" opacity="0.6"/>
+
+  <!-- Fuselage -->
+  <path d="M60 46 L65 42 L145 42 Q155 42 160 48 L165 54 Q160 60 155 60 L65 60 L60 56 Z"
+        fill="url(#bodyGrad)" stroke="#1B2E5A" stroke-width="1.2"/>
+
+  <!-- Fuselage highlight -->
+  <path d="M68 44 L145 44 Q152 44 156 48" stroke="#D93030" stroke-width="1" fill="none" opacity="0.6"/>
+
+  <!-- Cockpit -->
+  <path d="M108 42 Q110 36 116 36 Q122 36 124 42" fill="#4A9BD9" stroke="#1B2E5A" stroke-width="1" opacity="0.8"/>
+  <!-- Cockpit frame -->
+  <line x1="116" y1="36" x2="116" y2="42" stroke="#1B2E5A" stroke-width="0.5"/>
+
+  <!-- Engine cowling -->
+  <path d="M155 44 L165 48 Q168 51 165 54 L155 58" fill="#A12020" stroke="#1B2E5A" stroke-width="1"/>
+
+  <!-- Propeller hub -->
+  <circle cx="168" cy="51" r="3" fill="#1B2E5A"/>
+  <!-- Propeller blades -->
+  <ellipse cx="168" cy="40" rx="2.5" ry="10" fill="#1B2E5A" opacity="0.7" transform="rotate(15,168,51)"/>
+  <ellipse cx="168" cy="62" rx="2.5" ry="10" fill="#1B2E5A" opacity="0.7" transform="rotate(15,168,51)"/>
+  <!-- Propeller blur disc -->
+  <circle cx="168" cy="51" r="12" fill="#1B2E5A" opacity="0.08"/>
+
+  <!-- Tail section -->
+  <!-- Horizontal stabilizer -->
+  <rect x="52" y="46" width="16" height="10" rx="1" fill="#C62828" stroke="#1B2E5A" stroke-width="0.8"/>
+  <!-- Vertical tail fin -->
+  <path d="M55 46 L52 28 Q51 26 53 26 L62 26 Q64 26 63 28 L65 42"
+        fill="#C62828" stroke="#1B2E5A" stroke-width="1"/>
+  <!-- Rudder line -->
+  <line x1="58" y1="28" x2="60" y2="46" stroke="#1B2E5A" stroke-width="0.5" opacity="0.6"/>
+  <!-- Tail detail stripe -->
+  <line x1="54" y1="34" x2="62" y2="34" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+
+  <!-- Roundel on fuselage -->
+  <circle cx="100" cy="51" r="6" fill="#1B2E5A"/>
+  <circle cx="100" cy="51" r="4.5" fill="#FFFFFF"/>
+  <circle cx="100" cy="51" r="2.5" fill="#C62828"/>
+
+  <!-- Landing gear -->
+  <!-- Left strut -->
+  <line x1="92" y1="70" x2="88" y2="85" stroke="#1B2E5A" stroke-width="1.5"/>
+  <!-- Right strut -->
+  <line x1="120" y1="70" x2="116" y2="85" stroke="#1B2E5A" stroke-width="1.5"/>
+  <!-- Axle -->
+  <line x1="84" y1="85" x2="120" y2="85" stroke="#1B2E5A" stroke-width="1.2"/>
+  <!-- Wheels -->
+  <circle cx="88" cy="88" r="4" fill="#1B2E5A" stroke="#1B2E5A" stroke-width="0.5"/>
+  <circle cx="88" cy="88" r="2" fill="#333"/>
+  <circle cx="116" cy="88" r="4" fill="#1B2E5A" stroke="#1B2E5A" stroke-width="0.5"/>
+  <circle cx="116" cy="88" r="2" fill="#333"/>
+  <!-- Wheel spokes -->
+  <line x1="86" y1="88" x2="90" y2="88" stroke="#555" stroke-width="0.5"/>
+  <line x1="88" y1="86" x2="88" y2="90" stroke="#555" stroke-width="0.5"/>
+  <line x1="114" y1="88" x2="118" y2="88" stroke="#555" stroke-width="0.5"/>
+  <line x1="116" y1="86" x2="116" y2="90" stroke="#555" stroke-width="0.5"/>
+  <!-- Tail wheel -->
+  <line x1="58" y1="56" x2="56" y2="63" stroke="#1B2E5A" stroke-width="1"/>
+  <circle cx="56" cy="65" r="2" fill="#1B2E5A"/>
+</svg>

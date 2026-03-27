@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <!-- House outline -->
+  <path d="M20 3 L37 18 L33 18 L33 37 L7 37 L7 18 L3 18 Z"
+        fill="none" stroke="#1B2E5A" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Roof peak accent -->
+  <path d="M20 3 L37 18 L33 18 L33 37 L7 37 L7 18 L3 18 Z"
+        fill="#1B2E5A" opacity="0.05"/>
+  <!-- Equals sign (equal housing) -->
+  <rect x="13" y="19" width="14" height="3" fill="#1B2E5A"/>
+  <rect x="13" y="26" width="14" height="3" fill="#1B2E5A"/>
+</svg>

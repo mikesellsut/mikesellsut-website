@@ -1,0 +1,136 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+
+const steps = [
+  {
+    num: "01",
+    title: "Schedule a Free Consultation",
+    content: "We'll sit down and talk about your goals, timeline, and the current market conditions in your area. I'll walk through your home, discuss its strengths, and identify any improvements that could increase your sale price. This consultation is free and comes with zero obligation.",
+  },
+  {
+    num: "02",
+    title: "Get a Comparative Market Analysis (CMA)",
+    content: "Using my 20 years of property valuation expertise, I'll prepare a detailed Comparative Market Analysis for your home. This isn't a generic number — it's an in-depth analysis of comparable sales, current listings, market trends, and your property's unique features. Pricing your home right from the start is the single most important factor in a successful sale.",
+  },
+  {
+    num: "03",
+    title: "Prepare Your Home for Market",
+    content: "First impressions matter. I'll give you a personalized list of improvements and staging suggestions that will maximize your home's appeal — focusing on the changes that deliver the biggest return on investment. Sometimes it's as simple as fresh paint and decluttering; other times, a small investment in curb appeal can add thousands to your sale price.",
+  },
+  {
+    num: "04",
+    title: "Professional Marketing",
+    content: "Your home deserves more than a sign in the yard and a basic MLS listing. I'll create a comprehensive marketing package: professional photography, compelling listing descriptions, social media promotion, and targeted outreach to qualified buyers. My goal is maximum exposure to the right audience.",
+  },
+  {
+    num: "05",
+    title: "Showings & Open Houses",
+    content: "I'll coordinate all showings and provide you with feedback after each one. I'll handle the logistics so you can focus on your daily life. If an open house makes sense for your property and market, we'll organize that too.",
+  },
+  {
+    num: "06",
+    title: "Negotiate Offers",
+    content: "When offers come in, I'll help you evaluate each one — not just the price, but the terms, contingencies, financing, and timeline. My deep market knowledge means I can advise you on which offers are strongest and negotiate effectively on your behalf to get you the best possible outcome.",
+  },
+  {
+    num: "07",
+    title: "Close the Sale",
+    content: "Once we're under contract, I'll manage the entire process through closing — coordinating with the buyer's agent, lender, title company, and inspectors. I'll keep you informed at every step and handle any issues that come up so you can focus on your next chapter.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How do you determine my home's value?",
+    answer: "I prepare a Comparative Market Analysis (CMA) that examines recent sales of similar properties in your area, current competing listings, market trends, and your home's unique features and condition. With 20 years of local market expertise, I bring a level of insight that goes well beyond basic comp analysis.",
+  },
+  {
+    question: "How long will it take to sell my home?",
+    answer: "It depends on the property, price, condition, and current market conditions. In Central Utah, well-priced homes in good condition are typically selling within 30-90 days. I'll give you a realistic timeline based on your specific property and market during our initial consultation.",
+  },
+  {
+    question: "Should I make repairs before listing?",
+    answer: "Some repairs and improvements have a strong return on investment, while others don't. During our consultation, I'll walk through your home and give you a prioritized list of what's worth fixing and what you can skip. The goal is to maximize your net proceeds, not spend money unnecessarily.",
+  },
+  {
+    question: "What does it cost to sell a home?",
+    answer: "Typical seller costs include agent commissions, title insurance, closing costs, and any negotiated repairs or credits. I'll walk you through a detailed net proceeds estimate so you know exactly what to expect. There are no surprises with me.",
+  },
+  {
+    question: "What if my home doesn't sell?",
+    answer: "If your home isn't getting offers, we'll reassess. Usually it comes down to price, condition, or marketing. I'll give you honest feedback and we'll adjust strategy accordingly. My track record shows that homes priced correctly with strong marketing sell — it's a matter of matching the right buyer to the right property.",
+  },
+];
+---
+
+<BaseLayout
+  title="Seller Resources"
+  description="Step-by-step guide to selling your Central Utah home. Get a free CMA, expert pricing strategy, and full-service support from Mike Price, REALTOR®."
+>
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Seller Resources
+      </h1>
+      <p class="font-body text-lg text-white/80 max-w-2xl mx-auto">
+        Selling your home is a big deal. Here's how I make the process smooth, strategic, and successful.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- CMA CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gold/10">
+    <div class="max-w-3xl mx-auto text-center" data-animate>
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        What's My Home Worth?
+      </h2>
+      <p class="font-body text-navy/80 text-lg leading-relaxed mb-6">
+        Get a free, no-obligation Comparative Market Analysis (CMA) for your property. With 20 years of deep market knowledge across Central Utah, I'll give you an accurate, data-backed assessment of your home's value — not a generic algorithm estimate.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-gold text-white font-heading uppercase tracking-wider text-lg rounded-md hover:brightness-110 hover:scale-[1.02] transition-all duration-200 shadow-lg"
+      >
+        Request Your Free CMA
+      </a>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide text-center mb-12" data-animate>
+        The Home Selling Process
+      </h2>
+      <div class="space-y-8">
+        {steps.map((step) => (
+          <div class="flex gap-6 items-start" data-animate>
+            <div class="flex-shrink-0 w-14 h-14 bg-navy rounded-full flex items-center justify-center">
+              <span class="font-heading text-gold text-lg font-bold">{step.num}</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-2">{step.title}</h3>
+              <p class="font-body text-navy/80 leading-relaxed">{step.content}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQAccordion items={faqs} heading="Seller FAQs" />
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Ready to Sell?"
+        subheading="Let's talk about your property and your goals. I'll give you an honest assessment and a clear plan."
+      />
+    </div>
+  </section>
+</BaseLayout>

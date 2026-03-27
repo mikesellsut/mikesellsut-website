@@ -1,0 +1,169 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+
+const steps = [
+  {
+    num: "01",
+    title: "Get Pre-Qualified for a Mortgage",
+    content: "Before you start browsing homes, talk to a lender. Getting pre-qualified tells you exactly how much home you can afford and shows sellers you're a serious buyer. I work with trusted local lenders who know Central Utah and can walk you through the process. This step takes a day or two and costs nothing.",
+  },
+  {
+    num: "02",
+    title: "Define What You're Looking For",
+    content: "What matters most to you? Number of bedrooms, acreage, proximity to schools, a mountain view, a workshop? Let's sit down and talk through your must-haves and nice-to-haves. This helps me zero in on the right properties and saves you time looking at homes that aren't a good fit.",
+  },
+  {
+    num: "03",
+    title: "Start Your Home Search",
+    content: "Once we know your budget and priorities, I'll set you up with custom property alerts from the MLS so you see new listings the moment they hit the market. I'll also tap into my network to find properties that may not be publicly listed yet. We'll tour homes together and I'll point out things you might miss — both good and bad.",
+  },
+  {
+    num: "04",
+    title: "Make an Offer",
+    content: "When you find the one, we'll put together a strong, well-structured offer. I'll use my 20 years of market knowledge to help you determine a fair price — not too high, not too low. I'll guide you through contingencies, earnest money, and timelines so you feel confident about every detail.",
+  },
+  {
+    num: "05",
+    title: "Inspections & Due Diligence",
+    content: "Once your offer is accepted, we'll schedule a home inspection. This is your chance to uncover any issues before you commit. I'll be there to help you understand the inspection report and negotiate repairs or credits if needed. We'll also review title work, HOA documents (if applicable), and any other due diligence items.",
+  },
+  {
+    num: "06",
+    title: "Secure Your Financing",
+    content: "Your lender will move forward with the full loan process — ordering the official appraisal, verifying your financial documents, and finalizing your loan terms. Stay in close contact with your lender during this time, and avoid any major financial changes (new credit cards, large purchases, job changes).",
+  },
+  {
+    num: "07",
+    title: "Final Walk-Through",
+    content: "A day or two before closing, we'll do a final walk-through of the property. This is your chance to verify that any agreed-upon repairs have been completed and that the home is in the expected condition. I'll be with you to make sure everything checks out.",
+  },
+  {
+    num: "08",
+    title: "Close on Your New Home",
+    content: "Closing day! You'll sign the paperwork, finalize your loan, and receive the keys to your new home. I'll be there to make sure everything goes smoothly and to answer any last-minute questions. Welcome home!",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much do I need for a down payment?",
+    answer: "It depends on your loan type. FHA loans require as little as 3.5% down. USDA loans (available in many rural Central Utah areas) require 0% down. Conventional loans typically require 3-20%. I can connect you with lenders who specialize in each type.",
+  },
+  {
+    question: "How long does it take to buy a home?",
+    answer: "From first search to closing, most transactions take 30-60 days once you're under contract. The whole process from getting pre-qualified to closing can take 2-4 months, depending on the market and your specific situation.",
+  },
+  {
+    question: "What does it cost to work with a buyer's agent?",
+    answer: "In most transactions, the seller pays the buyer's agent commission — so my services typically cost you nothing out of pocket. I'll explain exactly how this works during our first conversation.",
+  },
+  {
+    question: "What's the difference between pre-qualified and pre-approved?",
+    answer: "Pre-qualification is a quick estimate of what you can afford based on self-reported information. Pre-approval involves a deeper dive by the lender — they'll verify your income, credit, and assets. Pre-approval carries more weight with sellers because it means the lender has already vetted your finances.",
+  },
+  {
+    question: "Are there USDA loans available in Central Utah?",
+    answer: "Yes! Many areas in Sanpete, Sevier, Millard, and Juab Counties qualify for USDA Rural Development loans, which offer 0% down payment and competitive rates. This is one of the best-kept secrets in Central Utah real estate. I can help you determine if the property you're interested in qualifies.",
+  },
+  {
+    question: "Should I get a home inspection?",
+    answer: "Absolutely. A professional home inspection costs a few hundred dollars and can save you thousands by uncovering issues before you buy. I always recommend an inspection, even on newer homes. I'll recommend trusted local inspectors who do thorough, honest work.",
+  },
+];
+---
+
+<BaseLayout
+  title="Buyer Resources"
+  description="Step-by-step guide to buying a home in Central Utah. First-time buyer tips, mortgage info, and expert guidance from Mike Price, REALTOR®."
+>
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Buyer Resources
+      </h1>
+      <p class="font-body text-lg text-white/80 max-w-2xl mx-auto">
+        Buying a home is one of the biggest decisions you'll make. Here's what you need to know to do it right.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Steps -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide text-center mb-12" data-animate>
+        The Home Buying Process
+      </h2>
+      <div class="space-y-8">
+        {steps.map((step) => (
+          <div class="flex gap-6 items-start" data-animate>
+            <div class="flex-shrink-0 w-14 h-14 bg-navy rounded-full flex items-center justify-center">
+              <span class="font-heading text-gold text-lg font-bold">{step.num}</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-2">{step.title}</h3>
+              <p class="font-body text-navy/80 leading-relaxed">{step.content}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-Qualification CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-3xl mx-auto text-center" data-animate>
+      <img src="/images/site/biplane.svg" alt="" class="w-16 mx-auto mb-4 opacity-30" aria-hidden="true" />
+      <h2 class="font-heading text-2xl md:text-3xl text-navy uppercase tracking-wide mb-4">
+        Get Pre-Qualified
+      </h2>
+      <p class="font-body text-navy/80 text-lg leading-relaxed mb-6">
+        I work with trusted local lenders who know Central Utah. Let me connect you with someone who can get you pre-qualified quickly and explain all your options — including USDA loans with 0% down that are available in many of the areas I serve.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-gold text-white font-heading uppercase tracking-wider text-lg rounded-md hover:brightness-110 hover:scale-[1.02] transition-all duration-200 shadow-md"
+      >
+        Connect Me With a Lender
+      </a>
+    </div>
+  </section>
+
+  <!-- External Mortgage Calculator -->
+  <section class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center" data-animate>
+      <h2 class="font-heading text-2xl text-navy uppercase tracking-wide mb-4">
+        Mortgage Calculator
+      </h2>
+      <p class="font-body text-navy/80 mb-4">
+        Estimate your monthly payment with this handy calculator:
+      </p>
+      <a
+        href="https://www.mortgagecalculator.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all duration-200"
+      >
+        Open Mortgage Calculator
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQAccordion items={faqs} heading="Buyer FAQs" />
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Ready to Start Your Home Search?"
+        subheading="Whether you're a first-time buyer or looking for your next property, I'm here to help. Let's talk."
+      />
+    </div>
+  </section>
+</BaseLayout>

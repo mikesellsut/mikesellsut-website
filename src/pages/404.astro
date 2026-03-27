@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The page you're looking for doesn't exist."
+>
+  <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-2xl mx-auto">
+      <!-- Biplane illustration -->
+      <img
+        src="/images/site/biplane.svg"
+        alt=""
+        class="w-32 md:w-40 mx-auto mb-8 opacity-40"
+        aria-hidden="true"
+      />
+
+      <h1 class="font-heading text-6xl md:text-8xl text-navy mb-4">404</h1>
+      <h2 class="font-display italic text-2xl md:text-3xl text-gold mb-6">
+        Looks Like This Flight Path Doesn't Exist
+      </h2>
+      <p class="font-body text-navy/70 text-lg mb-10 max-w-md mx-auto">
+        The page you're looking for has either been moved, removed, or never existed.
+        Let's get you back on course.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-block px-8 py-3 bg-gold text-white font-heading uppercase tracking-wider rounded-md hover:brightness-110 hover:scale-[1.02] transition-all duration-200 shadow-md"
+        >
+          Back to Home
+        </a>
+        <a
+          href="/contact"
+          class="inline-block px-8 py-3 bg-navy text-white font-heading uppercase tracking-wider rounded-md hover:bg-sky transition-colors duration-200"
+        >
+          Contact Mike
+        </a>
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-4 justify-center text-sm">
+        <a href="/listings" class="text-navy/60 hover:text-gold transition-colors">Listings</a>
+        <span class="text-navy/30">&bull;</span>
+        <a href="/areas" class="text-navy/60 hover:text-gold transition-colors">Areas</a>
+        <span class="text-navy/30">&bull;</span>
+        <a href="/blog" class="text-navy/60 hover:text-gold transition-colors">Blog</a>
+        <span class="text-navy/30">&bull;</span>
+        <a href="/buyers" class="text-navy/60 hover:text-gold transition-colors">Buyers</a>
+        <span class="text-navy/30">&bull;</span>
+        <a href="/sellers" class="text-navy/60 hover:text-gold transition-colors">Sellers</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

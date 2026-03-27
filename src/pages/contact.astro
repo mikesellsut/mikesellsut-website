@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Mike Price, Central Utah REALTOR®. Call 435-660-0401 or send a message. Heritage Realty Group, Spring City, UT."
+>
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Get in Touch
+      </h1>
+      <p class="font-display italic text-xl text-gold">
+        I'd love to hear from you
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div data-animate>
+          <ContactForm
+            heading="Send Me a Message"
+            subheading="Fill out the form below and I'll get back to you as soon as possible."
+          />
+        </div>
+
+        <!-- Contact Info & Map -->
+        <div class="space-y-8" data-animate>
+          <!-- Contact Details -->
+          <div class="bg-white rounded-lg p-8 shadow-sm border border-navy/5">
+            <h2 class="font-heading text-2xl text-navy uppercase tracking-wide mb-6">
+              Contact Info
+            </h2>
+            <div class="space-y-5">
+              <div class="flex items-start gap-4">
+                <svg class="w-6 h-6 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <div>
+                  <p class="font-semibold text-navy">Phone</p>
+                  <a href="tel:4356600401" class="text-navy/70 hover:text-gold transition-colors">
+                    435-660-0401
+                  </a>
+                  <p class="text-xs text-navy/50 mt-1">Call or text anytime</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <svg class="w-6 h-6 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <div>
+                  <p class="font-semibold text-navy">Email</p>
+                  <a href="mailto:mikesellsut@gmail.com" class="text-navy/70 hover:text-gold transition-colors">
+                    mikesellsut@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <svg class="w-6 h-6 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div>
+                  <p class="font-semibold text-navy">Office</p>
+                  <p class="text-navy/70">Heritage Realty Group LLC</p>
+                  <p class="text-navy/70">149 East 300 North</p>
+                  <p class="text-navy/70">Spring City, UT 84662</p>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="flex items-start gap-4">
+                <svg class="w-6 h-6 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+                <div class="space-y-2">
+                  <p class="font-semibold text-navy">Social</p>
+                  <a
+                    href="https://www.instagram.com/mikesellsut"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block text-navy/70 hover:text-gold transition-colors"
+                  >
+                    Instagram: @mikesellsut
+                  </a>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61577587227657"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block text-navy/70 hover:text-gold transition-colors"
+                  >
+                    Facebook
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-navy/10">
+              <p class="font-body italic text-navy/60 text-sm">
+                I typically respond within a few hours. If it's urgent, call or text me directly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Google Maps -->
+          <div class="rounded-lg overflow-hidden shadow-sm border border-navy/5 h-64 lg:h-80">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.678!2d-111.4913!3d39.4827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874d946e7b3b3b3b%3A0x1234567890abcdef!2sSpring%20City%2C%20UT%2084662!5e0!3m2!1sen!2sus!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Heritage Realty Group office location in Spring City, Utah"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
