@@ -3,16 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
 import AreaCard from "../components/AreaCard.astro";
 import BlogCard from "../components/BlogCard.astro";
-import TestimonialCard from "../components/TestimonialCard.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = (await getCollection("blog"))
   .filter((p) => p.data.published)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
-
-const featuredTestimonials = (await getCollection("testimonials"))
-  .filter((t) => t.data.featured)
   .slice(0, 3);
 
 const areas = [
@@ -178,8 +173,11 @@ const areas = [
         <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
           Areas I Serve
         </h2>
-        <p class="font-body text-navy/70 text-lg max-w-2xl mx-auto">
-          From the valleys of Sanpete to the peaks of Juab, I know Central Utah inside and out.
+        <p class="font-body text-navy/70 text-lg max-w-3xl mx-auto mb-4">
+          My primary focus is Central Utah, where I have deep experience with the communities, properties, and local market conditions. I am also well-versed in real estate markets throughout much of Utah and am open to working with buyers and sellers beyond my primary area when the property and circumstances are a good fit.
+        </p>
+        <p class="font-body text-navy/70 text-lg max-w-3xl mx-auto">
+          If you are considering buying or selling anywhere in the state, feel free to reach out and let's discuss how I can help.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-animate-stagger>
@@ -225,40 +223,6 @@ const areas = [
             class="inline-flex items-center gap-2 text-gold font-semibold text-lg hover:gap-3 transition-all duration-200"
           >
             View All Posts
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ===== TESTIMONIALS ===== -->
-  {featuredTestimonials.length > 0 && (
-    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12" data-animate>
-          <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
-            What My Clients Say
-          </h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto" data-animate-stagger>
-          {featuredTestimonials.map((t) => (
-            <TestimonialCard
-              clientName={t.data.client_name}
-              quote={t.data.quote}
-              date={t.data.date?.toLocaleDateString("en-US", { year: "numeric", month: "long" })}
-              featured={t.data.featured}
-            />
-          ))}
-        </div>
-        <div class="text-center mt-10" data-animate>
-          <a
-            href="/testimonials"
-            class="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all duration-200"
-          >
-            Read More Testimonials
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
