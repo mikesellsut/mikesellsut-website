@@ -1,28 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
-import PlaceholderImage from "../components/PlaceholderImage.astro";
-
 const values = [
   {
     icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`,
-    title: "20 Years of Market Expertise",
-    desc: "Two decades of deep knowledge in Central Utah property values, pricing trends, and market dynamics. I know what properties are truly worth.",
-  },
-  {
-    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
-    title: "Unmatched Local Knowledge",
-    desc: "I know every town, every road, and every neighborhood across Sanpete, Sevier, Millard, and Juab Counties. This is my home — and I'd love to help you make it yours.",
+    title: "Market Knowledge Built Through Experience",
+    desc: "With more than 20 years of real estate experience, I bring a depth of market knowledge that few agents can offer. As both a certified real estate appraiser and a Realtor, I spend my career studying properties, analyzing market activity, and understanding what truly influences value throughout Central Utah.\n\nWhen I recommend a price for a property, I'm not guessing. My advice is grounded in real data, local market knowledge, and decades of hands-on experience.\n\nOver the years, I have also become a trusted resource for local real estate professionals who turn to me when they are dealing with a difficult property or a pricing question that does not have an obvious answer. That trust means a great deal to me, and I bring the same level of care, analysis, and honesty to every client I represent.",
   },
   {
     icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
-    title: "Honest, Straight-Up Guidance",
-    desc: "No pressure, no games. I'll give you my honest assessment of every property and every situation. My reputation depends on it — and so does your investment.",
+    title: "Straight Talk, No Games",
+    desc: "I'll always give you my honest assessment of a property, a price, or a situation—even when it may not be what you were hoping to hear.\n\nThe decision is always yours. My job is to make sure you understand the market, the risks, and the available options so you can make the right decision for your circumstances.\n\nMy goal is not simply to close a deal. It is to help you make a move that makes sense for your situation.",
   },
   {
-    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
-    title: "Full-Service Support",
-    desc: "From the first showing to the closing table, I'm with you every step of the way. I also work with trusted local lenders, inspectors, and title companies to make the process seamless.",
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>`,
+    title: "A Clear and Transparent Process",
+    desc: "Real estate can feel complicated when no one takes the time to explain what is happening.\n\nI'll make sure you understand what to expect, what decisions need to be made, and what comes next—from representation and pricing through negotiations, inspections, appraisal, and closing.\n\nYou will not be left guessing about the process or where you stand.",
   },
 ];
 ---
@@ -49,10 +42,9 @@ const values = [
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <div class="flex justify-center">
-          <PlaceholderImage
-            label="HEADSHOT — Professional photo of Mike Price, 600x600"
-            width={600}
-            height={600}
+          <img
+            src="/images/site/mike-headshot.jpg"
+            alt="Mike Price, REALTOR® with Heritage Realty Group LLC"
             class="w-full max-w-md rounded-lg sticky top-24"
           />
         </div>
@@ -62,27 +54,35 @@ const values = [
           <div class="w-16 h-1 bg-gold"></div>
 
           <p class="font-body text-lg text-navy/80 leading-relaxed">
-            I'm Mike Price, and I've spent the last 20 years getting to know Central Utah real estate better than just about anyone. I'm a REALTOR&reg; with Heritage Realty Group LLC, based right here in Spring City — and I wouldn't have it any other way.
+            I'm Mike Price—a REALTOR&reg; with Heritage Realty Group LLC, serving Central Utah, with over two decades of real estate experience in this region.
           </p>
 
           <p class="font-body text-navy/80 leading-relaxed">
-            I serve Sanpete, Sevier, Millard, and Juab Counties, and I specialize in residential homes, land, cabins, rural properties, and mountain homes. I have a particular soft spot for working with first-time homebuyers — there's nothing quite like helping someone find their first place and watching that moment when they realize, "This is it."
+            What sets me apart from most agents is that I'm also a certified real estate appraiser, which means I've spent my career understanding property value from multiple sides of the transaction. I know how to analyze what a property is likely to bring in the market and how to price it to perform.
           </p>
 
           <p class="font-body text-navy/80 leading-relaxed">
-            What sets me apart? Twenty years of hands-on real estate market expertise. I have a deep understanding of property values across this region — pricing trends, land values, neighborhood dynamics, and what properties are truly worth. When you work with me, you're not getting guesswork. You're getting expert-level guidance backed by two decades of experience.
+            My wife and I have deep family roots in both Juab and Sanpete counties. This isn't just where I work. It's home, and it's a place we're proud to be part of.
           </p>
 
           <p class="font-body text-navy/80 leading-relaxed">
-            I believe in being straight-up with my clients. If a property isn't right for you, I'll tell you. If the price doesn't make sense, I'll say so. My goal isn't to make a quick sale — it's to help you make the best decision for your family and your future.
+            I serve Sanpete, Sevier, Millard, and Juab counties, specializing in residential homes, land, cabins, rural properties, and mountain homes. I work best with buyers and sellers who value a direct, no-nonsense approach—people who want honest answers, not a sales pitch.
           </p>
 
           <p class="font-body text-navy/80 leading-relaxed">
-            Central Utah is one of the best-kept secrets in the state. Affordable living, stunning scenery, tight-knit communities, and room to breathe. If you're thinking about making a move out here — or if you already call this place home — I'd love to help.
+            Integrity is above everything for me. If being straight with someone kills a deal, then that's a deal I don't want to be part of.
+          </p>
+
+          <p class="font-body text-navy/80 leading-relaxed">
+            I meet with clients in person, and I walk every property I list before I ever recommend a price. I need to understand the full picture—the property, the condition, the location, and the details that may affect how it competes in the market. That's not extra effort. That's simply how the job should be done.
+          </p>
+
+          <p class="font-body text-navy/80 leading-relaxed">
+            If you're selling, here's something worth knowing: a fast sale isn't always a good sale. Selling quickly can be a great result, but speed by itself does not mean the property was priced correctly or that the seller received the best outcome. I understand market exposure and what a reasonable amount of time on the market should look like. I'm not going to underprice your property to make my job easier.
           </p>
 
           <p class="font-body text-navy/80 leading-relaxed font-semibold">
-            Let's talk. Give me a call at <a href="tel:4356600401" class="text-gold hover:underline">435-660-0401</a> or <a href="/contact" class="text-gold hover:underline">send me a message</a>.
+            Let's talk. Call me at <a href="tel:4356600401" class="text-gold hover:underline">435-660-0401</a> or <a href="/contact" class="text-gold hover:underline">send me a message</a>.
           </p>
         </div>
       </div>
@@ -99,12 +99,12 @@ const values = [
         <div class="w-16 h-1 bg-gold mx-auto"></div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-animate-stagger>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-animate-stagger>
         {values.map((v) => (
-          <div class="text-center p-6 bg-cream rounded-lg border border-navy/5">
+          <div class="text-center p-8 bg-cream rounded-lg border border-navy/5">
             <div class="text-gold mb-4 flex justify-center" set:html={v.icon} />
-            <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">{v.title}</h3>
-            <p class="font-body text-sm text-navy/70 leading-relaxed">{v.desc}</p>
+            <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-4">{v.title}</h3>
+            <div class="font-body text-sm text-navy/70 leading-relaxed whitespace-pre-line">{v.desc}</div>
           </div>
         ))}
       </div>

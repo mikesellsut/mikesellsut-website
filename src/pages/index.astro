@@ -4,7 +4,6 @@ import ContactForm from "../components/ContactForm.astro";
 import AreaCard from "../components/AreaCard.astro";
 import BlogCard from "../components/BlogCard.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
-import PlaceholderImage from "../components/PlaceholderImage.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = (await getCollection("blog"))
@@ -134,10 +133,9 @@ const areas = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <!-- Headshot -->
         <div class="flex justify-center md:justify-end">
-          <PlaceholderImage
-            label="HEADSHOT — Professional photo of Mike Price, 600x600"
-            width={600}
-            height={600}
+          <img
+            src="/images/site/mike-headshot.jpg"
+            alt="Mike Price, REALTOR® with Heritage Realty Group LLC"
             class="w-full max-w-md rounded-lg"
           />
         </div>
