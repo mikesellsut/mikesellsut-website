@@ -7,10 +7,31 @@ interface FAQItem {
 interface Props {
   items: FAQItem[];
   heading?: string;
+  schema?: boolean;
 }
 
-const { items, heading = "Frequently Asked Questions" } = Astro.props;
+const { items, heading = "Frequently Asked Questions", schema = true } = Astro.props;
+
+// Strip HTML tags for the JSON-LD answer text (search engines want plain text here)
+const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "").trim();
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: stripHtml(item.answer),
+    },
+  })),
+};
 ---
+
+{schema && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+)}
 
 <section class="py-16 px-4 sm:px-6 lg:px-8" data-animate>
   <div class="max-w-3xl mx-auto">
