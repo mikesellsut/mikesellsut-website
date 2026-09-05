@@ -20,6 +20,40 @@ interface Props {
 }
 
 const { title, description, image, canonicalUrl, type } = Astro.props;
+
+// Site-wide RealEstateAgent structured data — establishes the business
+// entity for search engines and AI systems on every page.
+const realEstateAgentSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Mike Price",
+  url: "https://mikesellsut.com",
+  image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
+  telephone: "+14356600401",
+  email: "mikesellsut@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "149 East 300 North",
+    addressLocality: "Spring City",
+    addressRegion: "UT",
+    postalCode: "84662",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Sanpete County, UT" },
+    { "@type": "AdministrativeArea", name: "Sevier County, UT" },
+    { "@type": "AdministrativeArea", name: "Millard County, UT" },
+    { "@type": "AdministrativeArea", name: "Juab County, UT" },
+  ],
+  memberOf: {
+    "@type": "Organization",
+    name: "Heritage Realty Group LLC",
+  },
+  sameAs: [
+    "https://www.instagram.com/mikesellsut",
+    "https://www.facebook.com/profile.php?id=61577587227657",
+  ],
+};
 ---
 
 <!doctype html>
@@ -49,6 +83,8 @@ const { title, description, image, canonicalUrl, type } = Astro.props;
       gtag("config", "G-QMXYY3Z3FT");
     </script>
 
+
+    <script type="application/ld+json" set:html={JSON.stringify(realEstateAgentSchema)} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
