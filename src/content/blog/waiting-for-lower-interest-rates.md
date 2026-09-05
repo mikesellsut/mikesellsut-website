@@ -23,3 +23,17 @@ Sellers should not assume they must wait either. Qualified buyers are still purc
 The best time to move is not determined by a headline or an interest-rate prediction. It is when the property, price, financing, and your individual circumstances all make sense.
 
 Before deciding to wait, take a serious look at what is available in your specific rural Utah market. The opportunity in front of you may be better than the market you are waiting for.
+
+## Frequently Asked Questions
+
+### Should I wait for mortgage rates to drop before buying in rural Utah?
+Not necessarily. If rates fall, more buyers typically reenter the market, which can create competition for the limited inventory in rural communities. Buying a well-priced property now and considering a refinance later, if the numbers make sense, is often a stronger position than waiting on a rate prediction.
+
+### Is now a good time to sell in rural Central Utah?
+Yes, if your home is priced accurately. Qualified buyers are still active, and well-priced rural properties attract serious attention without having to compete against every future listing that may come to market if rates drop.
+
+### Does a lower interest rate always mean a lower overall cost?
+No. If waiting for a lower rate means paying a higher purchase price or entering a multiple-offer situation, the overall cost can end up higher than buying now at today's price and rate.
+
+### Can I refinance later if rates drop after I buy?
+In many cases, yes, though refinancing has its own costs and isn't guaranteed to make sense for every situation. The key point is that a mortgage rate can change later — the purchase price you lock in today cannot.

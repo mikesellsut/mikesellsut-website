@@ -58,3 +58,17 @@ If you value community, affordability, natural beauty, and a pace of life that l
 I've been working in Central Utah real estate for 20 years, and I've watched this valley grow while maintaining the character that makes it special. If you'd like to learn more about what's available in Sanpete County, I'd love to show you around.
 
 **Give me a call at [435-660-0401](tel:4356600401) or [send me a message](/contact).** Let's find your place in the valley.
+
+## Frequently Asked Questions
+
+### Is Sanpete County a good place to live for families?
+Yes. Towns like Manti, Ephraim, Mt. Pleasant, and Spring City are close-knit communities with real downtowns, good access to outdoor recreation, and a slower pace of life than the Wasatch Front — while still being within a couple hours of Salt Lake City or Provo.
+
+### How much does a home cost in Sanpete County compared to Salt Lake or Utah County?
+Sanpete County homes typically sell for a fraction of comparable Wasatch Front prices, and land — whether a half-acre in town or 20 acres outside city limits — is priced well below what's available in more urban parts of the state.
+
+### What towns make up Sanpete County?
+Manti (the county seat), Ephraim (home to Snow College), Spring City, Mt. Pleasant, Fairview, Moroni, and Gunnison, along with several smaller communities. Each has its own character, from Spring City's pioneer-era charm to Ephraim's college-town energy.
+
+### Is Sanpete County's real estate market still affordable, or has it already changed?
+Values have appreciated as more buyers discover the area, but Sanpete County still represents strong relative value compared to the Wasatch Front. Well-priced homes, especially under $350K, tend to move quickly, so it's worth acting sooner rather than later.

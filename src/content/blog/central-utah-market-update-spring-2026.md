@@ -86,3 +86,17 @@ The key to maximizing your sale price is accurate pricing from day one. Overpric
 Whether you're buying or selling in Central Utah, I'd love to give you a more detailed market analysis specific to your property or your target area. Every neighborhood is different, and a conversation costs nothing.
 
 **Reach out anytime at [435-660-0401](tel:4356600401) or [send me a message](/contact).**
+
+## Frequently Asked Questions
+
+### Is spring 2026 a good time to buy in Central Utah?
+Yes, particularly if you're looking in Sanpete or Juab counties, where well-priced homes are moving quickly. Sevier and Millard offer more breathing room and better relative value for buyers who don't need to compete on speed.
+
+### Which county in Central Utah has the most affordable homes right now?
+Millard County remains the most affordable of the four, followed by Sevier. Sanpete and Juab have both seen stronger appreciation due to higher demand from Wasatch Front buyers.
+
+### Should I wait for interest rates to drop before buying in Central Utah?
+Not necessarily — rates have stabilized, and waiting can mean competing with more buyers if rates do fall further. The right time to buy depends on your specific financing, the property, and your circumstances more than on rate predictions alone.
+
+### How fast are homes selling in Sanpete and Juab counties?
+Well-priced homes in both counties are moving quickly, often with multiple offers in Sanpete's under-$350K range and in Nephi's commuter-friendly listings. Buyers should have financing pre-approved before touring.
