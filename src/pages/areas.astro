@@ -5,6 +5,7 @@ import ContactForm from "../components/ContactForm.astro";
 const counties = [
   {
     id: "sanpete",
+    slug: "sanpete-county",
     name: "Sanpete County",
     towns: "Fairview, Mt. Pleasant, Ephraim, Manti, Spring City, Moroni, Gunnison",
     image: "/images/areas/sanpete-county-sign.jpg",
@@ -18,6 +19,7 @@ Whether you're looking for a historic fixer-upper, a modern family home, a cabin
   },
   {
     id: "sevier",
+    slug: "sevier-county",
     name: "Sevier County",
     towns: "Richfield, Salina, Monroe, Aurora",
     image: "/images/areas/sevier-river.jpg",
@@ -33,6 +35,7 @@ Real estate in Sevier County ranges from affordable starter homes to custom-buil
   },
   {
     id: "millard",
+    slug: "millard-county",
     name: "Millard County",
     towns: "Fillmore, Delta",
     image: "/images/areas/millard-veterans-memorial.jpg",
@@ -48,6 +51,7 @@ Property in Millard County is some of the most affordable in the state, making i
   },
   {
     id: "juab",
+    slug: "juab-county",
     name: "Juab County",
     towns: "Nephi, Mona, Levan",
     image: "/images/areas/juab-mt-nebo.jpg",
@@ -135,6 +139,16 @@ Yuba State Park, with its reservoir and recreational opportunities, adds another
                 ))}
               </ul>
             </div>
+
+            <a
+              href={`/areas/${county.slug}`}
+              class="inline-flex items-center gap-1 mt-6 text-gold font-semibold text-sm hover:gap-2 transition-all"
+            >
+              Full {county.name} Guide — Financing, Towns & FAQs
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
