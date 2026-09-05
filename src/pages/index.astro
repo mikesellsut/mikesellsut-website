@@ -257,17 +257,16 @@ const areas = [
       .to(".hero-ctas", { opacity: 1, y: 0, duration: 0.8 }, 0.8)
       .from(".hero-ctas", { y: 20 }, 0.8);
 
-    // Biplane gentle drift
+    // Biplane gentle drift — the artwork noses to the right, so flip it
+    // horizontally whenever it heads left, otherwise it flies backwards.
     ScrollTrigger.matchMedia({
       "(min-width: 768px)": function () {
-        gsap.to("#hero-biplane", {
-          x: -80,
-          y: 15,
-          duration: 12,
-          ease: "none",
-          repeat: -1,
-          yoyo: true,
-        });
+        const biplane = document.querySelector("#hero-biplane img");
+        const tl = gsap.timeline({ repeat: -1 });
+        tl.set(biplane, { scaleX: 1 })
+          .to("#hero-biplane", { x: 80, y: -8, duration: 6, ease: "sine.inOut" })
+          .set(biplane, { scaleX: -1 })
+          .to("#hero-biplane", { x: 0, y: 15, duration: 6, ease: "sine.inOut" });
       },
     });
   </script>
