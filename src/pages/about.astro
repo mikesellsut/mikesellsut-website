@@ -18,12 +18,49 @@ const values = [
     desc: "Real estate can feel complicated when no one takes the time to explain what is happening.\n\nI'll make sure you understand what to expect, what decisions need to be made, and what comes next—from representation and pricing through negotiations, inspections, appraisal, and closing.\n\nYou will not be left guessing about the process or where you stand.",
   },
 ];
+
+// Person schema — establishes Mike specifically (not just the business)
+// as a credentialed, real individual for search/AI authority signals.
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Mike Price",
+  jobTitle: "REALTOR®",
+  image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
+  url: "https://mikesellsut.com/about",
+  telephone: "+14356600401",
+  email: "mikesellsut@gmail.com",
+  worksFor: {
+    "@type": "Organization",
+    name: "Heritage Realty Group LLC",
+  },
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Sanpete County, UT" },
+    { "@type": "AdministrativeArea", name: "Sevier County, UT" },
+    { "@type": "AdministrativeArea", name: "Millard County, UT" },
+    { "@type": "AdministrativeArea", name: "Juab County, UT" },
+  ],
+  knowsAbout: [
+    "Residential real estate",
+    "Land and rural property",
+    "Cabin and mountain properties",
+    "Manufactured and modular homes",
+    "Conventional financing",
+    "FHA financing",
+    "USDA Rural Development loans",
+  ],
+  sameAs: [
+    "https://www.instagram.com/mikesellsut",
+    "https://www.facebook.com/profile.php?id=61577587227657",
+  ],
+};
 ---
 
 <BaseLayout
   title="About"
   description="Learn about Mike Price, a Central Utah REALTOR® with Heritage Realty Group and 20 years of market expertise across Sanpete, Sevier, Millard & Juab Counties."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <!-- Hero Banner -->
   <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto text-center">
