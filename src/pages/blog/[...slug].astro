@@ -30,6 +30,41 @@ const related = allPosts
 
 const shareUrl = `https://mikesellsut.com/blog/${post.slug}`;
 const shareText = encodeURIComponent(post.data.title);
+
+// Extract a "## Frequently Asked Questions" section (if present) from the
+// raw markdown body and emit it as FAQPage JSON-LD, same schema shape as
+// FAQAccordion uses on /buyers and /sellers. Posts without an FAQ section
+// simply get no schema — this only reads what's already in the content.
+const stripMarkdown = (text: string) =>
+  text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // links -> link text
+    .replace(/[*_`]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+let faqSchema: Record<string, unknown> | null = null;
+const faqSectionMatch = post.body.match(/##\s+Frequently Asked Questions\n([\s\S]*?)(?:\n##\s|$)/i);
+if (faqSectionMatch) {
+  const faqItems: { question: string; answer: string }[] = [];
+  const qaBlocks = faqSectionMatch[1].split(/\n###\s+/).slice(1);
+  for (const block of qaBlocks) {
+    const [firstLine, ...rest] = block.split("\n");
+    const question = stripMarkdown(firstLine);
+    const answer = stripMarkdown(rest.join(" "));
+    if (question && answer) faqItems.push({ question, answer });
+  }
+  if (faqItems.length > 0) {
+    faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+    };
+  }
+}
 ---
 
 <BaseLayout
@@ -38,6 +73,9 @@ const shareText = encodeURIComponent(post.data.title);
   image={post.data.featured_image}
   type="article"
 >
+  {faqSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  )}
   <!-- Featured Image -->
   {post.data.featured_image ? (
     <div class="w-full h-64 md:h-96 overflow-hidden">

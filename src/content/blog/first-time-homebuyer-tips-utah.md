@@ -75,3 +75,17 @@ If you're thinking about buying your first home in Central Utah, the best thing 
 I specialize in working with first-time buyers, and I genuinely enjoy helping people navigate this process for the first time. You'll have questions — lots of them — and I'm here to answer every single one.
 
 **Call or text me at [435-660-0401](tel:4356600401) or [send me a message](/contact).** Let's get you started.
+
+## Frequently Asked Questions
+
+### What credit score do I need to buy my first home in Utah?
+It depends on the loan program. FHA loans can work with scores as low as 580, USDA loans are flexible and look at the full financial picture rather than a single number, and conventional loans typically want 620 or higher for the best terms. Getting pre-qualified is the fastest way to know where you stand.
+
+### How much money do I need for a down payment in Central Utah?
+It can be as little as $0 with a USDA loan on an eligible rural property, around 3.5% with FHA, or 3-20% with a conventional loan. Many first-time buyers in Sanpete, Sevier, Millard, and Juab counties qualify for USDA financing and buy with no down payment at all.
+
+### Do I need a home inspection if I'm buying a newer home?
+Yes. Even new construction can have issues — I've seen brand-new homes with problems the builder needed to fix. A $300-$500 inspection is inexpensive insurance against a much bigger repair bill later.
+
+### What other costs should I budget for besides my mortgage payment?
+Property taxes, homeowner's insurance, routine maintenance (budget roughly 1% of the home's value per year), utilities, and HOA fees if applicable. I walk every first-time buyer through the full picture, not just the purchase price.
