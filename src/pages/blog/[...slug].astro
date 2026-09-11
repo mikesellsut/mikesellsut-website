@@ -73,6 +73,28 @@ if (faqSectionMatch) {
   image={post.data.featured_image}
   type="article"
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.data.title,
+    "description": post.data.excerpt,
+    "image": post.data.featured_image ? `https://mikesellsut.com${post.data.featured_image}` : undefined,
+    "datePublished": post.data.date.toISOString(),
+    "author": {
+      "@type": "Person",
+      "name": post.data.author,
+      "url": "https://mikesellsut.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mike Sells UT",
+      "url": "https://mikesellsut.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://mikesellsut.com/blog/${post.slug}`
+    }
+  })} />
   {faqSchema && (
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   )}
@@ -146,7 +168,7 @@ if (faqSectionMatch) {
         <h2 class="font-heading text-2xl text-navy uppercase tracking-wide text-center mb-8">
           Related Posts
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto" data-animate-stagger>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {related.map((r) => (
             <BlogCard
               title={r.data.title}

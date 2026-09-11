@@ -1,0 +1,262 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const relatedSlugs = [
+  "how-to-buy-land-rural-utah-zoning-wells-septic",
+  "buying-acreage-homesteading-central-utah",
+  "buying-land-home-utah-sight-unseen-out-of-state",
+];
+
+const allPosts = await getCollection("blog");
+const relatedPosts = relatedSlugs
+  .map((s) => allPosts.find((p) => p.slug === s))
+  .filter((p): p is NonNullable<typeof p> => p != null && p.data.published);
+
+const faqs = [
+  {
+    question: "How is land valued differently from a home?",
+    answer: "Land valuation depends on location, size, zoning, access, utilities, water availability, topography, and current use. Unlike a home, where the house itself carries much of the value, raw land value is driven almost entirely by what you can do with it — whether that is building a home, running livestock, farming, or holding for future use. Comparable land sales in Central Utah can be sparse, which makes an experienced local assessment essential.",
+  },
+  {
+    question: "Can I build on any piece of land I buy?",
+    answer: "Not necessarily. Zoning, setback requirements, soil suitability for septic systems, access to water, and county building permits all affect whether and where you can build. Some parcels in Central Utah look buildable on paper but have practical challenges — seasonal access, no feasible well location, or soil that will not support a standard drain field. I help buyers understand these factors before they buy, not after.",
+  },
+  {
+    question: "What should I check before buying raw land?",
+    answer: "At minimum: zoning and permitted uses, access (legal and physical), water availability (well feasibility, existing rights, or municipal connection), soil testing for septic, utility availability (power, internet), flood zone status, and any easements or encumbrances on the title. I walk through every one of these with my clients before they commit.",
+  },
+  {
+    question: "How do I finance a land purchase?",
+    answer: "Raw land typically does not qualify for standard mortgage products like FHA or conventional loans. Options include land loans from local banks or credit unions (usually requiring 20-35% down), seller financing, or USDA loans if you plan to build immediately and the property qualifies. I work with lenders who handle land transactions in this area and can help you find the right option.",
+  },
+  {
+    question: "How much does land cost in Central Utah?",
+    answer: "Land prices vary widely depending on location, size, access, water, and intended use. A quarter-acre building lot in town might be $30,000 to $80,000. Agricultural acreage might range from $2,000 to $10,000 per acre depending on water and location. Premium parcels with mountain views, water rights, or proximity to towns command higher prices. I can give you a realistic range based on exactly what you are looking for.",
+  },
+  {
+    question: "Do you help sellers list land and acreage?",
+    answer: "Absolutely. Selling land requires a different approach than selling a home. There is no kitchen to stage and no living room to photograph. Pricing land accurately requires understanding comparable sales, water rights, zoning, access, and what a buyer can realistically do with the parcel. My appraisal background is particularly valuable in land transactions where comparable data is limited.",
+  },
+];
+---
+
+<BaseLayout
+  title="Utah Land & Acreage — Buyers & Sellers"
+  description="Buy or sell land and acreage in Central Utah. Mike Price brings appraiser-level pricing expertise to every land transaction — water rights, zoning, access, and more."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Central Utah Land & Acreage Services",
+    "provider": {
+      "@type": "RealEstateAgent",
+      "name": "Mike Price",
+      "url": "https://mikesellsut.com"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Sanpete County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Sevier County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Millard County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Juab County, Utah" }
+    ],
+    "description": "Land and acreage buying and selling services in Central Utah — pricing, water rights, zoning, and rural property expertise."
+  })} />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Utah Land & Acreage
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        Buying or selling land in Central Utah — water rights, zoning, access, and accurate pricing from an agent who is also a certified appraiser.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Why Land Is Different -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        Land Is Not a Simple Transaction
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p class="text-lg">
+          Buying or selling land is fundamentally different from buying or selling a home. There is no house to tour, no kitchen to photograph, no neighborhood with twenty comparable sales. The value of a piece of land comes from what it can become — and understanding that requires experience with the specific area, its zoning, its water, and its terrain.
+        </p>
+        <p>
+          In Central Utah, land transactions involve questions most suburban agents never encounter. Does the parcel have water rights or access to irrigation shares? Can you get a well permit? Will the soil support a septic system? Is there legal access, or does reaching the property require crossing someone else's land? What are the county's zoning restrictions, and do they allow what the buyer intends to do?
+        </p>
+        <p>
+          These are the questions I answer every day. My background as a certified real estate appraiser means I have spent years evaluating land — not just the asking price, but the factors that actually determine what a parcel is worth and what it can be used for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Buyers -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        For Land Buyers
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed mb-8">
+        <p>
+          Whether you are looking for a building lot, agricultural acreage, a homesteading property, or land to hold as an investment, the due diligence on a land purchase is different — and in many ways more involved — than on a home.
+        </p>
+        <p>
+          I will help you evaluate the practical realities of a parcel before you commit. Not just the price, but whether it will actually support what you want to do with it.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Building Lots</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            In-town and rural lots. I will help you verify zoning, utility access, setbacks, and buildability before you buy.
+          </p>
+        </div>
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Agricultural Land</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Farmland, pasture, and irrigated acreage. Water rights and shares are critical — I will help you understand exactly what is included.
+          </p>
+        </div>
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Homesteading & Off-Grid</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Properties suited for self-sufficient living. Well feasibility, solar access, county regulations, and road access are all part of the evaluation.
+          </p>
+        </div>
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Investment & Development</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Land for future development or long-term hold. I will help you understand current zoning, growth trends, and realistic future value.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Sellers -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        For Land Sellers
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p>
+          Selling land requires a different skill set than selling a home. There is no staging, no open house with fresh cookies. The marketing has to communicate what the land offers and what a buyer can do with it — and the pricing has to be grounded in reality, not hope.
+        </p>
+        <p>
+          Land pricing is where my appraisal background gives you a real advantage. Comparable land sales in Central Utah are often sparse and spread across different towns, lot sizes, and situations. Pulling a meaningful price from that data takes experience and judgment, not just an algorithm.
+        </p>
+        <p>
+          I will walk your property, evaluate the access, water, zoning, and any improvements, and give you an honest assessment of what it is likely to bring in the current market. Then I will market it to the right audience — people actively looking for land in this area, including out-of-state buyers and builders.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Affects Land Value -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        What Drives Land Value in Central Utah
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-5 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Water</h3>
+          <p class="text-sm text-navy/70">Water rights, well permits, and irrigation shares can dramatically change a parcel's value and usability.</p>
+        </div>
+        <div class="p-5 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Access</h3>
+          <p class="text-sm text-navy/70">Legal access via county road, private road, or easement. Year-round versus seasonal access matters.</p>
+        </div>
+        <div class="p-5 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Zoning</h3>
+          <p class="text-sm text-navy/70">What you can build, how much land you need per dwelling, and whether your intended use is permitted.</p>
+        </div>
+        <div class="p-5 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Utilities</h3>
+          <p class="text-sm text-navy/70">Power, natural gas, internet availability. Distance from utility lines affects development cost.</p>
+        </div>
+        <div class="p-5 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Topography</h3>
+          <p class="text-sm text-navy/70">Flat, buildable ground versus hillside. Soil type for septic. Flood zones. Slope and drainage.</p>
+        </div>
+        <div class="p-5 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Location</h3>
+          <p class="text-sm text-navy/70">Proximity to towns, views, privacy, and which county or municipality the parcel sits in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gold/10">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        Buying or Selling Land?
+      </h2>
+      <p class="font-body text-navy/80 text-lg leading-relaxed mb-6">
+        Whether you are looking for acreage, ready to sell a parcel, or just exploring what is available — reach out and let's talk. I will give you an honest assessment based on real local knowledge, not a formula.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-gold text-white font-heading uppercase tracking-wider text-lg rounded-md hover:brightness-110 hover:scale-[1.02] transition-all duration-200 shadow-lg"
+      >
+        Get a Free Land Consultation
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQAccordion items={faqs} heading="Land & Acreage Questions" />
+
+  <!-- Related Blog Posts -->
+  {relatedPosts.length > 0 && (
+    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl text-navy uppercase tracking-wide text-center mb-8">
+          Related Articles
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {relatedPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              slug={post.slug}
+              image={post.data.featured_image}
+              category={post.data.category}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <ContactForm
+        heading="Let's Talk About Land"
+        subheading="Tell me what kind of land you're looking for — or what you're looking to sell — and I'll give you an honest assessment and a clear path forward."
+      />
+    </div>
+  </section>
+</BaseLayout>

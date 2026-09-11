@@ -1,0 +1,290 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const relatedSlugs = [
+  "how-home-values-determined-small-rural-markets",
+  "waiting-for-lower-interest-rates",
+  "central-utah-market-update-spring-2026",
+];
+
+const allPosts = await getCollection("blog");
+const relatedPosts = relatedSlugs
+  .map((s) => allPosts.find((p) => p.slug === s))
+  .filter((p): p is NonNullable<typeof p> => p != null && p.data.published);
+
+const faqs = [
+  {
+    question: "How is pricing a rural property different from pricing a home in a suburb?",
+    answer: "In a suburban market, there may be dozens of comparable sales within a mile. In rural Central Utah, the nearest truly comparable sale could be months old, in a different town, or on a meaningfully different lot size. Pricing requires real local knowledge — understanding how location, access, water, outbuildings, and condition interact — not just a formula. That is why I walk every property I list before recommending a price.",
+  },
+  {
+    question: "Why shouldn't I just price high and negotiate down?",
+    answer: "In a rural market, overpricing does not just mean a slower sale. It means your home sits long enough that buyers begin to wonder what is wrong with it, even when the only problem is the price. Properties that sit too long develop a stigma that is difficult to reverse. Pricing accurately from day one, based on real market knowledge, consistently outperforms the start-high strategy.",
+  },
+  {
+    question: "Are online home value estimates accurate for rural Utah?",
+    answer: "Often not. Automated estimate tools rely on dense comparable sales data that does not exist in the same way in small rural towns. An estimate that might be reasonably accurate in a Salt Lake suburb can be meaningfully off in Ephraim or Fillmore — in either direction — because the algorithm does not have enough local sales to work from.",
+  },
+  {
+    question: "What does it cost to sell a home in Central Utah?",
+    answer: "Typical seller costs include agent commissions, title insurance, closing costs, and any negotiated repairs or credits. I prepare a detailed net proceeds estimate before we list so you know exactly what to expect. There are no surprises.",
+  },
+  {
+    question: "How long does it take to sell a home in Central Utah?",
+    answer: "It depends on the property, price, condition, and current market conditions. Well-priced homes in good condition are typically selling within 30 to 90 days. I will give you a realistic timeline based on your specific property and market during our consultation.",
+  },
+  {
+    question: "Do you only sell homes, or do you handle land and cabins too?",
+    answer: "I handle residential homes, land, acreage, cabins, mountain property, and rural properties across Sanpete, Sevier, Millard, and Juab counties. If you are selling a non-traditional property — something with acreage, outbuildings, water rights, or unusual access — that is where my experience is particularly valuable.",
+  },
+];
+---
+
+<BaseLayout
+  title="Selling Real Estate in Central Utah"
+  description="Sell your Central Utah home, land, or rural property with an agent who is also a certified appraiser. Mike Price brings 20+ years of pricing expertise to every listing."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Central Utah Real Estate Selling Services",
+    "provider": {
+      "@type": "RealEstateAgent",
+      "name": "Mike Price",
+      "url": "https://mikesellsut.com"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Sanpete County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Sevier County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Millard County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Juab County, Utah" }
+    ],
+    "description": "Comprehensive real estate selling services for homes, land, cabins, and rural property in Central Utah."
+  })} />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Selling Real Estate in Central Utah
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        Accurate pricing, honest guidance, and an agent who walks every property before recommending a number.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- The Appraiser Advantage -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        Why Pricing Is Everything in a Rural Market
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p class="text-lg">
+          In a dense suburban market, there might be dozens of similar recent sales within a half-mile radius. Pricing in that environment is relatively straightforward — plug in the comparables and adjust.
+        </p>
+        <p>
+          Central Utah does not work that way. In Sanpete, Sevier, Millard, or Juab County, the nearest truly comparable sale might be several miles away, months old, or on a meaningfully different lot size or condition. That means pricing takes real local knowledge, not just a formula — and definitely not an online estimate from an algorithm that has never seen your property.
+        </p>
+        <p>
+          This is where my background as both a certified real estate appraiser and a REALTOR gives you a genuine advantage. I have spent my career understanding property value from multiple sides of the transaction. I know how to analyze what a property is likely to bring in the market and how to price it to perform.
+        </p>
+        <p>
+          I meet with clients in person, and I walk every property I list before I ever recommend a price. I need to understand the full picture — the property, the condition, the location, and the details that may affect how it competes in the market. That is not extra effort. That is simply how the job should be done.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Actually Affects Value -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        What Actually Affects Value in Rural Central Utah
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p>
+          Most sellers think they know what their home is worth. Some have a number from an online estimate tool. Others base it on what a neighbor sold for, what they put into improvements, or what they need to get out of the property to make their next move work.
+        </p>
+        <p>
+          None of those are how a buyer's appraiser — or a serious buyer — will evaluate your property. Here is what actually drives value in our market:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Recent Comparable Sales</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Adjusted carefully for differences in lot size, condition, updates, and exact location. A home a mile outside a town center can price differently than one downtown, even with similar square footage.
+          </p>
+        </div>
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Local Market Pace</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            How quickly homes are actually selling in that specific town right now — not the county average, not the statewide number.
+          </p>
+        </div>
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Rural-Specific Factors</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Well and septic condition, outbuildings, acreage, road access, water rights, and easements. These affect value in ways that do not show up on typical automated estimates.
+          </p>
+        </div>
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Current Buyer Demand</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Which towns are seeing the most relocation interest right now. This shifts pricing dynamics faster than most people expect.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Cost of Overpricing -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        A Fast Sale Is Not Always a Good Sale
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p>
+          If you are selling, here is something worth knowing: a fast sale is not always a good sale. Selling quickly can be a great result, but speed by itself does not mean the property was priced correctly or that the seller received the best outcome.
+        </p>
+        <p>
+          I understand market exposure and what a reasonable amount of time on the market should look like. I am not going to underprice your property to make my job easier.
+        </p>
+        <p>
+          On the other end, overpricing in a market like this does not just mean a slower sale. It means your home sits long enough that buyers start to wonder what is wrong with it — even if nothing is. Properties that sit too long develop a stigma that is difficult to reverse. Starting high and dropping later almost always results in a lower final sale price than pricing accurately from day one.
+        </p>
+        <p>
+          My goal is not simply to close a deal. It is to help you achieve the best outcome for your specific property and circumstances.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMA CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gold/10">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        What Is Your Property Worth?
+      </h2>
+      <p class="font-body text-navy/80 text-lg leading-relaxed mb-6">
+        I will walk your property, analyze the comparable sales, and give you an honest, data-backed assessment of where it should be priced — not a guess, not an algorithm. This consultation is free and comes with zero obligation.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-gold text-white font-heading uppercase tracking-wider text-lg rounded-md hover:brightness-110 hover:scale-[1.02] transition-all duration-200 shadow-lg"
+      >
+        Request a Free Property Evaluation
+      </a>
+    </div>
+  </section>
+
+  <!-- My Approach -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        How I Work With Sellers
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p>
+          I will always give you my honest assessment of your property, a price, or a situation — even when it may not be what you were hoping to hear. The decision is always yours. My job is to make sure you understand the market, the risks, and the available options so you can make the right decision for your circumstances.
+        </p>
+        <p>
+          I will make sure you understand what to expect, what decisions need to be made, and what comes next — from representation and pricing through negotiations, inspections, appraisal, and closing. You will not be left guessing about the process or where you stand.
+        </p>
+        <p>
+          Integrity is above everything for me. If being straight with someone kills a deal, then that is a deal I do not want to be part of.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I Sell -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        Properties I Specialize In
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-5 bg-white rounded-lg border border-navy/5 text-center">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Residential Homes</h3>
+          <p class="text-sm text-navy/70">Single-family homes across all four counties</p>
+        </div>
+        <div class="p-5 bg-white rounded-lg border border-navy/5 text-center">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Land & Acreage</h3>
+          <p class="text-sm text-navy/70">Raw land, agricultural parcels, building lots</p>
+        </div>
+        <div class="p-5 bg-white rounded-lg border border-navy/5 text-center">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Mountain Cabins</h3>
+          <p class="text-sm text-navy/70">Skyline Drive, Fishlake, Nebo Loop properties</p>
+        </div>
+        <div class="p-5 bg-white rounded-lg border border-navy/5 text-center">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Rural Properties</h3>
+          <p class="text-sm text-navy/70">Properties with outbuildings, wells, acreage</p>
+        </div>
+        <div class="p-5 bg-white rounded-lg border border-navy/5 text-center">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Manufactured Homes</h3>
+          <p class="text-sm text-navy/70">Including financing and valuation guidance</p>
+        </div>
+        <div class="p-5 bg-white rounded-lg border border-navy/5 text-center">
+          <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Investment Property</h3>
+          <p class="text-sm text-navy/70">Rental homes, multi-unit, and income properties</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQAccordion items={faqs} heading="Seller Questions" />
+
+  <!-- Related Blog Posts -->
+  {relatedPosts.length > 0 && (
+    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl text-navy uppercase tracking-wide text-center mb-8">
+          Related Articles
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {relatedPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              slug={post.slug}
+              image={post.data.featured_image}
+              category={post.data.category}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <ContactForm
+        heading="Let's Talk About Selling"
+        subheading="Tell me about your property and your goals. I'll give you an honest assessment and a clear plan — no pressure, no obligation."
+      />
+    </div>
+  </section>
+</BaseLayout>

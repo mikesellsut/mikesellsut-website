@@ -1,0 +1,271 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const relatedSlugs = [
+  "best-areas-mountain-cabins-skyline-fishlake",
+  "buying-mountain-cabin-central-utah-out-of-state-guide",
+  "financing-cabin-second-home-utah",
+];
+
+const allPosts = await getCollection("blog");
+const relatedPosts = relatedSlugs
+  .map((s) => allPosts.find((p) => p.slug === s))
+  .filter((p): p is NonNullable<typeof p> => p != null && p.data.published);
+
+const faqs = [
+  {
+    question: "What is the difference between a cabin and a second home for financing purposes?",
+    answer: "It depends on how the lender classifies the property. A second home typically qualifies for a conventional mortgage with terms similar to a primary residence — slightly higher rates and usually at least 10% down. An investment property or a cabin that does not meet a lender's second-home criteria may require 20-25% down and higher rates. Classification depends on factors like distance from your primary residence, whether you rent it out, and the property's condition. I work with lenders who understand mountain property and can help you find the right financing structure.",
+  },
+  {
+    question: "Are mountain cabins accessible year-round?",
+    answer: "Some are and some are not. Properties along Skyline Drive and in the higher elevations are typically seasonal access — the roads close in winter and may not reopen until late May or June. Properties at lower elevations or along main canyons may be accessible year-round with a capable vehicle. Access is one of the most important things to understand before you buy, and it significantly affects both value and insurance. I will make sure you know exactly what you are getting.",
+  },
+  {
+    question: "How does seasonal access affect property value?",
+    answer: "Significantly. A cabin that is accessible only four to five months a year will generally sell for less than a comparable property with year-round access — sometimes substantially less. Seasonal access limits how you can use the property, affects your ability to insure it during the off-season, and narrows the buyer pool when it is time to sell. These are important trade-offs to understand going in.",
+  },
+  {
+    question: "What should I know about well water and utilities at a mountain cabin?",
+    answer: "Many mountain cabins rely on private wells, springs, or hauled water. Electricity may come from the grid or from solar and generator systems. Cell service and internet may be limited or nonexistent. Septic systems at elevation can have different requirements than those in the valley. None of these are deal-killers, but you need to understand the specific utility situation of any cabin property before you buy. I will walk you through every detail.",
+  },
+  {
+    question: "Can I rent out my cabin as a short-term vacation rental?",
+    answer: "It depends on the county regulations and any HOA or lease restrictions that apply to the property. Some areas of Central Utah allow short-term rentals with a business license. Others restrict or prohibit them. The rules can vary even between neighboring counties. I will help you understand what is and is not allowed for the specific property and location you are considering.",
+  },
+  {
+    question: "What kind of insurance does a mountain cabin need?",
+    answer: "Mountain properties may require specialized insurance. Wildfire risk, distance from a fire station, seasonal access, and construction type all affect your coverage options and premiums. Some standard homeowner policies will not cover a cabin, particularly a seasonal one. I recommend getting insurance quotes early in the buying process so you understand the cost before you commit.",
+  },
+];
+---
+
+<BaseLayout
+  title="Recreational Cabins & Mountain Property"
+  description="Buy or sell mountain cabins and recreational property in Central Utah — Skyline Drive, Fishlake, and Nebo Loop. Access, financing, and valuation expertise."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Central Utah Cabin & Mountain Property Services",
+    "provider": {
+      "@type": "RealEstateAgent",
+      "name": "Mike Price",
+      "url": "https://mikesellsut.com"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Sanpete County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Sevier County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Millard County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Juab County, Utah" }
+    ],
+    "description": "Recreational cabin and mountain property services in Central Utah — buying, selling, access, financing, and valuation expertise."
+  })} />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Recreational Cabins & Mountain Property
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        Skyline Drive, Fishlake, Nebo Loop, and the mountain areas of Central Utah — cabins, recreation lots, and seasonal properties.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Why Mountain Property Is Different -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        Mountain Property Is a Different Kind of Real Estate
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p class="text-lg">
+          A mountain cabin in Central Utah is not just a house in a prettier location. It is a fundamentally different kind of property with its own set of questions, challenges, and rewards. Whether you are looking for a weekend retreat, a seasonal getaway, or a full-time mountain home, the buying and selling process works differently from a typical residential transaction.
+        </p>
+        <p>
+          Access is often the first question. Can you reach the property year-round, or is the road closed from November through May? If seasonal, how does that affect your use, your insurance, and the property's value?
+        </p>
+        <p>
+          Then there is water — many mountain cabins rely on wells, springs, or hauled water rather than a municipal supply. Power may come from the grid or from solar and generators. Cell service and internet may be limited. None of these are necessarily problems, but they are details you need to understand before you commit.
+        </p>
+        <p>
+          Valuation is another challenge. Mountain cabins are unique — different elevations, different access, different improvements, different views. Comparable sales may be limited or spread across different mountain areas. Pricing a cabin accurately requires local knowledge and appraisal-level analysis, not just a comparable search.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mountain Areas -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        Mountain Areas I Serve
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-8">
+        <div>
+          <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Skyline Drive Area</h3>
+          <p class="font-body text-navy/80 leading-relaxed">
+            Skyline Drive runs along the spine of the Wasatch Plateau above Sanpete and Sevier counties, with cabin areas scattered along its length. Elevations range from 8,000 to over 10,000 feet. Most areas are seasonal access, with roads typically open from late May or June through October, depending on the year. Properties here offer some of the most dramatic high-elevation views in the state, along with direct access to trails, fishing, and backcountry recreation.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Fishlake Area</h3>
+          <p class="font-body text-navy/80 leading-relaxed">
+            The Fishlake area, located east of Richfield and south of Salina, sits at around 8,800 feet elevation. Fish Lake itself is one of Utah's best fisheries, and the surrounding area offers cabin properties ranging from small recreational lots to established homes. Access is typically seasonal, though some lower-elevation properties along the main highway corridor may be accessible year-round with the right vehicle and conditions.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Nebo Loop and Mt. Nebo Area</h3>
+          <p class="font-body text-navy/80 leading-relaxed">
+            The Nebo Loop Scenic Byway runs through the southern end of the Wasatch Range in Juab County, passing near the summit of Mt. Nebo — the highest peak in the Wasatch at 11,928 feet. Cabin areas along the Nebo corridor offer proximity to the Wasatch Front while still feeling remote and wild. Some properties in the lower reaches of this area have longer access seasons than the higher Skyline Drive areas.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Canyon and Foothill Properties</h3>
+          <p class="font-body text-navy/80 leading-relaxed">
+            Not all mountain property is high elevation. Foothill and canyon-mouth properties throughout Sanpete, Sevier, and Juab counties offer mountain character with better year-round access. These properties often appeal to buyers who want the mountain lifestyle without the seasonal access limitations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Know Before You Buy -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        What to Know Before You Buy a Cabin
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-white rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Access & Roads</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Understand whether access is year-round or seasonal, who maintains the road, and what kind of vehicle you need. This is the single biggest factor in both usability and resale value.
+          </p>
+        </div>
+        <div class="p-6 bg-white rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Water & Utilities</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Well, spring, hauled water, or community system? Grid power or off-grid? Cell coverage and internet? These details define your day-to-day experience at the cabin.
+          </p>
+        </div>
+        <div class="p-6 bg-white rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Insurance & Wildfire</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Mountain properties may have wildfire risk that affects insurance availability and cost. Distance from a fire station and access limitations factor into coverage. Get quotes early.
+          </p>
+        </div>
+        <div class="p-6 bg-white rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Financing</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Cabin financing depends on how the lender classifies the property — second home, investment, or recreational. Down payment and rate vary significantly based on classification.
+          </p>
+        </div>
+        <div class="p-6 bg-white rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Winterization</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Seasonal cabins need to be properly winterized each fall — draining water lines, protecting the structure from snow load, and securing against animals. Know what is involved before you buy.
+          </p>
+        </div>
+        <div class="p-6 bg-white rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Rental Potential</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Short-term rental rules vary by county. If rental income is part of your plan, verify the regulations before you buy — not all areas allow it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selling a Cabin -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        Selling a Mountain Cabin
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p>
+          Selling a mountain cabin presents unique challenges. The buyer pool is different — often people from the Wasatch Front or out of state who may not know the area. Marketing has to communicate not just the property, but the experience — the access, the setting, the recreation, and the practical realities.
+        </p>
+        <p>
+          Pricing is where my appraisal background is most valuable. Mountain cabin comps are often sparse and varied. Two cabins a mile apart might have completely different access situations, water sources, and conditions. Pulling an accurate price from limited data takes local knowledge and professional judgment.
+        </p>
+        <p>
+          I will walk your property, assess its access, utilities, condition, and improvements, and give you an honest assessment of where it fits in the current market. Then I will market it to the right audience — people actively searching for mountain property in Central Utah.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gold/10">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        Interested in Mountain Property?
+      </h2>
+      <p class="font-body text-navy/80 text-lg leading-relaxed mb-6">
+        Whether you are looking to buy a cabin, sell one you own, or just explore what is available in the mountains of Central Utah — reach out. I will give you straight answers and local expertise you can trust.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-gold text-white font-heading uppercase tracking-wider text-lg rounded-md hover:brightness-110 hover:scale-[1.02] transition-all duration-200 shadow-lg"
+      >
+        Talk to Mike About Cabins
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQAccordion items={faqs} heading="Cabin & Mountain Property Questions" />
+
+  <!-- Related Blog Posts -->
+  {relatedPosts.length > 0 && (
+    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl text-navy uppercase tracking-wide text-center mb-8">
+          Related Articles
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {relatedPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              slug={post.slug}
+              image={post.data.featured_image}
+              category={post.data.category}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <ContactForm
+        heading="Let's Talk Mountain Property"
+        subheading="Tell me what you're looking for — a weekend cabin, a seasonal retreat, or a mountain home — and I'll help you find the right fit."
+      />
+    </div>
+  </section>
+</BaseLayout>

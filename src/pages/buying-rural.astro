@@ -1,0 +1,299 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const relatedSlugs = [
+  "how-to-buy-land-rural-utah-zoning-wells-septic",
+  "first-time-homebuyer-tips-utah",
+  "usda-rural-development-loans-central-utah",
+];
+
+const allPosts = await getCollection("blog");
+const relatedPosts = relatedSlugs
+  .map((s) => allPosts.find((p) => p.slug === s))
+  .filter((p): p is NonNullable<typeof p> => p != null && p.data.published);
+
+const faqs = [
+  {
+    question: "What is the difference between water rights and water shares?",
+    answer: "Water rights are a legal right to use water from a specific source — a well, a spring, or a creek — attached to a property or owner. Water shares are ownership in an irrigation company that delivers water from a reservoir or canal system on a schedule. Both have value and both transfer differently. Whether a property has one, both, or neither meaningfully affects what you can do with the land and what it is worth. I will help you understand exactly what water situation a property has before you commit.",
+  },
+  {
+    question: "What should I know about wells and septic systems?",
+    answer: "Many rural properties in Central Utah are on private wells and septic systems rather than municipal water and sewer. That is not a problem — it is normal for this area — but you need to understand the condition and capacity of both before you buy. A well test tells you flow rate and water quality. A septic inspection tells you condition and estimated remaining life. I recommend both on every rural property transaction.",
+  },
+  {
+    question: "Can I get financing for a rural property?",
+    answer: "Yes. USDA Rural Development loans are available in much of Central Utah and offer zero down payment for qualified buyers. Conventional and FHA loans also work for many rural properties, though there can be restrictions on acreage, condition, or property type. Some properties — particularly raw land or cabins — require specialized financing. I will connect you with lenders who regularly handle rural transactions in this area.",
+  },
+  {
+    question: "How do I buy property in Utah if I live out of state?",
+    answer: "Many of my buyers are relocating from the Wasatch Front, other states, or out of the area. The process works the same, but communication and local representation become even more important. I will be your eyes and ears on the ground — walking properties, explaining local conditions, and making sure you understand what you are buying before you commit. We can handle much of the process remotely, but I always recommend at least one visit before closing.",
+  },
+  {
+    question: "What is a USDA loan and do Central Utah properties qualify?",
+    answer: "USDA Rural Development loans are government-backed mortgages designed for rural areas. They offer zero down payment, competitive interest rates, and reduced mortgage insurance. Most of Sanpete, Sevier, Millard, and Juab County qualifies. There are income limits and property requirements, but for many buyers this is the best financing option available for rural property.",
+  },
+  {
+    question: "Why is square footage not always the most important factor in rural property value?",
+    answer: "In a suburban neighborhood, homes are similar enough that square footage is a reliable way to compare value. In rural Central Utah, a 1,500-square-foot home on 10 acres with a well, a shop, and water rights is a fundamentally different property than a 1,500-square-foot home on a quarter acre in town — even if the houses themselves are comparable. Lot size, outbuildings, water, access, and condition of improvements all carry weight that is at least as significant as the house's footprint.",
+  },
+];
+---
+
+<BaseLayout
+  title="Buying Rural Property in Central Utah"
+  description="Buy rural property in Central Utah with an agent who understands wells, septic, water rights, acreage, and what actually drives value outside the suburbs."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Central Utah Rural Property Buyer Services",
+    "provider": {
+      "@type": "RealEstateAgent",
+      "name": "Mike Price",
+      "url": "https://mikesellsut.com"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Sanpete County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Sevier County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Millard County, Utah" },
+      { "@type": "AdministrativeArea", "name": "Juab County, Utah" }
+    ],
+    "description": "Buyer representation for rural homes, land, and acreage in Central Utah — wells, septic, water rights, and financing guidance included."
+  })} />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Buying Rural Property in Central Utah
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        What you need to know before you buy — wells, water rights, septic, financing, and everything the listing description does not tell you.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Why Rural Is Different -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        Buying Rural Is Not the Same as Buying in Town
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p class="text-lg">
+          If you are looking at property in Sanpete, Sevier, Millard, or Juab County, you are probably not looking at a standard subdivision with city utilities and an HOA. That is part of the appeal.
+        </p>
+        <p>
+          But buying rural property comes with questions that do not come up in a typical suburban purchase. Where does the water come from — a well, a municipal connection, or a water share through an irrigation company? Is there a septic system, and when was it last inspected? Are there easements or access roads that affect how you use the property? What are the zoning restrictions on that acreage?
+        </p>
+        <p>
+          These are not deal-killers. They are simply part of rural property ownership. But you need to understand them before you buy, and you need an agent who knows what to look for and what questions to ask.
+        </p>
+        <p>
+          That is what I do. I have spent my career working with rural property across Central Utah — not just selling it, but understanding how to evaluate it. My background as a certified appraiser means I know how wells, septic systems, water rights, outbuildings, and acreage affect a property's real value, not just its listing price.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Understand -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        What You Need to Understand Before You Buy
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-10">
+        <!-- Water -->
+        <div>
+          <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Water Rights and Water Shares</h3>
+          <p class="font-body text-navy/80 leading-relaxed">
+            Water is one of the most important — and most misunderstood — aspects of rural property in Utah. Water rights are a legal entitlement to use water from a specific source, like a well or a natural spring. Water shares are ownership in an irrigation company that delivers water on a seasonal schedule. A property might have one, both, or neither. The difference matters for what you can do with the land, how you water it, and what the property is worth. I will walk you through exactly what water a property has, what it means for your intended use, and whether it is adequate.
+          </p>
+        </div>
+
+        <!-- Wells -->
+        <div>
+          <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Wells</h3>
+          <p class="font-body text-navy/80 leading-relaxed">
+            Many rural properties in this area rely on private wells for domestic water. A well test will tell you the flow rate (how much water it produces), the static water level, and the water quality. These numbers matter — a low-producing well may work for a single household but may not support livestock or irrigation. I always recommend a well test on any rural property with a private well, and I can explain what the results mean for your situation.
+          </p>
+        </div>
+
+        <!-- Septic -->
+        <div>
+          <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Septic Systems</h3>
+          <p class="font-body text-navy/80 leading-relaxed">
+            If a property is outside municipal sewer service, it will have a septic system — a tank and drain field that processes wastewater on site. Septic systems have a finite lifespan and need periodic maintenance. Replacing one is expensive. I recommend a septic inspection on every rural property purchase so you know the condition and estimated remaining life before you close.
+          </p>
+        </div>
+
+        <!-- Outbuildings -->
+        <div>
+          <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Outbuildings, Shops, and Barns</h3>
+          <p class="font-body text-navy/80 leading-relaxed">
+            A detached shop, a barn, a horse shelter, storage buildings — these are common on rural properties and can add meaningful value. But not all outbuildings are equal. Condition, size, whether they have power or water, and whether they were permitted all affect their contribution to the property's worth. As an appraiser and agent, I can help you assess what those structures are actually worth versus what the seller may be asking for them.
+          </p>
+        </div>
+
+        <!-- Access -->
+        <div>
+          <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Access and Easements</h3>
+          <p class="font-body text-navy/80 leading-relaxed">
+            Some rural properties are accessed by county-maintained roads. Others are on private roads, shared roads, or roads maintained by an informal agreement between neighbors. Easements — legal rights for someone else to cross or use part of your property — are also common. These are not necessarily problems, but you need to understand them before you buy. I will make sure you know how you get to the property, who maintains the road, and whether any easements affect your use.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Financing -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        Financing Rural Property
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p>
+          One of the most common concerns buyers have about rural property is financing. The good news is that most rural homes in Central Utah qualify for standard mortgage products — including USDA Rural Development loans, which offer zero down payment for qualified buyers.
+        </p>
+        <p>
+          That said, not every property or situation fits neatly into a standard loan. Properties with significant acreage, unusual improvements, or non-traditional construction sometimes require lenders who understand rural transactions. Raw land typically requires different financing than a home.
+        </p>
+        <p>
+          I work with lenders who regularly handle rural property in this area — people who understand wells, septic, acreage, and the appraisal process for non-standard properties. I will help you find the right financing for the specific property you are buying.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">USDA Loans</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Zero down payment, competitive rates. Most of Sanpete, Sevier, Millard, and Juab County qualifies. Income limits apply.
+          </p>
+        </div>
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">FHA & Conventional</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Work for many rural homes. Some restrictions on acreage, condition, and property type. Down payment varies by program.
+          </p>
+        </div>
+        <div class="p-6 bg-cream rounded-lg border border-navy/5">
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Land & Specialty</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed">
+            Raw land, manufactured homes, and non-traditional properties often need specialized lending. I will connect you with the right people.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gold/10">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        Looking at Rural Property?
+      </h2>
+      <p class="font-body text-navy/80 text-lg leading-relaxed mb-6">
+        Tell me what you are looking for — acreage, location, budget, intended use — and I will help you understand the market, find the right property, and navigate the details that matter in a rural purchase.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-gold text-white font-heading uppercase tracking-wider text-lg rounded-md hover:brightness-110 hover:scale-[1.02] transition-all duration-200 shadow-lg"
+      >
+        Start Your Rural Property Search
+      </a>
+    </div>
+  </section>
+
+  <!-- Out of State Buyers -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        Buying From Out of State or Out of Area
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p>
+          A significant number of my buyers are relocating — from the Wasatch Front, from other states, or from other parts of the country entirely. Whether you are moving from Salt Lake City, California, or somewhere else, the fundamentals of the buying process are the same. But your need for a knowledgeable local agent is even greater.
+        </p>
+        <p>
+          I will be your eyes and ears on the ground. I can walk a property, take detailed photos and video, explain the neighborhood context, and give you an honest assessment of whether it meets your criteria — before you drive six hours or fly in.
+        </p>
+        <p>
+          We can handle much of the search, negotiation, and paperwork process remotely. But I always recommend at least one in-person visit before you close, so you can see the property, the area, and the community for yourself. It is a big decision and you should feel confident about what you are buying.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I Look For -->
+  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
+        How I Work With Buyers
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-8"></div>
+
+      <div class="space-y-5 font-body text-navy/80 leading-relaxed">
+        <p>
+          I will always give you my honest assessment. If I think a property is overpriced, I will tell you. If I think the well report raises a concern, I will explain it. If a property does not fit what you are trying to do, I would rather tell you that now than let you find out after closing.
+        </p>
+        <p>
+          I will walk the property with you — not just tour the house, but the land, the outbuildings, the access, and the boundaries. I want you to understand what you are buying, not just what the listing photos show.
+        </p>
+        <p>
+          Buyer representation does not cost you anything out of pocket in most transactions. The seller typically pays the commission. You get a dedicated advocate who knows rural property, knows this market, and is looking out for your interests — at no additional cost to you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQAccordion items={faqs} heading="Rural Buyer Questions" />
+
+  <!-- Related Blog Posts -->
+  {relatedPosts.length > 0 && (
+    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl text-navy uppercase tracking-wide text-center mb-8">
+          Related Articles
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {relatedPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              slug={post.slug}
+              image={post.data.featured_image}
+              category={post.data.category}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <ContactForm
+        heading="Let's Find Your Rural Property"
+        subheading="Tell me what you're looking for — acreage, location, budget — and I'll help you navigate the rural buying process from start to close."
+      />
+    </div>
+  </section>
+</BaseLayout>
