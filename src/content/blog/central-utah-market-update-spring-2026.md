@@ -14,7 +14,7 @@ This isn't a generic statewide overview. These are observations from boots on th
 
 ## The Big Picture
 
-Central Utah continues to benefit from trends that have been building for several years: remote work flexibility, Wasatch Front affordability pressure, and growing appreciation for rural quality of life. All four counties I serve have seen increased buyer interest, though each market has its own dynamics.
+Central Utah continues to benefit from [trends that have been building for several years](/blog/central-utah-market-trends-20-years-experience): remote work flexibility, Wasatch Front affordability pressure, and growing appreciation for rural quality of life. All four counties I serve have seen increased buyer interest, though each market has its own dynamics.
 
 Interest rates have stabilized compared to the volatility of recent years, which is giving buyers more confidence to enter the market. The spring buying season is shaping up to be active.
 
@@ -25,8 +25,8 @@ Sanpete remains the most active market among the four counties. Demand continues
 **Key observations:**
 - Inventory is still tight, especially in the under-$350K range
 - New construction is picking up, with several developments in progress around Ephraim and Mt. Pleasant
-- Land prices have climbed, but lots are still available at prices that seem impossible compared to the Wasatch Front
-- The college town dynamic in Ephraim (Snow College) continues to create steady rental demand, making investment properties attractive
+- [Land prices](/land) have climbed, but lots are still available at prices that seem impossible compared to the Wasatch Front
+- The college town dynamic in Ephraim (Snow College) continues to create steady rental demand, making investment properties attractive. See [why Sanpete County is Central Utah's best-kept secret](/blog/why-sanpete-county-best-kept-secret) for more on what makes this area special
 
 If you're a buyer in Sanpete County, be prepared to move quickly on well-priced properties. Having your financing pre-approved before you start looking is more important than ever.
 
@@ -38,7 +38,7 @@ Richfield and the surrounding Sevier County communities are seeing steady growth
 - The market is more balanced than Sanpete, with more inventory available
 - Homes in the $250K-$400K range are the most active segment
 - The rental market is healthy, driven by healthcare workers, educators, and service industry professionals
-- Salina continues to attract interest from buyers looking for I-70 corridor access and outdoor recreation proximity
+- Salina continues to attract interest from buyers looking for I-70 corridor access and [outdoor recreation proximity](/cabins), including the [Fishlake National Forest corridor](/blog/best-areas-mountain-cabins-skyline-fishlake)
 
 Sevier County offers some of the best value in Central Utah right now. If you've been priced out of Sanpete or are looking for a larger property at a lower price point, it's worth exploring.
 
@@ -49,7 +49,7 @@ Millard remains one of the most affordable markets in Utah, and that's drawing a
 **Key observations:**
 - Fillmore is seeing increased interest from Wasatch Front commuters (it's about 2 hours to Provo)
 - Delta's agricultural economy keeps the market stable
-- Land is exceptionally affordable, making it attractive for buyers who want acreage
+- [Land](/land) is exceptionally affordable, making it attractive for buyers who want [acreage for homesteading](/blog/buying-acreage-homesteading-central-utah) or investment
 - The overall pace of sales is slower than Sanpete or Sevier, which means less competition for buyers
 
 If you're looking for the most property for your money in Central Utah, Millard County delivers. Patience is key — inventory turns over slowly, but deals are available.
@@ -70,7 +70,7 @@ Juab County is where you're most likely to see multiple offers on well-priced ho
 
 Across all four counties, my advice is the same:
 
-1. **Get pre-qualified now.** Don't wait until you find the perfect property to start the financing process.
+1. **[Get pre-qualified now](/blog/conventional-vs-fha-vs-usda-central-utah).** Don't wait until you find the perfect property to start the financing process — understanding whether [USDA](/blog/usda-rural-development-loans-central-utah), [FHA](/blog/fha-loans-rural-utah-what-qualifies), or conventional fits your situation makes all the difference.
 2. **Work with a local agent.** National online platforms can show you listings, but they can't tell you about the neighborhood, the school district, or whether the asking price makes sense. That's where 20 years of local expertise matters.
 3. **Be ready to act.** In the most competitive markets (Sanpete and Juab), well-priced homes sell fast.
 4. **Consider all four counties.** Your perfect home might be in a county you haven't explored yet.
@@ -79,7 +79,7 @@ Across all four counties, my advice is the same:
 
 If you've been thinking about selling, spring 2026 is a strong time to list. Buyer demand is healthy across the region, and inventory remains relatively low.
 
-The key to maximizing your sale price is accurate pricing from day one. Overpricing in a market like this means sitting on the market while well-priced homes sell quickly. My 20 years of property valuation expertise means I can help you price your home right the first time.
+The key to maximizing your sale price is [accurate pricing from day one](/selling). Overpricing in a market like this means sitting on the market while well-priced homes sell quickly. My 20 years of property valuation expertise means I can help you price your home right the first time.
 
 ## Let's Talk
 

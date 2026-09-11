@@ -22,7 +22,7 @@ I work with several trusted local lenders who know Central Utah inside and out. 
 
 ## 2. USDA Loans Are a Game-Changer in Central Utah
 
-Here's something most first-time buyers don't know: many areas in Sanpete, Sevier, Millard, and Juab Counties qualify for **USDA Rural Development loans**. These loans offer:
+Here's something most first-time buyers don't know: many areas in Sanpete, Sevier, Millard, and Juab Counties qualify for **[USDA Rural Development loans](/blog/usda-rural-development-loans-central-utah)**. These loans offer:
 
 - **0% down payment** — yes, zero
 - Competitive interest rates
@@ -61,10 +61,10 @@ I always help my buyers look at the full picture, not just the purchase price. M
 
 In Central Utah, you have incredible variety within a short driving distance. But the differences between communities can be significant:
 
-- **Commute times** vary widely. If you work along the Wasatch Front, Nephi (Juab County) puts you about 45 minutes from Provo. Richfield (Sevier County) is closer to 90 minutes.
+- **Commute times** vary widely. If you work along the Wasatch Front, Nephi (Juab County) puts you about 45 minutes from Provo. Richfield (Sevier County) is closer to 90 minutes. See my [cost comparison between Utah County and Central Utah](/blog/utah-county-vs-central-utah-cost-comparison) for a detailed breakdown.
 - **School districts** differ in quality and culture. If you have kids, research the local schools.
-- **Property values** can vary significantly from one town to the next, even within the same county.
-- **Land use and zoning** rules vary. If you want to have animals, run a home business, or build a shop, you need to check local regulations.
+- **Property values** can vary significantly from one town to the next, even within the same county. Check out the [best small towns for remote workers](/blog/best-small-towns-remote-workers-central-utah) for a town-by-town comparison.
+- **Land use and zoning** rules vary. If you want to have animals, run a home business, or build a shop, you need to check local regulations. If [land and acreage](/land) is part of your plan, read my buying guide first.
 
 This is where my 20 years of local market knowledge comes in. I know these communities inside and out — not just the real estate data, but the feel of each town, the school environments, the commute realities, and the future growth potential.
 
@@ -82,7 +82,7 @@ I specialize in working with first-time buyers, and I genuinely enjoy helping pe
 It depends on the loan program. FHA loans can work with scores as low as 580, USDA loans are flexible and look at the full financial picture rather than a single number, and conventional loans typically want 620 or higher for the best terms. Getting pre-qualified is the fastest way to know where you stand.
 
 ### How much money do I need for a down payment in Central Utah?
-It can be as little as $0 with a USDA loan on an eligible rural property, around 3.5% with FHA, or 3-20% with a conventional loan. Many first-time buyers in Sanpete, Sevier, Millard, and Juab counties qualify for USDA financing and buy with no down payment at all.
+It can be as little as $0 with a [USDA loan](/blog/usda-rural-development-loans-central-utah) on an eligible rural property, around 3.5% with [FHA](/blog/fha-loans-rural-utah-what-qualifies), or 3-20% with a conventional loan. See my [full loan comparison](/blog/conventional-vs-fha-vs-usda-central-utah) for details. Many first-time buyers in Sanpete, Sevier, Millard, and Juab counties qualify for USDA financing and buy with no down payment at all.
 
 ### Do I need a home inspection if I'm buying a newer home?
 Yes. Even new construction can have issues — I've seen brand-new homes with problems the builder needed to fix. A $300-$500 inspection is inexpensive insurance against a much bigger repair bill later.
