@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import heritageLogo from "../assets/heritage-logo.png";
+
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -22,9 +25,11 @@ const serviceAreas = ["Sanpete County", "Sevier County", "Millard County", "Juab
       <!-- Column 1: About -->
       <div>
         <a href="/" class="inline-block mb-4">
-          <img
-            src="/images/site/heritage-logo.svg"
+          <Image
+            src={heritageLogo}
             alt="Heritage Realty Group"
+            width={800}
+            height={198}
             class="h-10 w-auto"
           />
         </a>

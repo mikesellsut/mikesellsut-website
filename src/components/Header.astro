@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import heritageLogo from "../assets/heritage-logo.png";
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -17,9 +20,11 @@ const navLinks = [
     <div class="flex items-center justify-between h-16 md:h-20">
       <!-- Logo -->
       <a href="/" class="flex-shrink-0" aria-label="Heritage Realty Group - Home">
-        <img
-          src="/images/site/heritage-logo.svg"
+        <Image
+          src={heritageLogo}
           alt="Heritage Realty Group"
+          width={800}
+          height={198}
           class="h-10 md:h-[50px] w-auto"
         />
       </a>

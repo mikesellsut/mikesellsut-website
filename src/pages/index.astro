@@ -99,7 +99,7 @@ const areas = [
     <!-- Hero Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center md:text-left">
       <div class="max-w-3xl">
-        <h1 class="hero-heading font-display italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-4" style="opacity:0;">
+        <h1 class="hero-heading font-display italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] lg:leading-[1.05] tracking-tight mb-4" style="opacity:0;">
           Helping You Land the Perfect Property
         </h1>
         <p class="hero-sub font-body text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-2xl" style="opacity:0;">
@@ -171,16 +171,17 @@ const areas = [
   </div>
 
   <!-- ===== AREAS I SERVE ===== -->
-  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+  <section class="py-12 lg:py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12" data-animate>
+      <div class="mb-12 max-w-2xl" data-animate>
         <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
           Areas I Serve
         </h2>
-        <p class="font-body text-navy/70 text-lg max-w-3xl mx-auto mb-4">
+        <div class="w-16 h-1 bg-gold mb-4"></div>
+        <p class="font-body text-navy/70 text-lg mb-4">
           My primary focus is Central Utah, where I have deep experience with the communities, properties, and local market conditions. I am also well-versed in real estate markets throughout much of Utah and am open to working with buyers and sellers beyond my primary area when the property and circumstances are a good fit.
         </p>
-        <p class="font-body text-navy/70 text-lg max-w-3xl mx-auto">
+        <p class="font-body text-navy/70 text-lg">
           If you are considering buying or selling anywhere in the state, feel free to reach out and let's discuss how I can help.
         </p>
       </div>
@@ -199,13 +200,14 @@ const areas = [
 
   <!-- ===== LATEST FROM THE BLOG ===== -->
   {allPosts.length > 0 && (
-    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12" data-animate>
+        <div class="mb-12 max-w-2xl" data-animate>
           <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
             Latest From the Blog
           </h2>
-          <p class="font-body text-navy/70 text-lg max-w-2xl mx-auto">
+          <div class="w-16 h-1 bg-gold mb-4"></div>
+          <p class="font-body text-navy/70 text-lg">
             Market updates, buyer tips, and local insights from Central Utah.
           </p>
         </div>
@@ -221,7 +223,7 @@ const areas = [
             />
           ))}
         </div>
-        <div class="text-center mt-10" data-animate>
+        <div class="text-right mt-10" data-animate>
           <a
             href="/blog"
             class="inline-flex items-center gap-2 text-gold font-semibold text-lg hover:gap-3 transition-all duration-200"
@@ -237,7 +239,7 @@ const areas = [
   )}
 
   <!-- ===== LEAD CAPTURE ===== -->
-  <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <section class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-3xl mx-auto" data-animate>
       <ContactForm
         heading="Ready to Make Your Move?"

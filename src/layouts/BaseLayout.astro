@@ -3,10 +3,9 @@ import SEO from "../components/SEO.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-import "@fontsource/oswald/400.css";
-import "@fontsource/oswald/700.css";
 import "@fontsource/source-sans-3/400.css";
 import "@fontsource/source-sans-3/600.css";
+import "@fontsource/source-sans-3/700.css";
 import "@fontsource/playfair-display/700.css";
 import "@fontsource/playfair-display/700-italic.css";
 import "../styles/global.css";
@@ -117,56 +116,56 @@ const realEstateAgentSchema = {
 
       gsap.registerPlugin(ScrollTrigger);
 
+      // Single-element reveals (headings, text blocks, etc). GSAP + ScrollTrigger
+      // is a good fit here: one target, one trigger, no cross-element timing.
       ScrollTrigger.matchMedia({
-        // Desktop: full animations
         "(min-width: 768px)": function () {
           document.querySelectorAll("[data-animate]").forEach((el) => {
             gsap.from(el, {
-              scrollTrigger: {
-                trigger: el,
-                start: "top 85%",
-                toggleActions: "play none none none",
-              },
+              scrollTrigger: { trigger: el, start: "top 85%", once: true },
               y: 30,
               opacity: 0,
               duration: 0.8,
               ease: "power2.out",
             });
           });
-
-          document
-            .querySelectorAll("[data-animate-stagger]")
-            .forEach((container) => {
-              const children = container.children;
-              gsap.from(children, {
-                scrollTrigger: {
-                  trigger: container,
-                  start: "top 85%",
-                  toggleActions: "play none none none",
-                },
-                y: 30,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.15,
-                ease: "power2.out",
-              });
-            });
         },
-        // Mobile: simple fade-in only
         "(max-width: 767px)": function () {
-          document.querySelectorAll("[data-animate], [data-animate-stagger]").forEach((el) => {
+          document.querySelectorAll("[data-animate]").forEach((el) => {
             gsap.from(el, {
-              scrollTrigger: {
-                trigger: el,
-                start: "top 90%",
-                toggleActions: "play none none none",
-              },
+              scrollTrigger: { trigger: el, start: "top 90%", once: true },
               opacity: 0,
               duration: 0.6,
               ease: "power2.out",
             });
           });
         },
+      });
+
+      // Staggered card-grid reveals ([data-animate-stagger] containers).
+      // Deliberately NOT built on GSAP ScrollTrigger: a trigger-container /
+      // animate-children split here reproducibly failed in production — the
+      // tween would start (confirmed mid-flight at ~30% opacity via direct
+      // tween/ScrollTrigger inspection) and then silently snap back to its
+      // opacity:0 "from" state before finishing, every time, regardless of
+      // toggleActions/once config or scroll method (jump, key, real trusted
+      // wheel input all reproduced it). Root cause not fully isolated; rather
+      // than ship a fragile animation nobody can safely touch, this uses a
+      // plain IntersectionObserver + CSS transition instead — no scroll-
+      // position math to desync, so there's nothing to snap back.
+      const staggerObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      );
+      document.querySelectorAll("[data-animate-stagger]").forEach((container) => {
+        staggerObserver.observe(container);
       });
     </script>
   </body>
