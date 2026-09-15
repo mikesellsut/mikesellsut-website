@@ -66,12 +66,30 @@ Yuba State Park, with its reservoir and recreational opportunities, adds another
     highlights: "45 minutes to Provo, just over an hour to SLC | Mt. Nebo — tallest peak in the Wasatch Range | Yuba State Park for boating and fishing | Rapidly growing due to affordability | Strong value compared to Utah County prices",
   },
 ];
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Areas I Serve | Mike Price, REALTOR® — Central Utah Real Estate",
+  description: "Mike Price serves Sanpete, Sevier, Millard & Juab Counties in Central Utah. Explore each area and discover your next home.",
+  url: "https://mikesellsut.com/areas",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: counties.map((county, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://mikesellsut.com/areas/${county.slug}`,
+      name: county.name,
+    })),
+  },
+};
 ---
 
 <BaseLayout
   title="Areas I Serve"
   description="Mike Price serves Sanpete, Sevier, Millard & Juab Counties in Central Utah. Explore each area and discover your next home."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <!-- Hero Banner -->
   <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto text-center">

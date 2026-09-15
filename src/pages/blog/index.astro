@@ -7,6 +7,23 @@ const allPosts = (await getCollection("blog"))
   .filter((p) => p.data.published)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Blog | Mike Price, REALTOR® — Central Utah Real Estate",
+  description: "Real estate tips, market updates, and local insights for Central Utah from Mike Price, REALTOR®.",
+  url: "https://mikesellsut.com/blog",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: allPosts.map((post, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://mikesellsut.com/blog/${post.slug}`,
+      name: post.data.title,
+    })),
+  },
+};
+
 const categories = [
   "All",
   "Market Updates",
@@ -22,6 +39,7 @@ const categories = [
   title="Blog"
   description="Real estate tips, market updates, and local insights for Central Utah from Mike Price, REALTOR®."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto text-center">
       <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">

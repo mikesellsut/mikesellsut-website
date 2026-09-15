@@ -1,0 +1,49 @@
+---
+// Reusable breadcrumb trail: renders the visual nav AND emits matching
+// BreadcrumbList JSON-LD from the same data, so they can't drift apart.
+//
+// Pass every step including the current page, in order, e.g.:
+//   [{ name: "Home", url: "/" }, { name: "Areas", url: "/areas" }, { name: "Sanpete County" }]
+// The last item is the current page — omit its `url` (it renders as plain
+// text, not a link, matching how breadcrumbs are meant to work).
+
+interface Crumb {
+  name: string;
+  url?: string;
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+const siteUrl = "https://mikesellsut.com";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.name,
+    ...(item.url ? { item: `${siteUrl}${item.url}` } : {}),
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<nav aria-label="Breadcrumb" class="bg-cream px-4 sm:px-6 lg:px-8 py-3 border-b border-navy/10">
+  <ol class="max-w-7xl mx-auto flex flex-wrap items-center gap-1.5 text-sm font-body text-navy/60">
+    {items.map((item, i) => (
+      <li class="flex items-center gap-1.5">
+        {i > 0 && <span aria-hidden="true" class="text-navy/30">/</span>}
+        {item.url ? (
+          <a href={item.url} class="hover:text-gold transition-colors">{item.name}</a>
+        ) : (
+          <span class="text-navy/80 font-semibold" aria-current="page">{item.name}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
