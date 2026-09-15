@@ -152,4 +152,4 @@ One visit is significantly better than none. Use it to see the property in perso
 ### Can I close remotely?
 Yes. Title companies routinely handle remote closings through mail or mobile notary services. Your physical presence at closing is not required.
 
-If you're considering a purchase from out of state, I can set up a thorough video walkthrough and walk you through exactly what to verify before you commit — [reach out](/contact) for an honest conversation about what you're looking at, no pressure.
+If you're considering a purchase from out of state, [browse current listings](/listings) to get a sense of what's on the market, then I can set up a thorough video walkthrough and walk you through exactly what to verify before you commit — [reach out](/contact) for an honest conversation about what you're looking at, no pressure.

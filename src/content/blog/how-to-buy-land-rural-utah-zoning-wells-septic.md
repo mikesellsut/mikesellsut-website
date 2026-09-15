@@ -153,4 +153,4 @@ Well costs vary based on depth, location, and geology, but generally range from 
 ### What is the difference between water rights and water shares?
 Water rights are a legal right to use water from a specific source (well, spring, creek). Water shares are ownership in an irrigation company that delivers water on a schedule. Both have value, both transfer differently, and a property might have one, both, or neither. Read more about this distinction in my [rural property buying guide](/buying-rural).
 
-Considering a specific parcel? I check zoning, water rights, access, and septic feasibility before you spend money on a survey or perc test. [Let's talk through what you're looking at](/contact) — no obligation.
+Considering a specific parcel? [Browse current listings](/listings) for land and acreage across all four counties. I check zoning, water rights, access, and septic feasibility before you spend money on a survey or perc test. [Let's talk through what you're looking at](/contact) — no obligation.

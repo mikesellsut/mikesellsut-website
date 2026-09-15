@@ -134,4 +134,4 @@ Typically 45 to 60 days from accepted offer to closing — about 2 to 3 weeks lo
 ### Can I use a USDA loan if I already own a home?
 Generally, USDA loans are intended for buyers who do not currently own adequate housing. If you own a home elsewhere and are buying a second property, USDA will not apply. If you are selling your current home and buying a primary residence in a qualifying area, you may still qualify — discuss your specific situation with a lender.
 
-If 0% down sounds like exactly what you need to make a move to Central Utah work, [let's check your eligibility](/contact) and a specific property's qualification before you assume either way — the answer might be better than you expect.
+If 0% down sounds like exactly what you need to make a move to Central Utah work, [browse current listings](/listings) to find a property in a qualifying area, then [let's check your eligibility](/contact) and that property's qualification before you assume either way — the answer might be better than you expect.

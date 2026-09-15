@@ -133,4 +133,4 @@ Well-maintained manufactured homes on permanent foundations on owned land can ap
 ### What does it cost to convert a manufactured home title from personal property to real property?
 The cost varies but is typically a few hundred dollars for the DMV title retirement and county recording fees, plus any costs for foundation certification if needed. The process takes several weeks and should be started early in the transaction.
 
-Looking at a manufactured or modular home? I'll help you confirm foundation status, title status, and financing eligibility upfront so you know exactly which path applies before you make an offer. [Get in touch](/contact).
+Looking at a manufactured or modular home? [Browse current listings](/listings) to see what's on the market, and I'll help you confirm foundation status, title status, and financing eligibility upfront so you know exactly which path applies before you make an offer. [Get in touch](/contact).

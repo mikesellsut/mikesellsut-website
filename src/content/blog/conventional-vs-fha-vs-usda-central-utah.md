@@ -103,4 +103,4 @@ In many cases, yes. If you start with FHA and later discover the property qualif
 ### What if the home doesn't pass the FHA appraisal inspection?
 The seller can make the required repairs before closing, you can negotiate a credit, or in some cases the transaction may need to switch to a conventional loan if the seller will not address the issues. I can usually identify potential FHA condition issues before you write an offer, so there are fewer surprises.
 
-Not sure which of these fits your situation? Tell me your general numbers and what you're looking at, and I'll give you a straight answer on which loan type actually makes sense. [Get in touch](/contact) — no pressure, no obligation.
+Not sure which of these fits your situation? Tell me your general numbers and what you're looking at, and I'll give you a straight answer on which loan type actually makes sense. [Browse current listings](/listings) to see what's out there, or [get in touch](/contact) — no pressure, no obligation.

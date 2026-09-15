@@ -74,7 +74,7 @@ If you're thinking about buying your first home in Central Utah, the best thing 
 
 I specialize in working with first-time buyers, and I genuinely enjoy helping people navigate this process for the first time. You'll have questions — lots of them — and I'm here to answer every single one.
 
-**Call or text me at [435-660-0401](tel:4356600401) or [send me a message](/contact).** Let's get you started.
+Ready to see what's actually available? [Browse current listings](/listings) across Sanpete, Sevier, Millard, and Juab Counties, or **call or text me at [435-660-0401](tel:4356600401) or [send me a message](/contact).** Let's get you started.
 
 ## Frequently Asked Questions
 

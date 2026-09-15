@@ -162,4 +162,4 @@ No. FHA is for primary residences only. [Cabin and second-home purchases](/blog/
 ### What if the home doesn't pass the FHA appraisal?
 The seller can make repairs, you can negotiate a credit for minor items, or you may need to switch to conventional financing or walk away. I identify potential FHA condition issues before we write an offer whenever possible, so there are fewer surprises at appraisal.
 
-Not sure whether FHA or USDA fits your situation better? Send me the property and your general numbers and I'll give you a straight read on which path makes sense — [get in touch](/contact).
+Not sure whether FHA or USDA fits your situation better? [Browse current listings](/listings), send me the property and your general numbers, and I'll give you a straight read on which path makes sense — [get in touch](/contact).

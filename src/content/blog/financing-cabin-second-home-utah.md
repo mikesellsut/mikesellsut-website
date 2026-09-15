@@ -153,4 +153,4 @@ Conventional financing for a cabin typically takes 30 to 45 days, similar to a p
 ### Should I get pre-approved before looking at cabins?
 Yes. Pre-approval tells you your budget, confirms which loan products you qualify for, and shows sellers you are a serious buyer. For cabin purchases specifically, I recommend working with a lender who has experience with mountain and recreational property — not every lender is comfortable with these transactions. I can connect you with people who handle them regularly.
 
-Before you fall for a listing photo, let's talk about what a specific property's financing picture actually looks like — it can save you a wasted inspection and appraisal fee. [Get in touch](/contact) and I'll give you a straight answer.
+Before you fall for a listing photo, [browse current listings](/listings) and let's talk about what a specific property's financing picture actually looks like — it can save you a wasted inspection and appraisal fee. [Get in touch](/contact) and I'll give you a straight answer.

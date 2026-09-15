@@ -93,4 +93,4 @@ In many cases, yes, though refinancing has its own costs (typically 2-5% of the 
 ### What if rates don't drop?
 Rate predictions are notoriously unreliable. If you are making a buying decision based entirely on a prediction about future rates, you are speculating, not planning. Focus on what you can control: finding the right property, getting [pre-approved for financing](/blog/conventional-vs-fha-vs-usda-central-utah), and making a purchase that works at today's terms.
 
-Want to talk through the actual numbers for your specific situation? [Reach out](/contact) — I will give you a straight answer, not a sales pitch.
+Want to talk through the actual numbers for your specific situation? [Browse current listings](/listings) to see what's available now, or [reach out](/contact) — I will give you a straight answer, not a sales pitch.

@@ -109,4 +109,4 @@ It depends on the county regulations and any restrictions that apply to the spec
 ### How far is Central Utah from Salt Lake City?
 Sanpete County (Ephraim, Manti) is roughly 2 to 2.5 hours south of Salt Lake City via I-15 and US-89. Sevier County (Richfield, Salina) is about 2.5 to 3 hours via I-15 and I-70. Juab County (Nephi) is about 1.5 hours from the Salt Lake Valley.
 
-If a cabin in Central Utah is on your radar, [let's talk specifics](/contact) — I'll tell you honestly what a given property's access, utilities, and financing picture actually looks like before you spend money on an inspection.
+If a cabin in Central Utah is on your radar, [browse current listings](/listings) or [let's talk specifics](/contact) — I'll tell you honestly what a given property's access, utilities, and financing picture actually looks like before you spend money on an inspection.
