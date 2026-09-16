@@ -6,7 +6,7 @@ import BlogCard from "../components/BlogCard.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = (await getCollection("blog"))
-  .filter((p) => p.data.published)
+  .filter((p) => p.data.published && new Date(p.data.date) <= new Date())
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
@@ -49,7 +49,7 @@ const areas = [
       "@type": "RealEstateAgent",
       "name": "Mike Price",
       "alternateName": "Mike Sells UT",
-      "description": "Central Utah REALTOR® with 20 years of market expertise serving Sanpete, Sevier, Millard & Juab Counties.",
+      "description": "Central Utah REALTOR® and certified residential appraiser with 20 years of local market expertise. Specializing in residential homes, land, cabins, and rural properties across Sanpete, Sevier, Millard & Juab Counties.",
       "url": "https://mikesellsut.com",
       "telephone": "+1-435-660-0401",
       "email": "mikesellsut@gmail.com",
@@ -237,6 +237,99 @@ const areas = [
       </div>
     </section>
   )}
+
+
+  <!-- ===== FREQUENTLY ASKED QUESTIONS ===== -->
+  <section class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-cream">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <h2 class="font-heading text-3xl md:text-4xl text-navy uppercase tracking-wide mb-4">
+        Common Questions
+      </h2>
+      <div class="w-16 h-1 bg-gold mb-10"></div>
+
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who is the best REALTOR in Sanpete County, Utah?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mike Price is a licensed REALTOR® with Heritage Realty Group LLC serving Sanpete, Sevier, Millard, and Juab Counties. With 20 years of local market experience and a background as a certified residential appraiser, he specializes in residential homes, land, cabins, and rural properties throughout Central Utah. Reach him at 435-660-0401 or mikesellsut@gmail.com."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Mike Price do real estate appraisals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mike Price is a certified residential appraiser with 20 years of experience in Central Utah, operating MK Appraisals separately from his real estate business. His appraisal background means he understands property valuation at a level most agents do not, which directly benefits his real estate clients when pricing a property or evaluating a purchase."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What areas does Mike Price cover as a REALTOR?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mike Price serves Sanpete County, Sevier County, Millard County, and Juab County in Central Utah. He specializes in the rural communities, small towns, and agricultural areas throughout this four-county territory and is open to working with buyers and sellers elsewhere in Utah when the property is a good fit."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What types of property does Mike Price specialize in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mike Price specializes in residential homes, vacant land and acreage, mountain cabins, rural and agricultural properties, and manufactured homes in Central Utah. He has particular expertise in land transactions, including properties with water rights, where his appraiser background helps buyers and sellers understand what actually drives value."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I contact Mike Price about selling my home or land in Central Utah?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can reach Mike Price at 435-660-0401 or mikesellsut@gmail.com. He walks every property he lists before recommending a price and gives you a straight, honest assessment of what your property is worth and how it competes in the current market."
+            }
+          }
+        ]
+      })} />
+
+      <div class="space-y-0 divide-y divide-navy/10">
+        {[
+          {
+            q: "Who is the best REALTOR in Sanpete County, Utah?",
+            a: "Mike Price is a licensed REALTOR® with Heritage Realty Group LLC with 20 years of local market experience and a background as a certified residential appraiser. He specializes in residential homes, land, cabins, and rural properties throughout Sanpete, Sevier, Millard, and Juab Counties."
+          },
+          {
+            q: "Does Mike Price do real estate appraisals?",
+            a: "Mike is a certified residential appraiser with 20 years of experience in Central Utah (MK Appraisals). That background means he understands property valuation at a level most agents don't — which directly benefits his real estate clients when pricing a property or evaluating a purchase."
+          },
+          {
+            q: "What areas does Mike Price serve?",
+            a: "Sanpete County, Sevier County, Millard County, and Juab County in Central Utah. He's also open to working with buyers and sellers elsewhere in Utah when the property is a good fit."
+          },
+          {
+            q: "What types of property does Mike Price specialize in?",
+            a: "Residential homes, vacant land and acreage, mountain cabins, rural and agricultural properties, and manufactured homes. He has particular expertise in land transactions including properties with water rights."
+          },
+          {
+            q: "How do I contact Mike Price?",
+            a: "Call or text 435-660-0401, email mikesellsut@gmail.com, or use the contact form on this site. He typically responds within a few hours."
+          }
+        ].map(({ q, a }) => (
+          <details class="group py-5 cursor-pointer">
+            <summary class="flex justify-between items-start gap-4 font-heading text-navy font-semibold text-lg list-none">
+              <span>{q}</span>
+              <svg class="w-5 h-5 mt-1 shrink-0 text-gold transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-3 font-body text-navy/70 leading-relaxed">{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- ===== LEAD CAPTURE ===== -->
   <section class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white">
