@@ -232,42 +232,50 @@ const areas = [
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Who is the best REALTOR in Sanpete County, Utah?",
+            "name": "How do I choose a REALTOR in Central Utah?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Mike Price is a licensed REALTOR® with Heritage Realty Group LLC serving Sanpete, Sevier, Millard, and Juab Counties. With 20 years of local market experience and a background as a certified residential appraiser, he specializes in residential homes, land, cabins, and rural properties throughout Central Utah. Reach him at 435-660-0401 or mikesellsut@gmail.com."
+              "text": "Look for someone who actually knows the market you're buying or selling in — not just a license and a sign. In a rural area like Central Utah, local knowledge matters more than volume. You want an agent who has walked properties like yours, understands the land-use quirks, and can read comps that may be months old or in different towns. Ask how many transactions they've done in your county specifically, and how they arrive at a price."
             }
           },
           {
             "@type": "Question",
-            "name": "Does Mike Price do real estate appraisals?",
+            "name": "What does it cost to sell a home in Central Utah?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Mike Price is a certified residential appraiser with 20 years of experience in Central Utah, operating MK Appraisals separately from his real estate business. His appraisal background means he understands property valuation at a level most agents do not, which directly benefits his real estate clients when pricing a property or evaluating a purchase."
+              "text": "Typical seller costs include agent commission, title insurance, and closing fees. The exact numbers depend on your sale price and what gets negotiated. I put together a net proceeds estimate before we list so you know what you'll walk away with — no surprises at the closing table."
             }
           },
           {
             "@type": "Question",
-            "name": "What areas does Mike Price cover as a REALTOR?",
+            "name": "How long does it take to sell a home in this market?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Mike Price serves Sanpete County, Sevier County, Millard County, and Juab County in Central Utah. He specializes in the rural communities, small towns, and agricultural areas throughout this four-county territory and is open to working with buyers and sellers elsewhere in Utah when the property is a good fit."
+              "text": "Well-priced homes in good condition are typically selling within 30 to 90 days in Central Utah. Land and rural properties can take longer because the buyer pool is narrower. Overpriced properties sit — and once a listing goes stale, it's hard to recover. Getting the price right from day one is the single biggest factor in how fast you sell."
             }
           },
           {
             "@type": "Question",
-            "name": "What types of property does Mike Price specialize in?",
+            "name": "What's different about buying or selling land and cabins versus a regular house?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Mike Price specializes in residential homes, vacant land and acreage, mountain cabins, rural and agricultural properties, and manufactured homes in Central Utah. He has particular expertise in land transactions, including properties with water rights, where his appraiser background helps buyers and sellers understand what actually drives value."
+              "text": "A lot. With land, you're evaluating access, water, zoning, perc tests, mineral rights, and how far you are from utilities — none of which show up in a square footage calculation. Cabins often have limited comparables, seasonal access issues, and financing quirks that standard lenders aren't set up for. These transactions reward an agent who has done enough of them to know what to look for and what questions to ask."
             }
           },
           {
             "@type": "Question",
-            "name": "How do I contact Mike Price about selling my home or land in Central Utah?",
+            "name": "Why does it matter that you're also a licensed appraiser?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "You can reach Mike Price at 435-660-0401 or mikesellsut@gmail.com. He walks every property he lists before recommending a price and gives you a straight, honest assessment of what your property is worth and how it competes in the current market."
+              "text": "Most agents estimate price based on what similar homes sold for. That's a start, but in a rural market with thin sales data, you have to understand what's actually driving value — lot size, water rights, outbuildings, access, condition, location. As a certified residential appraiser with 20 years in this market, I approach pricing the way an appraiser does: methodically, with real support for every number. That means fewer surprises for buyers at appraisal, and more defensible prices for sellers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you work with buyers or just sellers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both. I work with buyers looking for homes, land, cabins, and rural property across Sanpete, Sevier, Millard, and Juab Counties. For buyers, the appraiser background helps you avoid overpaying — I can tell you when a price is supported by the market and when it isn't."
             }
           }
         ]
@@ -276,24 +284,28 @@ const areas = [
       <div class="space-y-0 divide-y divide-navy/10">
         {[
           {
-            q: "Who is the best REALTOR in Sanpete County, Utah?",
-            a: "Mike Price is a licensed REALTOR® with Heritage Realty Group LLC with 20 years of local market experience and a background as a certified residential appraiser. He specializes in residential homes, land, cabins, and rural properties throughout Sanpete, Sevier, Millard, and Juab Counties."
+            q: "How do I choose a REALTOR in Central Utah?",
+            a: "Look for someone who actually knows the market you're buying or selling in — not just a license and a sign. In a rural area like Central Utah, local knowledge matters more than volume. Ask how many transactions they've done in your county specifically, and how they arrive at a price."
           },
           {
-            q: "Does Mike Price do real estate appraisals?",
-            a: "Mike is a certified residential appraiser with 20 years of experience in Central Utah (MK Appraisals). That background means he understands property valuation at a level most agents don't — which directly benefits his real estate clients when pricing a property or evaluating a purchase."
+            q: "What does it cost to sell a home in Central Utah?",
+            a: "Typical seller costs include agent commission, title insurance, and closing fees. I put together a net proceeds estimate before we list so you know what you'll walk away with — no surprises at the closing table."
           },
           {
-            q: "What areas does Mike Price serve?",
-            a: "Sanpete County, Sevier County, Millard County, and Juab County in Central Utah. He's also open to working with buyers and sellers elsewhere in Utah when the property is a good fit."
+            q: "How long does it take to sell a home in this market?",
+            a: "Well-priced homes in good condition are typically selling within 30 to 90 days. Land and rural properties can take longer — the buyer pool is narrower. Overpriced properties sit, and once a listing goes stale, it's hard to recover. Getting the price right from day one is the single biggest factor."
           },
           {
-            q: "What types of property does Mike Price specialize in?",
-            a: "Residential homes, vacant land and acreage, mountain cabins, rural and agricultural properties, and manufactured homes. He has particular expertise in land transactions including properties with water rights."
+            q: "What's different about buying or selling land and cabins versus a regular house?",
+            a: "A lot. With land, you're evaluating access, water, zoning, perc tests, mineral rights, and proximity to utilities — none of which show up in a square footage calculation. Cabins often have limited comparables, seasonal access, and financing quirks that standard lenders aren't set up for. These transactions reward experience."
           },
           {
-            q: "How do I contact Mike Price?",
-            a: "Call or text 435-660-0401, email mikesellsut@gmail.com, or use the contact form on this site. He typically responds within a few hours."
+            q: "Why does it matter that you're also a licensed appraiser?",
+            a: "Most agents estimate price based on recent sales. That's a start, but in a rural market with thin data, you have to understand what's actually driving value — water rights, outbuildings, access, condition. As a certified residential appraiser with 20 years in this market, I approach pricing methodically and with real support for every number. Fewer surprises at appraisal for buyers, more defensible prices for sellers."
+          },
+          {
+            q: "Do you work with buyers or just sellers?",
+            a: "Both. I work with buyers looking for homes, land, cabins, and rural property across Sanpete, Sevier, Millard, and Juab Counties. The appraiser background helps you avoid overpaying — I can tell you when a price is supported by the market and when it isn't."
           }
         ].map(({ q, a }) => (
           <details class="group py-5 cursor-pointer">
