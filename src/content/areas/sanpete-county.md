@@ -60,5 +60,6 @@ I have dedicated guides for two of the county's most active towns:
 
 - [Ephraim Real Estate](/areas/ephraim) — Snow College, USDA financing, affordable homes
 - [Mt. Pleasant Real Estate](/areas/mt-pleasant) — new construction, Wasatch Front relocators, acreage lots
+- [Spring City Real Estate](/areas/spring-city) — historic pioneer homes, arts community, low inventory
 
-Other towns I work in regularly: Manti, Spring City, Fairview, Moroni, and Gunnison. No separate pages yet — reach out and I'll give you the same local knowledge for any of them.
+Other towns I work in regularly: Manti, Fairview, Moroni, and Gunnison. No separate pages yet — reach out and I'll give you the same local knowledge for any of them.

@@ -1,0 +1,180 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const faqs = [
+  {
+    question: "What is the real estate market like in Spring City, Utah?",
+    answer: "Spring City is a small, slow-moving market by design. Inventory is limited — the town has relatively few homes and many owners have been there for decades. When something comes available, it tends to be a historic pioneer-era structure, a classic Sanpete-style adobe or brick home, or a property with land attached. Prices vary considerably depending on condition and whether the property has been restored or sits as a project. Buyers shopping here are usually looking for something specific — character, history, or a place in an arts-oriented community — rather than the fastest path to a move-in-ready home.",
+  },
+  {
+    question: "What should I know about buying a historic home in Spring City?",
+    answer: "Spring City has a large concentration of 19th-century pioneer architecture, including adobe, sandstone, and brick structures on the National Register of Historic Places. That character is part of what makes the town special, but it comes with practical considerations: older construction, possible deferred maintenance, and in some cases preservation covenants that affect what you can alter. A thorough inspection is non-negotiable. As a certified residential appraiser, I can help you understand what the property is worth in its current condition versus what restoration or repairs would cost — before you are under contract.",
+  },
+  {
+    question: "Can I use USDA financing to buy in Spring City?",
+    answer: "Yes — Spring City qualifies for USDA Rural Development financing, which offers zero down payment for buyers who meet income and property requirements. Given the older housing stock, the property itself will need to meet USDA condition standards, which means some project homes may not qualify as-is. FHA loans have similar condition requirements. For move-in-ready homes in good condition, both programs are viable. I confirm eligibility property-by-property before my buyers build their financing plans around an assumption.",
+  },
+];
+
+const agentSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Mike Price",
+  description: "Central & rural Utah REALTOR® and certified residential appraiser serving Spring City and Sanpete County. Core territory: Juab, Sanpete, Sevier & Millard Counties. Also serves Utah County and nearby areas when the fit is right.",
+  url: "https://mikesellsut.com",
+  image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
+  telephone: "+14356600401",
+  email: "mikesellsut@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    postOfficeBoxNumber: "431",
+    addressLocality: "Spring City",
+    addressRegion: "UT",
+    postalCode: "84662",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "City", name: "Spring City, Utah" },
+    { "@type": "AdministrativeArea", name: "Sanpete County, Utah" },
+    { "@type": "AdministrativeArea", name: "Sevier County, Utah" },
+    { "@type": "AdministrativeArea", name: "Millard County, Utah" },
+    { "@type": "AdministrativeArea", name: "Juab County, Utah" },
+    { "@type": "AdministrativeArea", name: "Utah County, Utah" },
+  ],
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Utah Real Estate Agent License",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Certified Residential Appraiser",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+  ],
+  knowsAbout: [
+    "Residential real estate",
+    "Land and rural property",
+    "Cabin and mountain properties",
+    "Property appraisal and valuation",
+    "Rural property pricing",
+    "Water rights in Utah",
+    "Agricultural land",
+    "Manufactured and modular homes",
+    "Conventional financing",
+    "FHA financing",
+    "USDA Rural Development loans",
+    "Sanpete County real estate",
+    "Sevier County real estate",
+    "Millard County real estate",
+    "Juab County real estate",
+    "Utah County real estate",
+  ],
+  memberOf: {
+    "@type": "Organization",
+    name: "Heritage Realty Group LLC",
+  },
+  sameAs: [
+    "https://www.instagram.com/mikesellsut",
+    "https://www.facebook.com/profile.php?id=61577587227657",
+  ],
+};
+---
+
+<BaseLayout
+  suppressAgentSchema={true}
+  title="Spring City UT Real Estate — Historic Homes, Land & Rural Property"
+  description="Mike Price helps buyers and sellers in Spring City, Utah. Local REALTOR® and certified appraiser with deep Sanpete County knowledge — historic homes, land, USDA financing, and straight talk."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(agentSchema)} />
+
+  <Breadcrumbs items={[
+    { name: "Home", url: "/" },
+    { name: "Areas", url: "/areas" },
+    { name: "Sanpete County", url: "/areas/sanpete-county" },
+    { name: "Spring City" },
+  ]} />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="font-body text-gold text-sm uppercase tracking-widest mb-3">Sanpete County · Central Utah</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Spring City, Utah Real Estate
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        One of Utah's most intact 19th-century pioneer towns — historic architecture, an established arts community, and Sanpete County character you won't find anywhere else.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Intro -->
+  <article class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="mb-10 p-6 bg-white border-2 border-gold/40 rounded-lg">
+        <p class="font-heading text-sm uppercase tracking-wider text-gold mb-2">Market Snapshot</p>
+        <p class="font-body text-navy/80 leading-relaxed">Small, low-inventory market. Properties are mostly historic pioneer-era homes and land. Buyers are selective — they want the character, not just a house. USDA financing available for move-in-ready properties. Historic condition questions matter more here than anywhere else in the county.</p>
+      </div>
+
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-navy prose-p:text-navy/80 prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-navy prose-li:text-navy/80">
+
+        <h2>Who Buys in Spring City</h2>
+        <p>Spring City draws a specific kind of buyer. Artists, creatives, and remote workers who want genuine character and quiet over convenience. People looking for a restoration project — an adobe or sandstone pioneer home they can bring back carefully. Buyers who have been to town, felt what it is, and decided they want to be part of it.</p>
+        <p>It is not a market for buyers who need a turnkey home on a tight timeline or who are primarily driven by resale velocity. Inventory is thin, properties require patience and often some work, and the community itself is intentionally small. If that sounds right, it is a genuinely special place to own property.</p>
+
+        <h2>What to Know Before You Buy</h2>
+        <p>Older construction is the norm here. Adobe, sandstone, and brick homes from the 1860s through early 1900s make up much of the housing stock. That means inspections are not optional — they are how you understand what you are actually buying. Deferred maintenance and condition surprises are common in homes that have not been updated in decades.</p>
+        <p>Some properties in Spring City carry historic preservation considerations that affect what changes you can make to the exterior. If you are planning significant alterations, understand what applies to your specific parcel before you close.</p>
+        <p>Financing can be more involved on older homes. USDA and FHA both have minimum condition standards — a property in rough shape may need conventional financing or cash. I sort this out before you build a plan around financing that may not work for the specific property.</p>
+
+        <h2>Selling in Spring City</h2>
+        <p>Pricing a historic home in Spring City requires real local knowledge and careful comp analysis. There are not many sales to work from, the range between a restored property and a project home is wide, and automated estimate tools have no idea what to do with this market. I walk every listing before recommending a number, and I will tell you straight what the data supports.</p>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Internal links -->
+  <section class="py-10 px-4 sm:px-6 lg:px-8 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-heading text-2xl text-navy uppercase tracking-wide mb-6">Related Guides</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {[
+          { href: "/areas/sanpete-county", label: "Sanpete County Guide" },
+          { href: "/selling", label: "Selling in Central Utah" },
+          { href: "/buying-rural", label: "Buying Rural Property" },
+          { href: "/land", label: "Land & Acreage" },
+          { href: "/cabins", label: "Cabins & Mountain Property" },
+          { href: "/areas", label: "All Areas" },
+        ].map(({ href, label }) => (
+          <a
+            href={href}
+            class="block p-4 bg-white rounded-lg border-2 border-navy/10 hover:border-gold transition-colors text-center font-heading text-sm text-navy uppercase tracking-wide"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Spring City Real Estate — Common Questions" />
+
+  <!-- CTA -->
+  <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Buying or Selling in Spring City?"
+        subheading="Reach out and I'll give you straight answers about what's available and what your property is worth."
+      />
+    </div>
+  </section>
+</BaseLayout>
