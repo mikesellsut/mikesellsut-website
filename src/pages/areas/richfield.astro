@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const faqs = [
+  {
+    question: "What's the Richfield real estate market like right now?",
+    answer: "Richfield is the most balanced market in Central Utah — more inventory than Sanpete or Juab, and less frantic than anything on the Wasatch Front. Homes in the $250K–$400K range move consistently, and you're not typically competing with a dozen offers. That said, well-priced, move-in-ready homes in good school zones still attract attention quickly. Overpriced listings sit. I track active inventory weekly and can tell you where things stand before you start touring.",
+  },
+  {
+    question: "What types of properties are available in Richfield, and what financing works here?",
+    answer: "Richfield has the widest housing mix in the Sevier Valley — older town homes, newer construction, small acreage parcels, and the occasional commercial-adjacent residential. FHA and conventional financing both work well throughout the city. USDA eligibility gets more specific inside Richfield's more urbanized core — I check every property individually before anyone gets attached to it. Manufactured homes on owned land qualify for conventional financing when permanently affixed. For land parcels near Fishlake or along the I-70 corridor, expect a larger down payment and fewer lender options.",
+  },
+  {
+    question: "How does Richfield's location affect the market — recreation, commuting, access?",
+    answer: "Richfield is about two and a half hours from Salt Lake City, which makes it a relocation or recreation market rather than a commuter market. What it has that the smaller surrounding towns don't: a regional hospital, full retail, established schools, and I-70 access that puts Capitol Reef and Fishlake National Forest within an easy drive. Eagle Point Resort is also close for skiing. That combination — real-town infrastructure plus outdoor access — is exactly what draws out-of-state buyers and families relocating from more expensive Utah markets.",
+  },
+];
+
+const agentSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Mike Price",
+  description: "Central & rural Utah REALTOR® and certified residential appraiser serving Richfield and Sevier County. Core territory: Juab, Sanpete, Sevier & Millard Counties. Also serves Utah County and nearby areas when the fit is right.",
+  url: "https://mikesellsut.com",
+  image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
+  telephone: "+14356600401",
+  email: "mikesellsut@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    postOfficeBoxNumber: "431",
+    addressLocality: "Spring City",
+    addressRegion: "UT",
+    postalCode: "84662",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "City", name: "Richfield, Utah" },
+    { "@type": "AdministrativeArea", name: "Sevier County, Utah" },
+    { "@type": "AdministrativeArea", name: "Sanpete County, Utah" },
+    { "@type": "AdministrativeArea", name: "Millard County, Utah" },
+    { "@type": "AdministrativeArea", name: "Juab County, Utah" },
+    { "@type": "AdministrativeArea", name: "Utah County, Utah" },
+  ],
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Utah Real Estate Agent License",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Certified Residential Appraiser",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+  ],
+  knowsAbout: [
+    "Residential real estate",
+    "Land and rural property",
+    "Cabin and mountain properties",
+    "Property appraisal and valuation",
+    "Rural property pricing",
+    "Water rights in Utah",
+    "Agricultural land",
+    "Manufactured and modular homes",
+    "Conventional financing",
+    "FHA financing",
+    "USDA Rural Development loans",
+    "Sanpete County real estate",
+    "Sevier County real estate",
+    "Millard County real estate",
+    "Juab County real estate",
+    "Utah County real estate",
+  ],
+  memberOf: { "@type": "Organization", name: "Heritage Realty Group LLC" },
+  sameAs: [
+    "https://www.instagram.com/mikesellsut",
+    "https://www.facebook.com/profile.php?id=61577587227657",
+  ],
+};
+---
+
+<BaseLayout
+  suppressAgentSchema={true}
+  title="Richfield UT Real Estate — Sevier County's Commercial Hub"
+  description="Buying or selling in Richfield, Utah? Mike Price is a Central Utah REALTOR® and certified appraiser covering Sevier County. Straight talk on pricing, USDA eligibility, and the Sevier Valley market."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(agentSchema)} />
+
+  <Breadcrumbs items={[
+    { name: "Home", url: "/" },
+    { name: "Areas", url: "/areas" },
+    { name: "Sevier County", url: "/areas/sevier-county" },
+    { name: "Richfield" },
+  ]} />
+
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="font-body text-gold text-sm uppercase tracking-widest mb-3">Sevier County · Central Utah</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Richfield, Utah Real Estate
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        Central Utah's regional hub — real infrastructure, balanced inventory, and access to everything Sevier County has to offer.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <article class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-10 p-6 bg-white border-2 border-gold/40 rounded-lg">
+        <p class="font-heading text-sm uppercase tracking-wider text-gold mb-2">Market Snapshot</p>
+        <p class="font-body text-navy/80 leading-relaxed">
+          More balanced than Sanpete or Juab — consistent inventory in the $250K–$400K range, less multiple-offer pressure, and the widest housing mix in the Sevier Valley. Regional hospital, full retail, and I-70 access set Richfield apart from the smaller surrounding towns. USDA eligibility varies inside the city core; I check every property before it matters.
+        </p>
+      </div>
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-navy prose-p:text-navy/80 prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-navy prose-li:text-navy/80">
+        <h2>Who Buys in Richfield</h2>
+        <p>
+          Richfield draws a different buyer than the smaller Sevier Valley towns. Families relocating from the Wasatch Front come for affordability and real infrastructure — schools, a hospital, grocery and hardware stores that aren't a long drive away. Out-of-state buyers come for the I-70 access and proximity to Fishlake National Forest, Capitol Reef, and Eagle Point Resort. And value-focused buyers who looked at Sanpete but wanted less competition and more housing options land here because the inventory is simply wider.
+        </p>
+        <p>
+          It's not a commuter market — Richfield is roughly two and a half hours from Salt Lake City. The buyers here are making a lifestyle choice, not trimming a commute.
+        </p>
+
+        <h2>What to Know Before You Buy</h2>
+        <p>
+          Richfield's housing stock is more varied than Salina or Monroe — you'll find older in-town homes, newer subdivisions, and parcels with acreage on the edges of the city. Condition varies by neighborhood and price point, and my appraiser background means I read comparable sales the same way the lender's appraiser will. That matters when you're negotiating.
+        </p>
+        <p>
+          USDA financing applies to many areas in Sevier County, but Richfield's more urbanized core can bump up against eligibility boundaries. I check address-specific eligibility early in the process so it doesn't derail you at the finish line. FHA and conventional loans both work throughout the city without the same restrictions.
+        </p>
+        <p>
+          For buyers eyeing land near Fishlake or along the I-70 corridor — a common move for recreation-focused buyers — expect a different financing conversation than a standard home purchase. Larger down payment, fewer lenders willing to touch rural parcels, and loan terms that vary by use. I've worked through enough of these to know which lenders are actually land-friendly.
+        </p>
+
+        <h2>Selling in Richfield</h2>
+        <p>
+          Richfield's balanced market means pricing discipline matters more than in a frenzied seller's market. Overpriced homes sit here. The buyers who are looking are often well-researched — they've compared Richfield to Ephraim and Nephi and chosen Sevier County deliberately, which means they know the numbers.
+        </p>
+        <p>
+          As a certified residential appraiser, I price listings the way lenders price them — from comparable sales, condition, and location, not optimism. That means fewer appraisal surprises at closing and a cleaner path to the table.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <section class="py-10 px-4 sm:px-6 lg:px-8 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-heading text-2xl text-navy uppercase tracking-wide mb-6">Related Guides</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {[
+          { href: "/areas/sevier-county", label: "Sevier County Guide" },
+          { href: "/selling", label: "Selling in Central Utah" },
+          { href: "/buying-rural", label: "Buying Rural Property" },
+          { href: "/land", label: "Land & Acreage" },
+          { href: "/cabins", label: "Cabins & Mountain Property" },
+          { href: "/areas", label: "All Areas" },
+        ].map(({ href, label }) => (
+          <a href={href} class="block p-4 bg-white rounded-lg border-2 border-navy/10 hover:border-gold transition-colors text-center font-heading text-sm text-navy uppercase tracking-wide">
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Richfield Real Estate — Common Questions" />
+
+  <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Buying or Selling in Richfield?"
+        subheading="Reach out and I'll give you straight answers about what's available and what your property is worth."
+      />
+    </div>
+  </section>
+</BaseLayout>

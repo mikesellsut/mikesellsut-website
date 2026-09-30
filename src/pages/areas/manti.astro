@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const faqs = [
+  {
+    question: "What is the Manti real estate market like?",
+    answer: "Manti is a low-inventory, slow-moving market — which is typical for the county seat of Sanpete. Fewer homes trade hands here annually than in Ephraim or Mt. Pleasant, and the stock skews older. When something well-priced comes on, it moves. But if you're expecting to browse a dozen listings and take your time, you'll often be disappointed. The buyers who succeed in Manti are ready to act quickly and have financing in order before they start looking.",
+  },
+  {
+    question: "Are there any unique considerations for buying a home near the Manti Temple?",
+    answer: "The temple and the historic downtown area give Manti a distinct character — which is exactly what draws many buyers. That same character means the housing stock is older, pioneer-era construction is common, and condition varies widely. Inspection matters more here than in newer-construction markets. If you're looking at a historic home, I'll point out what an appraiser will flag and what a lender may push back on, before you write the offer rather than after.",
+  },
+  {
+    question: "Does USDA financing work in Manti?",
+    answer: "Manti generally qualifies for USDA Rural Development loans, which means 0% down for eligible buyers on eligible properties. The catch: older homes sometimes carry condition issues that USDA's minimum property standards won't pass — things like deferred maintenance, roof condition, or outdated systems. I check address-specific eligibility and flag any obvious condition concerns before you get attached to a listing, so you're not finding out at appraisal.",
+  },
+];
+
+const agentSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Mike Price",
+  description: "Central & rural Utah REALTOR® and certified residential appraiser serving Manti and Sanpete County. Core territory: Juab, Sanpete, Sevier & Millard Counties. Also serves Utah County and nearby areas when the fit is right.",
+  url: "https://mikesellsut.com",
+  image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
+  telephone: "+14356600401",
+  email: "mikesellsut@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    postOfficeBoxNumber: "431",
+    addressLocality: "Spring City",
+    addressRegion: "UT",
+    postalCode: "84662",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "City", name: "Manti, Utah" },
+    { "@type": "AdministrativeArea", name: "Sanpete County, Utah" },
+    { "@type": "AdministrativeArea", name: "Sevier County, Utah" },
+    { "@type": "AdministrativeArea", name: "Millard County, Utah" },
+    { "@type": "AdministrativeArea", name: "Juab County, Utah" },
+    { "@type": "AdministrativeArea", name: "Utah County, Utah" },
+  ],
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Utah Real Estate Agent License",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Certified Residential Appraiser",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+  ],
+  knowsAbout: [
+    "Residential real estate",
+    "Land and rural property",
+    "Cabin and mountain properties",
+    "Property appraisal and valuation",
+    "Rural property pricing",
+    "Water rights in Utah",
+    "Agricultural land",
+    "Manufactured and modular homes",
+    "Conventional financing",
+    "FHA financing",
+    "USDA Rural Development loans",
+    "Sanpete County real estate",
+    "Sevier County real estate",
+    "Millard County real estate",
+    "Juab County real estate",
+    "Utah County real estate",
+  ],
+  memberOf: { "@type": "Organization", name: "Heritage Realty Group LLC" },
+  sameAs: [
+    "https://www.instagram.com/mikesellsut",
+    "https://www.facebook.com/profile.php?id=61577587227657",
+  ],
+};
+---
+
+<BaseLayout
+  suppressAgentSchema={true}
+  title="Manti UT Real Estate — Sanpete County Seat & Temple Town"
+  description="Buying or selling in Manti, Utah? Mike Price is a Central Utah REALTOR® and certified appraiser covering Sanpete County. Honest guidance on Manti's low-inventory market, historic homes, and USDA financing."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(agentSchema)} />
+
+  <Breadcrumbs items={[
+    { name: "Home", url: "/" },
+    { name: "Areas", url: "/areas" },
+    { name: "Sanpete County", url: "/areas/sanpete-county" },
+    { name: "Manti" },
+  ]} />
+
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="font-body text-gold text-sm uppercase tracking-widest mb-3">Sanpete County · Central Utah</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Manti, Utah Real Estate
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        Sanpete's county seat — historic character, low inventory, and the kind of small-town life that's genuinely hard to find.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <article class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-10 p-6 bg-white border-2 border-gold/40 rounded-lg">
+        <p class="font-heading text-sm uppercase tracking-wider text-gold mb-2">Market Snapshot</p>
+        <p class="font-body text-navy/80 leading-relaxed">
+          Low inventory, slow turnover, older housing stock — and when the right home comes on, it moves. Manti is the county seat and the most historically distinct town in the Sanpete Valley. USDA financing is generally available, though older home conditions can complicate approval. Buyers who succeed here are pre-approved and ready to act.
+        </p>
+      </div>
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-navy prose-p:text-navy/80 prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-navy prose-li:text-navy/80">
+        <h2>Who Buys in Manti</h2>
+        <p>
+          Manti attracts buyers who want a specific thing: the county seat's services and community stability, a historic small-town setting, and the character of pioneer-era architecture. Some come for the Manti Utah Temple and the roots the area carries for many Utah families. Others are looking for the most affordable entry point into Sanpete County with access to county government and basic services already in place.
+        </p>
+        <p>
+          It is not a market for buyers who need a wide selection or want to take their time deciding. Inventory is thin, and the housing stock is older. The buyers who fit Manti best are patient, realistic about condition, and not expecting a turnkey home at a turnkey price.
+        </p>
+
+        <h2>What to Know Before You Buy</h2>
+        <p>
+          The older housing stock here is the main variable. Pioneer-era and mid-century construction is common, and condition ranges from well-maintained to significantly deferred. Inspection matters — not as a formality, but as a real assessment of what you're taking on. My appraiser background means I can give you a clear-eyed read on what the condition will do to value and what a lender's appraiser is likely to flag before you write the offer.
+        </p>
+        <p>
+          USDA financing is generally available in Manti, which is a significant advantage for eligible buyers — 0% down on a qualifying property. The complication: USDA has minimum property standards, and older homes sometimes don't meet them without repairs. Roof condition, HVAC, and deferred maintenance issues can all create problems at the appraisal stage. I flag these before you get attached to a listing.
+        </p>
+        <p>
+          FHA loans carry similar property condition requirements, and conventional financing is the most flexible when a home has visible issues. For sellers considering concessions or repairs to open up buyer financing options, that's a conversation worth having early.
+        </p>
+
+        <h2>Selling in Manti</h2>
+        <p>
+          Manti's thin comparable sales pool makes pricing harder than in higher-volume markets. There simply aren't as many recent sales to work from, which means condition and presentation carry more weight than in a deep-inventory market. A well-maintained home that photographs well will find a buyer. A home that needs work needs to be priced for it — buyers here are not paying Ephraim prices for Manti condition.
+        </p>
+        <p>
+          As a certified residential appraiser working this county regularly, I price listings from the same data the lender's appraiser will use. That reduces the gap between list price and appraised value — which is where deals fall apart.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <section class="py-10 px-4 sm:px-6 lg:px-8 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-heading text-2xl text-navy uppercase tracking-wide mb-6">Related Guides</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {[
+          { href: "/areas/sanpete-county", label: "Sanpete County Guide" },
+          { href: "/selling", label: "Selling in Central Utah" },
+          { href: "/buying-rural", label: "Buying Rural Property" },
+          { href: "/land", label: "Land & Acreage" },
+          { href: "/cabins", label: "Cabins & Mountain Property" },
+          { href: "/areas", label: "All Areas" },
+        ].map(({ href, label }) => (
+          <a href={href} class="block p-4 bg-white rounded-lg border-2 border-navy/10 hover:border-gold transition-colors text-center font-heading text-sm text-navy uppercase tracking-wide">
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Manti Real Estate — Common Questions" />
+
+  <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Buying or Selling in Manti?"
+        subheading="Reach out and I'll give you straight answers about what's available and what your property is worth."
+      />
+    </div>
+  </section>
+</BaseLayout>

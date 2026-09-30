@@ -45,3 +45,11 @@ Most areas outside Richfield's core qualify for USDA Rural Development loans. I 
 Richfield is roughly two and a half hours from Salt Lake City, making Sevier County more of a relocation or recreation-property market than a commuter market.
 
 If you're weighing Sevier County against Sanpete or Millard, I can walk you through the real tradeoffs — price, commute, amenities — based on what you actually need, not a generic comparison.
+
+## Town Pages
+
+I have a dedicated guide for the county's main market:
+
+- [Richfield Real Estate](/areas/richfield) — regional hub, hospital, retail, I-70 access, balanced inventory
+
+Other towns I work in regularly: Salina, Monroe, and Aurora. No separate pages yet — reach out and I'll give you the same local knowledge for any of them.
