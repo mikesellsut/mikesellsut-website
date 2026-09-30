@@ -53,3 +53,12 @@ Ephraim and Manti are roughly 90 minutes to two hours from Salt Lake City, depen
 Yes, manufactured and modular homes are common throughout the county, particularly in Gunnison and Moroni. Financing requires the home be permanently affixed to a foundation on land you own.
 
 Ready to see what's actually available in Sanpete County right now, or want a straight answer on whether a property you found qualifies for USDA financing? Reach out — that's exactly the kind of question I answer every week.
+
+## Town Pages
+
+I have dedicated guides for two of the county's most active towns:
+
+- [Ephraim Real Estate](/areas/ephraim) — Snow College, USDA financing, affordable homes
+- [Mt. Pleasant Real Estate](/areas/mt-pleasant) — new construction, Wasatch Front relocators, acreage lots
+
+Other towns I work in regularly: Manti, Spring City, Fairview, Moroni, and Gunnison. No separate pages yet — reach out and I'll give you the same local knowledge for any of them.

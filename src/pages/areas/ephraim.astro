@@ -1,0 +1,134 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const faqs = [
+  {
+    question: "What is the real estate market like in Ephraim, Utah?",
+    answer: "Ephraim is one of the more active markets in Sanpete County. Inventory is typically tight — especially under $350K — and well-priced homes move fast. Snow College keeps the town younger than most rural Utah communities, which supports steady rental demand and broader buyer interest. If you are relocating from the Wasatch Front, Ephraim offers genuinely affordable single-family homes with small-town character that is hard to find elsewhere in Utah at this price point.",
+  },
+  {
+    question: "Can I use a USDA loan to buy a home in Ephraim?",
+    answer: "Yes. Ephraim qualifies for USDA Rural Development financing, which offers zero down payment for buyers who meet income and property requirements. It is one of the most underused tools for Wasatch Front buyers who assume they need a large down payment to buy here. FHA and conventional loans also work well for most homes in town. I can connect you with lenders who handle rural Utah transactions routinely — not every lender is set up for it.",
+  },
+  {
+    question: "What should I know about buying near Snow College?",
+    answer: "Snow College is a two-year institution with a stable enrollment, which creates consistent rental demand in Ephraim. If you are buying as a primary residence, that demand is mostly a background fact — it does not dramatically change the buying process. If you are buying as an investment or considering future rental income, it is worth factoring in. Zoning and rental regulations vary; I can help you understand what applies to a specific property before you make an offer.",
+  },
+];
+
+const agentSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Mike Price",
+  url: "https://mikesellsut.com",
+  telephone: "+14356600401",
+  email: "mikesellsut@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    postOfficeBoxNumber: "431",
+    addressLocality: "Spring City",
+    addressRegion: "UT",
+    postalCode: "84662",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "City", name: "Ephraim, Utah" },
+    { "@type": "AdministrativeArea", name: "Sanpete County, Utah" },
+  ],
+  description: "Mike Price is a Central Utah REALTOR® and certified residential appraiser serving Ephraim and Sanpete County. Residential homes, land, cabins, and rural property.",
+};
+---
+
+<BaseLayout
+  title="Ephraim UT Real Estate — Homes, Land & Rural Property"
+  description="Mike Price helps buyers and sellers in Ephraim, Utah. Local REALTOR® and certified appraiser with deep Sanpete County knowledge — homes, land, USDA financing, and straight talk."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(agentSchema)} />
+
+  <Breadcrumbs items={[
+    { name: "Home", url: "/" },
+    { name: "Areas", url: "/areas" },
+    { name: "Sanpete County", url: "/areas/sanpete-county" },
+    { name: "Ephraim" },
+  ]} />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="font-body text-gold text-sm uppercase tracking-widest mb-3">Sanpete County · Central Utah</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Ephraim, Utah Real Estate
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        Affordable homes, tight inventory, and genuine small-town character — with Snow College, USDA financing eligibility, and easy mountain access.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Intro -->
+  <article class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="mb-10 p-6 bg-white border-2 border-gold/40 rounded-lg">
+        <p class="font-heading text-sm uppercase tracking-wider text-gold mb-2">Market Snapshot</p>
+        <p class="font-body text-navy/80 leading-relaxed">One of Sanpete County's most active markets. Inventory tight under $350K. Snow College creates steady rental demand. USDA zero-down financing available for qualified buyers.</p>
+      </div>
+
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-navy prose-p:text-navy/80 prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-navy prose-li:text-navy/80">
+
+        <h2>Who Buys in Ephraim</h2>
+        <p>Three buyer types show up here most often. Wasatch Front relocators — families and remote workers priced out of Utah County and Salt Lake — who want space, affordability, and a quieter pace. Investors drawn by Snow College rental demand. And rural lifestyle buyers who want a town base with easy access to the Wasatch Plateau and surrounding public land.</p>
+        <p>If you are coming from the Front, the price difference is real. Homes that would cost $500K–$700K in Provo sell for $250K–$350K in Ephraim, often with a bigger lot, outbuildings, or an acre of ground.</p>
+
+        <h2>What to Know Before You Buy</h2>
+        <p>Inventory moves fast at the lower end. Being financially ready before you start touring — pre-approval in hand, financing questions answered — is the difference between getting the house and watching someone else close on it.</p>
+        <p>Many properties in and around Ephraim are on well and septic rather than city utilities. That is normal for this area and not a problem, but you should understand what a well test and septic inspection tell you before you waive them. I walk every property I represent and will flag anything worth knowing early.</p>
+        <p>As a certified residential appraiser, I can also give you an honest read on whether a price is defensible before you make an offer — which matters in a market with limited comps.</p>
+
+        <h2>Selling in Ephraim</h2>
+        <p>Well-priced homes in good condition are moving. Overpriced listings sit — and in a small town, a stale listing gets noticed. Accurate pricing from day one is the most important thing you can do as a seller. I walk every listing before recommending a number, and I'll tell you straight what the market will support and what it won't.</p>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Internal links -->
+  <section class="py-10 px-4 sm:px-6 lg:px-8 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-heading text-2xl text-navy uppercase tracking-wide mb-6">Related Guides</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {[
+          { href: "/areas/sanpete-county", label: "Sanpete County Guide" },
+          { href: "/selling", label: "Selling in Central Utah" },
+          { href: "/buying-rural", label: "Buying Rural Property" },
+          { href: "/land", label: "Land & Acreage" },
+          { href: "/cabins", label: "Cabins & Mountain Property" },
+          { href: "/areas", label: "All Areas" },
+        ].map(({ href, label }) => (
+          <a
+            href={href}
+            class="block p-4 bg-white rounded-lg border-2 border-navy/10 hover:border-gold transition-colors text-center font-heading text-sm text-navy uppercase tracking-wide"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Ephraim Real Estate — Common Questions" />
+
+  <!-- CTA -->
+  <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Buying or Selling in Ephraim?"
+        subheading="Reach out and I'll give you straight answers about what's available and what your property is worth."
+      />
+    </div>
+  </section>
+</BaseLayout>

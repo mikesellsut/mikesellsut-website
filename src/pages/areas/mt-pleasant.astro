@@ -1,0 +1,134 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const faqs = [
+  {
+    question: "What is the housing market like in Mt. Pleasant, Utah?",
+    answer: "Mt. Pleasant is one of the more active communities in Sanpete County and has seen the most new construction activity of the county's towns. That means you'll find a wider range of home ages and conditions than in older communities like Manti or Spring City. Prices have been rising with demand from Wasatch Front buyers, but remain well below what comparable homes would cost in Utah County or Salt Lake. Well-priced homes in good condition are selling within 30 to 90 days. Overpriced properties sit.",
+  },
+  {
+    question: "What types of property are available in Mt. Pleasant?",
+    answer: "Mt. Pleasant has a healthy mix of existing single-family homes, newer construction, and some acreage lots on the outskirts. You will find properties ranging from town lots with city utilities to small acreage with well and septic on the edges of town. If you want a home with room to spread out — a shop, a pasture, or a few acres — the areas just outside the city limits offer that without going too far from services.",
+  },
+  {
+    question: "How does pricing in Mt. Pleasant compare to the Wasatch Front?",
+    answer: "The difference is substantial. Homes that would sell for $500K or more in Provo or Orem regularly trade in the $250K–$380K range in Mt. Pleasant, often with larger lots or outbuildings included. For remote workers and families willing to commute occasionally, the value equation is hard to argue with. I have 20 years of pricing experience in this market, including a background as a certified residential appraiser, so I can give you an honest read on whether a specific property is priced fairly before you make an offer.",
+  },
+];
+
+const agentSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Mike Price",
+  url: "https://mikesellsut.com",
+  telephone: "+14356600401",
+  email: "mikesellsut@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    postOfficeBoxNumber: "431",
+    addressLocality: "Spring City",
+    addressRegion: "UT",
+    postalCode: "84662",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "City", name: "Mt. Pleasant, Utah" },
+    { "@type": "AdministrativeArea", name: "Sanpete County, Utah" },
+  ],
+  description: "Mike Price is a Central Utah REALTOR® and certified residential appraiser serving Mt. Pleasant and Sanpete County. Residential homes, land, acreage, and rural property.",
+};
+---
+
+<BaseLayout
+  title="Mt. Pleasant UT Real Estate — Homes, Land & Rural Property"
+  description="Mike Price helps buyers and sellers in Mt. Pleasant, Utah. Local REALTOR® and certified appraiser with deep Sanpete County knowledge — homes, acreage, new construction, and straight talk."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(agentSchema)} />
+
+  <Breadcrumbs items={[
+    { name: "Home", url: "/" },
+    { name: "Areas", url: "/areas" },
+    { name: "Sanpete County", url: "/areas/sanpete-county" },
+    { name: "Mt. Pleasant" },
+  ]} />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="font-body text-gold text-sm uppercase tracking-widest mb-3">Sanpete County · Central Utah</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Mt. Pleasant, Utah Real Estate
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        Sanpete County's most active new construction market — affordable homes, a growing downtown, and prices well below the Wasatch Front.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Intro -->
+  <article class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="mb-10 p-6 bg-white border-2 border-gold/40 rounded-lg">
+        <p class="font-heading text-sm uppercase tracking-wider text-gold mb-2">Market Snapshot</p>
+        <p class="font-body text-navy/80 leading-relaxed">Most new construction activity in Sanpete County. Strong demand from Wasatch Front relocators. Homes, acreage lots, and small-acreage parcels available. USDA financing eligible.</p>
+      </div>
+
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-navy prose-p:text-navy/80 prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-navy prose-li:text-navy/80">
+
+        <h2>Who Buys in Mt. Pleasant</h2>
+        <p>Mt. Pleasant draws Wasatch Front buyers — remote workers, growing families, and retirees — who want more house and more land for less money. It is also popular with buyers who want a true town experience: a downtown, schools, and services, without Ephraim's Snow College dynamics or Manti's historic district constraints.</p>
+        <p>The new construction activity makes it a reasonable option for buyers who want something move-in ready without older-home maintenance concerns, which is less common elsewhere in Sanpete County.</p>
+
+        <h2>What to Know Before You Buy</h2>
+        <p>Properties within Mt. Pleasant city limits are generally on city water and sewer. Properties on the outskirts are more likely to have private well and septic — worth knowing before you start touring, since it changes both the inspection process and the financing options.</p>
+        <p>USDA Rural Development zero-down financing is available in Mt. Pleasant for qualified buyers. FHA and conventional loans also work for most properties. Land purchases and raw acreage require different financing — I can walk you through what applies to a specific property.</p>
+        <p>As a certified residential appraiser, I bring 20 years of pricing experience to every transaction. Before you make an offer, I can give you an honest read on whether the price is defensible in the current market.</p>
+
+        <h2>Selling in Mt. Pleasant</h2>
+        <p>Demand is real, but buyers are paying attention to condition and price. Homes that are priced accurately and show well are moving. Overpriced listings accumulate days on market, and in a small community, that stigma is hard to shake. I walk every listing before recommending a number and give you a straight assessment of where your property fits.</p>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Internal links -->
+  <section class="py-10 px-4 sm:px-6 lg:px-8 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-heading text-2xl text-navy uppercase tracking-wide mb-6">Related Guides</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {[
+          { href: "/areas/sanpete-county", label: "Sanpete County Guide" },
+          { href: "/selling", label: "Selling in Central Utah" },
+          { href: "/buying-rural", label: "Buying Rural Property" },
+          { href: "/land", label: "Land & Acreage" },
+          { href: "/cabins", label: "Cabins & Mountain Property" },
+          { href: "/areas", label: "All Areas" },
+        ].map(({ href, label }) => (
+          <a
+            href={href}
+            class="block p-4 bg-white rounded-lg border-2 border-navy/10 hover:border-gold transition-colors text-center font-heading text-sm text-navy uppercase tracking-wide"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Mt. Pleasant Real Estate — Common Questions" />
+
+  <!-- CTA -->
+  <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Buying or Selling in Mt. Pleasant?"
+        subheading="Reach out and I'll give you straight answers about what's available and what your property is worth."
+      />
+    </div>
+  </section>
+</BaseLayout>

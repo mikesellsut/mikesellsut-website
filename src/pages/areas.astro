@@ -7,7 +7,11 @@ const counties = [
     id: "sanpete",
     slug: "sanpete-county",
     name: "Sanpete County",
-    towns: "Fairview, Mt. Pleasant, Ephraim, Manti, Spring City, Moroni, Gunnison",
+    towns: "Manti · Ephraim · Mt. Pleasant · Spring City · Fairview · Moroni · Gunnison",
+    townLinks: [
+      { name: "Ephraim", href: "/areas/ephraim" },
+      { name: "Mt. Pleasant", href: "/areas/mt-pleasant" },
+    ],
     image: "/images/areas/sanpete-county-sign.jpg",
     image2: "/images/areas/sanpete-mountain.jpg",
     description: `Sanpete County is the heart of Central Utah — and it's one of the most underrated places in the entire state. Nestled between the Wasatch Plateau and the San Pitch Mountains, this valley offers a way of life that's increasingly hard to find: genuine community, stunning natural beauty, and homes you can actually afford.
@@ -97,10 +101,7 @@ const collectionSchema = {
         Areas I Serve
       </h1>
       <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-4">
-        My primary focus is Central Utah, where I have deep experience with the communities, properties, and local market conditions. I am also well-versed in real estate markets throughout much of Utah and am open to working with buyers and sellers beyond my primary area when the property and circumstances are a good fit.
-      </p>
-      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
-        If you are considering buying or selling anywhere in the state, feel free to reach out and let's discuss how I can help.
+        My core territory is Central &amp; rural Utah — Juab, Sanpete, Sevier, and Millard Counties. I am also open to working with buyers and sellers in Utah County and nearby areas when the property and circumstances are a good fit.
       </p>
     </div>
   </section>
@@ -167,6 +168,16 @@ const collectionSchema = {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </a>
+            {county.townLinks && county.townLinks.length > 0 && (
+              <div class="mt-4">
+                <p class="text-xs text-navy/50 uppercase tracking-wider font-heading mb-2">Town Guides</p>
+                <div class="flex flex-wrap gap-2">
+                  {county.townLinks.map((t) => (
+                    <a href={t.href} class="text-xs px-3 py-1 bg-gold/10 text-navy font-semibold rounded-full hover:bg-gold/20 transition-colors">{t.name}</a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
