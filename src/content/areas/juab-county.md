@@ -44,3 +44,11 @@ Land is more limited in Juab than in the other three counties simply due to prox
 USDA loans are generally available in Mona, Levan, and outlying areas, though Nephi's more populated core may not qualify depending on the specific address — I check this property-by-property.
 
 If your main constraint is "I still have to get to Utah County," Juab is very likely where your search should start. I can tell you honestly whether a specific commute or price point is realistic before you spend a weekend touring homes.
+
+## Town Pages
+
+I have a dedicated guide for the county's main market:
+
+- [Nephi Real Estate](/areas/nephi) — I-15 access, competitive market, new construction, Wasatch Front commuters
+
+Other towns I work in regularly: Mona and Levan. No separate pages yet — reach out and I'll give you the same local knowledge for either of them.

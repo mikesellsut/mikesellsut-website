@@ -1,0 +1,180 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const faqs = [
+  {
+    question: "What is the real estate market like in Nephi, Utah?",
+    answer: "Nephi is the most competitive market I cover — more so than any town in Sanpete, Sevier, or Millard. I-15 access puts Provo about 45 minutes away and Salt Lake City just over an hour, which draws serious buyer demand from the Wasatch Front. Well-priced homes here see multiple offers more regularly than anywhere else in my territory. That means if you are buying, being pre-approved and ready to move matters. If you are selling, accurate pricing from day one is still the right call — overpricing burns time and buyers notice.",
+  },
+  {
+    question: "Can I use USDA financing to buy in Nephi?",
+    answer: "It depends on the specific address. USDA Rural Development loans (zero down payment for qualified buyers) are generally available in Mona, Levan, and outlying parts of Juab County. Nephi's more populated core may or may not qualify — eligibility is set by census tract, not just town name. I check this property by property before my buyers get attached to a financing plan that may not work. FHA and conventional loans are the more common path for most Nephi purchases.",
+  },
+  {
+    question: "What types of property are available in Nephi?",
+    answer: "Nephi has a mix of existing single-family homes, active new construction in several subdivisions, and some acreage on the edges of town. Inventory is tighter than in Sanpete or Millard, partly because demand is higher and partly because less land is available this close to the freeway. Mona and Levan — smaller communities about 10 to 20 minutes out — offer more of the rural land and acreage options if that is what you are after.",
+  },
+];
+
+const agentSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Mike Price",
+  description: "Central & rural Utah REALTOR® and certified residential appraiser serving Nephi and Juab County. Core territory: Juab, Sanpete, Sevier & Millard Counties. Also serves Utah County and nearby areas when the fit is right.",
+  url: "https://mikesellsut.com",
+  image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
+  telephone: "+14356600401",
+  email: "mikesellsut@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    postOfficeBoxNumber: "431",
+    addressLocality: "Spring City",
+    addressRegion: "UT",
+    postalCode: "84662",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "City", name: "Nephi, Utah" },
+    { "@type": "AdministrativeArea", name: "Juab County, Utah" },
+    { "@type": "AdministrativeArea", name: "Sanpete County, Utah" },
+    { "@type": "AdministrativeArea", name: "Sevier County, Utah" },
+    { "@type": "AdministrativeArea", name: "Millard County, Utah" },
+    { "@type": "AdministrativeArea", name: "Utah County, Utah" },
+  ],
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Utah Real Estate Agent License",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Certified Residential Appraiser",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+  ],
+  knowsAbout: [
+    "Residential real estate",
+    "Land and rural property",
+    "Cabin and mountain properties",
+    "Property appraisal and valuation",
+    "Rural property pricing",
+    "Water rights in Utah",
+    "Agricultural land",
+    "Manufactured and modular homes",
+    "Conventional financing",
+    "FHA financing",
+    "USDA Rural Development loans",
+    "Sanpete County real estate",
+    "Sevier County real estate",
+    "Millard County real estate",
+    "Juab County real estate",
+    "Utah County real estate",
+  ],
+  memberOf: {
+    "@type": "Organization",
+    name: "Heritage Realty Group LLC",
+  },
+  sameAs: [
+    "https://www.instagram.com/mikesellsut",
+    "https://www.facebook.com/profile.php?id=61577587227657",
+  ],
+};
+---
+
+<BaseLayout
+  suppressAgentSchema={true}
+  title="Nephi UT Real Estate — Homes, Land & Rural Property"
+  description="Mike Price helps buyers and sellers in Nephi, Utah. Local REALTOR® and certified appraiser serving Juab County — I-15 access, competitive market, straight talk on pricing and financing."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(agentSchema)} />
+
+  <Breadcrumbs items={[
+    { name: "Home", url: "/" },
+    { name: "Areas", url: "/areas" },
+    { name: "Juab County", url: "/areas/juab-county" },
+    { name: "Nephi" },
+  ]} />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="font-body text-gold text-sm uppercase tracking-widest mb-3">Juab County · Central Utah</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Nephi, Utah Real Estate
+      </h1>
+      <p class="font-body text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        The most commute-friendly market in Central Utah — I-15 access, Mt. Nebo views, and home prices a fraction of what you would pay 45 minutes north.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Intro -->
+  <article class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="mb-10 p-6 bg-white border-2 border-gold/40 rounded-lg">
+        <p class="font-heading text-sm uppercase tracking-wider text-gold mb-2">Market Snapshot</p>
+        <p class="font-body text-navy/80 leading-relaxed">Most competitive market in my territory. Well-priced homes draw multiple offers. I-15 access puts Provo 45 min away, SLC just over an hour. New construction active. USDA eligibility address-specific — confirm before assuming.</p>
+      </div>
+
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-navy prose-p:text-navy/80 prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-navy prose-li:text-navy/80">
+
+        <h2>Who Buys in Nephi</h2>
+        <p>Most buyers here are coming from the Wasatch Front — Utah County in particular. They are priced out of Provo, Orem, or Lehi, still need to get there regularly, and Nephi is the only community in my territory that makes that commute realistic on a daily or near-daily basis. Some are remote workers who need to be in the office a couple of times a week. Some are retirees or families making a permanent move south in exchange for significantly lower housing costs.</p>
+        <p>The price difference is real. Homes that sell for $500K–$700K in Utah County regularly trade in the $300K–$450K range in Nephi, often with larger lots and no HOA. For buyers who can handle the drive, the math is hard to argue with.</p>
+
+        <h2>What to Know Before You Buy</h2>
+        <p>Nephi moves faster than any other town I cover. Being pre-approved — not just pre-qualified — before you start looking is not optional here. Multiple-offer situations happen on well-priced properties, and being ready to write a clean offer quickly is what separates buyers who get the house from buyers who watch someone else close on it.</p>
+        <p>New construction is active in several subdivisions around town. Builders typically have preferred-lender arrangements; those programs are worth comparing against outside financing rather than accepting by default. I can help you evaluate what a builder is actually offering versus what the open market provides.</p>
+        <p>As a certified residential appraiser with 20 years of market experience in this area, I can give you a straight read on whether any property — new or existing — is priced fairly before you commit to it.</p>
+
+        <h2>Selling in Nephi</h2>
+        <p>Demand is real, but overpricing still costs you. A property that sits in Nephi — even for two or three weeks — starts to generate questions from buyers who assume something is wrong. Pricing accurately from day one, based on what comparable properties have actually sold for, consistently produces better results than starting high and dropping later. I walk every listing before I recommend a number.</p>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Internal links -->
+  <section class="py-10 px-4 sm:px-6 lg:px-8 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-heading text-2xl text-navy uppercase tracking-wide mb-6">Related Guides</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {[
+          { href: "/areas/juab-county", label: "Juab County Guide" },
+          { href: "/selling", label: "Selling in Central Utah" },
+          { href: "/buying-rural", label: "Buying Rural Property" },
+          { href: "/land", label: "Land & Acreage" },
+          { href: "/cabins", label: "Cabins & Mountain Property" },
+          { href: "/areas", label: "All Areas" },
+        ].map(({ href, label }) => (
+          <a
+            href={href}
+            class="block p-4 bg-white rounded-lg border-2 border-navy/10 hover:border-gold transition-colors text-center font-heading text-sm text-navy uppercase tracking-wide"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Nephi Real Estate — Common Questions" />
+
+  <!-- CTA -->
+  <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto" data-animate>
+      <ContactForm
+        heading="Buying or Selling in Nephi?"
+        subheading="Reach out and I'll give you straight answers about what's available and what your property is worth."
+      />
+    </div>
+  </section>
+</BaseLayout>
