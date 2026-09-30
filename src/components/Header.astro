@@ -18,14 +18,18 @@ const navLinks = [
 <header class="sticky top-0 z-50 bg-navy shadow-lg">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
-      <!-- Logo -->
-      <a href="/" class="flex-shrink-0" aria-label="Heritage Realty Group - Home">
+      <!-- Brand -->
+      <a href="/" class="flex-shrink-0 flex items-center gap-3" aria-label="Mike Price, MikeSellsUT — Home">
+        <div class="flex flex-col leading-none">
+          <span class="font-heading text-white text-lg md:text-xl uppercase tracking-widest">Mike Price</span>
+          <span class="font-body text-gold text-xs md:text-sm tracking-wider">MikeSellsUT</span>
+        </div>
         <Image
           src={heritageLogo}
           alt="Heritage Realty Group"
           width={800}
           height={198}
-          class="h-10 md:h-[50px] w-auto"
+          class="h-7 md:h-8 w-auto opacity-70"
         />
       </a>
 

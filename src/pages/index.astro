@@ -83,6 +83,21 @@ const areas = [
             Contact Mike
           </a>
         </div>
+        <!-- Seller CTAs -->
+        <div class="hero-seller-ctas flex flex-col sm:flex-row gap-3 justify-center md:justify-start mt-3" style="opacity:0;">
+          <a
+            href="/contact"
+            class="inline-block px-6 py-3 bg-white/10 border border-white/50 text-white font-heading uppercase tracking-wider text-sm rounded-md hover:bg-white/20 transition-all duration-200 text-center"
+          >
+            What's My Home Worth?
+          </a>
+          <a
+            href="#calendly-placeholder"
+            class="inline-block px-6 py-3 bg-white/10 border border-white/50 text-white font-heading uppercase tracking-wider text-sm rounded-md hover:bg-white/20 transition-all duration-200 text-center"
+          >
+            Talk About Selling
+          </a>
+        </div>
       </div>
     </div>
 
@@ -318,7 +333,9 @@ const areas = [
       .to(".hero-sub", { opacity: 1, y: 0, duration: 0.8 }, 0.5)
       .from(".hero-sub", { y: 30 }, 0.5)
       .to(".hero-ctas", { opacity: 1, y: 0, duration: 0.8 }, 0.8)
-      .from(".hero-ctas", { y: 20 }, 0.8);
+      .from(".hero-ctas", { y: 20 }, 0.8)
+      .to(".hero-seller-ctas", { opacity: 1, y: 0, duration: 0.7 }, 1.0)
+      .from(".hero-seller-ctas", { y: 15 }, 1.0);
 
     // Biplane gentle drift — the artwork noses to the right, so flip it
     // horizontally whenever it heads left, otherwise it flies backwards.
