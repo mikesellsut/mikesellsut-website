@@ -23,7 +23,9 @@ const agentSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "Mike Price",
+  description: "Central & rural Utah REALTOR® and certified residential appraiser serving Mt. Pleasant and Sanpete County. Core territory: Juab, Sanpete, Sevier & Millard Counties. Also serves Utah County and nearby areas when the fit is right.",
   url: "https://mikesellsut.com",
+  image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
   telephone: "+14356600401",
   email: "mikesellsut@gmail.com",
   address: {
@@ -37,8 +39,51 @@ const agentSchema = {
   areaServed: [
     { "@type": "City", name: "Mt. Pleasant, Utah" },
     { "@type": "AdministrativeArea", name: "Sanpete County, Utah" },
+    { "@type": "AdministrativeArea", name: "Sevier County, Utah" },
+    { "@type": "AdministrativeArea", name: "Millard County, Utah" },
+    { "@type": "AdministrativeArea", name: "Juab County, Utah" },
+    { "@type": "AdministrativeArea", name: "Utah County, Utah" },
   ],
-  description: "Mike Price is a Central Utah REALTOR® and certified residential appraiser serving Mt. Pleasant and Sanpete County. Residential homes, land, acreage, and rural property.",
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Utah Real Estate Agent License",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Certified Residential Appraiser",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+  ],
+  knowsAbout: [
+    "Residential real estate",
+    "Land and rural property",
+    "Cabin and mountain properties",
+    "Property appraisal and valuation",
+    "Rural property pricing",
+    "Water rights in Utah",
+    "Agricultural land",
+    "Manufactured and modular homes",
+    "Conventional financing",
+    "FHA financing",
+    "USDA Rural Development loans",
+    "Sanpete County real estate",
+    "Sevier County real estate",
+    "Millard County real estate",
+    "Juab County real estate",
+    "Utah County real estate",
+  ],
+  memberOf: {
+    "@type": "Organization",
+    name: "Heritage Realty Group LLC",
+  },
+  sameAs: [
+    "https://www.instagram.com/mikesellsut",
+    "https://www.facebook.com/profile.php?id=61577587227657",
+  ],
 };
 ---
 
