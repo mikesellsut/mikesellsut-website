@@ -4,6 +4,7 @@ import ContactForm from "../components/ContactForm.astro";
 import AreaCard from "../components/AreaCard.astro";
 import BlogCard from "../components/BlogCard.astro";
 import { getCollection } from "astro:content";
+import { sellerFaq } from "../data/sellerFaq";
 
 const allPosts = (await getCollection("blog"))
   .filter((p) => p.data.published && new Date(p.data.date) <= new Date())
@@ -226,85 +227,18 @@ const areas = [
       <script type="application/ld+json" set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How do I choose a REALTOR in Central Utah?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Look for someone who actually knows the market you're buying or selling in — not just a license and a sign. In a rural area like Central Utah, local knowledge matters more than volume. You want an agent who has walked properties like yours, understands the land-use quirks, and can read comps that may be months old or in different towns. Ask how many transactions they've done in your county specifically, and how they arrive at a price."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What does it cost to sell a home in Central Utah?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Typical seller costs include agent commission, title insurance, and closing fees. The exact numbers depend on your sale price and what gets negotiated. I put together a net proceeds estimate before we list so you know what you'll walk away with — no surprises at the closing table."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How long does it take to sell a home in this market?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Well-priced homes in good condition are typically selling within 30 to 90 days in Central Utah. Land and rural properties can take longer because the buyer pool is narrower. Overpriced properties sit — and once a listing goes stale, it's hard to recover. Getting the price right from day one is the single biggest factor in how fast you sell."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What's different about buying or selling land and cabins versus a regular house?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A lot. With land, you're evaluating access, water, zoning, perc tests, mineral rights, and how far you are from utilities — none of which show up in a square footage calculation. Cabins often have limited comparables, seasonal access issues, and financing quirks that standard lenders aren't set up for. These transactions reward an agent who has done enough of them to know what to look for and what questions to ask."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why does it matter that you're also a licensed appraiser?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Most agents estimate price based on what similar homes sold for. That's a start, but in a rural market with thin sales data, you have to understand what's actually driving value — lot size, water rights, outbuildings, access, condition, location. As a certified residential appraiser with 20 years in this market, I approach pricing the way an appraiser does: methodically, with real support for every number. That means fewer surprises for buyers at appraisal, and more defensible prices for sellers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you work with buyers or just sellers?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Both. I work with buyers looking for homes, land, cabins, and rural property across Central Utah — Juab, Sanpete, Sevier, and Millard Counties — as well as Utah County and nearby areas when the fit is right. The appraiser background helps you avoid overpaying — I can tell you when a price is supported by the market and when it isn't."
-            }
+        "mainEntity": sellerFaq.map(({ question, answer }) => ({
+          "@type": "Question",
+          "name": question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": answer
           }
-        ]
+        }))
       })} />
 
       <div class="space-y-0 divide-y divide-navy/10">
-        {[
-          {
-            q: "How do I choose a REALTOR in Central Utah?",
-            a: "Look for someone who actually knows the market you're buying or selling in — not just a license and a sign. In a rural area like Central Utah, local knowledge matters more than volume. Ask how many transactions they've done in your county specifically, and how they arrive at a price."
-          },
-          {
-            q: "What does it cost to sell a home in Central Utah?",
-            a: "Typical seller costs include agent commission, title insurance, and closing fees. I put together a net proceeds estimate before we list so you know what you'll walk away with — no surprises at the closing table."
-          },
-          {
-            q: "How long does it take to sell a home in this market?",
-            a: "Well-priced homes in good condition are typically selling within 30 to 90 days. Land and rural properties can take longer — the buyer pool is narrower. Overpriced properties sit, and once a listing goes stale, it's hard to recover. Getting the price right from day one is the single biggest factor."
-          },
-          {
-            q: "What's different about buying or selling land and cabins versus a regular house?",
-            a: "A lot. With land, you're evaluating access, water, zoning, perc tests, mineral rights, and proximity to utilities — none of which show up in a square footage calculation. Cabins often have limited comparables, seasonal access, and financing quirks that standard lenders aren't set up for. These transactions reward experience."
-          },
-          {
-            q: "Why does it matter that you're also a licensed appraiser?",
-            a: "Most agents estimate price based on recent sales. That's a start, but in a rural market with thin data, you have to understand what's actually driving value — water rights, outbuildings, access, condition. As a certified residential appraiser with 20 years in this market, I approach pricing methodically and with real support for every number. Fewer surprises at appraisal for buyers, more defensible prices for sellers."
-          },
-          {
-            q: "Do you work with buyers or just sellers?",
-            a: "Both. I work with buyers looking for homes, land, cabins, and rural property across Central Utah — Juab, Sanpete, Sevier, and Millard Counties — as well as Utah County and nearby areas when the fit is right. The appraiser background helps you avoid overpaying — I can tell you when a price is supported by the market and when it isn't."
-          }
-        ].map(({ q, a }) => (
+        {sellerFaq.map(({ question: q, answer: a }) => (
           <details class="group py-5 cursor-pointer">
             <summary class="flex justify-between items-start gap-4 font-heading text-navy font-semibold text-lg list-none">
               <span>{q}</span>

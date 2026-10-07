@@ -4,6 +4,7 @@ import ContactForm from "../components/ContactForm.astro";
 import FAQAccordion from "../components/FAQAccordion.astro";
 import BlogCard from "../components/BlogCard.astro";
 import { getCollection } from "astro:content";
+import { sellerFaq } from "../data/sellerFaq";
 
 const relatedSlugs = [
   "how-home-values-determined-small-rural-markets",
@@ -16,32 +17,9 @@ const relatedPosts = relatedSlugs
   .map((s) => allPosts.find((p) => p.slug === s))
   .filter((p): p is NonNullable<typeof p> => p != null && p.data.published);
 
-const faqs = [
-  {
-    question: "How is pricing a rural property different from pricing a home in a suburb?",
-    answer: "In a suburban market, there may be dozens of comparable sales within a mile. In rural Central Utah, the nearest truly comparable sale could be months old, in a different town, or on a meaningfully different lot size. Pricing requires real local knowledge — understanding how location, access, water, outbuildings, and condition interact — not just a formula. That is why I walk every property I list before recommending a price.",
-  },
-  {
-    question: "Why shouldn't I just price high and negotiate down?",
-    answer: "In a rural market, overpricing does not just mean a slower sale. It means your home sits long enough that buyers begin to wonder what is wrong with it, even when the only problem is the price. Properties that sit too long develop a stigma that is difficult to reverse. Pricing accurately from day one, based on real market knowledge, consistently outperforms the start-high strategy.",
-  },
-  {
-    question: "Are online home value estimates accurate for rural Utah?",
-    answer: "Often not. Automated estimate tools rely on dense comparable sales data that does not exist in the same way in small rural towns. An estimate that might be reasonably accurate in a Salt Lake suburb can be meaningfully off in Ephraim or Fillmore — in either direction — because the algorithm does not have enough local sales to work from.",
-  },
-  {
-    question: "What does it cost to sell a home in Central Utah?",
-    answer: "Typical seller costs include agent commissions, title insurance, closing costs, and any negotiated repairs or credits. I prepare a detailed net proceeds estimate before we list so you know exactly what to expect. There are no surprises.",
-  },
-  {
-    question: "How long does it take to sell a home in Central Utah?",
-    answer: "It depends on the property, price, condition, and current market conditions. Well-priced homes in good condition are typically selling within 30 to 90 days. I will give you a realistic timeline based on your specific property and market during our consultation.",
-  },
-  {
-    question: "Do you only sell homes, or do you handle land and cabins too?",
-    answer: "I handle residential homes, land, acreage, cabins, mountain property, and rural properties across Central Utah — Juab, Sanpete, Sevier, and Millard Counties — and I'm open to nearby areas including Utah County when the property is a good fit. If you are selling a non-traditional property — something with acreage, outbuildings, water rights, or unusual access — that is where my experience is particularly valuable.",
-  },
-];
+// Approved seller FAQ (shared with the homepage). FAQAccordion renders the
+// visible accordion and the matching FAQPage JSON-LD from this same list.
+const faqs = sellerFaq;
 ---
 
 <BaseLayout
