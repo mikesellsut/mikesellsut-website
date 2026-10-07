@@ -8,11 +8,21 @@ const navLinks = [
   { label: "Areas", href: "/areas" },
   { label: "Selling", href: "/selling" },
   { label: "Buying", href: "/buying-rural" },
+  { label: "Listings", href: "/listings/" },
   { label: "Land", href: "/land" },
   { label: "Cabins", href: "/cabins" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
+
+// Active state: Home only on "/", every other item on its own section
+// (e.g. /areas/ephraim highlights Areas).
+const normalize = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
+const currentPath = normalize(Astro.url.pathname);
+const isActive = (href: string) => {
+  const target = normalize(href);
+  return target === "/" ? currentPath === "/" : currentPath === target || currentPath.startsWith(`${target}/`);
+};
 ---
 
 <header class="sticky top-0 z-50 bg-navy shadow-lg">
@@ -34,12 +44,16 @@ const navLinks = [
       </a>
 
       <!-- Desktop Navigation -->
-      <ul class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+      <ul class="hidden lg:flex items-center space-x-5 xl:space-x-8">
         {navLinks.map((link) => (
           <li>
             <a
               href={link.href}
-              class="text-white font-heading text-sm xl:text-base uppercase tracking-wider hover:text-gold transition-colors duration-200"
+              aria-current={isActive(link.href) ? "page" : undefined}
+              class:list={[
+                "font-heading text-sm xl:text-base uppercase tracking-wider whitespace-nowrap hover:text-gold transition-colors duration-200",
+                isActive(link.href) ? "text-gold" : "text-white",
+              ]}
             >
               {link.label}
             </a>
@@ -74,25 +88,33 @@ const navLinks = [
   <!-- Mobile Menu Overlay -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 z-40 bg-navy/[0.98] flex flex-col items-center justify-center transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+    class="fixed inset-0 z-40 bg-navy/[0.98] overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
   >
-    <ul class="flex flex-col items-center space-y-6">
-      {navLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            class="text-white font-heading text-2xl uppercase tracking-widest hover:text-gold transition-colors duration-200"
-          >
-            {link.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-    <div class="mt-10 flex flex-col items-center text-white/60 text-sm space-y-1">
-      <a href="tel:4356600401" class="hover:text-gold transition-colors">435-660-0401</a>
-      <a href="mailto:mikesellsut@gmail.com" class="hover:text-gold transition-colors">
-        mikesellsut@gmail.com
-      </a>
+    <!-- min-h-full + justify-center keeps the menu centered, but lets it
+         scroll from the top on short screens instead of clipping. -->
+    <div class="min-h-full flex flex-col items-center justify-center pt-20 pb-10">
+      <ul class="flex flex-col items-center space-y-6 [@media(max-height:700px)]:space-y-4">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={isActive(link.href) ? "page" : undefined}
+              class:list={[
+                "font-heading text-2xl [@media(max-height:700px)]:text-xl uppercase tracking-widest hover:text-gold transition-colors duration-200",
+                isActive(link.href) ? "text-gold" : "text-white",
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-10 flex flex-col items-center text-white/60 text-sm space-y-1">
+        <a href="tel:4356600401" class="hover:text-gold transition-colors">435-660-0401</a>
+        <a href="mailto:mikesellsut@gmail.com" class="hover:text-gold transition-colors">
+          mikesellsut@gmail.com
+        </a>
+      </div>
     </div>
   </div>
 </header>
