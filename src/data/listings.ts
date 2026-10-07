@@ -45,6 +45,8 @@ export const listings: Listing[] = [
     acres: 10,
     town: "Fountain Green",
     subdivision: "Holiday Oaks Estates",
+    mlsNumber: "2186458",
+    mlsUrl: "https://www.utahrealestate.com/2186458",
     blurb:
       "Silo-style off-grid cabin on 10 gated acres in Holiday Oaks Estates near Fountain Green — 3 bedrooms, 1 bath, solar with generator backup, an owned water tank, septic, a wraparound deck, and camper pads.",
     photos: [
@@ -65,6 +67,8 @@ export const listings: Listing[] = [
     acres: 6.09,
     town: "Mt. Pleasant",
     subdivision: "Pine Ridge Estates",
+    mlsNumber: "2186368",
+    mlsUrl: "https://www.utahrealestate.com/2186368",
     blurb:
       "Build-ready recreational lot in gated Pine Ridge Estates near Mt. Pleasant — engineered septic installed, culinary water to on-site spigots, a leveled cabin/RV pad, and gravel access among mature pines. Power available at the street; seasonal vehicle access roughly April–November.",
     photos: [
