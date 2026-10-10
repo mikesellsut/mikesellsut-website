@@ -36,6 +36,7 @@ const cards = listings.map((listing) => ({
   facts: [
     listing.beds != null ? `${listing.beds} bd` : null,
     listing.baths != null ? `${listing.baths} ba` : null,
+    listing.sqft != null ? `${listing.sqft.toLocaleString("en-US")} sq ft` : null,
     listing.acres != null ? formatAcres(listing.acres) : null,
   ].filter((f): f is string => f !== null),
   location: listing.subdivision ? `${listing.subdivision} · ${listing.town}, UT` : `${listing.town}, UT`,
@@ -129,6 +130,11 @@ const collectionSchema = {
                     loading={cardIndex === 0 ? "eager" : "lazy"}
                     fetchpriority={cardIndex === 0 ? "high" : undefined}
                   />
+                  {card.images[0].digitallyAltered && (
+                    <span class="absolute bottom-3 left-3 px-2 py-0.5 rounded bg-navy/80 text-white font-body text-xs">
+                      Digitally altered
+                    </span>
+                  )}
                   <span
                     class:list={[
                       "absolute top-4 left-4 px-3 py-1 rounded-md font-heading uppercase tracking-wider text-xs font-bold shadow-md",
@@ -146,7 +152,10 @@ const collectionSchema = {
                           href={photo.src.src}
                           target="_blank"
                           rel="noopener"
-                          class="block aspect-[4/3] overflow-hidden rounded-sm group"
+                          class="listing-photo-link relative block aspect-[4/3] overflow-hidden rounded-sm group"
+                          data-full={photo.src.src}
+                          data-alt={photo.alt}
+                          data-altered={photo.digitallyAltered ? "true" : undefined}
                         >
                           <Image
                             src={photo.src}
@@ -155,6 +164,11 @@ const collectionSchema = {
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
                           />
+                          {photo.digitallyAltered && (
+                            <span class="absolute inset-x-0 bottom-0 bg-navy/80 text-white font-body text-[10px] leading-tight text-center px-1 py-0.5">
+                              Digitally altered
+                            </span>
+                          )}
                         </a>
                       </li>
                     ))}
@@ -262,4 +276,49 @@ const collectionSchema = {
       </div>
     </div>
   </section>
+  <!-- Full-size photo viewer (progressive enhancement: without JS the
+       thumbnail links open the image file directly). -->
+  <dialog
+    id="photo-viewer"
+    class="p-0 bg-transparent max-w-[95vw] max-h-[95vh] backdrop:bg-navy/80"
+    aria-label="Listing photo"
+  >
+    <div class="relative">
+      <img id="photo-viewer-img" src="" alt="" class="block max-w-[95vw] max-h-[85vh] w-auto h-auto rounded-md" />
+      <span id="photo-viewer-altered" class="hidden absolute bottom-3 left-3 px-2 py-0.5 rounded bg-navy/80 text-white font-body text-sm">
+        Digitally altered
+      </span>
+      <button
+        type="button"
+        id="photo-viewer-close"
+        class="absolute top-2 right-2 w-9 h-9 rounded-full bg-navy/80 text-white text-xl leading-none hover:bg-navy"
+        aria-label="Close photo"
+      >&times;</button>
+    </div>
+    <p id="photo-viewer-caption" class="mt-2 text-center font-body text-sm text-white"></p>
+  </dialog>
+
+  <script>
+    const viewer = document.getElementById("photo-viewer") as HTMLDialogElement | null;
+    const viewerImg = document.getElementById("photo-viewer-img") as HTMLImageElement | null;
+    const viewerAltered = document.getElementById("photo-viewer-altered");
+    const viewerCaption = document.getElementById("photo-viewer-caption");
+    if (viewer && viewerImg && typeof viewer.showModal === "function") {
+      document.querySelectorAll<HTMLAnchorElement>(".listing-photo-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const altered = link.dataset.altered === "true";
+          viewerImg.src = link.dataset.full || link.href;
+          viewerImg.alt = link.dataset.alt || "";
+          viewerAltered?.classList.toggle("hidden", !altered);
+          if (viewerCaption) viewerCaption.textContent = link.dataset.alt || "";
+          viewer.showModal();
+        });
+      });
+      document.getElementById("photo-viewer-close")?.addEventListener("click", () => viewer.close());
+      viewer.addEventListener("click", (e) => {
+        if (e.target === viewer) viewer.close();
+      });
+    }
+  </script>
 </BaseLayout>

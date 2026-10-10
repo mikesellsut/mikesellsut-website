@@ -13,6 +13,10 @@ export interface ListingPhoto {
   /** File name inside src/assets/listings/ */
   file: string;
   alt: string;
+  /** Set true when the MLS marks the photo as digitally altered. Shows a
+   *  "Digitally altered" label on the image (card + full-size viewer).
+   *  Also mention it in the alt text. */
+  digitallyAltered?: boolean;
 }
 
 export interface Listing {
@@ -23,6 +27,7 @@ export interface Listing {
   price: number;
   beds?: number;
   baths?: number;
+  sqft?: number;
   acres?: number;
   town: string;
   subdivision?: string;
@@ -34,6 +39,30 @@ export interface Listing {
 }
 
 export const listings: Listing[] = [
+  {
+    id: "mona-brick-rambler",
+    title: "Brick Rambler on 1.13 Acres with Nebo Views",
+    status: "Active",
+    type: "Home",
+    price: 869900,
+    beds: 7,
+    baths: 4.5,
+    sqft: 4118,
+    acres: 1.13,
+    town: "Mona",
+    blurb:
+      "2006 all-brick rambler on 1.13 acres in Mona with Mt. Nebo and valley views — 7 bedrooms, 4.5 baths, and 4,118 sq ft with a finished basement, vaulted ceilings, and a fireplace. Extra-height 3-car garage, sport court, large shed, mature trees, and a fenced yard, with quick I-15 access to Nephi and Utah County.",
+    mlsNumber: "2190498",
+    mlsUrl: "https://www.utahrealestate.com/2190498",
+    photos: [
+      { file: "mona-old-hwy-91-01.jpg", alt: "Aerial view of the brick rambler and 3-car garage on 1.13 acres in Mona, with Mt. Nebo behind" },
+      { file: "mona-old-hwy-91-02.jpg", alt: "Mt. Nebo view across the lawn from the covered back patio" },
+      { file: "mona-old-hwy-91-03.jpg", alt: "Great room with vaulted ceiling, stone fireplace, and open kitchen (digitally altered photo)", digitallyAltered: true },
+      { file: "mona-old-hwy-91-04.jpg", alt: "Kitchen with a large center island and wood cabinetry" },
+      { file: "mona-old-hwy-91-05.jpg", alt: "Primary bathroom with jetted soaking tub and double vanity" },
+      { file: "mona-old-hwy-91-06.jpg", alt: "Backyard lawn and sport court with Mt. Nebo in the background" },
+    ],
+  },
   {
     id: "holiday-oaks-cabin",
     title: "Off-Grid Cabin on 10 Gated Acres",
