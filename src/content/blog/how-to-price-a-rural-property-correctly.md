@@ -3,7 +3,7 @@ title: "How to Price a Rural Utah Property Correctly — And Why Comps Alone Get
 date: 2026-10-15
 author: "Mike Price"
 category: "Seller Tips"
-featured_image: "/images/areas/sanpete-mountain.jpg"
+featured_image: "/images/areas/ephraim-canyon-wildflowers.jpg"
 excerpt: "Pulling three comps and calling it a price works in a subdivision. In rural Central Utah it doesn't. Here's the actual process I use to price a property correctly."
 published: true
 ---

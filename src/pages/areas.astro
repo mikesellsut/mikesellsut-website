@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
+import { imageAlt } from "../data/siteImages";
 
 const counties = [
   {
@@ -15,7 +16,7 @@ const counties = [
       { name: "Spring City", href: "/areas/spring-city" },
     ],
     image: "/images/areas/sanpete-county-sign.jpg",
-    image2: "/images/areas/sanpete-mountain.jpg",
+    image2: "/images/areas/sanpete-palisade-reservoir.jpg",
     description: `Sanpete County is the heart of Central Utah — and it's one of the most underrated places in the entire state. Nestled between the Wasatch Plateau and the San Pitch Mountains, this valley offers a way of life that's increasingly hard to find: genuine community, stunning natural beauty, and homes you can actually afford.
 
 The historic towns here each have their own personality. Manti is known for its stunning temple and small-town charm. Ephraim is home to Snow College, bringing youthful energy and cultural events year-round. Spring City is an artist's haven with beautifully preserved pioneer-era architecture. Mt. Pleasant offers a growing downtown and strong community spirit. Fairview sits at the north end of the valley with incredible mountain views, while Moroni and Gunnison anchor the southern stretch with agricultural heritage and wide-open spaces.
@@ -29,7 +30,7 @@ Whether you're looking for a historic fixer-upper, a modern family home, a cabin
     name: "Sevier County",
     towns: "Richfield · Salina · Monroe · Aurora",
     image: "/images/areas/sevier-river.jpg",
-    image2: "/images/areas/sevier-ute-stampede.jpg",
+    image2: "/images/areas/sevier-koosharem-reservoir.jpg",
     description: `Sevier County is Central Utah's commercial hub, anchored by Richfield — the largest city in the region. If you want the convenience of shopping, dining, and services without the sprawl and traffic of the Wasatch Front, this is your spot.
 
 Richfield serves as the economic center for a wide swath of rural Utah, with a regional hospital, retail corridors, and a growing job market. Salina sits at the crossroads of I-70 and US-89, making it a natural gateway to Capitol Reef, Fishlake National Forest, and some of the best fly-fishing in the state. Monroe is a quieter, family-oriented town known for its hot springs and stunning red rock surroundings. Aurora offers rural charm with agricultural roots and mountain views.
@@ -47,7 +48,7 @@ Real estate in Sevier County ranges from affordable starter homes to custom-buil
     slug: "millard-county",
     name: "Millard County",
     towns: "Fillmore, Delta",
-    image: "/images/areas/millard-veterans-memorial.jpg",
+    image: "/images/areas/millard-fillmore-courthouse.jpg",
     image2: "/images/areas/millard-meadow-hotsprings.jpg",
     description: `Millard County is where wide-open spaces meet rich history. As home to Utah's original territorial capital, Fillmore carries a deep sense of heritage — and today it's a charming, affordable community that's attracting families and remote workers looking for a quieter pace of life.
 
@@ -67,7 +68,7 @@ Property in Millard County is some of the most affordable in the state, making i
       { name: "Nephi", href: "/areas/nephi" },
     ],
     image: "/images/areas/juab-mt-nebo.jpg",
-    image2: "/images/areas/juab-yuba.jpg",
+    image2: "/images/areas/juab-yuba-reservoir.jpg",
     description: `Juab County offers the best of both worlds: rural Utah charm with remarkably easy access to the Wasatch Front. Nephi, the county seat, sits right off I-15 — putting Provo about 45 minutes away and Salt Lake City just over an hour. For commuters and remote workers, this is a game-changer.
 
 Dominated by the towering Mt. Nebo — the highest peak in the Wasatch Range at 11,928 feet — Juab County delivers some of the most dramatic mountain scenery in the state. The Nebo Loop Scenic Byway is a world-class drive that winds through alpine meadows and ancient forests.
@@ -124,14 +125,14 @@ const collectionSchema = {
           <div class:list={["space-y-4", i % 2 === 1 ? "lg:order-2" : ""]} data-animate>
             <img
               src={county.image}
-              alt={`${county.name} landscape`}
+              alt={imageAlt(county.image, `${county.name}, Utah`)}
               class="w-full h-64 lg:h-80 object-cover rounded-lg shadow-md"
               loading="lazy"
             />
             {county.image2 && (
               <img
                 src={county.image2}
-                alt={`${county.name} scenic view`}
+                alt={imageAlt(county.image2, `${county.name}, Utah`)}
                 class="w-full h-48 lg:h-56 object-cover rounded-lg shadow-md"
                 loading="lazy"
               />

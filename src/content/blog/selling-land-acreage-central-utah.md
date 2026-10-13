@@ -3,7 +3,7 @@ title: "Selling Land or Acreage in Central Utah: Why It's Nothing Like Selling a
 date: 2026-10-17
 author: "Mike Price"
 category: "Seller Tips"
-featured_image: "/images/areas/juab-yuba.jpg"
+featured_image: "/images/areas/juab-yuba-reservoir.jpg"
 excerpt: "Marketing, pricing, and closing a land sale works completely differently than selling a home. Here's what actually moves raw land and acreage in Sanpete, Sevier, Millard & Juab Counties."
 published: true
 ---

@@ -2,7 +2,7 @@
 area_name: "Sevier County"
 county: "Sevier"
 description: "Sevier County is Central Utah's commercial hub, anchored by Richfield, with strong value in the $250K-$400K range and easy access to Fishlake National Forest, Capitol Reef, and Eagle Point Resort. Home to Richfield, Salina, Monroe, and Aurora."
-photo: "/images/areas/sevier-river.jpg"
+photo: "/images/areas/sevier-monroe-mountain-fall.jpg"
 market_highlights: "More balanced inventory than Sanpete or Juab. Best value-to-amenity ratio in Central Utah, with regional healthcare, retail, and schools already in place."
 towns:
   - Richfield

@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContactForm from "../../components/ContactForm.astro";
 import FAQAccordion from "../../components/FAQAccordion.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { imageAlt } from "../../data/siteImages";
 
 const faqs = [
   {
@@ -114,6 +115,18 @@ const agentSchema = {
     </div>
   </section>
   <div class="h-1 bg-gold"></div>
+
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img
+      src="/images/areas/mt-pleasant-evening.jpg"
+      alt={imageAlt("/images/areas/mt-pleasant-evening.jpg", "")}
+      width="1920"
+      height="588"
+      class="w-full h-full object-cover"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
 
   <!-- Intro -->
   <article class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">

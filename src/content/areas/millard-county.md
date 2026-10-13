@@ -2,7 +2,7 @@
 area_name: "Millard County"
 county: "Millard"
 description: "Millard County has some of the most affordable homes and land in Utah, anchored by Fillmore and Delta, and is a strong fit for first-time buyers, land buyers, and anyone prioritizing space and price over commute time."
-photo: "/images/areas/millard-meadow-hotsprings.jpg"
+photo: "/images/areas/millard-fillmore-courthouse.jpg"
 market_highlights: "The most affordable of the four counties, with the most acreage available per dollar. Slower turnover means less competition, but also more patience required."
 towns:
   - Fillmore

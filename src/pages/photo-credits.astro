@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteImages } from "../data/siteImages";
+
+const licensed = siteImages.filter((i) => i.credit && i.credit.licenseUrl);
+const publicDomain = siteImages.filter((i) => i.credit && !i.credit.licenseUrl && i.credit.license === "Public domain");
+const ownPhotos = siteImages.filter((i) => i.credit && i.credit.license === "All rights reserved");
+---
+
+<BaseLayout
+  title="Photo Credits"
+  description="Credits and licenses for the Central Utah photographs used on mikesellsut.com."
+>
+  <section class="bg-navy py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="font-heading text-3xl md:text-4xl text-white uppercase tracking-wide">
+        Photo Credits
+      </h1>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <section class="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto prose prose-lg prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-navy prose-p:text-navy/80 prose-li:text-navy/80 prose-a:text-gold">
+      <p>Thank you to the photographers whose work helps show what Central Utah looks like. The photos below are used under the licenses listed. Each was resized for the web; no other changes were made.</p>
+
+      <h2>Creative Commons Licensed Photos</h2>
+      <ul>
+        {licensed.map((img) => (
+          <li>
+            <a href={img.src}>{img.credit!.title}</a> by {img.credit!.author}. License:{" "}
+            <a href={img.credit!.licenseUrl} target="_blank" rel="noopener noreferrer license">{img.credit!.license}</a>.{" "}
+            Source: <a href={img.credit!.sourceUrl} target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.{" "}
+            Modified: {img.credit!.modified}.
+          </li>
+        ))}
+      </ul>
+
+      <h2>Public Domain Photos</h2>
+      <p>No attribution is required for these, but we list them as a courtesy.</p>
+      <ul>
+        {publicDomain.map((img) => (
+          <li>
+            <a href={img.src}>{img.credit!.title}</a> by {img.credit!.author}. Public domain.{" "}
+            Source: <a href={img.credit!.sourceUrl} target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.{" "}
+            Modified: {img.credit!.modified}.
+          </li>
+        ))}
+      </ul>
+
+      <h2>Our Own Photos</h2>
+      <ul>
+        {ownPhotos.map((img) => (
+          <li><a href={img.src}>{img.credit!.title}</a>: {img.credit!.author}.</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

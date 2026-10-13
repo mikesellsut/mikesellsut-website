@@ -1,4 +1,5 @@
 ---
+import { imageAlt } from "../data/siteImages";
 interface Props {
   title: string;
   excerpt: string;
@@ -29,7 +30,7 @@ const formattedDate = date.toLocaleDateString("en-US", {
     <div class="relative h-44 overflow-hidden">
       <img
         src={image}
-        alt={title}
+        alt={imageAlt(image, title)}
         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         loading="lazy"
       />

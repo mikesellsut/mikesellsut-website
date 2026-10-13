@@ -1,4 +1,5 @@
 ---
+import { imageAlt } from "../../data/siteImages";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import ContactForm from "../../components/ContactForm.astro";
@@ -110,7 +111,7 @@ if (faqSectionMatch) {
     <div class="w-full h-64 md:h-96 overflow-hidden">
       <img
         src={post.data.featured_image}
-        alt={post.data.title}
+        alt={imageAlt(post.data.featured_image, post.data.title)}
         class="w-full h-full object-cover"
       />
     </div>

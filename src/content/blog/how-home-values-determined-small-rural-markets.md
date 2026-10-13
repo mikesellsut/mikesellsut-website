@@ -3,7 +3,7 @@ title: "How Home Values Are Really Determined in Small Rural Markets"
 date: 2026-10-10
 author: "Mike Price"
 category: "Seller Tips"
-featured_image: "/images/areas/sevier-ute-stampede.jpg"
+featured_image: "/images/areas/sevier-koosharem-reservoir.jpg"
 excerpt: "Why pricing a home correctly in a small rural market like Sanpete, Sevier, Millard, or Juab County is different than in a big-city market — and how it's actually done."
 published: true
 ---

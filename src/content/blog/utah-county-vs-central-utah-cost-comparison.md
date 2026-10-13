@@ -3,7 +3,7 @@ title: "Utah County vs. Central Utah: A Real Cost-of-Living and Housing Comparis
 date: 2026-09-12
 author: "Mike Price"
 category: "Neighborhood Guides"
-featured_image: "/images/areas/juab-yuba.jpg"
+featured_image: "/images/areas/juab-yuba-reservoir.jpg"
 excerpt: "A straight comparison of housing costs, commute times, and lifestyle tradeoffs between Utah County and Central Utah's Sanpete, Sevier, Millard, and Juab Counties."
 published: true
 ---

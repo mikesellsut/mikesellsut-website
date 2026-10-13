@@ -3,7 +3,7 @@ title: "Best Areas for Mountain Cabins Near Skyline Drive & Fishlake National Fo
 date: 2026-09-19
 author: "Mike Price"
 category: "Neighborhood Guides"
-featured_image: "/images/areas/sanpete-mountain.jpg"
+featured_image: "/images/areas/ephraim-canyon-wildflowers.jpg"
 excerpt: "Where to look for a mountain cabin near Skyline Drive and Fishlake National Forest in Central Utah, and what each access point actually offers."
 published: true
 ---

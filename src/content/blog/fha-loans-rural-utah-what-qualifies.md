@@ -3,7 +3,7 @@ title: "FHA Loans in Rural Utah: What Qualifies and What Doesn't"
 date: 2026-10-03
 author: "Mike Price"
 category: "Buyer Tips"
-featured_image: "/images/areas/millard-veterans-memorial.jpg"
+featured_image: "/images/areas/nephi-barn.jpg"
 excerpt: "How FHA loans work for buyers in Central Utah — property requirements, manufactured homes, and where FHA makes more sense than USDA or conventional financing."
 published: true
 ---

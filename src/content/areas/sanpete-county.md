@@ -2,7 +2,7 @@
 area_name: "Sanpete County"
 county: "Sanpete"
 description: "Sanpete County is Central Utah's most active market for buyers who want small-town character, historic homes, and land — at prices well below the Wasatch Front. Home to Ephraim, Manti, Mt. Pleasant, Spring City, Fairview, Moroni, and Gunnison."
-photo: "/images/areas/sanpete-mountain.jpg"
+photo: "/images/areas/sanpete-palisade-reservoir.jpg"
 market_highlights: "Tightest inventory of the four counties, especially under $350K. Strong demand from Salt Lake and Utah County buyers relocating for affordability and lifestyle."
 towns:
   - Fairview

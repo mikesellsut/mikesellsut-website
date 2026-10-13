@@ -3,7 +3,7 @@ title: "Waiting for Lower Interest Rates? Why Now May Be the Better Time to Buy 
 date: 2026-06-10
 author: "Mike Price"
 category: "Buyer Tips"
-featured_image: "/images/areas/sanpete-mountain.jpg"
+featured_image: "/images/areas/ephraim-canyon-wildflowers.jpg"
 excerpt: "Many buyers in rural Utah are waiting for mortgage rates to drop before making a move. That sounds reasonable—but waiting may come with a cost."
 published: true
 ---

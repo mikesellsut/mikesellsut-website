@@ -3,7 +3,7 @@ title: "Central Utah Market Trends: What 20 Years of Local Experience Shows"
 date: 2026-10-13
 author: "Mike Price"
 category: "Market Updates"
-featured_image: "/images/areas/sanpete-mountain.jpg"
+featured_image: "/images/areas/ephraim-canyon-wildflowers.jpg"
 excerpt: "Long-term patterns across Sanpete, Sevier, Millard, and Juab County real estate markets, based on two decades of hands-on experience in the region."
 published: true
 ---

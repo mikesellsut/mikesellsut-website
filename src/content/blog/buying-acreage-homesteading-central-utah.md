@@ -3,7 +3,7 @@ title: "What to Know Before Buying Acreage for Homesteading in Central Utah"
 date: 2026-09-26
 author: "Mike Price"
 category: "Utah Living"
-featured_image: "/images/areas/millard-veterans-memorial.jpg"
+featured_image: "/images/areas/nephi-barn.jpg"
 excerpt: "What homesteading-minded buyers need to verify before buying acreage in Sanpete, Sevier, Millard, or Juab County — water, zoning, soil, and realistic expectations."
 published: true
 ---
