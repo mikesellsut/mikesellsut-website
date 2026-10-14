@@ -197,7 +197,9 @@ const realEstateAgentSchema = {
             }
           });
         },
-        { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+        // threshold 0: a tall one-column grid on a phone can never be 15% on screen,
+        // which left blog posts invisible on mobile.
+        { threshold: 0, rootMargin: "0px 0px -10% 0px" }
       );
       document.querySelectorAll("[data-animate-stagger]").forEach((container) => {
         staggerObserver.observe(container);
