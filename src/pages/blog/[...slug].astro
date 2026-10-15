@@ -3,6 +3,7 @@ import { imageAlt } from "../../data/siteImages";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import ContactForm from "../../components/ContactForm.astro";
+import ForSaleBlock from "../../components/ForSaleBlock.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 
@@ -168,6 +169,8 @@ if (faqSectionMatch) {
       </div>
     </div>
   </article>
+
+  <ForSaleBlock />
 
   <!-- Related Posts -->
   {related.length > 0 && (
