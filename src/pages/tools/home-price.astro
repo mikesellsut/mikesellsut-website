@@ -1,0 +1,575 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import "../../styles/tools.css";
+
+const counties = ["Sanpete", "Juab", "Sevier", "Millard", "Utah County", "Other Utah"];
+const types = [
+  { v: "Home on a town lot", d: "House in town, typical lot" },
+  { v: "Home on acreage", d: "House with land around it" },
+  { v: "Cabin", d: "Mountain or recreation cabin" },
+  { v: "Vacant land", d: "No house on it" },
+  { v: "Manufactured/modular on land", d: "Manufactured or modular home with the land" },
+];
+
+const disclaimer =
+  "This tool gives an automated, rough price range for general information only. It is not an appraisal, is not prepared under the Uniform Standards of Professional Appraisal Practice (USPAP), and should not be used for lending, legal, tax, or estate purposes. Mike Price is an active Utah Certified Residential Appraiser, but no appraisal assignment is created by using this tool. For a real market opinion, Mike can provide a free comparative market analysis as your realtor (Heritage Realty Group); a formal appraisal is a separate, paid service.";
+
+const faqs = [
+  {
+    question: "Is this rough price range an appraisal?",
+    answer:
+      "No. It's a simple formula that gives a wide ballpark for general information. It isn't prepared under USPAP and can't be used for a loan, estate, tax or legal purpose. I'm an active Utah Certified Residential Appraiser, but using this tool doesn't create an appraisal assignment. For a real market opinion, I'll pull the comps and give you a free CMA as your realtor.",
+  },
+  {
+    question: "Why doesn't the tool just use price per square foot?",
+    answer:
+      "Out here there aren't tract homes, so price per square foot falls apart fast. Basements don't count the same as above-grade living area, garages don't count as living area at all, and land, water and outbuildings move the price more than the house size. The tool starts from property type, county and acreage, and only shows a square-foot check as a rough side note.",
+  },
+  {
+    question: "Why doesn't each extra acre add the same amount?",
+    answer:
+      "Land has diminishing returns. The first acre, where the house or building site sits, carries the most weight. Each acre after that usually adds less, and the 40th acre adds a lot less than the 2nd. That's why the tool uses acreage tiers instead of a flat dollar amount per acre.",
+  },
+  {
+    question: "How do I get a real number for my property?",
+    answer:
+      "Call or text me at 435-660-0401, or send a message. I'll look at the property, pull the recent sales that actually compare, and give you a free comparative market analysis. If you need a formal appraisal for a lender, estate or legal reason, that's a separate, paid assignment.",
+  },
+];
+
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "What's My Home or Land Worth? Rough Price Range Tool",
+  url: "https://mikesellsut.com/tools/home-price/",
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "Any",
+  description:
+    "Rough asking-price range for a home, cabin or land in Sanpete, Juab, Sevier and Millard County, Utah. Not an appraisal.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  provider: { "@type": "RealEstateAgent", name: "Mike Price", url: "https://mikesellsut.com" },
+};
+---
+
+<BaseLayout
+  title="What's My Home or Land Worth? Rough Price Range"
+  description="Get a rough asking-price ballpark for a home, cabin or land in Sanpete, Juab, Sevier or Millard County — then a real comp-based market opinion from Mike Price."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+
+  <section class="bg-navy py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        What's My Home or Land Worth?
+      </h1>
+      <p class="font-body text-lg text-white/85 max-w-2xl mx-auto">
+        Get a rough price range in about two minutes. It's a starting point from a simple formula, not an appraisal and not a substitute for real comps.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+    <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Tools", url: "/tools/" }, { name: "Rough Price Range" }]} />
+  </div>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-12 pt-4">
+    <div class="msut-tool max-w-3xl mx-auto" id="hp-tool">
+      <form
+        id="hp-form"
+        class="t-card"
+        name="home-price"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        novalidate
+      >
+        <input type="hidden" name="form-name" value="home-price" />
+        <p class="t-hidden-honeypot" aria-hidden="true">
+          <label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <input type="hidden" name="est_low" value="" />
+        <input type="hidden" name="est_high" value="" />
+        <input type="hidden" name="ppsf_low" value="" />
+        <input type="hidden" name="ppsf_high" value="" />
+        <input type="hidden" name="page_url" value="https://mikesellsut.com/tools/home-price/" />
+
+        <p class="t-steplabel" id="hp-steplabel" aria-live="polite">Step 1 of 3</p>
+        <div class="t-progress" aria-hidden="true"><span id="hp-bar" style="width:33%"></span></div>
+
+        <!-- Step 1: Property -->
+        <div data-step="1">
+          <h2 class="t-h2">The property</h2>
+          <fieldset>
+            <legend class="t-label">Property type <span class="t-req">*</span></legend>
+            <div class="t-choices t-cols-2">
+              {types.map((t, i) => (
+                <label class="t-choice">
+                  <input type="radio" name="property_type" value={t.v} checked={i === 0} />
+                  <span><strong>{t.v}</strong><br /><span class="t-help" style="margin:0">{t.d}</span></span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="hp-county">County <span class="t-req">*</span></label>
+              <select id="hp-county" name="county" required>
+                <option value="">Choose a county</option>
+                {counties.map((c) => <option value={c}>{c}</option>)}
+              </select>
+              <p class="t-err" id="hp-county-err"></p>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="hp-town">Nearest town <span class="t-help" style="display:inline">(optional)</span></label>
+              <input id="hp-town" type="text" name="town" autocomplete="address-level2" placeholder="e.g. Manti" />
+            </div>
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="hp-acres">Acreage <span class="t-req" id="hp-acres-req">*</span></label>
+            <input id="hp-acres" type="number" name="acreage" min="0.01" step="0.01" inputmode="decimal" placeholder="e.g. 5" />
+            <span class="t-help" id="hp-acres-help">Land isn't priced flat per acre — the first acre usually matters more than each extra acre.</span>
+            <p class="t-err" id="hp-acres-err"></p>
+          </div>
+          <div class="t-actions">
+            <button type="button" class="t-btn t-btn-primary" data-next="2">Next: details</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Details -->
+        <div data-step="2" hidden>
+          <h2 class="t-h2">Details</h2>
+          <div data-house-only>
+            <div class="t-note">
+              <strong>Square footage, the way an appraiser counts it:</strong> use above-grade living area only. Finished basements don't count the same as main-floor space. Garages don't count toward living square footage at all.
+            </div>
+            <div class="t-grid2">
+              <div class="t-field">
+                <label class="t-label" for="hp-sqft">Above-grade living sq ft <span class="t-help" style="display:inline">(optional)</span></label>
+                <input id="hp-sqft" type="number" name="sqft_above_grade" min="0" step="1" inputmode="numeric" placeholder="e.g. 1600" />
+                <span class="t-help">Use above-grade living area only. Finished basements don't count the same as main-floor space. Garages don't count toward living square footage at all.</span>
+              </div>
+              <div class="t-field">
+                <label class="t-label" for="hp-bsmt">Finished basement sq ft <span class="t-help" style="display:inline">(optional)</span></label>
+                <input id="hp-bsmt" type="number" name="sqft_basement" min="0" step="1" inputmode="numeric" placeholder="e.g. 800" />
+                <span class="t-help">Optional. Not counted the same as above-grade; used only in a rough secondary check, not as the main price.</span>
+              </div>
+            </div>
+            <div class="t-grid2">
+              <div class="t-field">
+                <label class="t-label" for="hp-year">Year built</label>
+                <input id="hp-year" type="number" name="year_built" min="1850" max="2027" step="1" inputmode="numeric" placeholder="e.g. 1978" />
+              </div>
+              <div class="t-grid2" style="gap:0 .75rem">
+                <div class="t-field">
+                  <label class="t-label" for="hp-beds">Bedrooms</label>
+                  <select id="hp-beds" name="beds">
+                    <option value="">—</option>
+                    {["1","2","3","4","5","6+"].map((b) => <option value={b}>{b}</option>)}
+                  </select>
+                </div>
+                <div class="t-field">
+                  <label class="t-label" for="hp-baths">Baths</label>
+                  <select id="hp-baths" name="baths">
+                    <option value="">—</option>
+                    {["1","1.5","2","2.5","3","4+"].map((b) => <option value={b}>{b}</option>)}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="hp-cond">Condition</label>
+              <select id="hp-cond" name="condition">
+                <option>Needs major work</option>
+                <option>Dated but livable</option>
+                <option selected>Average/well kept</option>
+                <option>Updated/remodeled</option>
+              </select>
+            </div>
+          </div>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="hp-water">Water</label>
+              <select id="hp-water" name="water">
+                <option>City/culinary</option>
+                <option>Private well</option>
+                <option>Shares/water rights</option>
+                <option>None/unknown</option>
+              </select>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="hp-power">Power at the property</label>
+              <select id="hp-power" name="power">
+                <option>Yes</option>
+                <option>Nearby</option>
+                <option>No</option>
+              </select>
+            </div>
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="hp-access">Year-round road access</label>
+            <select id="hp-access" name="access">
+              <option>Yes</option>
+              <option>Seasonal</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div class="t-actions">
+            <button type="button" class="t-btn t-btn-secondary" data-back="1">Back</button>
+            <button type="button" class="t-btn t-btn-primary" data-next="3">Next: where to send it</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Contact gate -->
+        <div data-step="3" hidden>
+          <h2 class="t-h2">Where should Mike send this?</h2>
+          <p class="t-help" style="margin:0 0 1rem">Your range shows on this page right after you click the button. Mike gets a copy so he can follow up personally.</p>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="hp-name">First name <span class="t-req">*</span></label>
+              <input id="hp-name" type="text" name="first_name" autocomplete="given-name" required />
+              <p class="t-err" id="hp-name-err"></p>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="hp-email">Email <span class="t-req">*</span></label>
+              <input id="hp-email" type="email" name="email" autocomplete="email" required />
+              <p class="t-err" id="hp-email-err"></p>
+            </div>
+          </div>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="hp-phone">Phone <span class="t-help" style="display:inline">(optional)</span></label>
+              <input id="hp-phone" type="tel" name="phone" autocomplete="tel" />
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="hp-timeline">I'm thinking about</label>
+              <select id="hp-timeline" name="timeline">
+                <option>Selling soon</option>
+                <option>Selling in 6–12 months</option>
+                <option selected>Just curious</option>
+                <option>Buying something similar</option>
+              </select>
+            </div>
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="hp-notes">Notes <span class="t-help" style="display:inline">(optional)</span></label>
+            <textarea id="hp-notes" name="notes" rows="3" placeholder="Shop, outbuildings, water shares, anything else that matters"></textarea>
+          </div>
+          <div class="t-field">
+            <label class="t-check">
+              <input type="checkbox" id="hp-ack" name="ack_not_appraisal" value="yes" required />
+              <span>I understand this is a rough automated price range, not an appraisal. <span class="t-req">*</span></span>
+            </label>
+            <p class="t-err" id="hp-ack-err"></p>
+          </div>
+          <div class="t-actions">
+            <button type="button" class="t-btn t-btn-secondary" data-back="2">Back</button>
+            <button type="submit" class="t-btn t-btn-primary" id="hp-submit">Show my rough price range</button>
+          </div>
+          <p class="t-disclaimer">{disclaimer}</p>
+        </div>
+      </form>
+
+      <!-- Result -->
+      <div id="hp-result" class="t-card" aria-live="polite" hidden tabindex="-1">
+        <p class="t-success" id="hp-sent">Thanks — Mike got your info and will follow up personally.</p>
+        <p class="t-steplabel" style="margin-top:1rem">Rough price range</p>
+        <p class="t-big" id="hp-range">$0 – $0</p>
+        <p>This is a starting point from a simple formula — not comps, not MLS data, and not an appraisal.</p>
+
+        <h3 class="t-h3" style="margin-top:1.25rem">What drove this</h3>
+        <ul class="t-list" id="hp-drivers"></ul>
+
+        <div id="hp-ppsf" class="t-note" hidden></div>
+
+        <p><a class="t-link" href="/blog/price-per-square-foot-doesnt-always-work/">Why we don't lean on price per square foot alone &rarr;</a></p>
+
+        <h3 class="t-h3" style="margin-top:1.25rem">Why Mike's number will be better</h3>
+        <p>I've been appraising and selling in Central Utah a long time. Water, access, outbuildings and the actual recent sales nearby move rural asking prices more than any formula. If you want a real number, I'll pull the comps and give you a free market opinion (CMA) as your realtor.</p>
+        <p class="t-help">Mike Price, Realtor | Heritage Realty Group · Active Utah Certified Residential Appraiser · 2026 President-Elect, <a class="t-link" href="https://utcap.org" target="_blank" rel="noopener">Utah Coalition of Appraisal Professionals</a></p>
+
+        <div class="t-actions">
+          <a class="t-btn t-btn-primary" href="tel:4356600401">Call Mike 435-660-0401</a>
+          <a class="t-btn t-btn-secondary" href="/contact/">Get a free comp-based market opinion</a>
+        </div>
+        <p class="t-disclaimer">{disclaimer}</p>
+        <p style="margin-top:1rem"><button type="button" class="t-link" id="hp-again" style="background:none;border:0;padding:0;cursor:pointer;min-height:44px">Change my answers</button></p>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Rough Price Range Questions" />
+
+  <section class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center font-body text-navy/80">
+      <p>More free tools: <a class="text-gold font-semibold hover:underline" href="/tools/seller-net/">seller net proceeds</a> · <a class="text-gold font-semibold hover:underline" href="/tools/land-checklist/">rural land checklist</a> · <a class="text-gold font-semibold hover:underline" href="/tools/">all tools</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { submitLead, money } from "../../scripts/submitLead";
+
+  // ================================================================
+  // PLACEHOLDERS — Mike to edit. Rough starting numbers only; not comps,
+  // not MLS data, not researched sales. Every number the tool uses is here.
+  // ================================================================
+  const CONFIG = {
+    // Midpoint asking-price ballparks by property type + county
+    baseMid: {
+      "Home on a town lot": { Sanpete: 280000, Juab: 320000, Sevier: 260000, Millard: 220000, "Utah County": 480000, "Other Utah": 300000 },
+      "Home on acreage": { Sanpete: 340000, Juab: 380000, Sevier: 310000, Millard: 260000, "Utah County": 550000, "Other Utah": 360000 },
+      "Cabin": { Sanpete: 240000, Juab: 260000, Sevier: 230000, Millard: 200000, "Utah County": 400000, "Other Utah": 250000 },
+      "Manufactured/modular on land": { Sanpete: 200000, Juab: 220000, Sevier: 190000, Millard: 170000, "Utah County": 320000, "Other Utah": 210000 },
+      // Vacant land: building-site floor, before the acreage tiers are added
+      "Vacant land": { Sanpete: 45000, Juab: 50000, Sevier: 40000, Millard: 30000, "Utah County": 120000, "Other Utah": 45000 },
+    } as Record<string, Record<string, number>>,
+    // Diminishing acreage: [upToAcres, weight]. Each slice of acres counts
+    // less than the one before it. NOT flat $/acre x total acres.
+    acreageTiersHome: [[1, 1.0], [5, 0.55], [20, 0.35], [80, 0.2], [Infinity, 0.12]] as [number, number][],
+    acreageTiersLand: [[1, 1.0], [5, 0.7], [20, 0.5], [80, 0.35], [Infinity, 0.25]] as [number, number][],
+    homeIncludedAcres: 0.5, // acreage homes/cabins/manufactured: first 0.5 ac is in the base
+    landPerAcreRef: { Sanpete: 12000, Juab: 11000, Sevier: 9000, Millard: 5000, "Utah County": 60000, "Other Utah": 9000 } as Record<string, number>,
+    homeAcreAddPerWeightedAcre: { Sanpete: 8000, Juab: 9000, Sevier: 7000, Millard: 5000, "Utah County": 25000, "Other Utah": 8000 } as Record<string, number>,
+    minLandPrice: 25000,
+    condition: { "Needs major work": 0.75, "Dated but livable": 0.9, "Average/well kept": 1.0, "Updated/remodeled": 1.1 } as Record<string, number>,
+    water: { "City/culinary": 1.0, "Private well": 1.0, "Shares/water rights": 1.05, "None/unknown": 0.85 } as Record<string, number>,
+    power: { Yes: 1.0, Nearby: 0.95, No: 0.85 } as Record<string, number>,
+    access: { Yes: 1.0, Seasonal: 0.85, "Not sure": 0.95 } as Record<string, number>,
+    // Water/power/access count fully on vacant land, half as much on homes
+    siteFactorWeightHome: 0.5,
+    // SECONDARY above-grade sq-ft check only. Labeled rough. Never the main range.
+    ppsfAboveGrade: { Sanpete: 210, Juab: 230, Sevier: 200, Millard: 175, "Utah County": 330, "Other Utah": 220 } as Record<string, number>,
+    basementPpsfFactor: 0.5, // finished basement counts at half in the side check
+    spreadPct: 0.2,
+    thinSpreadPct: 0.3, // Other Utah, or very large acreage (few sales to compare)
+    thinAcres: 80,
+    roundTo: 5000,
+    ppsfDisagreePct: 0.25,
+  };
+  // ================================================================
+
+  const form = document.getElementById("hp-form") as HTMLFormElement;
+  const result = document.getElementById("hp-result") as HTMLElement;
+  const steps = Array.from(form.querySelectorAll<HTMLElement>("[data-step]"));
+  const stepLabel = document.getElementById("hp-steplabel")!;
+  const bar = document.getElementById("hp-bar")!;
+  const acresReq = document.getElementById("hp-acres-req")!;
+  const acresHelp = document.getElementById("hp-acres-help")!;
+  const houseOnly = form.querySelector<HTMLElement>("[data-house-only]")!;
+
+  const val = (name: string) => {
+    const el = form.elements.namedItem(name) as RadioNodeList | HTMLInputElement | null;
+    return el ? String((el as HTMLInputElement).value ?? "").trim() : "";
+  };
+  const num = (name: string) => {
+    const n = parseFloat(val(name));
+    return Number.isFinite(n) && n > 0 ? n : 0;
+  };
+  const isLand = () => val("property_type") === "Vacant land";
+  const isTownLot = () => val("property_type") === "Home on a town lot";
+
+  function setErr(id: string, msg: string, input?: HTMLElement | null) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = msg;
+    if (input) input.setAttribute("aria-invalid", msg ? "true" : "false");
+  }
+
+  function syncType() {
+    houseOnly.hidden = isLand();
+    acresReq.hidden = isTownLot();
+    acresHelp.textContent = isTownLot()
+      ? "Optional for a town lot — leave blank and the tool assumes about a quarter acre."
+      : "Land isn't priced flat per acre — the first acre usually matters more than each extra acre.";
+  }
+  form.querySelectorAll('input[name="property_type"]').forEach((r) => r.addEventListener("change", syncType));
+  syncType();
+
+  function validate(step: number): boolean {
+    let ok = true;
+    if (step === 1) {
+      const county = form.elements.namedItem("county") as HTMLSelectElement;
+      setErr("hp-county-err", county.value ? "" : "Pick a county.", county);
+      if (!county.value) ok = false;
+      const acres = form.elements.namedItem("acreage") as HTMLInputElement;
+      const a = parseFloat(acres.value);
+      let msg = "";
+      if (acres.value && (!Number.isFinite(a) || a <= 0)) msg = "Enter acreage as a number above 0, like 2.5.";
+      else if (!acres.value && !isTownLot()) msg = "Enter the acreage (a rough number is fine).";
+      setErr("hp-acres-err", msg, acres);
+      if (msg) ok = false;
+    }
+    if (step === 3) {
+      const name = form.elements.namedItem("first_name") as HTMLInputElement;
+      const email = form.elements.namedItem("email") as HTMLInputElement;
+      const ack = form.elements.namedItem("ack_not_appraisal") as HTMLInputElement;
+      setErr("hp-name-err", name.value.trim() ? "" : "Enter your first name.", name);
+      const emailOk = email.value.trim() !== "" && email.checkValidity();
+      setErr("hp-email-err", emailOk ? "" : "Enter a valid email address.", email);
+      setErr("hp-ack-err", ack.checked ? "" : "Please check the box to confirm this isn't an appraisal.", ack);
+      ok = !!name.value.trim() && emailOk && ack.checked;
+    }
+    if (!ok) {
+      const first = form.querySelector<HTMLElement>(`[data-step="${step}"] [aria-invalid="true"]`);
+      first?.focus();
+    }
+    return ok;
+  }
+
+  function show(step: number) {
+    steps.forEach((s) => (s.hidden = s.dataset.step !== String(step)));
+    stepLabel.textContent = `Step ${step} of 3`;
+    bar.style.width = `${Math.round((step / 3) * 100)}%`;
+    form.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  form.querySelectorAll<HTMLButtonElement>("[data-next]").forEach((b) =>
+    b.addEventListener("click", () => {
+      const cur = Number(b.dataset.next) - 1;
+      if (validate(cur)) show(Number(b.dataset.next));
+    })
+  );
+  form.querySelectorAll<HTMLButtonElement>("[data-back]").forEach((b) =>
+    b.addEventListener("click", () => show(Number(b.dataset.back)))
+  );
+
+  // Weighted acres: each slice of acres counts at its tier's weight.
+  function weightedAcres(acres: number, tiers: [number, number][]) {
+    let rest = acres, prev = 0, total = 0;
+    for (const [upTo, w] of tiers) {
+      const slice = Math.min(rest, upTo - prev);
+      if (slice <= 0) break;
+      total += slice * w;
+      rest -= slice;
+      prev = upTo;
+    }
+    return total;
+  }
+  const soften = (f: number, weight: number) => 1 - (1 - f) * weight;
+
+  function calc() {
+    const type = val("property_type");
+    const county = val("county") || "Other Utah";
+    const land = type === "Vacant land";
+    const acres = num("acreage") || (type === "Home on a town lot" ? 0.25 : 0);
+    const drivers: string[] = [];
+    const base = CONFIG.baseMid[type]?.[county] ?? CONFIG.baseMid[type]["Other Utah"];
+    const fw = CONFIG.water[val("water")] ?? 1;
+    const fp = CONFIG.power[val("power")] ?? 1;
+    const fa = CONFIG.access[val("access")] ?? 1;
+    let mid: number;
+
+    if (land) {
+      const wa = weightedAcres(acres, CONFIG.acreageTiersLand);
+      const adder = wa * CONFIG.landPerAcreRef[county];
+      mid = Math.max(CONFIG.minLandPrice, base + adder) * fw * fp * fa;
+      drivers.push(`Starting point for vacant land in ${county}: a building-site ballpark, before acreage.`);
+      drivers.push(`Acreage with diminishing returns: your ${acres} acres count like about ${wa.toFixed(1)} "full" acres. The first acre carries the most weight, and each block of acres after that adds less.`);
+    } else {
+      mid = base;
+      drivers.push(`Starting point for a ${type.toLowerCase()} in ${county}.`);
+      if (type !== "Home on a town lot") {
+        const extra = Math.max(0, acres - CONFIG.homeIncludedAcres);
+        const wa = weightedAcres(extra, CONFIG.acreageTiersHome);
+        mid += wa * CONFIG.homeAcreAddPerWeightedAcre[county];
+        drivers.push(
+          extra > 0
+            ? `Acreage with diminishing returns: the first half acre is in the starting point, and the other ${extra.toFixed(2).replace(/\.00$/, "")} acres count like about ${wa.toFixed(1)} acres, not a flat amount per acre.`
+            : "Acreage: about a half acre or less, so no land added beyond the starting point."
+        );
+      } else {
+        drivers.push("Town lot: no separate land adder. In-town lot size matters less than it does on acreage.");
+      }
+      const fc = CONFIG.condition[val("condition")] ?? 1;
+      mid *= fc;
+      drivers.push(`Condition: ${val("condition")}.`);
+      const w = CONFIG.siteFactorWeightHome;
+      mid *= soften(fw, w) * soften(fp, w) * soften(fa, w);
+    }
+    drivers.push(`Water: ${val("water")} · Power: ${val("power")} · Year-round access: ${val("access")}.${land ? " These count heavily on vacant land." : ""}`);
+
+    const thin = county === "Other Utah" || acres > CONFIG.thinAcres;
+    const spread = thin ? CONFIG.thinSpreadPct : CONFIG.spreadPct;
+    if (thin) drivers.push(`Wider range (±${spread * 100}%) because there are fewer sales to compare for this kind of property.`);
+    const r = CONFIG.roundTo;
+    let low = Math.max(r, Math.floor((mid * (1 - spread)) / r) * r);
+    let high = Math.ceil((mid * (1 + spread)) / r) * r;
+    if (high <= low) high = low + r;
+
+    // Secondary above-grade sq-ft check (never the main range)
+    let ppsf: null | { low: number; high: number; far: boolean } = null;
+    const sqft = num("sqft_above_grade");
+    if (!land && sqft > 0) {
+      const p = CONFIG.ppsfAboveGrade[county];
+      const fc = CONFIG.condition[val("condition")] ?? 1;
+      const pm = (sqft * p + num("sqft_basement") * p * CONFIG.basementPpsfFactor) * fc;
+      ppsf = {
+        low: Math.floor((pm * (1 - CONFIG.spreadPct)) / r) * r,
+        high: Math.ceil((pm * (1 + CONFIG.spreadPct)) / r) * r,
+        far: Math.abs(pm - mid) / mid > CONFIG.ppsfDisagreePct,
+      };
+    }
+    return { mid, low, high, drivers, ppsf };
+  }
+
+  function render(res: ReturnType<typeof calc>, sent: boolean) {
+    document.getElementById("hp-range")!.textContent = `${money(res.low)} – ${money(res.high)}`;
+    const ul = document.getElementById("hp-drivers")!;
+    ul.innerHTML = "";
+    res.drivers.forEach((d) => {
+      const li = document.createElement("li");
+      li.textContent = d;
+      ul.appendChild(li);
+    });
+    const box = document.getElementById("hp-ppsf")!;
+    if (res.ppsf) {
+      box.hidden = false;
+      box.innerHTML = "";
+      const p1 = document.createElement("p");
+      p1.innerHTML = `<strong>Rough above-grade sq-ft check:</strong> about ${money(res.ppsf.low)} – ${money(res.ppsf.high)}. This is not the main range. It ignores land, water and outbuildings, and finished basement space counts at half. Basements and garages aren't full living area.`;
+      box.appendChild(p1);
+      if (res.ppsf.far) {
+        const p2 = document.createElement("p");
+        p2.style.marginTop = ".5rem";
+        p2.textContent = "This sq-ft check often disagrees with rural asking prices — trust the main range more, then get comps from Mike.";
+        box.appendChild(p2);
+      }
+      const ul2 = document.createElement("li");
+      ul2.textContent = "A rough above-grade sq-ft check is shown below as a side note only. It isn't blended into the range.";
+      ul.appendChild(ul2);
+    } else {
+      box.hidden = true;
+    }
+    (document.getElementById("hp-sent") as HTMLElement).hidden = !sent;
+    form.hidden = true;
+    result.hidden = false;
+    result.focus({ preventScroll: true });
+    result.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!validate(1)) return show(1);
+    if (!validate(3)) return;
+    const res = calc();
+    (form.elements.namedItem("est_low") as HTMLInputElement).value = String(res.low);
+    (form.elements.namedItem("est_high") as HTMLInputElement).value = String(res.high);
+    (form.elements.namedItem("ppsf_low") as HTMLInputElement).value = res.ppsf ? String(res.ppsf.low) : "";
+    (form.elements.namedItem("ppsf_high") as HTMLInputElement).value = res.ppsf ? String(res.ppsf.high) : "";
+    (form.elements.namedItem("page_url") as HTMLInputElement).value = window.location.href;
+    const btn = document.getElementById("hp-submit") as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = "Working…";
+    const sent = await submitLead(form);
+    btn.disabled = false;
+    btn.textContent = "Show my rough price range";
+    render(res, sent);
+  });
+
+  document.getElementById("hp-again")!.addEventListener("click", () => {
+    result.hidden = true;
+    form.hidden = false;
+    show(1);
+  });
+</script>

@@ -51,7 +51,7 @@ Your monthly mortgage payment is just one piece of the puzzle. As a first-time b
 
 - **Property taxes** — these vary by county and city in Utah. I can help you estimate taxes for specific properties.
 - **Homeowner's insurance** — required by your lender, and costs depend on the property and coverage level.
-- **Maintenance and repairs** — a good rule of thumb is to set aside 1% of your home's value per year for maintenance.
+- **Maintenance and repairs** — a good rule of thumb is to set aside about 1% of your purchase price per year for maintenance.
 - **Utilities** — heating a home in Central Utah winters costs more than an apartment. Ask about average utility costs before you buy.
 - **HOA fees** — if applicable, these can add $50-$300+ per month.
 
@@ -63,7 +63,7 @@ In Central Utah, you have incredible variety within a short driving distance. Bu
 
 - **Commute times** vary widely. If you work along the Wasatch Front, Nephi (Juab County) puts you about 45 minutes from Provo. Richfield (Sevier County) is closer to 90 minutes. See my [cost comparison between Utah County and Central Utah](/blog/utah-county-vs-central-utah-cost-comparison) for a detailed breakdown.
 - **School districts** differ in quality and culture. If you have kids, research the local schools.
-- **Property values** can vary significantly from one town to the next, even within the same county. Check out the [best small towns for remote workers](/blog/best-small-towns-remote-workers-central-utah) for a town-by-town comparison.
+- **Home prices** can vary significantly from one town to the next, even within the same county. Check out the [best small towns for remote workers](/blog/best-small-towns-remote-workers-central-utah) for a town-by-town comparison.
 - **Land use and zoning** rules vary. If you want to have animals, run a home business, or build a shop, you need to check local regulations. If [land and acreage](/land) is part of your plan, read my buying guide first.
 
 This is where my 20 years of local market knowledge comes in. I know these communities inside and out — not just the real estate data, but the feel of each town, the school environments, the commute realities, and the future growth potential.
@@ -88,4 +88,4 @@ It can be as little as $0 with a [USDA loan](/blog/usda-rural-development-loans-
 Yes. Even new construction can have issues — I've seen brand-new homes with problems the builder needed to fix. A $300-$500 inspection is inexpensive insurance against a much bigger repair bill later.
 
 ### What other costs should I budget for besides my mortgage payment?
-Property taxes, homeowner's insurance, routine maintenance (budget roughly 1% of the home's value per year), utilities, and HOA fees if applicable. I walk every first-time buyer through the full picture, not just the purchase price.
+Property taxes, homeowner's insurance, routine maintenance (budget roughly 1% of the purchase price per year), utilities, and HOA fees if applicable. I walk every first-time buyer through the full picture, not just the purchase price.

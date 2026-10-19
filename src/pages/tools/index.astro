@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { tools } from "../../data/tools";
+
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Free Central Utah real estate tools",
+  itemListElement: tools.map((t, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: t.name,
+    url: `https://mikesellsut.com/tools/${t.slug}/`,
+  })),
+};
+---
+
+<BaseLayout
+  title="Free Tools for Central Utah Buyers & Sellers"
+  description="Free tools for homes, cabins and land in Sanpete, Juab, Sevier and Millard County: a rough price range, a rural land checklist, a cabin and land cost calculator, a seller net estimator and a loan chooser."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemList)} />
+
+  <section class="bg-navy py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Free Tools
+      </h1>
+      <p class="font-body text-lg text-white/85 max-w-2xl mx-auto">
+        Rough numbers and checklists for buying and selling homes, cabins and land in Central Utah. Use them to think it through, then call me for the real answer on a specific property.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+    <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Tools" }]} />
+  </div>
+
+  <section class="px-4 sm:px-6 lg:px-8 py-10">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      {tools.map((t) => (
+        <a
+          href={`/tools/${t.slug}/`}
+          class="group block p-6 sm:p-8 bg-white rounded-lg border border-navy/10 hover:border-gold/60 hover:shadow-md transition-all duration-200"
+        >
+          <h2 class="font-heading text-xl text-navy uppercase tracking-wide mb-2">{t.name}</h2>
+          <p class="font-body text-navy/75 leading-relaxed mb-4">{t.blurb}</p>
+          <span class="font-semibold text-gold group-hover:underline">{t.cta} &rarr;</span>
+        </a>
+      ))}
+    </div>
+    <div class="max-w-3xl mx-auto mt-10 text-sm font-body text-navy/70 bg-white/60 border border-navy/10 rounded-lg p-5">
+      <p>
+        These tools give rough estimates and general information only. None of them is an appraisal, a loan offer, or legal, tax or financial advice. I'm an active Utah Certified Residential Appraiser, but using these tools doesn't create an appraisal assignment. For a real market opinion on your property, call or text me at <a href="tel:4356600401" class="font-semibold text-navy underline decoration-gold">435-660-0401</a>.
+      </p>
+      <p class="mt-2">Mike Price, Realtor | Heritage Realty Group · P.O. Box 431, Spring City, UT 84662</p>
+    </div>
+  </section>
+</BaseLayout>

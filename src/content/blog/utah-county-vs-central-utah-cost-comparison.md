@@ -3,7 +3,7 @@ title: "Utah County vs. Central Utah: A Real Cost-of-Living and Housing Comparis
 date: 2026-09-12
 author: "Mike Price"
 category: "Neighborhood Guides"
-featured_image: "/images/areas/juab-yuba-reservoir.jpg"
+featured_image: "/images/areas/utah-county-utah-lake-timpanogos.jpg"
 excerpt: "A straight comparison of housing costs, commute times, and lifestyle tradeoffs between Utah County and Central Utah's Sanpete, Sevier, Millard, and Juab Counties."
 published: true
 ---
@@ -152,7 +152,7 @@ Primarily amenity density — restaurants, retail, specialty healthcare, enterta
 ### Can I get a USDA loan in Central Utah but not Utah County?
 In most cases, yes. Most of Central Utah qualifies for USDA Rural Development financing (0% down), while Utah County's more populated areas do not. This alone can make the financial difference between continuing to rent and being able to buy.
 
-### What about property values — will my Central Utah home appreciate?
-Central Utah has seen steady appreciation, particularly in Sanpete County and areas popular with remote workers. The appreciation rate is typically more moderate than Utah County's boom-and-bust cycles, which can actually be an advantage for stability. As a [certified appraiser and REALTOR](/selling), I can give you a realistic read on value trends for specific areas.
+### What about home prices — will my Central Utah home appreciate?
+Central Utah has seen steady appreciation, particularly in Sanpete County and areas popular with remote workers. The appreciation rate is typically more moderate than Utah County's boom-and-bust cycles, which can actually be an advantage for stability. As a [certified appraiser and REALTOR](/selling), I can give you a realistic read on price trends for specific areas.
 
 If you're weighing this move, I can walk you through actual current listings in both markets so you're comparing real numbers, not averages. [Let's talk](/contact) — a 15-minute conversation can save you months of uncertainty.

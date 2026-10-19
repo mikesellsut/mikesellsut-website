@@ -3,7 +3,7 @@ title: "Waiting for Lower Interest Rates? Why Now May Be the Better Time to Buy 
 date: 2026-06-10
 author: "Mike Price"
 category: "Buyer Tips"
-featured_image: "/images/areas/ephraim-canyon-wildflowers.jpg"
+featured_image: "/images/areas/sevier-salina-main-street.jpg"
 excerpt: "Many buyers in rural Utah are waiting for mortgage rates to drop before making a move. That sounds reasonable—but waiting may come with a cost."
 published: true
 ---
@@ -82,7 +82,7 @@ Before deciding to wait, take a serious look at what is available in your specif
 Not necessarily. If rates fall, more buyers typically reenter the market, which can create competition for the limited inventory in rural communities. Buying a well-priced property now and considering a refinance later, if the numbers make sense, is often a stronger position than waiting on a rate prediction.
 
 ### Is now a good time to sell in rural Central Utah?
-Yes, if your home is priced accurately. Qualified buyers are still active, and well-priced rural properties attract serious attention. Working with someone who understands [property values from an appraisal perspective](/selling) helps you price right from day one.
+Yes, if your home is priced accurately. Qualified buyers are still active, and well-priced rural properties attract serious attention. Working with someone who understands [pricing from an appraisal perspective](/selling) helps you price right from day one.
 
 ### Does a lower interest rate always mean a lower overall cost?
 No. If waiting for a lower rate means paying a higher purchase price or entering a multiple-offer situation, the overall cost can end up higher than buying now at today's price and rate. The total cost of a home is a combination of purchase price, interest rate, loan term, and closing costs — not any single factor.

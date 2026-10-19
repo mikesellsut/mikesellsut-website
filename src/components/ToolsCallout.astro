@@ -1,0 +1,45 @@
+---
+// "Free tools" call-out linking to pages under /tools/.
+// Pass `only` (tool slugs, in display order) to show a subset.
+import { tools } from "../data/tools";
+
+interface Props {
+  only?: string[];
+  heading?: string;
+  intro?: string;
+  class?: string;
+}
+
+const {
+  only,
+  heading = "Free Tools",
+  intro = "Rough numbers and checklists to help you think it through before we talk.",
+  class: className = "",
+} = Astro.props;
+
+const list = only
+  ? only.map((s) => tools.find((t) => t.slug === s)).filter((t): t is NonNullable<typeof t> => t != null)
+  : tools;
+---
+
+<section class:list={["py-12 lg:py-16 px-4 sm:px-6 lg:px-8", className]}>
+  <div class="max-w-5xl mx-auto">
+    <h2 class="font-heading text-2xl md:text-3xl text-navy uppercase tracking-wide text-center mb-2">{heading}</h2>
+    <p class="font-body text-navy/70 text-center mb-8 max-w-2xl mx-auto">{intro}</p>
+    <div class:list={["grid grid-cols-1 gap-5", list.length >= 3 ? "md:grid-cols-3" : "md:grid-cols-2"]}>
+      {list.map((t) => (
+        <a
+          href={`/tools/${t.slug}/`}
+          class="group block p-6 bg-white rounded-lg border border-navy/10 hover:border-gold/60 hover:shadow-md transition-all duration-200"
+        >
+          <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-2">{t.name}</h3>
+          <p class="font-body text-sm text-navy/70 leading-relaxed mb-4">{t.blurb}</p>
+          <span class="font-semibold text-gold group-hover:underline">{t.cta} &rarr;</span>
+        </a>
+      ))}
+    </div>
+    <p class="text-center mt-6">
+      <a href="/tools/" class="font-semibold text-navy underline decoration-gold underline-offset-4 hover:text-gold">See all free tools</a>
+    </p>
+  </div>
+</section>

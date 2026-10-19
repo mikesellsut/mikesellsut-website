@@ -3,7 +3,7 @@ title: "Central Utah Market Trends: What 20 Years of Local Experience Shows"
 date: 2026-10-13
 author: "Mike Price"
 category: "Market Updates"
-featured_image: "/images/areas/ephraim-canyon-wildflowers.jpg"
+featured_image: "/images/areas/millard-fillmore-territorial-statehouse.jpg"
 excerpt: "Long-term patterns across Sanpete, Sevier, Millard, and Juab County real estate markets, based on two decades of hands-on experience in the region."
 published: true
 ---
@@ -128,7 +128,7 @@ Generally, yes, over the long term — driven by demand from cabin buyers, homes
 ### Is now a good time to buy in Central Utah?
 I do not give generic timing advice because the answer depends on your specific situation — your financing, your goals, and which part of Central Utah you are targeting. What I can tell you is that the structural demand drivers are strong and persistent, inventory is limited, and the buyers who have done best over my 20 years are the ones who bought when they found the right property rather than trying to time the market.
 
-### How do I get an accurate value read on a specific property?
-Talk to someone who works this market daily and understands appraisal methodology. County-wide averages and online estimates are nearly useless for rural Central Utah properties where the value depends heavily on specific factors like water rights, access, condition, and acreage quality. As a certified appraiser and REALTOR, I can give you a value assessment grounded in actual comparable sales data.
+### How do I get an accurate price read on a specific property?
+Talk to someone who works this market daily and understands appraisal methodology. County-wide averages and online estimates are nearly useless for rural Central Utah properties where the price depends heavily on specific factors like water rights, access, condition, and acreage quality. As a certified appraiser and REALTOR, I can give you a market opinion grounded in actual comparable sales data. That's a realtor's CMA, not an appraisal.
 
 If you want a market read that is specific to your target town rather than a county-wide average, that is the conversation I have with buyers and [sellers](/selling) every week — [let's have it](/contact).

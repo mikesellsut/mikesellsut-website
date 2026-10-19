@@ -3,7 +3,7 @@ title: "FHA Loan Requirements in Utah: What Qualifies for Rural Property"
 date: 2026-10-03
 author: "Mike Price"
 category: "Buyer Tips"
-featured_image: "/images/areas/nephi-barn.jpg"
+featured_image: "/images/areas/millard-scipio-historic-home.jpg"
 excerpt: "FHA loan requirements in Utah, explained for rural buyers — which Central Utah properties qualify, how manufactured homes are treated, and when FHA makes more sense than USDA or conventional financing."
 published: true
 ---

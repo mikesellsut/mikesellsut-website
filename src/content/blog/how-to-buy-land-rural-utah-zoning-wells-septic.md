@@ -95,7 +95,7 @@ A road might visibly lead to a parcel, but if it crosses someone else's property
 - Whether access is year-round or seasonal — some mountain and foothill parcels are accessible only part of the year
 - Whether the access road can support the kind of vehicles and equipment you need (construction trucks, RVs, trailers)
 
-Access issues affect not just your daily use of the property but also your ability to get insurance, your property value, and your ability to resell. Lenders may also have requirements about legal access before they will finance a purchase.
+Access issues affect not just your daily use of the property but also your ability to get insurance, what the property will sell for, and your ability to resell. Lenders may also have requirements about legal access before they will finance a purchase.
 
 ## Utilities
 
@@ -131,7 +131,7 @@ Before I recommend any land purchase to a client, I verify:
 8. ✅ Title search for liens, encumbrances, or boundary issues
 9. ✅ Survey completed or ordered
 
-This is not an exhaustive list, but it covers the issues that catch the most buyers off guard. For a deeper dive into all the factors that affect land value and the buying process, see my complete guide to [buying and selling land in Central Utah](/land).
+This is not an exhaustive list, but it covers the issues that catch the most buyers off guard. For a deeper dive into all the factors that affect land prices and the buying process, see my complete guide to [buying and selling land in Central Utah](/land).
 
 ## Frequently Asked Questions
 
@@ -142,7 +142,7 @@ Yes, strongly recommended. Confirm documented water rights and, if there's an ex
 A percolation test measures how well soil absorbs water and determines whether a parcel can support a septic system. If the land isn't on municipal sewer — and most rural land in Central Utah is not — you'll need a passing perc test before you can build. Some parcels fail this test or require expensive engineered alternatives.
 
 ### Can I buy land in Utah without confirmed road access?
-You can, but it's risky. Always verify whether access is a recorded, legal easement rather than assuming a visible road grants you the right to use it. Access issues affect insurance, financing, property value, and your ability to resell.
+You can, but it's risky. Always verify whether access is a recorded, legal easement rather than assuming a visible road grants you the right to use it. Access issues affect insurance, financing, price, and your ability to resell.
 
 ### Is agricultural-zoned land the same as residential land in Utah?
 No. Agricultural zoning often restricts the number of structures and may require minimum acreage for additional dwellings. It may also allow uses that residential zoning does not, like livestock. Always confirm current zoning with the county before assuming what you can build.

@@ -3,7 +3,7 @@ title: "How to Price a Rural Utah Property Correctly — And Why Comps Alone Get
 date: 2026-10-15
 author: "Mike Price"
 category: "Seller Tips"
-featured_image: "/images/areas/ephraim-canyon-wildflowers.jpg"
+featured_image: "/images/areas/sanpete-sagebrush-foothills.jpg"
 excerpt: "Pulling three comps and calling it a price works in a subdivision. In rural Central Utah it doesn't. Here's the actual process I use to price a property correctly."
 published: true
 ---
@@ -26,9 +26,9 @@ This is exactly where automated estimate tools fail — they either don't widen 
 
 Once I have a comp set, the adjustments in rural Central Utah usually come down to a consistent list:
 
-- **Water** — irrigation shares, a private well versus municipal hookup, and water rights generally can shift value more than an extra bedroom would
-- **Outbuildings and shops** — a finished shop or a working barn is real value that doesn't show up in a home's square footage at all
-- **Access** — county-maintained road versus a private easement affects both value and financeability, which affects your buyer pool
+- **Water** — irrigation shares, a private well versus municipal hookup, and water rights generally can shift the price more than an extra bedroom would
+- **Outbuildings and shops** — a finished shop or a working barn is real money in the price that doesn't show up in a home's square footage at all
+- **Access** — county-maintained road versus a private easement affects both price and financeability, which affects your buyer pool
 - **Condition of systems** — septic and well age and condition specifically, since replacement costs are significant and buyers' lenders will flag them
 - **Zoning and permitted use** — agricultural exemptions, ability to subdivide, or restrictions that affect what a buyer can actually do with the land
 
@@ -42,7 +42,7 @@ If you want the county-by-county version of this — what's actually moving wher
 
 ## Why This Matters More Than People Think
 
-An imprecise price doesn't just cost you money — it costs you the buyers who would have paid the most. The buyers most likely to pay full value are the ones watching new listings in the first week. Price it wrong and by the time you correct it, that audience has already moved on to something else. Getting the number right the first time isn't about caution — it's about not leaving money on the table with the buyers who were ready to pay it.
+An imprecise price doesn't just cost you money — it costs you the buyers who would have paid the most. The buyers most likely to pay full price are the ones watching new listings in the first week. Price it wrong and by the time you correct it, that audience has already moved on to something else. Getting the number right the first time isn't about caution — it's about not leaving money on the table with the buyers who were ready to pay it.
 
 If you're getting ready to [sell in Central Utah](/selling), I'll walk your property in person and build this analysis specifically for it — not a desktop estimate, not a plug-and-play tool. [Reach out](/contact) and let's talk about where your property should actually be priced.
 

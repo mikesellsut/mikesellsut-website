@@ -27,7 +27,7 @@ const formattedDate = post.data.date.toLocaleDateString("en-US", {
 // Related posts (same category, exclude current)
 const allPosts = await getCollection("blog");
 const related = allPosts
-  .filter((p) => p.data.published && p.data.category === post.data.category && p.slug !== post.slug)
+  .filter((p) => p.data.published && new Date(p.data.date) <= new Date() && p.data.category === post.data.category && p.slug !== post.slug)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 

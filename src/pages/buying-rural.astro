@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
+import ToolsCallout from "../components/ToolsCallout.astro";
 import FAQAccordion from "../components/FAQAccordion.astro";
 import BlogCard from "../components/BlogCard.astro";
 import { getCollection } from "astro:content";
@@ -19,7 +20,7 @@ const relatedPosts = relatedSlugs
 const faqs = [
   {
     question: "What is the difference between water rights and water shares?",
-    answer: "Water rights are a legal right to use water from a specific source — a well, a spring, or a creek — attached to a property or owner. Water shares are ownership in an irrigation company that delivers water from a reservoir or canal system on a schedule. Both have value and both transfer differently. Whether a property has one, both, or neither meaningfully affects what you can do with the land and what it is worth. I will help you understand exactly what water situation a property has before you commit.",
+    answer: "Water rights are a legal right to use water from a specific source — a well, a spring, or a creek — attached to a property or owner. Water shares are ownership in an irrigation company that delivers water from a reservoir or canal system on a schedule. Both matter and both transfer differently. Whether a property has one, both, or neither meaningfully affects what you can do with the land and what it can sell for. I will help you understand exactly what water situation a property has before you commit.",
   },
   {
     question: "What should I know about wells and septic systems?",
@@ -38,15 +39,15 @@ const faqs = [
     answer: "USDA Rural Development loans are government-backed mortgages designed for rural areas. They offer zero down payment, competitive interest rates, and reduced mortgage insurance. Most of Juab, Sanpete, Sevier, and Millard County qualifies, as do many parts of rural Utah County. There are income limits and property requirements, but for many buyers this is the best financing option available for rural property.",
   },
   {
-    question: "Why is square footage not always the most important factor in rural property value?",
-    answer: "In a suburban neighborhood, homes are similar enough that square footage is a reliable way to compare value. In rural Central Utah, a 1,500-square-foot home on 10 acres with a well, a shop, and water rights is a fundamentally different property than a 1,500-square-foot home on a quarter acre in town — even if the houses themselves are comparable. Lot size, outbuildings, water, access, and condition of improvements all carry weight that is at least as significant as the house's footprint.",
+    question: "Why is square footage not always the most important factor in rural property pricing?",
+    answer: "In a suburban neighborhood, homes are similar enough that square footage is a reliable way to compare prices. In rural Central Utah, a 1,500-square-foot home on 10 acres with a well, a shop, and water rights is a fundamentally different property than a 1,500-square-foot home on a quarter acre in town — even if the houses themselves are comparable. Lot size, outbuildings, water, access, and condition of improvements all carry weight that is at least as significant as the house's footprint.",
   },
 ];
 ---
 
 <BaseLayout
   title="Buying Rural Property in Central Utah"
-  description="Buy rural property in Central Utah with an agent who understands wells, septic, water rights, acreage, and what actually drives value outside the suburbs."
+  description="Buy rural property in Central Utah with an agent who understands wells, septic, water rights, acreage, and what actually drives price outside the suburbs."
 >
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -99,7 +100,7 @@ const faqs = [
           These are not deal-killers. They are simply part of rural property ownership. But you need to understand them before you buy, and you need an agent who knows what to look for and what questions to ask.
         </p>
         <p>
-          That is what I do. I have spent my career working with rural property across Central Utah — not just selling it, but understanding how to evaluate it. My background as a certified appraiser means I know how wells, septic systems, water rights, outbuildings, and acreage affect a property's real value, not just its listing price.
+          That is what I do. I have spent my career working with rural property across Central Utah — not just selling it, but understanding how to evaluate it. My background as a certified appraiser means I know how wells, septic systems, water rights, outbuildings, and acreage affect what buyers (and lenders) will pay, not just the list price.
         </p>
       </div>
     </div>
@@ -118,7 +119,7 @@ const faqs = [
         <div>
           <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Water Rights and Water Shares</h3>
           <p class="font-body text-navy/80 leading-relaxed">
-            Water is one of the most important — and most misunderstood — aspects of rural property in Utah. Water rights are a legal entitlement to use water from a specific source, like a well or a natural spring. Water shares are ownership in an irrigation company that delivers water on a seasonal schedule. A property might have one, both, or neither. The difference matters for what you can do with the land, how you water it, and what the property is worth. I will walk you through exactly what water a property has, what it means for your intended use, and whether it is adequate.
+            Water is one of the most important — and most misunderstood — aspects of rural property in Utah. Water rights are a legal entitlement to use water from a specific source, like a well or a natural spring. Water shares are ownership in an irrigation company that delivers water on a seasonal schedule. A property might have one, both, or neither. The difference matters for what you can do with the land, how you water it, and what the property can sell for. I will walk you through exactly what water a property has, what it means for your intended use, and whether it is adequate.
           </p>
         </div>
 
@@ -142,7 +143,7 @@ const faqs = [
         <div>
           <h3 class="font-heading text-xl text-navy uppercase tracking-wide mb-3">Outbuildings, Shops, and Barns</h3>
           <p class="font-body text-navy/80 leading-relaxed">
-            A detached shop, a barn, a horse shelter, storage buildings — these are common on rural properties and can add meaningful value. But not all outbuildings are equal. Condition, size, whether they have power or water, and whether they were permitted all affect their contribution to the property's worth. As an appraiser and agent, I can help you assess what those structures are actually worth versus what the seller may be asking for them.
+            A detached shop, a barn, a horse shelter, storage buildings — these are common on rural properties and are often something buyers will pay more for. But not all outbuildings are equal. Condition, size, whether they have power or water, and whether they were permitted all affect how much they add to the price. As an appraiser and agent, I can help you judge what buyers will actually pay for those structures versus what the seller may be asking for them.
           </p>
         </div>
 
@@ -265,6 +266,9 @@ const faqs = [
       </div>
     </div>
   </section>
+
+  <!-- Free tools -->
+  <ToolsCallout only={["land-checklist", "cabin-cost", "loan-chooser"]} heading="Free Rural Buyer Tools" intro="Check water, septic and access, run the real costs, and see which loan usually fits." />
 
   <!-- FAQ -->
   <FAQAccordion items={faqs} heading="Rural Buyer Questions" />

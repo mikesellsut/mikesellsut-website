@@ -3,7 +3,7 @@ title: "Moving from Salt Lake City to Central Utah: What Actually Changes"
 date: 2026-09-08
 author: "Mike Price"
 category: "Utah Living"
-featured_image: "/images/areas/ephraim-canyon-wildflowers.jpg"
+featured_image: "/images/areas/sanpete-us89-farmland.jpg"
 excerpt: "What really changes when you move from Salt Lake City to Sanpete, Sevier, Millard, or Juab County — housing costs, commute, amenities, and lifestyle, straight talk."
 published: true
 ---

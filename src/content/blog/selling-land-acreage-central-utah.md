@@ -43,13 +43,13 @@ From what I've seen sell quickly versus what sits for a year, a few things consi
 - **Clear boundaries** — a current survey, or at minimum clearly marked corners, prevents deals from stalling during due diligence
 - **Realistic pricing relative to use** — land priced for its actual permitted use, not its owner's hoped-for use, moves faster
 
-If you're looking at [land and acreage more broadly](/land) — whether you're buying or selling — that page covers what drives value across all four counties I serve.
+If you're looking at [land and acreage more broadly](/land) — whether you're buying or selling — that page covers what drives price across all four counties I serve.
 
 ## What to Expect for Timeline
 
 Land sales in this market typically take longer than home sales, and that's normal, not a sign something's wrong. The buyer pool is smaller, financing takes longer to arrange when it's involved at all, and due diligence on access, water, and boundaries takes real time. Pricing it right from the start and marketing it to the correct buyer type matters more here than almost anywhere else in real estate, because you don't get a second wave of interest the way a well-priced home does in its first few weeks.
 
-If you're thinking about selling land or acreage anywhere in Sanpete, Sevier, Millard, or Juab County, I'd be glad to walk the property and talk through what it's actually worth and who's likely to buy it. [Get in touch](/contact) — no obligation.
+If you're thinking about selling land or acreage anywhere in Sanpete, Sevier, Millard, or Juab County, I'd be glad to walk the property and talk through what it might sell for and who's likely to buy it. [Get in touch](/contact) — no obligation.
 
 ## Frequently Asked Questions
 
@@ -62,5 +62,5 @@ Not always required, but a current survey or clearly marked boundaries speeds up
 ### Should I offer seller financing on a land sale?
 It depends on your situation, but since traditional lenders are more limited for raw land, offering seller financing can meaningfully widen your buyer pool if you're open to it.
 
-### How do water rights affect the value of land I'm selling?
-Significantly, and they should be documented clearly in your listing rather than left for a buyer to research. Land with confirmed water rights or irrigation shares is generally worth more, sometimes substantially more, than similar acreage without them.
+### How do water rights affect the price of land I'm selling?
+Significantly, and they should be documented clearly in your listing rather than left for a buyer to research. Land with confirmed water rights or irrigation shares generally sells for more, sometimes substantially more, than similar acreage without them.

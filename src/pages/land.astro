@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
+import ToolsCallout from "../components/ToolsCallout.astro";
 import FAQAccordion from "../components/FAQAccordion.astro";
 import BlogCard from "../components/BlogCard.astro";
 import { getCollection } from "astro:content";
@@ -18,8 +19,8 @@ const relatedPosts = relatedSlugs
 
 const faqs = [
   {
-    question: "How is land valued differently from a home?",
-    answer: "Land valuation depends on location, size, zoning, access, utilities, water availability, topography, and current use. Unlike a home, where the house itself carries much of the value, raw land value is driven almost entirely by what you can do with it — whether that is building a home, running livestock, farming, or holding for future use. Comparable land sales in Central Utah can be sparse, which makes an experienced local assessment essential.",
+    question: "How is land priced differently from a home?",
+    answer: "Land pricing depends on location, size, zoning, access, utilities, water availability, topography, and current use. Unlike a home, where the house itself carries much of the price, raw land pricing is driven almost entirely by what you can do with it — whether that is building a home, running livestock, farming, or holding for future use. Comparable land sales in Central Utah can be sparse, which makes an experienced local assessment essential.",
   },
   {
     question: "Can I build on any piece of land I buy?",
@@ -89,13 +90,13 @@ const faqs = [
 
       <div class="space-y-5 font-body text-navy/80 leading-relaxed">
         <p class="text-lg">
-          Buying or selling land is fundamentally different from buying or selling a home. There is no house to tour, no kitchen to photograph, no neighborhood with twenty comparable sales. The value of a piece of land comes from what it can become — and understanding that requires experience with the specific area, its zoning, its water, and its terrain.
+          Buying or selling land is fundamentally different from buying or selling a home. There is no house to tour, no kitchen to photograph, no neighborhood with twenty comparable sales. What a piece of land brings comes from what it can become — and understanding that requires experience with the specific area, its zoning, its water, and its terrain.
         </p>
         <p>
           In Central Utah, land transactions involve questions most suburban agents never encounter. Does the parcel have water rights or access to irrigation shares? Can you get a well permit? Will the soil support a septic system? Is there legal access, or does reaching the property require crossing someone else's land? What are the county's zoning restrictions, and do they allow what the buyer intends to do?
         </p>
         <p>
-          These are the questions I answer every day. My background as a certified real estate appraiser means I have spent years evaluating land — not just the asking price, but the factors that actually determine what a parcel is worth and what it can be used for.
+          These are the questions I answer every day. My background as a certified real estate appraiser means I have spent years evaluating land — not just the asking price, but the factors that actually determine what a parcel can sell for and what it can be used for.
         </p>
       </div>
     </div>
@@ -140,7 +141,7 @@ const faqs = [
         <div class="p-6 bg-cream rounded-lg border border-navy/5">
           <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Investment & Development</h3>
           <p class="font-body text-sm text-navy/70 leading-relaxed">
-            Land for future development or long-term hold. I will help you understand current zoning, growth trends, and realistic future value.
+            Land for future development or long-term hold. I will help you understand current zoning, growth trends, and a realistic future resale price.
           </p>
         </div>
       </div>
@@ -169,18 +170,18 @@ const faqs = [
     </div>
   </section>
 
-  <!-- What Affects Land Value -->
+  <!-- What Affects Land Prices -->
   <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-4xl mx-auto">
       <h2 class="font-heading text-3xl text-navy uppercase tracking-wide mb-4">
-        What Drives Land Value in Central Utah
+        What Drives Land Prices in Central Utah
       </h2>
       <div class="w-16 h-1 bg-gold mb-8"></div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="p-5 bg-cream rounded-lg border border-navy/5">
           <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Water</h3>
-          <p class="text-sm text-navy/70">Water rights, well permits, and irrigation shares can dramatically change a parcel's value and usability.</p>
+          <p class="text-sm text-navy/70">Water rights, well permits, and irrigation shares can dramatically change a parcel's price and usability.</p>
         </div>
         <div class="p-5 bg-cream rounded-lg border border-navy/5">
           <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Access</h3>
@@ -227,6 +228,9 @@ const faqs = [
       </a>
     </div>
   </section>
+
+  <!-- Free tools -->
+  <ToolsCallout only={["land-checklist", "cabin-cost", "home-price"]} heading="Free Land Tools" intro="Check water, septic and access, run the real costs, or get a rough price range on a parcel." />
 
   <!-- FAQ -->
   <FAQAccordion items={faqs} heading="Land & Acreage Questions" />

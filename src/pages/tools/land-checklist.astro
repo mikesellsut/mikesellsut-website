@@ -1,0 +1,336 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import "../../styles/tools.css";
+
+type Who = "buyer" | "seller" | "both";
+interface Item { id: string; text: string; why: string; who: Who }
+interface Section { title: string; items: Item[] }
+
+const raw: [string, [string, string, Who][]][] = [
+  ["Water rights & culinary water", [
+    ["What water does the property have: a well, a city or town hookup, irrigation shares, or nothing?", "No water means no house, no stock and a much lower price.", "both"],
+    ["Are the water rights deeded or appurtenant to the land, and do they transfer with this sale? Check the Utah Division of Water Rights records.", "Rights can be split off or sold separately. Don't assume they come with the dirt.", "both"],
+    ["Irrigation company shares: how many, which company, and what are the annual assessments?", "Shares transfer on the company's books, not just the deed, and assessments are a yearly cost.", "both"],
+    ["Is a new well even allowed here, and is there an approved water right or exchange to drill on?", "Some areas are closed to new appropriations. That can kill a building plan.", "buyer"],
+  ]],
+  ["Well", [
+    ["Existing well: depth, gallons per minute, and the well log on file with the state.", "Depth and flow tell you if the well will support a house, a yard or animals.", "both"],
+    ["When was the last flow test and water quality test? Get copies.", "Lenders often require them, and old results can hide a problem.", "both"],
+    ["No well yet: what's the typical well depth nearby, and has anyone drilled close to this parcel?", "A dry hole or a deep well changes the whole budget.", "buyer"],
+    ["Budget for drilling. Drilled wells in Central Utah commonly run tens of thousands of dollars (estimate only — get a driller's bid).", "This is one of the biggest surprise costs on raw land.", "buyer"],
+  ]],
+  ["Septic", [
+    ["Existing system: is there a permit on file, how old is it, and where is the tank?", "An unpermitted or failing system can stall a sale or a loan.", "both"],
+    ["When was it last pumped and inspected?", "Cheap to check, expensive to replace.", "both"],
+    ["Vacant land: has a perc or soil test been done with Central Utah Public Health Department?", "Soil decides whether you can get a conventional system, an alternative system, or none.", "buyer"],
+    ["Conventional vs alternative system, and the required setbacks from the well and property lines.", "Alternative systems cost a lot more, and setbacks can eat up a small lot.", "buyer"],
+  ]],
+  ["Access & roads", [
+    ["Is there legal, recorded access, or just a dirt track someone has always used?", "Use isn't the same as a recorded right. Title insurance and lenders care about the difference.", "both"],
+    ["Any easements across the property, or across a neighbor's land to reach it?", "Easements can limit where you build and who drives through.", "both"],
+    ["County-maintained road or private road? If private, is there a road maintenance agreement?", "Somebody has to grade it and plow it. Find out who pays.", "buyer"],
+    ["Year-round access or seasonal? What does the road look like in a snowy January?", "Seasonal access limits use, financing and resale.", "both"],
+  ]],
+  ["Zoning & county rules", [
+    ["What's the zoning district and the minimum lot size?", "This decides if you can build at all, and how many homes.", "both"],
+    ["Can you build a home or cabin, or place a manufactured home?", "Some zones and subdivisions restrict manufactured homes or cabins.", "buyer"],
+    ["How many animals are allowed (animal units), and are horses or livestock allowed at all?", "Animal rights vary a lot from town to county ground.", "buyer"],
+    ["RV or temporary living rules while you build.", "Many counties limit living in an RV on your own land.", "buyer"],
+    ["Building permit requirements and any lot split or subdivision rules.", "Splitting a parcel later may not be allowed.", "both"],
+  ]],
+  ["Power, utilities & internet", [
+    ["How far to the nearest power pole or line?", "Distance drives the cost of bringing power in.", "both"],
+    ["Get a line-extension quote from the power provider (Rocky Mountain Power, a city utility or a local co-op).", "Line extensions can cost more than people expect. Get the number in writing.", "buyer"],
+    ["Propane, natural gas, or all-electric? Is solar a realistic option?", "Heating and power plans change your monthly and up-front costs.", "buyer"],
+    ["Cell signal and internet options at the actual building site.", "If you work from home, check it standing on the property, not on a map.", "buyer"],
+  ]],
+  ["Title, boundaries & survey", [
+    ["Is there a recorded survey, and are the corners marked?", "You need to know exactly what you're buying.", "both"],
+    ["Do the fences match the legal lines? Any encroachments?", "Old fences out here are often not on the line.", "both"],
+    ["Mineral rights: do they convey, or were they reserved by a past owner?", "Mineral reservations are common in older deeds.", "both"],
+    ["CC&Rs or an HOA, and what they restrict.", "Some cabin subdivisions limit building size, animals and RVs.", "buyer"],
+    ["Is the land in greenbelt (Farmland Assessment Act)? Who pays any rollback taxes if the use changes?", "Rollback taxes can be a real bill. Settle who pays before closing.", "both"],
+  ]],
+  ["Physical land", [
+    ["Flood zone, drainage and wetlands.", "Flood zones affect insurance, building and loans.", "buyer"],
+    ["Slope and soils at the building site.", "Steep ground and poor soil raise building and septic costs.", "buyer"],
+    ["Wildfire risk and defensible space.", "Affects insurance cost and availability, especially on cabins.", "buyer"],
+    ["Noxious weeds and the general condition of the ground.", "Weed control is the owner's job and it isn't free.", "both"],
+  ]],
+  ["Seller prep", [
+    ["Gather the well log, septic permit and any test results.", "Buyers and lenders will ask. Having them ready keeps the deal moving.", "seller"],
+    ["Find your water share certificates and water right numbers.", "These are the first thing serious land buyers ask about.", "seller"],
+    ["Pull your survey, tax notice and recent utility bills.", "Answers questions before they turn into price objections.", "seller"],
+    ["List recent improvements: fencing, wells, power, roads, outbuildings.", "Improvements you can document are easier to price in.", "seller"],
+    ["Decide what's included: water shares, equipment, outbuildings, gates.", "Spell it out early so nothing is a surprise at closing.", "seller"],
+  ]],
+];
+
+const sections: Section[] = raw.map(([title, items], si) => ({
+  title,
+  items: items.map(([text, why, who], ii) => ({ id: `s${si}i${ii}`, text, why, who })),
+}));
+const PREVIEW = 2;
+const totalItems = sections.reduce((n, s) => n + s.items.length, 0);
+
+const disclaimer =
+  "General information for Central Utah, not legal, engineering, or water-rights advice. Rules differ by county and change — confirm with the county, health department, Utah Division of Water Rights, and a title company before you buy or sell. Cost notes are rough estimates.";
+
+const faqs = [
+  {
+    question: "What should I check first when buying rural land in Central Utah?",
+    answer: "Water and access. Find out what water the property has and whether those rights transfer, then confirm there's legal, recorded access. If either one is missing, the rest of the list doesn't matter much.",
+  },
+  {
+    question: "Do water rights always come with the land in Utah?",
+    answer: "No. Water rights and irrigation shares can be sold separately from the land. Check the Utah Division of Water Rights records and the irrigation company's books, and make sure the purchase contract says exactly what transfers.",
+  },
+  {
+    question: "Who approves septic systems in Sanpete, Juab, Sevier and Millard County?",
+    answer: "Central Utah Public Health Department handles septic permits and soil testing for these counties. On vacant land, get the soil or perc test done before you count on building.",
+  },
+  {
+    question: "What should a land seller have ready before listing?",
+    answer: "The well log and septic permit if there are any, water share certificates and water right numbers, the survey, the tax notice, and a list of what's included. Having those ready answers buyers' first questions and keeps the deal moving.",
+  },
+];
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Rural Land Checklist for Central Utah",
+  description: "Check water rights, wells, septic, access, zoning, utilities, title and the land itself before you buy or sell rural land in Central Utah.",
+  url: "https://mikesellsut.com/tools/land-checklist/",
+  step: sections.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.items.slice(0, PREVIEW).map((it) => it.text).join(" "),
+  })),
+};
+---
+
+<BaseLayout
+  title="Rural Land Checklist: Water Rights, Wells, Septic & Access"
+  description="Buying or selling land in Sanpete, Juab, Sevier or Millard County? Check water rights, well, septic, road access and zoning before you sign."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+
+  <section class="bg-navy py-14 md:py-16 px-4 sm:px-6 lg:px-8 no-print">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Rural Land Checklist for Central Utah
+      </h1>
+      <p class="font-body text-lg text-white/85 max-w-2xl mx-auto">
+        Land out here can look cheap and turn expensive fast. Run through this before you buy — or before you list — and you'll know where the surprises are.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold no-print"></div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 no-print">
+    <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Tools", url: "/tools/" }, { name: "Rural Land Checklist" }]} />
+  </div>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-12 pt-4">
+    <div class="msut-tool max-w-3xl mx-auto" id="lc-tool">
+      <div class="t-card">
+        <h2 class="t-h2">Rural Land Checklist: Water, Well, Septic, Access & Zoning</h2>
+        <p class="print-only">mikesellsut.com/tools/land-checklist · Mike Price, Realtor | Heritage Realty Group · 435-660-0401 · mikesellsut@gmail.com</p>
+        <p class="no-print" id="lc-intro">{sections.length} sections, {totalItems} items. The first {PREVIEW} items in each section are below. Enter your email to see the full checklist.</p>
+
+        <div class="lc-toolbar no-print" id="lc-toolbar" hidden>
+          <span class="t-label" style="margin:0" id="lc-filter-label">Show:</span>
+          <div class="t-presets" role="group" aria-labelledby="lc-filter-label">
+            <button type="button" data-filter="buyer" aria-pressed="false">Buyer items</button>
+            <button type="button" data-filter="seller" aria-pressed="false">Seller items</button>
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+          </div>
+          <button type="button" class="t-btn t-btn-secondary" id="lc-print" style="margin-top:.75rem">Print / Save as PDF</button>
+        </div>
+
+        <div id="lc-list" class="lc-list" aria-live="polite">
+          {sections.map((s) => (
+            <section class="lc-section">
+              <h3 class="t-h3 lc-sec-title">{s.title}</h3>
+              <ul>
+                {s.items.map((it, i) => (
+                  <li class:list={["lc-item", { "lc-locked": i >= PREVIEW }]} data-who={it.who} hidden={i >= PREVIEW}>
+                    <label class="t-check">
+                      <input type="checkbox" data-id={it.id} />
+                      <span><span class="lc-text">{it.text}</span><span class="t-help" style="margin-top:.15rem">Why it matters: {it.why}</span></span>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+              <p class="lc-more no-print" data-more>{s.items.length - PREVIEW} more in this section. Enter your email to see the full checklist.</p>
+            </section>
+          ))}
+        </div>
+
+        <div class="lc-help" id="lc-help" hidden>
+          <p><strong>Stuck on any of this?</strong> I deal with water, wells and septic on rural deals every week. Call or text <a class="t-link" href="tel:4356600401">435-660-0401</a> or email <a class="t-link" href="mailto:mikesellsut@gmail.com">mikesellsut@gmail.com</a>.</p>
+          <p class="t-help">Mike Price, Realtor | Heritage Realty Group · Active Utah Certified Residential Appraiser · 2026 President-Elect, Utah Coalition of Appraisal Professionals (utcap.org) · P.O. Box 431, Spring City, UT 84662</p>
+        </div>
+        <p class="t-disclaimer">{disclaimer}</p>
+      </div>
+
+      <!-- Gate -->
+      <form
+        id="lc-form"
+        class="t-card no-print"
+        style="margin-top:1.25rem"
+        name="land-checklist"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        novalidate
+      >
+        <input type="hidden" name="form-name" value="land-checklist" />
+        <p class="t-hidden-honeypot" aria-hidden="true">
+          <label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <input type="hidden" name="page_url" value="https://mikesellsut.com/tools/land-checklist/" />
+        <h2 class="t-h2">See the full checklist</h2>
+        <p class="t-help" style="margin:0 0 1rem">Enter your email and the full list opens right here on this page.</p>
+        <div class="t-grid2">
+          <div class="t-field">
+            <label class="t-label" for="lc-email">Email <span class="t-req">*</span></label>
+            <input id="lc-email" type="email" name="email" autocomplete="email" required />
+            <p class="t-err" id="lc-email-err"></p>
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="lc-name">First name <span class="t-help" style="display:inline">(optional)</span></label>
+            <input id="lc-name" type="text" name="first_name" autocomplete="given-name" />
+          </div>
+        </div>
+        <div class="t-grid2">
+          <div class="t-field">
+            <label class="t-label" for="lc-phone">Phone <span class="t-help" style="display:inline">(optional)</span></label>
+            <input id="lc-phone" type="tel" name="phone" autocomplete="tel" />
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="lc-county">County</label>
+            <select id="lc-county" name="county">
+              {["Sanpete", "Juab", "Sevier", "Millard", "Utah County", "Other"].map((c) => <option value={c}>{c}</option>)}
+            </select>
+          </div>
+        </div>
+        <fieldset>
+          <legend class="t-label">I'm</legend>
+          <div class="t-choices t-cols-3">
+            <label class="t-choice"><input type="radio" name="role" value="Buying land" checked /> Buying land</label>
+            <label class="t-choice"><input type="radio" name="role" value="Selling land" /> Selling land</label>
+            <label class="t-choice"><input type="radio" name="role" value="Both" /> Both</label>
+          </div>
+        </fieldset>
+        <button type="submit" class="t-btn t-btn-primary" id="lc-submit">See the full checklist</button>
+        <p class="t-help">No spam. Mike may follow up once — that's it.</p>
+      </form>
+      <p class="t-success no-print" id="lc-thanks" hidden style="margin-top:1rem">You're in. The full checklist is open above. Use Print / Save as PDF to keep a copy.</p>
+    </div>
+  </section>
+
+  <div class="no-print">
+    <FAQAccordion items={faqs} heading="Rural Land Questions" />
+    <section class="py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center font-body text-navy/80">
+        <p>Next: <a class="text-gold font-semibold hover:underline" href="/tools/cabin-cost/">cabin &amp; land cost calculator</a> · <a class="text-gold font-semibold hover:underline" href="/blog/how-to-buy-land-rural-utah-zoning-wells-septic/">how to buy land in rural Utah</a> · <a class="text-gold font-semibold hover:underline" href="/tools/">all tools</a></p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .msut-tool .lc-list ul { list-style: none; padding: 0; margin: 0 0 .5rem; }
+  .msut-tool .lc-section { border-top: 1px solid var(--msut-line); padding-top: 1rem; margin-top: 1rem; }
+  .msut-tool .lc-item { margin: .35rem 0; }
+  .msut-tool .lc-more { font-size: .92rem; color: var(--msut-muted); font-style: italic; margin: .25rem 0 0; }
+  .msut-tool .lc-toolbar { margin: 1rem 0 .5rem; }
+  .msut-tool .lc-help { margin-top: 1.25rem; background: rgba(212,166,41,.12); border-radius: 6px; padding: 1rem; }
+  .msut-tool.lc-filter-buyer .lc-item[data-who="seller"],
+  .msut-tool.lc-filter-seller .lc-item[data-who="buyer"] { display: none !important; }
+  .print-only { display: none; }
+  @media print {
+    header, footer, nav, .no-print, #lc-form { display: none !important; }
+    .print-only { display: block; font-size: 11pt; }
+    body { background: #fff !important; color: #000 !important; }
+    .msut-tool .t-card { border: 0; box-shadow: none; padding: 0; }
+    .msut-tool, .msut-tool * { color: #000 !important; }
+    .msut-tool .lc-section { break-inside: avoid-page; }
+    .msut-tool .lc-help, .msut-tool .t-disclaimer { background: #fff; border: 1px solid #000; }
+    .msut-tool .t-check input { accent-color: #000; }
+  }
+</style>
+
+<script>
+  import { submitLead } from "../../scripts/submitLead";
+
+  const KEY = "msut_land_unlocked";
+  const CHECKS = "msut_land_checks";
+  const root = document.getElementById("lc-tool")!;
+  const form = document.getElementById("lc-form") as HTMLFormElement;
+
+  const store = {
+    get(k: string) { try { return localStorage.getItem(k); } catch { return null; } },
+    set(k: string, v: string) { try { localStorage.setItem(k, v); } catch { /* private mode */ } },
+  };
+
+  function unlock() {
+    root.querySelectorAll<HTMLElement>(".lc-locked").forEach((li) => (li.hidden = false));
+    root.querySelectorAll<HTMLElement>("[data-more]").forEach((p) => (p.hidden = true));
+    (document.getElementById("lc-toolbar") as HTMLElement).hidden = false;
+    (document.getElementById("lc-help") as HTMLElement).hidden = false;
+    form.hidden = true;
+    (document.getElementById("lc-intro") as HTMLElement).textContent = "Tick items off as you go. Your checks stay saved in this browser.";
+  }
+
+  // Checkbox state
+  const saved: Record<string, boolean> = JSON.parse(store.get(CHECKS) || "{}");
+  root.querySelectorAll<HTMLInputElement>("input[data-id]").forEach((cb) => {
+    cb.checked = !!saved[cb.dataset.id!];
+    cb.addEventListener("change", () => {
+      saved[cb.dataset.id!] = cb.checked;
+      store.set(CHECKS, JSON.stringify(saved));
+    });
+  });
+
+  // Buyer / Seller / All filter
+  root.querySelectorAll<HTMLButtonElement>("[data-filter]").forEach((b) =>
+    b.addEventListener("click", () => {
+      root.classList.remove("lc-filter-buyer", "lc-filter-seller");
+      if (b.dataset.filter !== "all") root.classList.add(`lc-filter-${b.dataset.filter}`);
+      root.querySelectorAll("[data-filter]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      root.querySelectorAll<HTMLElement>(".lc-section").forEach((sec) => {
+        const any = Array.from(sec.querySelectorAll<HTMLElement>(".lc-item")).some((li) => !li.hidden && getComputedStyle(li).display !== "none");
+        sec.hidden = !any;
+      });
+    })
+  );
+  document.getElementById("lc-print")!.addEventListener("click", () => window.print());
+
+  if (store.get(KEY) === "1") unlock();
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = form.elements.namedItem("email") as HTMLInputElement;
+    const ok = email.value.trim() !== "" && email.checkValidity();
+    document.getElementById("lc-email-err")!.textContent = ok ? "" : "Enter a valid email address.";
+    email.setAttribute("aria-invalid", ok ? "false" : "true");
+    if (!ok) { email.focus(); return; }
+    (form.elements.namedItem("page_url") as HTMLInputElement).value = window.location.href;
+    const btn = document.getElementById("lc-submit") as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = "Opening…";
+    await submitLead(form);
+    store.set(KEY, "1");
+    unlock();
+    const role = (form.elements.namedItem("role") as RadioNodeList).value;
+    const pick = role === "Buying land" ? "buyer" : role === "Selling land" ? "seller" : "all";
+    (root.querySelector(`[data-filter="${pick}"]`) as HTMLButtonElement)?.click();
+    (document.getElementById("lc-thanks") as HTMLElement).hidden = false;
+    document.getElementById("lc-list")!.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+</script>

@@ -5,6 +5,7 @@ import AreaCard from "../components/AreaCard.astro";
 import BlogCard from "../components/BlogCard.astro";
 import { getCollection } from "astro:content";
 import { sellerFaq } from "../data/sellerFaq";
+import ToolsCallout from "../components/ToolsCallout.astro";
 
 const allPosts = (await getCollection("blog"))
   .filter((p) => p.data.published && new Date(p.data.date) <= new Date())
@@ -87,10 +88,10 @@ const areas = [
         <!-- Seller CTAs -->
         <div class="hero-seller-ctas flex flex-col sm:flex-row gap-3 justify-center md:justify-start mt-3" style="opacity:0;">
           <a
-            href="/contact"
+            href="/tools/home-price/"
             class="inline-block px-6 py-3 bg-white/10 border border-white/50 text-white font-heading uppercase tracking-wider text-sm rounded-md hover:bg-white/20 transition-all duration-200 text-center"
           >
-            What's My Home Worth?
+            What's My Home Worth? Get a Rough Price Range
           </a>
           <a
             href="/contact"
@@ -133,7 +134,7 @@ const areas = [
           </h2>
           <div class="w-16 h-1 bg-gold mb-6"></div>
           <p class="font-body text-lg text-navy/80 leading-relaxed mb-4">
-            With 20 years of hands-on real estate market expertise across Central Utah, I bring a deep understanding of property values, pricing trends, and neighborhood dynamics to every transaction.
+            With 20 years of hands-on real estate market expertise across Central Utah, I bring a deep understanding of property prices, pricing trends, and neighborhood dynamics to every transaction.
           </p>
           <p class="font-body text-navy/80 leading-relaxed mb-6">
             Whether you're buying your first home, selling a family property, or searching for the perfect piece of land, I'm here to guide you with honest advice and local knowledge you won't find anywhere else.
@@ -259,6 +260,9 @@ const areas = [
       </div>
     </div>
   </section>
+
+  <!-- ===== FREE TOOLS ===== -->
+  <ToolsCallout only={["home-price", "land-checklist", "cabin-cost"]} class="bg-cream" />
 
   <!-- ===== LEAD CAPTURE ===== -->
   <section class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white">

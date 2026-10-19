@@ -1,0 +1,292 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import "../../styles/tools.css";
+
+const disclaimer =
+  "General education only — not a loan approval, pre-qualification, or financial advice. Mike is a realtor, not a lender. Program rules, limits and eligible areas change; confirm with a licensed lender.";
+
+const questions = [
+  { n: "q1", q: "What kind of property?", opts: ["Home in town", "Home on acreage", "Manufactured on permanent foundation", "Cabin/second home", "Vacant land"] },
+  { n: "q2", q: "Will you live there as your main home?", opts: ["Yes", "No"] },
+  { n: "q3", q: "Down payment you have", opts: ["Under 3.5%", "3.5–10%", "10–20%", "20%+"] },
+  { n: "q4", q: "Credit range (your best guess)", opts: ["Under 580", "580–639", "640–699", "700+"] },
+  { n: "q5", q: "Household income compared to the county", opts: ["Probably modest", "Above average", "Not sure"] },
+  { n: "q6", q: "Property condition", opts: ["Move-in ready", "Needs some repairs", "Major issues (no water/septic, structural)"] },
+];
+
+const faqs = [
+  {
+    question: "Which loan is best for a rural home in Central Utah?",
+    answer: "It depends on the property and on you. USDA can work with no down payment in eligible areas if the home is your primary residence and your household income fits the limits. FHA works with a smaller down payment and lower credit scores. Conventional is usually the most flexible on property type once you have good credit and more down.",
+  },
+  {
+    question: "Can I use a USDA or FHA loan for a cabin or vacant land?",
+    answer: "No. USDA and FHA are for a home you'll live in as your primary residence. Cabins used as second homes and vacant land usually need a conventional, second-home or land loan, often with 20% or more down.",
+  },
+  {
+    question: "What do FHA and USDA appraisals look for on rural homes?",
+    answer: "Health and safety items: safe water, a working septic, a sound roof, working heat, and no major structural problems. Rural homes with a failing well or septic often need repairs before closing or a different loan.",
+  },
+];
+---
+
+<BaseLayout
+  title="USDA vs FHA vs Conventional: Which Loan Fits a Rural Utah Property?"
+  description="Six quick questions to see whether USDA, FHA or a conventional loan usually fits a home, cabin or land in Central Utah — and what to watch for."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "USDA vs FHA vs Conventional Loan Chooser",
+    url: "https://mikesellsut.com/tools/loan-chooser/",
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    provider: { "@type": "RealEstateAgent", name: "Mike Price", url: "https://mikesellsut.com" },
+  })} />
+
+  <section class="bg-navy py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Which Loan Fits a Rural Utah Property?
+      </h1>
+      <p class="font-body text-lg text-white/85 max-w-2xl mx-auto">
+        USDA, FHA or conventional? Answer six quick questions and see which usually fits, and what to watch out for.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+    <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Tools", url: "/tools/" }, { name: "Loan Chooser" }]} />
+  </div>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-12 pt-4">
+    <div class="msut-tool max-w-3xl mx-auto" id="lch-tool">
+      <form id="lch-quiz" class="t-card" novalidate>
+        <h2 class="t-h2">Six quick questions</h2>
+        {questions.map((q, i) => (
+          <fieldset>
+            <legend class="t-label">{i + 1}. {q.q}</legend>
+            <div class:list={["t-choices", q.opts.length > 3 ? "t-cols-2" : "t-cols-3"]}>
+              {q.opts.map((o) => (
+                <label class="t-choice"><input type="radio" name={q.n} value={o} /> {o}</label>
+              ))}
+            </div>
+            <p class="t-err" id={`lch-${q.n}-err`}></p>
+          </fieldset>
+        ))}
+        <button type="submit" class="t-btn t-btn-primary">See which loan fits</button>
+        <p class="t-err" id="lch-err" style="margin-top:.5rem"></p>
+      </form>
+
+      <div id="lch-result" class="t-card" aria-live="polite" hidden tabindex="-1" style="margin-top:1.25rem">
+        <p class="t-steplabel">Your best fits</p>
+        <div id="lch-picks"></div>
+        <div id="lch-notes"></div>
+        <p class="t-note">I appraise for lenders too, so I can tell you early what an FHA or USDA appraiser will flag.</p>
+        <h3 class="t-h3">Read more</h3>
+        <ul class="t-list">
+          <li><a class="t-link" href="/blog/conventional-vs-fha-vs-usda-central-utah/">Conventional vs FHA vs USDA in Central Utah</a></li>
+          <li><a class="t-link" href="/blog/fha-loans-rural-utah-what-qualifies/">FHA loans: what qualifies for rural property</a></li>
+          <li><a class="t-link" href="/blog/usda-rural-development-loans-central-utah/">USDA Rural Development loans in Central Utah</a></li>
+          <li><a class="t-link" href="/blog/financing-cabin-second-home-utah/">Financing a cabin or second home</a></li>
+        </ul>
+        <p class="t-disclaimer">{disclaimer}</p>
+        <p><button type="button" class="t-link" id="lch-again" style="background:none;border:0;padding:0;cursor:pointer;min-height:44px">Change my answers</button></p>
+      </div>
+
+      <form
+        id="lch-form"
+        class="t-card"
+        style="margin-top:1.25rem"
+        name="loan-chooser"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        novalidate
+        hidden
+      >
+        <input type="hidden" name="form-name" value="loan-chooser" />
+        <p class="t-hidden-honeypot" aria-hidden="true">
+          <label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        {questions.map((q) => <input type="hidden" name={q.n} value="" />)}
+        <input type="hidden" name="top_pick" value="" />
+        <input type="hidden" name="page_url" value="https://mikesellsut.com/tools/loan-chooser/" />
+        <h2 class="t-h2">Want a local lender who does rural loans?</h2>
+        <p class="t-help" style="margin:0 0 1rem">Optional. Mike gets your answers and follows up personally.</p>
+        <div class="t-grid2">
+          <div class="t-field">
+            <label class="t-label" for="lch-fname">First name</label>
+            <input id="lch-fname" type="text" name="first_name" autocomplete="given-name" />
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="lch-email">Email <span class="t-req">*</span></label>
+            <input id="lch-email" type="email" name="email" autocomplete="email" required />
+            <p class="t-err" id="lch-email-err"></p>
+          </div>
+        </div>
+        <div class="t-grid2">
+          <div class="t-field">
+            <label class="t-label" for="lch-phone">Phone <span class="t-help" style="display:inline">(optional)</span></label>
+            <input id="lch-phone" type="tel" name="phone" autocomplete="tel" />
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="lch-timeline">When are you hoping to buy?</label>
+            <select id="lch-timeline" name="timeline">
+              <option>Now</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option selected>Just researching</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="t-btn t-btn-primary" id="lch-submit">Connect me with Mike + a local lender</button>
+        <p class="t-success" id="lch-thanks" hidden style="margin-top:1rem">Thanks — Mike got your answers and will follow up personally.</p>
+      </form>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Rural Loan Questions" />
+</BaseLayout>
+
+<script>
+  import { submitLead } from "../../scripts/submitLead";
+
+  // ================================================================
+  // RULES — Mike to edit. Plain scoring, general education only.
+  // ================================================================
+  const LOANS = {
+    usda: {
+      name: "USDA Rural Development",
+      why: "0% down possible if the property is in a USDA-eligible area and it's your primary home. A lot of Central Utah qualifies.",
+      watch: "Household income limits and the eligible-area map — check the USDA eligibility map for the exact address. The appraisal checks health and safety items.",
+      next: "Ask a lender who closes USDA loans to check the address and your income against the limits.",
+    },
+    fha: {
+      name: "FHA",
+      why: "Lower down payment (3.5% with a 580+ score) and more forgiving on credit than conventional.",
+      watch: "Mortgage insurance for the life of most loans, and the appraisal checks water, septic, roof, heat and safety. Manufactured homes need a permanent foundation and HUD requirements met.",
+      next: "Get pre-approved with a lender who does FHA on rural property, and ask about well and septic testing early.",
+    },
+    conv: {
+      name: "Conventional",
+      why: "Usually the most flexible on property type and condition, and no mortgage insurance once you put 20% down.",
+      watch: "Needs stronger credit. Under 20% down you'll pay private mortgage insurance until it comes off.",
+      next: "Compare a couple of lenders; small rate differences add up on a 30-year loan.",
+    },
+    landsecond: {
+      name: "Conventional / land or second-home loan",
+      why: "USDA and FHA are for a primary home you'll live in. Cabins used as second homes and vacant land need a conventional, second-home or land loan.",
+      watch: "Often 20%+ down, and land loans may have shorter terms and higher rates. Seasonal-access cabins can be harder to finance.",
+      next: "Talk to a local bank or credit union that does land and cabin loans before you write an offer.",
+    },
+  } as const;
+  type Key = keyof typeof LOANS;
+
+  function score(a: Record<string, string>) {
+    const notes: string[] = [];
+    if (a.q6.startsWith("Major")) notes.push("FHA/USDA appraisals check health & safety — water, septic, roof, heat. Expect repairs or a different loan.");
+    if (a.q1 === "Vacant land" || a.q1 === "Cabin/second home" || a.q2 === "No") {
+      if (a.q2 === "Yes" && a.q1 === "Cabin/second home") notes.push("If the cabin really will be your year-round primary home with year-round access, FHA or USDA might be possible. Ask a lender.");
+      return { picks: ["landsecond", "conv"] as Key[], notes };
+    }
+    const s: Record<"usda" | "fha" | "conv", number> = { usda: 0, fha: 0, conv: 0 };
+    // Down payment
+    if (a.q3 === "Under 3.5%") { s.usda += 4; s.conv -= 2; }
+    if (a.q3 === "3.5–10%") { s.usda += 2; s.fha += 3; s.conv += 1; }
+    if (a.q3 === "10–20%") { s.fha += 1; s.conv += 2; }
+    if (a.q3 === "20%+") { s.conv += 4; }
+    // Credit
+    if (a.q4 === "Under 580") { s.fha += 1; s.usda -= 3; s.conv -= 4; notes.push("Under 580, FHA may still be possible with 10% down. Many lenders want higher scores, so ask what credit repair could open up."); }
+    if (a.q4 === "580–639") { s.fha += 3; s.usda -= 1; s.conv -= 3; }
+    if (a.q4 === "640–699") { s.fha += 2; s.usda += 1; s.conv += 1; }
+    if (a.q4 === "700+") { s.usda += 1; s.fha += 1; s.conv += 3; }
+    // Income
+    if (a.q5 === "Probably modest") s.usda += 3;
+    if (a.q5 === "Not sure") s.usda += 1;
+    if (a.q5 === "Above average") s.usda -= 5;
+    // Property
+    if (a.q1 === "Manufactured on permanent foundation") { s.fha += 1; notes.push("Manufactured homes: FHA needs a permanent foundation and the HUD certification label/data plate. Some lenders won't do USDA or conventional on older units."); }
+    if (a.q6.startsWith("Major")) s.conv += 2;
+    if (a.q6 === "Needs some repairs") s.conv += 1;
+    const order: ("usda" | "fha" | "conv")[] = ["usda", "fha", "conv"];
+    const picks = order.slice().sort((x, y) => s[y] - s[x] || order.indexOf(x) - order.indexOf(y)).slice(0, 2);
+    return { picks: picks as Key[], notes };
+  }
+
+  const quiz = document.getElementById("lch-quiz") as HTMLFormElement;
+  const result = document.getElementById("lch-result") as HTMLElement;
+  const lead = document.getElementById("lch-form") as HTMLFormElement;
+  const names = ["q1", "q2", "q3", "q4", "q5", "q6"];
+
+  quiz.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const a: Record<string, string> = {};
+    let missing = 0;
+    names.forEach((q) => {
+      const v = (quiz.elements.namedItem(q) as RadioNodeList).value;
+      a[q] = v;
+      document.getElementById(`lch-${q}-err`)!.textContent = v ? "" : "Pick one.";
+      if (!v) missing++;
+    });
+    document.getElementById("lch-err")!.textContent = missing ? `Answer all six questions (${missing} left).` : "";
+    if (missing) return;
+    const { picks, notes } = score(a);
+    const wrap = document.getElementById("lch-picks")!;
+    wrap.innerHTML = "";
+    picks.forEach((k, i) => {
+      const L = LOANS[k];
+      const div = document.createElement("div");
+      div.style.marginBottom = "1rem";
+      const h = document.createElement("h3");
+      h.className = "t-h3";
+      h.textContent = `${i === 0 ? "1st" : "2nd"}: ${L.name}`;
+      const ul = document.createElement("ul");
+      ul.className = "t-list";
+      ([ ["Why", L.why], ["Watch out for", L.watch], ["Next step", L.next] ] as const).forEach(([t, v]) => {
+        const li = document.createElement("li");
+        const b = document.createElement("strong"); b.textContent = `${t}: `;
+        li.append(b, document.createTextNode(v));
+        ul.appendChild(li);
+      });
+      div.append(h, ul);
+      wrap.appendChild(div);
+    });
+    const nd = document.getElementById("lch-notes")!;
+    nd.innerHTML = "";
+    notes.forEach((t) => { const p = document.createElement("p"); p.className = "t-note"; p.textContent = t; nd.appendChild(p); });
+    names.forEach((q) => ((lead.elements.namedItem(q) as HTMLInputElement).value = a[q]));
+    (lead.elements.namedItem("top_pick") as HTMLInputElement).value = LOANS[picks[0]].name;
+    quiz.hidden = true;
+    result.hidden = false;
+    lead.hidden = false;
+    result.focus({ preventScroll: true });
+    result.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  document.getElementById("lch-again")!.addEventListener("click", () => {
+    quiz.hidden = false;
+    result.hidden = true;
+    lead.hidden = true;
+    quiz.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  lead.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = lead.elements.namedItem("email") as HTMLInputElement;
+    const ok = email.value.trim() !== "" && email.checkValidity();
+    document.getElementById("lch-email-err")!.textContent = ok ? "" : "Enter a valid email address.";
+    email.setAttribute("aria-invalid", ok ? "false" : "true");
+    if (!ok) { email.focus(); return; }
+    (lead.elements.namedItem("page_url") as HTMLInputElement).value = window.location.href;
+    const btn = document.getElementById("lch-submit") as HTMLButtonElement;
+    btn.disabled = true;
+    await submitLead(lead);
+    btn.disabled = false;
+    (document.getElementById("lch-thanks") as HTMLElement).hidden = false;
+  });
+</script>

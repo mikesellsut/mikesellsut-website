@@ -1,0 +1,84 @@
+/* Shared styles for the free tools under /tools/. Everything is scoped
+   under .msut-tool so it can't leak into the rest of the site. */
+.msut-tool {
+  --msut-primary: #1B2E5A;
+  --msut-accent: #D4A629;
+  --msut-text: #1B2E5A;
+  --msut-bg: #FFFFFF;
+  --msut-muted: rgba(27, 46, 90, 0.72);
+  --msut-line: rgba(27, 46, 90, 0.18);
+  --msut-error: #B71C1C;
+  --msut-radius: 8px;
+  color: var(--msut-text);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.msut-tool *, .msut-tool *::before, .msut-tool *::after { box-sizing: border-box; }
+.msut-tool .t-card {
+  background: var(--msut-bg);
+  border: 1px solid var(--msut-line);
+  border-radius: var(--msut-radius);
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+@media (min-width: 640px) { .msut-tool .t-card { padding: 1.75rem; } }
+.msut-tool h2.t-h2 { font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; margin: 0 0 .5rem; }
+.msut-tool h3.t-h3 { font-size: 1.1rem; font-weight: 700; margin: 0 0 .5rem; }
+.msut-tool .t-field { margin-bottom: 1rem; }
+.msut-tool label.t-label, .msut-tool legend.t-label { display: block; font-weight: 600; margin-bottom: .3rem; font-size: 1rem; }
+.msut-tool .t-req { color: var(--msut-error); }
+.msut-tool .t-help { display: block; font-size: .92rem; color: var(--msut-muted); margin-top: .3rem; }
+.msut-tool input[type=text], .msut-tool input[type=email], .msut-tool input[type=tel],
+.msut-tool input[type=number], .msut-tool select, .msut-tool textarea {
+  width: 100%; min-height: 44px; font-size: 16px; padding: .6rem .75rem;
+  border: 1px solid rgba(27,46,90,.3); border-radius: 6px; background: #FBF9F5; color: var(--msut-text);
+}
+.msut-tool input:focus, .msut-tool select:focus, .msut-tool textarea:focus, .msut-tool button:focus-visible, .msut-tool a:focus-visible {
+  outline: 3px solid var(--msut-accent); outline-offset: 2px;
+}
+.msut-tool input[aria-invalid=true], .msut-tool select[aria-invalid=true] { border-color: var(--msut-error); }
+.msut-tool .t-err { color: var(--msut-error); font-size: .92rem; font-weight: 600; margin-top: .3rem; }
+.msut-tool .t-err:empty { display: none; }
+.msut-tool fieldset { border: 0; padding: 0; margin: 0 0 1rem; min-width: 0; }
+.msut-tool .t-choices { display: grid; grid-template-columns: 1fr; gap: .5rem; }
+@media (min-width: 640px) { .msut-tool .t-choices.t-cols-2 { grid-template-columns: 1fr 1fr; } .msut-tool .t-choices.t-cols-3 { grid-template-columns: 1fr 1fr 1fr; } }
+.msut-tool .t-choice { display: flex; align-items: center; gap: .6rem; min-height: 44px; padding: .5rem .75rem; border: 1px solid rgba(27,46,90,.25); border-radius: 6px; background: #FBF9F5; cursor: pointer; font-weight: 500; }
+.msut-tool .t-choice:has(input:checked) { border-color: var(--msut-accent); background: rgba(212,166,41,.12); }
+.msut-tool .t-choice input { width: 20px; height: 20px; flex-shrink: 0; accent-color: var(--msut-primary); }
+.msut-tool .t-check { display: flex; align-items: flex-start; gap: .6rem; min-height: 44px; cursor: pointer; }
+.msut-tool .t-check input { width: 22px; height: 22px; margin-top: .15rem; flex-shrink: 0; accent-color: var(--msut-primary); }
+.msut-tool .t-grid2 { display: grid; grid-template-columns: 1fr; gap: 0 1rem; }
+@media (min-width: 640px) { .msut-tool .t-grid2 { grid-template-columns: 1fr 1fr; } }
+.msut-tool .t-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .75rem 1.5rem; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; font-size: .95rem; border: 2px solid transparent; cursor: pointer; text-decoration: none; text-align: center; }
+.msut-tool .t-btn-primary { background: var(--msut-accent); color: #fff; }
+.msut-tool .t-btn-primary:hover { filter: brightness(1.08); }
+.msut-tool .t-btn-secondary { background: transparent; color: var(--msut-primary); border-color: var(--msut-primary); }
+.msut-tool .t-btn-secondary:hover { background: var(--msut-primary); color: #fff; }
+.msut-tool .t-btn[disabled] { opacity: .6; cursor: wait; }
+.msut-tool .t-actions { display: flex; flex-direction: column; gap: .75rem; margin-top: 1rem; }
+@media (min-width: 640px) { .msut-tool .t-actions { flex-direction: row; flex-wrap: wrap; } }
+.msut-tool .t-progress { height: 8px; background: rgba(27,46,90,.1); border-radius: 99px; overflow: hidden; margin: .25rem 0 1.25rem; }
+.msut-tool .t-progress > span { display: block; height: 100%; background: var(--msut-accent); transition: width .25s; }
+.msut-tool .t-steplabel { font-weight: 700; font-size: .9rem; text-transform: uppercase; letter-spacing: .05em; color: var(--msut-muted); }
+.msut-tool .t-disclaimer { font-size: .88rem; color: var(--msut-muted); background: #F5F0E8; border: 1px solid var(--msut-line); border-radius: 6px; padding: .85rem 1rem; margin-top: 1rem; }
+.msut-tool .t-note { font-size: .95rem; background: rgba(74,155,217,.1); border-left: 4px solid #4A9BD9; padding: .75rem 1rem; border-radius: 0 6px 6px 0; margin: .75rem 0; }
+.msut-tool .t-big { font-size: 1.9rem; font-weight: 800; line-height: 1.15; margin: .25rem 0 .5rem; overflow-wrap: anywhere; }
+@media (min-width: 640px) { .msut-tool .t-big { font-size: 2.3rem; } }
+.msut-tool .t-link { color: var(--msut-primary); font-weight: 600; text-decoration: underline; text-decoration-color: var(--msut-accent); text-underline-offset: 3px; }
+.msut-tool .t-link:hover { color: #9a7612; }
+.msut-tool ul.t-list { list-style: disc; padding-left: 1.25rem; margin: .5rem 0 1rem; }
+.msut-tool ul.t-list li { margin: .25rem 0; }
+.msut-tool table.t-table { width: 100%; border-collapse: collapse; font-size: .97rem; }
+.msut-tool table.t-table td { padding: .45rem .25rem; border-bottom: 1px solid var(--msut-line); vertical-align: top; }
+.msut-tool table.t-table td:last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.msut-tool table.t-table tr.t-total td { font-weight: 800; border-top: 2px solid var(--msut-primary); }
+.msut-tool .t-success { background: rgba(46,125,50,.1); border: 1px solid rgba(46,125,50,.4); color: #1B5E20; padding: .75rem 1rem; border-radius: 6px; font-weight: 600; }
+.msut-tool .t-hidden-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.msut-tool [hidden] { display: none !important; }
+.msut-tool .t-bar { display: flex; height: 28px; border-radius: 6px; overflow: hidden; background: rgba(27,46,90,.08); margin: .5rem 0; }
+.msut-tool .t-bar > span { display: block; height: 100%; min-width: 0; transition: width .2s; }
+.msut-tool .t-legend { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-size: .88rem; color: var(--msut-muted); }
+.msut-tool .t-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: .35rem; vertical-align: -1px; }
+.msut-tool .t-presets { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .4rem; }
+.msut-tool .t-presets button { min-height: 44px; min-width: 52px; padding: .3rem .7rem; border: 1px solid rgba(27,46,90,.3); border-radius: 6px; background: #fff; font-size: .95rem; font-weight: 600; cursor: pointer; color: var(--msut-primary); }
+.msut-tool .t-presets button[aria-pressed=true] { background: var(--msut-primary); color: #fff; }

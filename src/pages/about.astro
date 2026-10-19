@@ -5,7 +5,7 @@ const values = [
   {
     icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`,
     title: "Market Knowledge Built Through Experience",
-    desc: "With more than 20 years of real estate experience, I bring a depth of market knowledge that few agents can offer. As both a certified real estate appraiser and a Realtor, I spend my career studying properties, analyzing market activity, and understanding what truly influences value throughout Central Utah.\n\nWhen I recommend a price for a property, I'm not guessing. My advice is grounded in real data, local market knowledge, and decades of hands-on experience.\n\nOver the years, I have also become a trusted resource for local real estate professionals who turn to me when they are dealing with a difficult property or a pricing question that does not have an obvious answer. That trust means a great deal to me, and I bring the same level of care, analysis, and honesty to every client I represent.",
+    desc: "With more than 20 years of real estate experience, I bring a depth of market knowledge that few agents can offer. As both a certified real estate appraiser and a Realtor, I spend my career studying properties, analyzing market activity, and understanding what truly influences price throughout Central Utah.\n\nWhen I recommend a price for a property, I'm not guessing. My advice is grounded in real data, local market knowledge, and decades of hands-on experience.\n\nOver the years, I have also become a trusted resource for local real estate professionals who turn to me when they are dealing with a difficult property or a pricing question that does not have an obvious answer. That trust means a great deal to me, and I bring the same level of care, analysis, and honesty to every client I represent.",
   },
   {
     icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
@@ -33,6 +33,19 @@ const personSchema = {
   worksFor: {
     "@type": "Organization",
     name: "Heritage Realty Group LLC",
+  },
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "license",
+      name: "Certified Residential Appraiser",
+      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+    },
+  ],
+  memberOf: {
+    "@type": "Organization",
+    name: "Utah Coalition of Appraisal Professionals",
+    url: "https://utcap.org",
   },
   areaServed: [
     { "@type": "AdministrativeArea", name: "Sanpete County, UT" },
@@ -96,7 +109,11 @@ const personSchema = {
           </p>
 
           <p class="font-body text-navy/80 leading-relaxed">
-            What sets me apart from most agents is that I'm also a certified real estate appraiser, which means I've spent my career understanding property value from multiple sides of the transaction. I know how to analyze what a property is likely to bring in the market and how to price it to perform.
+            What sets me apart from most agents is that I'm also a certified real estate appraiser, which means I've spent my career understanding pricing from multiple sides of the transaction. I know how to analyze what a property is likely to bring in the market and how to price it to perform.
+          </p>
+
+          <p class="font-body text-navy/80 leading-relaxed">
+            I'm also an active Utah Certified Residential Appraiser — I still practice appraisal work alongside real estate; I haven't left the profession. In 2026 I'm President-Elect of the Utah Coalition of Appraisal Professionals (<a href="https://utcap.org" target="_blank" rel="noopener" class="text-gold font-semibold hover:underline">UTCAP</a>), and I'll serve as President in 2027. On this site I talk about price and market opinion as your realtor; a formal appraisal is a separate, paid assignment.
           </p>
 
           <p class="font-body text-navy/80 leading-relaxed">
@@ -158,6 +175,8 @@ const personSchema = {
       <div class="bg-white rounded-lg p-8 shadow-sm border border-navy/5 space-y-3 text-navy/80">
         <p><span class="font-semibold text-navy">Licensed REALTOR&reg;</span> — State of Utah</p>
         <p>Agent License: 5957476-LA00</p>
+        <p><span class="font-semibold text-navy">Active Certified Residential Appraiser</span> — State of Utah</p>
+        <p><span class="font-semibold text-navy">2026 President-Elect</span>, Utah Coalition of Appraisal Professionals (<a href="https://utcap.org" target="_blank" rel="noopener" class="text-gold font-semibold hover:underline">UTCAP</a>) — President in 2027</p>
         <p>Affiliated brokerage: Heritage Realty Group LLC — Broker: Lawny R. Hunt</p>
         <p>Brokerage License: 6232680-CN00</p>
         <p>Serving Central &amp; rural Utah — Juab, Sanpete, Sevier &amp; Millard Counties and nearby areas</p>

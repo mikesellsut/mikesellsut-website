@@ -3,7 +3,7 @@ title: "USDA Rural Development Loans Explained: 0% Down in Sanpete, Sevier, Mill
 date: 2026-10-01
 author: "Mike Price"
 category: "Buyer Tips"
-featured_image: "/images/areas/sanpete-county-sign.jpg"
+featured_image: "/images/areas/sevier-monroe-canyon-entrance.jpg"
 excerpt: "How USDA Rural Development loans work, where they apply across Central Utah, and how to know if you and a specific property qualify for 0% down."
 published: true
 ---

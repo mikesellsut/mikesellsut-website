@@ -1,0 +1,449 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import "../../styles/tools.css";
+
+const caveat =
+  "Rough estimates for Central & rural Utah only. Well, septic and power costs swing a lot with depth, soil, distance and the contractor — get real bids. Rates and terms come from your lender. This isn't a loan offer or financial advice.";
+
+const faqs = [
+  {
+    question: "What does it cost to put a well, septic and power on land in Central Utah?",
+    answer: "It depends on depth, soil and distance, so get real bids. As rough starting points this calculator uses about $35,000 for a drilled well, $15,000 for a conventional septic or $30,000 for an alternative system, and about $30 a foot for a power line extension. Treat those as estimates you replace with contractor and utility quotes.",
+  },
+  {
+    question: "Why does the payment say \"payment only\"?",
+    answer: "Until you enter property tax and insurance, the number is principal and interest only. Taxes, insurance and any road or HOA fee get added on top. Enter them and the calculator shows a full estimate.",
+  },
+  {
+    question: "Can I roll well, septic and power costs into my loan?",
+    answer: "Sometimes, with a construction loan or certain lenders, but many land loans don't allow it. Plan to pay for infrastructure in cash unless your lender says otherwise.",
+  },
+  {
+    question: "Are land and cabin loans different from regular home loans?",
+    answer: "Often. Land loans usually have shorter terms and bigger down payments, and seasonal-access cabins can be harder to finance. Talk to a lender who does rural loans before you write an offer.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Cabin & Land Cost Calculator",
+  url: "https://mikesellsut.com/tools/cabin-cost/",
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "Any",
+  description: "Estimate the monthly payment plus rough well, septic and power costs for a cabin or land in Central Utah.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  provider: { "@type": "RealEstateAgent", name: "Mike Price", url: "https://mikesellsut.com" },
+};
+---
+
+<BaseLayout
+  title="Cabin & Land Cost Calculator: Payment, Well, Septic & Power"
+  description="Estimate the monthly payment plus well, septic and power costs for a cabin or land in Central Utah. Rough numbers, straight answers."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <section class="bg-navy py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        Cabin &amp; Land Cost Calculator
+      </h1>
+      <p class="font-body text-lg text-white/85 max-w-2xl mx-auto">
+        The land price is only part of it. Add the payment, plus what it takes to get water, septic and power to the place.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+    <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Tools", url: "/tools/" }, { name: "Cabin & Land Cost Calculator" }]} />
+  </div>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-12 pt-4">
+    <div class="msut-tool max-w-6xl mx-auto cc-layout" id="cc-tool">
+      <div class="cc-inputs">
+        <div class="t-card">
+          <h2 class="t-h2">Purchase</h2>
+          <div class="t-field">
+            <label class="t-label" for="cc-price">Price ($)</label>
+            <input id="cc-price" type="number" min="0" step="1000" inputmode="numeric" value="150000" />
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="cc-down">Down payment (%)</label>
+            <input id="cc-down" type="number" min="0" max="100" step="0.5" inputmode="decimal" value="20" />
+            <div class="t-presets" role="group" aria-label="Down payment presets">
+              {[0, 3.5, 10, 20, 30].map((p) => <button type="button" data-down={p} aria-pressed={p === 20 ? "true" : "false"}>{p}%</button>)}
+            </div>
+          </div>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="cc-rate">Interest rate (%)</label>
+              <input id="cc-rate" type="number" min="0" max="25" step="0.125" inputmode="decimal" value="7.25" />
+              <span class="t-help">Your lender sets the real rate.</span>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="cc-term">Term</label>
+              <select id="cc-term">
+                {[10, 15, 20, 30].map((t) => <option value={t} selected={t === 30}>{t} years</option>)}
+              </select>
+              <span class="t-help">Land loans are often shorter terms and bigger down payments.</span>
+            </div>
+          </div>
+          <label class="t-check">
+            <input type="checkbox" id="cc-know" />
+            <span>I know my taxes and insurance</span>
+          </label>
+          <div id="cc-optional" hidden>
+            <div class="t-grid2" style="margin-top:.75rem">
+              <div class="t-field">
+                <label class="t-label" for="cc-tax">Annual property tax ($)</label>
+                <input id="cc-tax" type="number" min="0" step="50" inputmode="numeric" placeholder="e.g. 1500" />
+              </div>
+              <div class="t-field">
+                <label class="t-label" for="cc-ins">Annual insurance ($)</label>
+                <input id="cc-ins" type="number" min="0" step="50" inputmode="numeric" placeholder="e.g. 1200" />
+              </div>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="cc-hoa">Monthly HOA / road fee ($)</label>
+              <input id="cc-hoa" type="number" min="0" step="5" inputmode="numeric" value="0" />
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card" style="margin-top:1.25rem">
+          <h2 class="t-h2">What the property needs</h2>
+          <p class="t-help" style="margin:0 0 1rem">Pick one and the cost fills in. The dollar amounts are placeholder estimates — change them to your real bids.</p>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="cc-water">Water</label>
+              <select id="cc-water" data-fills="cc-water-amt"></select>
+              <span class="t-help" id="cc-water-range"></span>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="cc-water-amt">Water cost ($)</label>
+              <input id="cc-water-amt" type="number" min="0" step="500" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="cc-septic">Septic</label>
+              <select id="cc-septic" data-fills="cc-septic-amt"></select>
+              <span class="t-help" id="cc-septic-range"></span>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="cc-septic-amt">Septic cost ($)</label>
+              <input id="cc-septic-amt" type="number" min="0" step="500" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="cc-power">Power</label>
+              <select id="cc-power" data-fills="cc-power-amt"></select>
+              <span class="t-help" id="cc-power-range"></span>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="cc-power-amt">Power cost ($)</label>
+              <input id="cc-power-amt" type="number" min="0" step="500" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="t-field" id="cc-feet-wrap" hidden>
+            <label class="t-label" for="cc-feet">Distance to the nearest power (feet)</label>
+            <input id="cc-feet" type="number" min="0" step="50" inputmode="numeric" value="500" />
+            <span class="t-help" id="cc-feet-help"></span>
+          </div>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="cc-drive">Driveway / road work ($)</label>
+              <input id="cc-drive" type="number" min="0" step="500" inputmode="numeric" value="0" />
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="cc-other">Other ($)</label>
+              <input id="cc-other" type="number" min="0" step="500" inputmode="numeric" value="0" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="cc-summary">
+        <div class="t-card" aria-live="polite" id="cc-results">
+          <h2 class="t-h2">Your rough numbers</h2>
+          <p class="t-steplabel" id="cc-monthly-label">Payment only — taxes &amp; insurance not included</p>
+          <p class="t-big" id="cc-monthly">$0</p>
+          <table class="t-table">
+            <tbody>
+              <tr><td>Loan amount</td><td id="cc-loan">$0</td></tr>
+              <tr><td>Monthly principal &amp; interest</td><td id="cc-pi">$0</td></tr>
+              <tr id="cc-row-tax" hidden><td>Tax + insurance + HOA / mo</td><td id="cc-tim">$0</td></tr>
+            </tbody>
+          </table>
+          <h3 class="t-h3" style="margin-top:1.25rem">One-time costs to make it usable</h3>
+          <table class="t-table">
+            <tbody id="cc-infra-rows"></tbody>
+            <tbody>
+              <tr class="t-total"><td>Infrastructure total</td><td id="cc-infra">$0</td></tr>
+            </tbody>
+          </table>
+          <table class="t-table" style="margin-top:.75rem">
+            <tbody>
+              <tr><td>Down payment</td><td id="cc-downamt">$0</td></tr>
+              <tr class="t-total"><td>Cash needed up front</td><td id="cc-cash">$0</td></tr>
+            </tbody>
+          </table>
+          <p class="t-help">Plus closing costs, not included.</p>
+          <div class="t-bar" aria-hidden="true"><span id="cc-bar-price" style="background:#1B2E5A;width:100%"></span><span id="cc-bar-infra" style="background:#D4A629;width:0"></span></div>
+          <div class="t-legend" aria-hidden="true"><span><i style="background:#1B2E5A"></i>Price</span><span><i style="background:#D4A629"></i>Infrastructure</span></div>
+          <label class="t-check" style="margin-top:.75rem">
+            <input type="checkbox" id="cc-roll" />
+            <span>Roll infrastructure into my budget</span>
+          </label>
+          <p id="cc-roll-out" hidden class="t-note"></p>
+          <p class="t-disclaimer">{caveat}</p>
+        </div>
+      </aside>
+
+      <!-- Optional lead capture: results are never gated -->
+      <form
+        id="cc-form"
+        class="t-card cc-lead"
+        name="cabin-cost"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        novalidate
+      >
+        <input type="hidden" name="form-name" value="cabin-cost" />
+        <p class="t-hidden-honeypot" aria-hidden="true">
+          <label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        {["price", "down_pct", "rate", "term", "monthly_pi", "monthly_total", "infra_total", "cash_needed", "water_choice", "septic_choice", "power_choice"].map((n) => (
+          <input type="hidden" name={n} value="" />
+        ))}
+        <input type="hidden" name="page_url" value="https://mikesellsut.com/tools/cabin-cost/" />
+        <h2 class="t-h2">Want properties that fit this budget?</h2>
+        <p class="t-help" style="margin:0 0 1rem">Optional. Your numbers above are yours either way.</p>
+        <div class="t-grid2">
+          <div class="t-field">
+            <label class="t-label" for="cc-fname">First name</label>
+            <input id="cc-fname" type="text" name="first_name" autocomplete="given-name" />
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="cc-email">Email <span class="t-req">*</span></label>
+            <input id="cc-email" type="email" name="email" autocomplete="email" required />
+            <p class="t-err" id="cc-email-err"></p>
+          </div>
+        </div>
+        <div class="t-field">
+          <label class="t-label" for="cc-phone">Phone <span class="t-help" style="display:inline">(optional)</span></label>
+          <input id="cc-phone" type="tel" name="phone" autocomplete="tel" />
+        </div>
+        <div class="t-field">
+          <label class="t-label" for="cc-msg">Message</label>
+          <textarea id="cc-msg" name="message" rows="3">Send me land/cabins that fit this budget</textarea>
+        </div>
+        <button type="submit" class="t-btn t-btn-primary" id="cc-submit">Send me properties in this budget</button>
+        <p class="t-success" id="cc-thanks" hidden style="margin-top:1rem">Got it — Mike will send a few that fit.</p>
+      </form>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Cabin & Land Cost Questions" />
+
+  <section class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center font-body text-navy/80">
+      <p>Next: <a class="text-gold font-semibold hover:underline" href="/tools/land-checklist/">rural land checklist</a> · <a class="text-gold font-semibold hover:underline" href="/blog/financing-cabin-second-home-utah/">financing a cabin or second home</a> · <a class="text-gold font-semibold hover:underline" href="/tools/">all tools</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .msut-tool.cc-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  @media (min-width: 1024px) {
+    .msut-tool.cc-layout { grid-template-columns: minmax(0, 1fr) 380px; align-items: start; }
+    .msut-tool .cc-summary { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: 6rem; }
+    .msut-tool .cc-inputs { grid-column: 1; grid-row: 1; }
+    .msut-tool .cc-lead { grid-column: 1; grid-row: 2; }
+  }
+</style>
+
+<script>
+  import { submitLead, money } from "../../scripts/submitLead";
+
+  // ================================================================
+  // PLACEHOLDER ESTIMATES — Mike to edit. Rough Central Utah starting
+  // points, not quotes. Every default and range the calculator uses is here.
+  // ================================================================
+  const CONFIG = {
+    water: [
+      { label: "Already has well or city water", amt: 0, range: "" },
+      { label: "Drill a new well", amt: 35000, range: "Estimate. Often $20k–$60k+ depending on depth." },
+      { label: "City/culinary hookup fee", amt: 8000, range: "Estimate. Varies by town." },
+      { label: "Haul water / cistern", amt: 6000, range: "Estimate for a cistern setup." },
+    ],
+    septic: [
+      { label: "Already has septic or sewer", amt: 0, range: "" },
+      { label: "Conventional septic", amt: 15000, range: "Estimate. Often $10k–$25k." },
+      { label: "Alternative/engineered system", amt: 30000, range: "Estimate. Often $20k–$45k." },
+    ],
+    power: [
+      { label: "Already has power", amt: 0, range: "" },
+      { label: "Line extension (by distance)", amt: null as number | null, range: "Estimate at $30/ft. Often $15–$50/ft. Get a quote from the power provider." },
+      { label: "Off-grid solar setup", amt: 30000, range: "Estimate for a basic system." },
+    ],
+    powerPerFoot: 30,
+  };
+  // ================================================================
+
+  const $ = <T extends HTMLElement = HTMLInputElement>(id: string) => document.getElementById(id) as T;
+  const n = (id: string) => {
+    const v = parseFloat($(id).value);
+    return Number.isFinite(v) && v > 0 ? v : 0;
+  };
+
+  // Standard amortization; 0% rate = straight division.
+  function monthlyPI(principal: number, annualRatePct: number, years: number) {
+    const months = years * 12;
+    if (principal <= 0 || months <= 0) return 0;
+    const r = annualRatePct / 100 / 12;
+    if (r === 0) return principal / months;
+    return (principal * r) / (1 - Math.pow(1 + r, -months));
+  }
+
+  function fillSelect(id: string, opts: { label: string }[], selected: number) {
+    const sel = $<HTMLSelectElement>(id);
+    opts.forEach((o, i) => {
+      const op = document.createElement("option");
+      op.value = String(i);
+      op.textContent = o.label;
+      if (i === selected) op.selected = true;
+      sel.appendChild(op);
+    });
+  }
+  fillSelect("cc-water", CONFIG.water, 1);
+  fillSelect("cc-septic", CONFIG.septic, 1);
+  fillSelect("cc-power", CONFIG.power, 1);
+
+  function applyChoice(kind: "water" | "septic" | "power") {
+    const idx = Number($<HTMLSelectElement>(`cc-${kind}`).value);
+    const opt = CONFIG[kind][idx];
+    $(`cc-${kind}-range`).textContent = opt.range;
+    if (kind === "power") {
+      const byFeet = opt.amt === null;
+      $("cc-feet-wrap").hidden = !byFeet;
+      $("cc-power-amt").value = String(byFeet ? Math.round(n("cc-feet") * CONFIG.powerPerFoot) : opt.amt);
+    } else {
+      $(`cc-${kind}-amt`).value = String(opt.amt);
+    }
+  }
+
+  function calc() {
+    const price = n("cc-price");
+    const downPct = Math.min(100, n("cc-down"));
+    const rate = n("cc-rate");
+    const term = Number($<HTMLSelectElement>("cc-term").value);
+    const down = price * (downPct / 100);
+    const loan = Math.max(0, price - down);
+    const pi = monthlyPI(loan, rate, term);
+    const know = $("cc-know").checked;
+    const tax = n("cc-tax"), ins = n("cc-ins"), hoa = n("cc-hoa");
+    const full = know && tax > 0 && ins > 0;
+    const tim = full ? tax / 12 + ins / 12 + hoa : 0;
+    const total = pi + tim;
+
+    const lines: [string, number][] = [
+      [`Water: ${$<HTMLSelectElement>("cc-water").selectedOptions[0].textContent}`, n("cc-water-amt")],
+      [`Septic: ${$<HTMLSelectElement>("cc-septic").selectedOptions[0].textContent}`, n("cc-septic-amt")],
+      [`Power: ${$<HTMLSelectElement>("cc-power").selectedOptions[0].textContent}`, n("cc-power-amt")],
+      ["Driveway / road work", n("cc-drive")],
+      ["Other", n("cc-other")],
+    ];
+    const infra = lines.reduce((s, [, v]) => s + v, 0);
+    const cash = down + infra;
+
+    $("cc-monthly-label").textContent = full
+      ? "PITI estimate (P&I + tax + insurance + HOA)"
+      : "Payment only — taxes & insurance not included";
+    $("cc-monthly").textContent = `${money(full ? total : pi)}/mo`;
+    $("cc-loan").textContent = money(loan);
+    $("cc-pi").textContent = `${money(pi)}/mo`;
+    $("cc-row-tax").hidden = !full;
+    $("cc-tim").textContent = `${money(tim)}/mo`;
+    const tb = $("cc-infra-rows");
+    tb.innerHTML = "";
+    lines.forEach(([label, v]) => {
+      if (!v && !label.startsWith("Water") && !label.startsWith("Septic") && !label.startsWith("Power")) return;
+      const tr = document.createElement("tr");
+      const a = document.createElement("td"); a.textContent = label;
+      const b = document.createElement("td"); b.textContent = money(v);
+      tr.append(a, b); tb.appendChild(tr);
+    });
+    $("cc-infra").textContent = money(infra);
+    $("cc-downamt").textContent = money(down);
+    $("cc-cash").textContent = money(cash);
+    const whole = price + infra || 1;
+    $("cc-bar-price").style.width = `${(price / whole) * 100}%`;
+    $("cc-bar-infra").style.width = `${(infra / whole) * 100}%`;
+
+    const roll = $("cc-roll").checked;
+    const ro = $("cc-roll-out");
+    ro.hidden = !roll;
+    if (roll) {
+      const extra = monthlyPI(infra, rate, term);
+      ro.textContent = `If financed at the same rate and term: about ${money(extra)}/mo more, ${money(pi + extra + tim)}/mo total. Only if your lender allows it — many don't on land.`;
+    }
+
+    const f = document.getElementById("cc-form") as HTMLFormElement;
+    const set = (k: string, v: string) => ((f.elements.namedItem(k) as HTMLInputElement).value = v);
+    set("price", String(price)); set("down_pct", String(downPct)); set("rate", String(rate)); set("term", String(term));
+    set("monthly_pi", String(Math.round(pi))); set("monthly_total", full ? String(Math.round(total)) : "");
+    set("infra_total", String(Math.round(infra))); set("cash_needed", String(Math.round(cash)));
+    set("water_choice", `${lines[0][0]} (${money(lines[0][1])})`);
+    set("septic_choice", `${lines[1][0]} (${money(lines[1][1])})`);
+    set("power_choice", `${lines[2][0]} (${money(lines[2][1])})`);
+  }
+
+  (["water", "septic", "power"] as const).forEach((k) => {
+    applyChoice(k);
+    $<HTMLSelectElement>(`cc-${k}`).addEventListener("change", () => { applyChoice(k); calc(); });
+  });
+  $("cc-feet").addEventListener("input", () => { applyChoice("power"); calc(); });
+  $("cc-feet-help").textContent = `About $${CONFIG.powerPerFoot}/ft as a placeholder estimate. Often $15–$50/ft.`;
+
+  document.querySelectorAll<HTMLButtonElement>("[data-down]").forEach((b) =>
+    b.addEventListener("click", () => {
+      $("cc-down").value = b.dataset.down!;
+      calc();
+      syncPresets();
+    })
+  );
+  function syncPresets() {
+    document.querySelectorAll<HTMLButtonElement>("[data-down]").forEach((b) =>
+      b.setAttribute("aria-pressed", String(Number(b.dataset.down) === parseFloat($("cc-down").value)))
+    );
+  }
+  $("cc-know").addEventListener("change", () => { $("cc-optional").hidden = !$("cc-know").checked; calc(); });
+  document.querySelectorAll<HTMLInputElement>(".cc-inputs input, .cc-inputs select, #cc-roll").forEach((el) => {
+    el.addEventListener("input", () => { calc(); syncPresets(); });
+    el.addEventListener("change", calc);
+  });
+  calc();
+
+  const form = document.getElementById("cc-form") as HTMLFormElement;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = form.elements.namedItem("email") as HTMLInputElement;
+    const ok = email.value.trim() !== "" && email.checkValidity();
+    $("cc-email-err").textContent = ok ? "" : "Enter a valid email address.";
+    email.setAttribute("aria-invalid", ok ? "false" : "true");
+    if (!ok) { email.focus(); return; }
+    calc();
+    (form.elements.namedItem("page_url") as HTMLInputElement).value = window.location.href;
+    const btn = $<HTMLButtonElement>("cc-submit");
+    btn.disabled = true;
+    await submitLead(form);
+    btn.disabled = false;
+    $("cc-thanks").hidden = false;
+  });
+</script>

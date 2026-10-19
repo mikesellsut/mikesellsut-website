@@ -3,7 +3,7 @@ title: "What to Fix Before You List a Rural or Small-Town Home (and What to Skip
 date: 2026-10-20
 author: "Mike Price"
 category: "Seller Tips"
-featured_image: "/images/areas/millard-lynndyl-feedmill.jpg"
+featured_image: "/images/areas/sanpete-fountain-green-historic-home.jpg"
 excerpt: "Generic staging advice doesn't apply to rural Central Utah homes. Here's a realistic pre-listing checklist — what to actually fix, and what's not worth your money."
 published: true
 ---

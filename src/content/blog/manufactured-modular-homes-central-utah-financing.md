@@ -3,7 +3,7 @@ title: "Buying a Manufactured or Modular Home in Central Utah: Financing and Wha
 date: 2026-10-06
 author: "Mike Price"
 category: "Buyer Tips"
-featured_image: "/images/areas/millard-lynndyl-feedmill.jpg"
+featured_image: "/images/areas/millard-delta-aerial-farms.jpg"
 excerpt: "What buyers need to know about purchasing and financing manufactured or modular homes in Sanpete, Sevier, Millard, and Juab Counties."
 published: true
 ---

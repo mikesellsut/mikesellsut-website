@@ -1,0 +1,282 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import "../../styles/tools.css";
+
+const disclaimer =
+  "Estimate only, for general information. Actual costs, payoff amounts and prorations come from your lender and title company at closing. Not legal, tax or financial advice. The sale price you enter here is not an appraisal and is not an opinion of market price from Mike — just your input for the math.";
+
+const fields = [
+  { id: "sn-price", name: "Expected sale price ($)", def: 400000, step: 1000 },
+  { id: "sn-payoff", name: "Mortgage payoff ($)", def: 0, step: 1000 },
+  { id: "sn-heloc", name: "Second mortgage / HELOC ($)", def: 0, step: 1000 },
+];
+const costs = [
+  { id: "sn-conc", name: "Seller concessions toward buyer costs ($)", def: 0 },
+  { id: "sn-repairs", name: "Repairs / prep before listing ($)", def: 0 },
+  { id: "sn-tax", name: "Prorated property tax owed ($)", def: 0 },
+  { id: "sn-other", name: "Other (water share transfer, liens, etc.) ($)", def: 0 },
+];
+
+const faqs = [
+  {
+    question: "What commission does the seller net estimator use?",
+    answer: "It starts at 6%, which covers both the listing side and the buyer's side combined. That's a common starting point, not a set rate. Commission is negotiable and your listing agreement may be different, so change the number to match yours.",
+  },
+  {
+    question: "What closing costs does a Utah seller usually pay?",
+    answer: "Typically the seller's share of title insurance and escrow fees, any concessions agreed to in the contract, prorated property taxes, and the payoff of any loans. The title company prepares the real net sheet once there's a contract.",
+  },
+  {
+    question: "Where should my sale price come from?",
+    answer: "Not from this tool. Use the rough price range tool for a starting ballpark, then let me pull real comps for a free market opinion before you list.",
+  },
+];
+---
+
+<BaseLayout
+  title="Seller Net Proceeds Estimator: What Will I Walk Away With?"
+  description="Estimate what you might walk away with after selling a home, cabin or land in Central Utah — payoff, commission, closing costs and more. A ballpark, not a net sheet."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Seller Net Proceeds Estimator",
+    url: "https://mikesellsut.com/tools/seller-net/",
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    provider: { "@type": "RealEstateAgent", name: "Mike Price", url: "https://mikesellsut.com" },
+  })} />
+
+  <section class="bg-navy py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
+        What Will I Walk Away With?
+      </h1>
+      <p class="font-body text-lg text-white/85 max-w-2xl mx-auto">
+        A quick seller net estimate: sale price minus payoff, commission and closing costs. Ballpark math so you can plan your next move.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+    <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Tools", url: "/tools/" }, { name: "Seller Net Proceeds" }]} />
+  </div>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-12 pt-4">
+    <div class="msut-tool max-w-6xl mx-auto cc-layout" id="sn-tool">
+      <div class="cc-inputs">
+        <div class="t-card">
+          <h2 class="t-h2">Your sale</h2>
+          {fields.map((f) => (
+            <div class="t-field">
+              <label class="t-label" for={f.id}>{f.name}</label>
+              <input id={f.id} type="number" min="0" step={f.step} inputmode="numeric" value={f.def} />
+            </div>
+          ))}
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="sn-comm">Commission (%)</label>
+              <input id="sn-comm" type="number" min="0" max="15" step="0.25" inputmode="decimal" value="6" />
+              <span class="t-help">6% is a common starting point for both sides combined — not set in stone; commission is negotiable and your agreement may differ.</span>
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="sn-title">Title / escrow / closing (%)</label>
+              <input id="sn-title" type="number" min="0" max="10" step="0.1" inputmode="decimal" value="1" />
+              <span class="t-help">Seller-paid share. Rough placeholder.</span>
+            </div>
+          </div>
+          <div class="t-grid2">
+            {costs.map((f) => (
+              <div class="t-field">
+                <label class="t-label" for={f.id}>{f.name}</label>
+                <input id={f.id} type="number" min="0" step="100" inputmode="numeric" value={f.def} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="cc-summary">
+        <div class="t-card" aria-live="polite">
+          <h2 class="t-h2">Estimated net to you</h2>
+          <p class="t-big" id="sn-net">$0</p>
+          <p class="t-help" id="sn-band"></p>
+          <table class="t-table"><tbody id="sn-rows"></tbody></table>
+          <div class="t-bar" aria-hidden="true" id="sn-bar"></div>
+          <div class="t-legend" aria-hidden="true" id="sn-legend"></div>
+          <p style="margin-top:.75rem">This is a ballpark. Your real net sheet comes from the title company once there's a contract.</p>
+          <p class="t-disclaimer">{disclaimer}</p>
+        </div>
+      </aside>
+
+      <div class="cc-lead">
+        <div class="t-card" style="background:rgba(212,166,41,.1)">
+          <h2 class="t-h2">Want a real number on your sale price?</h2>
+          <p>I pull the actual comps. And as an active Certified Residential Appraiser, I know how a buyer's appraiser will look at your property before it ever goes under contract.</p>
+          <div class="t-actions">
+            <a class="t-btn t-btn-primary" href="/tools/home-price/">Get a rough price range first</a>
+            <a class="t-btn t-btn-secondary" href="tel:4356600401">Call Mike 435-660-0401</a>
+          </div>
+        </div>
+
+        <form
+          id="sn-form"
+          class="t-card"
+          style="margin-top:1.25rem"
+          name="seller-net"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="seller-net" />
+          <p class="t-hidden-honeypot" aria-hidden="true">
+            <label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+          <input type="hidden" name="sale_price" value="" />
+          <input type="hidden" name="commission_pct" value="" />
+          <input type="hidden" name="net_estimate" value="" />
+          <input type="hidden" name="page_url" value="https://mikesellsut.com/tools/seller-net/" />
+          <h2 class="t-h2">Get a real price opinion</h2>
+          <p class="t-help" style="margin:0 0 1rem">Optional. Mike gets these numbers and follows up personally.</p>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="sn-fname">First name</label>
+              <input id="sn-fname" type="text" name="first_name" autocomplete="given-name" />
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="sn-email">Email <span class="t-req">*</span></label>
+              <input id="sn-email" type="email" name="email" autocomplete="email" required />
+              <p class="t-err" id="sn-email-err"></p>
+            </div>
+          </div>
+          <div class="t-grid2">
+            <div class="t-field">
+              <label class="t-label" for="sn-phone">Phone <span class="t-help" style="display:inline">(optional)</span></label>
+              <input id="sn-phone" type="tel" name="phone" autocomplete="tel" />
+            </div>
+            <div class="t-field">
+              <label class="t-label" for="sn-area">Property town or general area</label>
+              <input id="sn-area" type="text" name="address_or_town" placeholder="e.g. Ephraim" />
+            </div>
+          </div>
+          <div class="t-field">
+            <label class="t-label" for="sn-timeline">Timeline</label>
+            <select id="sn-timeline" name="timeline">
+              <option>Now</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option selected>Just curious</option>
+            </select>
+          </div>
+          <button type="submit" class="t-btn t-btn-primary" id="sn-submit">Send Mike my numbers</button>
+          <p class="t-success" id="sn-thanks" hidden style="margin-top:1rem">Thanks — Mike got your numbers and will follow up personally.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} heading="Seller Net Questions" />
+</BaseLayout>
+
+<style is:global>
+  .msut-tool.cc-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  @media (min-width: 1024px) {
+    .msut-tool.cc-layout { grid-template-columns: minmax(0, 1fr) 380px; align-items: start; }
+    .msut-tool .cc-summary { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: 6rem; }
+    .msut-tool .cc-inputs { grid-column: 1; grid-row: 1; }
+    .msut-tool .cc-lead { grid-column: 1; grid-row: 2; }
+  }
+</style>
+
+<script>
+  import { submitLead, money } from "../../scripts/submitLead";
+
+  // Defaults (Mike to edit): commission 6% both sides combined, negotiable.
+  const CONFIG = { bandPct: 0.02, colors: ["#2E7D32", "#1B2E5A", "#D4A629", "#4A9BD9", "#C62828"] };
+
+  const n = (id: string) => {
+    const v = parseFloat((document.getElementById(id) as HTMLInputElement).value);
+    return Number.isFinite(v) && v > 0 ? v : 0;
+  };
+
+  function calc() {
+    const price = n("sn-price");
+    const commPct = n("sn-comm");
+    const comm = price * (commPct / 100);
+    const title = price * (n("sn-title") / 100);
+    const loans = n("sn-payoff") + n("sn-heloc");
+    const other = n("sn-conc") + n("sn-repairs") + n("sn-tax") + n("sn-other");
+    const net = price - comm - title - loans - other;
+    const band = price * CONFIG.bandPct;
+
+    document.getElementById("sn-net")!.textContent = net < 0 ? `-${money(-net)}` : money(net);
+    document.getElementById("sn-band")!.textContent =
+      `Allowing ±2% of price for unknowns: about ${money(Math.max(0, net - band))} – ${money(Math.max(0, net + band))}.` +
+      (net < 0 ? " At these numbers you'd need to bring money to closing." : "");
+    const rows: [string, number][] = [
+      ["Sale price", price],
+      [`Commission (${commPct}%)`, -comm],
+      [`Title / escrow / closing (${n("sn-title")}%)`, -title],
+      ["Loan payoffs", -loans],
+      ["Concessions, repairs, taxes, other", -other],
+    ];
+    const tb = document.getElementById("sn-rows")!;
+    tb.innerHTML = "";
+    rows.forEach(([l, v]) => {
+      const tr = document.createElement("tr");
+      const a = document.createElement("td"); a.textContent = l;
+      const b = document.createElement("td"); b.textContent = v < 0 ? `−${money(-v)}` : money(v);
+      tr.append(a, b); tb.appendChild(tr);
+    });
+    const tr = document.createElement("tr"); tr.className = "t-total";
+    const a = document.createElement("td"); a.textContent = "Estimated net";
+    const b = document.createElement("td"); b.textContent = net < 0 ? `−${money(-net)}` : money(net);
+    tr.append(a, b); tb.appendChild(tr);
+
+    const parts: [string, number][] = [["Net to you", Math.max(0, net)], ["Loan payoffs", loans], ["Commission", comm], ["Title/closing", title], ["Other", other]];
+    const whole = parts.reduce((s, [, v]) => s + v, 0) || 1;
+    const barEl = document.getElementById("sn-bar")!;
+    const legEl = document.getElementById("sn-legend")!;
+    barEl.innerHTML = ""; legEl.innerHTML = "";
+    parts.forEach(([l, v], i) => {
+      const s = document.createElement("span");
+      s.style.width = `${(v / whole) * 100}%`;
+      s.style.background = CONFIG.colors[i];
+      barEl.appendChild(s);
+      const g = document.createElement("span");
+      const sw = document.createElement("i"); sw.style.background = CONFIG.colors[i];
+      g.append(sw, document.createTextNode(l));
+      legEl.appendChild(g);
+    });
+
+    const f = document.getElementById("sn-form") as HTMLFormElement;
+    (f.elements.namedItem("sale_price") as HTMLInputElement).value = String(Math.round(price));
+    (f.elements.namedItem("commission_pct") as HTMLInputElement).value = String(commPct);
+    (f.elements.namedItem("net_estimate") as HTMLInputElement).value = String(Math.round(net));
+  }
+
+  document.querySelectorAll<HTMLInputElement>("#sn-tool .cc-inputs input").forEach((el) => el.addEventListener("input", calc));
+  calc();
+
+  const form = document.getElementById("sn-form") as HTMLFormElement;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = form.elements.namedItem("email") as HTMLInputElement;
+    const ok = email.value.trim() !== "" && email.checkValidity();
+    document.getElementById("sn-email-err")!.textContent = ok ? "" : "Enter a valid email address.";
+    email.setAttribute("aria-invalid", ok ? "false" : "true");
+    if (!ok) { email.focus(); return; }
+    calc();
+    (form.elements.namedItem("page_url") as HTMLInputElement).value = window.location.href;
+    const btn = document.getElementById("sn-submit") as HTMLButtonElement;
+    btn.disabled = true;
+    await submitLead(form);
+    btn.disabled = false;
+    (document.getElementById("sn-thanks") as HTMLElement).hidden = false;
+  });
+</script>

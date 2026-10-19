@@ -3,7 +3,7 @@ title: "Conventional vs. FHA vs. USDA: Which Loan Fits Your Central Utah Purchas
 date: 2026-10-08
 author: "Mike Price"
 category: "Buyer Tips"
-featured_image: "/images/areas/juab-mt-nebo.jpg"
+featured_image: "/images/areas/sanpete-gunnison-main-street.jpg"
 excerpt: "A side-by-side comparison of conventional, FHA, and USDA loans for buyers in Sanpete, Sevier, Millard, and Juab Counties, and how to know which one actually fits."
 published: true
 ---

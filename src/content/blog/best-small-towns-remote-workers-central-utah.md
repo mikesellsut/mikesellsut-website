@@ -3,7 +3,7 @@ title: "Best Small Towns in Central Utah for Remote Workers Leaving the Wasatch 
 date: 2026-09-10
 author: "Mike Price"
 category: "Utah Living"
-featured_image: "/images/areas/juab-mt-nebo.jpg"
+featured_image: "/images/areas/sanpete-fairview-main-street.jpg"
 excerpt: "If you can work from anywhere, here's an honest ranking of the best small towns in Sanpete, Sevier, Millard, and Juab Counties for remote workers leaving the Wasatch Front."
 published: true
 ---

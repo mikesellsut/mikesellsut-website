@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
+import ToolsCallout from "../components/ToolsCallout.astro";
 import FAQAccordion from "../components/FAQAccordion.astro";
 import BlogCard from "../components/BlogCard.astro";
 import { getCollection } from "astro:content";
@@ -23,10 +24,10 @@ const faqs = [
   },
   {
     question: "Are mountain cabins accessible year-round?",
-    answer: "Some are and some are not. Properties along Skyline Drive and in the higher elevations are typically seasonal access — the roads close in winter and may not reopen until late May or June. Properties at lower elevations or along main canyons may be accessible year-round with a capable vehicle. Access is one of the most important things to understand before you buy, and it significantly affects both value and insurance. I will make sure you know exactly what you are getting.",
+    answer: "Some are and some are not. Properties along Skyline Drive and in the higher elevations are typically seasonal access — the roads close in winter and may not reopen until late May or June. Properties at lower elevations or along main canyons may be accessible year-round with a capable vehicle. Access is one of the most important things to understand before you buy, and it significantly affects both price and insurance. I will make sure you know exactly what you are getting.",
   },
   {
-    question: "How does seasonal access affect property value?",
+    question: "How does seasonal access affect what a cabin sells for?",
     answer: "Significantly. A cabin that is accessible only four to five months a year will generally sell for less than a comparable property with year-round access — sometimes substantially less. Seasonal access limits how you can use the property, affects your ability to insure it during the off-season, and narrows the buyer pool when it is time to sell. These are important trade-offs to understand going in.",
   },
   {
@@ -46,7 +47,7 @@ const faqs = [
 
 <BaseLayout
   title="Recreational Cabins & Mountain Property"
-  description="Buy or sell mountain cabins and recreational property in Central Utah — Skyline Drive, Fishlake, and Nebo Loop. Access, financing, and valuation expertise."
+  description="Buy or sell mountain cabins and recreational property in Central Utah — Skyline Drive, Fishlake, and Nebo Loop. Access, financing, and pricing expertise."
 >
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -63,7 +64,7 @@ const faqs = [
       { "@type": "AdministrativeArea", "name": "Millard County, Utah" },
       { "@type": "AdministrativeArea", "name": "Juab County, Utah" }
     ],
-    "description": "Recreational cabin and mountain property services in Central Utah — buying, selling, access, financing, and valuation expertise."
+    "description": "Recreational cabin and mountain property services in Central Utah — buying, selling, access, financing, and pricing expertise."
   })} />
 
   <!-- Hero -->
@@ -92,13 +93,13 @@ const faqs = [
           A mountain cabin in Central Utah is not just a house in a prettier location. It is a fundamentally different kind of property with its own set of questions, challenges, and rewards. Whether you are looking for a weekend retreat, a seasonal getaway, or a full-time mountain home, the buying and selling process works differently from a typical residential transaction.
         </p>
         <p>
-          Access is often the first question. Can you reach the property year-round, or is the road closed from November through May? If seasonal, how does that affect your use, your insurance, and the property's value?
+          Access is often the first question. Can you reach the property year-round, or is the road closed from November through May? If seasonal, how does that affect your use, your insurance, and what the property will sell for?
         </p>
         <p>
           Then there is water — many mountain cabins rely on wells, springs, or hauled water rather than a municipal supply. Power may come from the grid or from solar and generators. Cell service and internet may be limited. None of these are necessarily problems, but they are details you need to understand before you commit.
         </p>
         <p>
-          Valuation is another challenge. Mountain cabins are unique — different elevations, different access, different improvements, different views. Comparable sales may be limited or spread across different mountain areas. Pricing a cabin accurately requires local knowledge and appraisal-level analysis, not just a comparable search.
+          Pricing is another challenge. Mountain cabins are unique — different elevations, different access, different improvements, different views. Comparable sales may be limited or spread across different mountain areas. Pricing a cabin accurately requires local knowledge and appraisal-level analysis, not just a comparable search.
         </p>
       </div>
     </div>
@@ -156,7 +157,7 @@ const faqs = [
         <div class="p-6 bg-white rounded-lg border border-navy/5">
           <h3 class="font-heading text-lg text-navy uppercase tracking-wide mb-3">Access & Roads</h3>
           <p class="font-body text-sm text-navy/70 leading-relaxed">
-            Understand whether access is year-round or seasonal, who maintains the road, and what kind of vehicle you need. This is the single biggest factor in both usability and resale value.
+            Understand whether access is year-round or seasonal, who maintains the road, and what kind of vehicle you need. This is the single biggest factor in both usability and resale price.
           </p>
         </div>
         <div class="p-6 bg-white rounded-lg border border-navy/5">
@@ -235,6 +236,9 @@ const faqs = [
       </a>
     </div>
   </section>
+
+  <!-- Free tools -->
+  <ToolsCallout only={["cabin-cost", "land-checklist", "loan-chooser"]} heading="Free Cabin Tools" intro="Run the payment plus well, septic and power costs, and see which loan usually fits a cabin." />
 
   <!-- FAQ -->
   <FAQAccordion items={faqs} heading="Cabin & Mountain Property Questions" />
