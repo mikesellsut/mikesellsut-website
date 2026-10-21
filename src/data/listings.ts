@@ -1,9 +1,14 @@
-// Current listings shown on /listings.
+// Listings shown on /listings.
 //
 // To add a listing: drop its web-sized photos into src/assets/listings/
 // (01 = hero), then add an entry below. To take one down, delete its entry
 // (and its photos). Leave mlsUrl empty until the public UtahRealEstate.com
 // page exists — the "View on MLS" button only appears when it's set.
+//
+// When one sells: set status: "Sold" and delete price, mlsNumber and mlsUrl.
+// It moves to the "Recently Sold" section below the active listings with a
+// Sold badge. Never add a sold price anywhere — Utah is a non-disclosure
+// state. Keep the id the same so old /listings/#id links still land on it.
 //
 // Public-facing facts only: town/subdivision, never a street address.
 
@@ -24,7 +29,8 @@ export interface Listing {
   title: string;
   status: ListingStatus;
   type: string;
-  price: number;
+  /** Asking price. Required for Active / Under Contract; leave off for Sold. */
+  price?: number;
   beds?: number;
   baths?: number;
   sqft?: number;
@@ -37,6 +43,8 @@ export interface Listing {
   /** First photo is the hero image. */
   photos: ListingPhoto[];
 }
+
+export const isSold = (l: Listing) => l.status === "Sold";
 
 export const listings: Listing[] = [
   {
@@ -90,14 +98,11 @@ export const listings: Listing[] = [
   {
     id: "pine-ridge-lot",
     title: "Build-Ready 6.09-Acre Recreational Lot",
-    status: "Under Contract",
+    status: "Sold",
     type: "Land",
-    price: 269000,
     acres: 6.09,
     town: "Mt. Pleasant",
     subdivision: "Pine Ridge Estates",
-    mlsNumber: "2186368",
-    mlsUrl: "https://www.utahrealestate.com/2186368",
     blurb:
       "Build-ready recreational lot in gated Pine Ridge Estates near Mt. Pleasant — engineered septic installed, culinary water to on-site spigots, a leveled cabin/RV pad, and gravel access among mature pines. Power available at the street; seasonal vehicle access roughly April–November.",
     photos: [
