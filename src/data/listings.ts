@@ -135,4 +135,47 @@ export const listings: Listing[] = [
       { file: "gooseberry-land-06.jpg", alt: "Overhead drone view of aspen and open ground on the Gooseberry Canyon parcels" },
     ],
   },
+  // ----- Recently sold (newest sale first) -----
+  {
+    id: "mt-pleasant-creek-home",
+    title: "Creekside Rambler on 5.51 Acres",
+    status: "Sold",
+    type: "Home",
+    beds: 5,
+    baths: 3,
+    sqft: 3464,
+    acres: 5.51,
+    town: "Mt. Pleasant",
+    blurb:
+      "2003 rambler on 5.51 acres outside Mt. Pleasant, down a private gravel drive with a year-round creek, a footbridge, and creekside fire pits. Inside: a river-rock fireplace under a vaulted tongue-and-groove ceiling, a main-floor primary suite, and a walkout basement — plus a 3-car garage and fenced pasture set up for horses.",
+    photos: [
+      { file: "mt-pleasant-creek-home-01.jpg", alt: "Rambler with covered porches and a stone chimney on 5.51 acres outside Mt. Pleasant" },
+      { file: "mt-pleasant-creek-home-02.jpg", alt: "Creekside sitting area with a fire pit beneath mature trees" },
+      { file: "mt-pleasant-creek-home-03.jpg", alt: "Great room with a vaulted wood ceiling and floor-to-ceiling stone fireplace" },
+      { file: "mt-pleasant-creek-home-04.jpg", alt: "Kitchen with peninsula bar seating" },
+      { file: "mt-pleasant-creek-home-05.jpg", alt: "Year-round creek flowing over river rock on the property" },
+      { file: "mt-pleasant-creek-home-06.jpg", alt: "Horse shelter and fenced corrals with mountain views" },
+    ],
+  },
+  {
+    id: "pine-creek-cabin",
+    title: "Mountain Cabin on 1.05 Acres in Pine Creek",
+    status: "Sold",
+    type: "Cabin",
+    beds: 4,
+    baths: 2,
+    acres: 1.05,
+    town: "Mt. Pleasant",
+    subdivision: "Pine Creek Meadows",
+    blurb:
+      "2005 cabin on 1.05 acres in gated Pine Creek Meadows outside Mt. Pleasant — 4 bedrooms, 2 baths, a Hardie-board and stone exterior, and a covered deck tucked into the trees. Culinary water through the Pine Creek Ranch association, with septic.",
+    photos: [
+      { file: "pine-creek-cabin-01.jpg", alt: "Aerial view of the two-story Pine Creek cabin and covered deck among the trees outside Mt. Pleasant" },
+      { file: "pine-creek-cabin-02.jpg", alt: "Aerial view of the cabin's covered deck and stone chimney" },
+      { file: "pine-creek-cabin-03.jpg", alt: "Covered deck looking out over the trees and hills" },
+      { file: "pine-creek-cabin-04.jpg", alt: "Living room with a stone fireplace" },
+      { file: "pine-creek-cabin-05.jpg", alt: "Cabin kitchen with wood cabinets and a center island" },
+      { file: "pine-creek-cabin-06.jpg", alt: "Upstairs sitting area under a wood ceiling" },
+    ],
+  },
 ];
