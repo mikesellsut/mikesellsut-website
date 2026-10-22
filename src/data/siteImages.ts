@@ -153,6 +153,11 @@ export const siteImages: SiteImage[] = [
     alt: "Open fenced pasture in the southern Juab Valley along State Route 28 near Levan, Juab County, Utah, with the Valley Mountains behind",
     credit: { title: "Valley Mountains from SR-28, Juab County, Utah, Nov 20", author: "An Errant Knight", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", sourceUrl: "https://commons.wikimedia.org/wiki/File:Valley_Mountains_from_SR-28,_Juab_County,_Utah,_Nov_20.jpg", modified: "resized" },
   },
+  {
+    src: "/images/areas/sanpete-spring-city-crawforth-farmstead.jpg",
+    alt: "The historic limestone Charles Crawforth farmhouse under large shade trees in evening light in Spring City, Sanpete County, Utah",
+    credit: { title: "Charles Crawforth Farmstead in June", author: "Aminglish", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", sourceUrl: "https://commons.wikimedia.org/wiki/File:Charles_Crawforth_Farmstead_in_June.jpg", modified: "resized" },
+  },
 ];
 
 const bySrc = new Map(siteImages.map((i) => [i.src, i]));
