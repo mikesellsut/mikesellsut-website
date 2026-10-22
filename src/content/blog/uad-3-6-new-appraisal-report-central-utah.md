@@ -59,7 +59,7 @@ Fannie Mae and Freddie Mac haven't published fee or turnaround numbers. What the
 
 From my own desk: my first 3.6 reports took longer. The new fields, defect entry, data validation errors and photo category rules all added time. I also take more measurements in the field now, like ceiling height, front door elevation and garage square footage.
 
-Here's what I'm seeing locally on fees: they're going up, because inspections take longer, and the report itself is much bigger. According to Working RE magazine, UAD 2.6 had about 190 data elements, and UAD 3.6 has more than 900. More time on site and at the desk costs more.
+Here's what I'm seeing locally on fees: they're going up, because inspections take longer, and the report itself is much bigger. According to [Working RE magazine](https://www.workingre.com/uad-3-6-inside-the-struggle-over-fees-turn-time-and-software/), UAD 2.6 had about 190 data elements, and UAD 3.6 has more than 900. More time on site and at the desk costs more.
 
 And on turnaround: plan on about two extra days, give or take, depending on how busy appraisers are. If you're under contract, build that into your appraisal deadline.
 
