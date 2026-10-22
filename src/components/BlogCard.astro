@@ -1,5 +1,6 @@
 ---
 import { imageAlt } from "../data/siteImages";
+import { formatPostDate, postDateISO } from "../utils/postDate";
 interface Props {
   title: string;
   excerpt: string;
@@ -12,11 +13,7 @@ interface Props {
 
 const { title, excerpt, date, slug, image, category, class: className = "" } = Astro.props;
 
-const formattedDate = date.toLocaleDateString("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
+const formattedDate = formatPostDate(date);
 ---
 
 <a
@@ -52,7 +49,7 @@ const formattedDate = date.toLocaleDateString("en-US", {
       {title}
     </h3>
     <p class="text-sm text-navy/70 mt-2 leading-relaxed line-clamp-2">{excerpt}</p>
-    <time class="block text-xs text-navy/50 mt-3" datetime={date.toISOString()}>
+    <time class="block text-xs text-navy/50 mt-3" datetime={postDateISO(date)}>
       {formattedDate}
     </time>
   </div>

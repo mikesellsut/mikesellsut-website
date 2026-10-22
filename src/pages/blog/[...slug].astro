@@ -6,6 +6,7 @@ import ContactForm from "../../components/ContactForm.astro";
 import ForSaleBlock from "../../components/ForSaleBlock.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
+import { formatPostDate, postDateISO } from "../../utils/postDate";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -18,11 +19,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const formattedDate = post.data.date.toLocaleDateString("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
+const formattedDate = formatPostDate(post.data.date);
 
 // Related posts (same category, exclude current)
 const allPosts = await getCollection("blog");
@@ -82,7 +79,7 @@ if (faqSectionMatch) {
     "headline": post.data.title,
     "description": post.data.excerpt,
     "image": post.data.featured_image ? `https://mikesellsut.com${post.data.featured_image}` : undefined,
-    "datePublished": post.data.date.toISOString(),
+    "datePublished": postDateISO(post.data.date),
     "author": {
       "@type": "Person",
       "name": post.data.author,
@@ -135,7 +132,7 @@ if (faqSectionMatch) {
         <div class="flex items-center gap-4 text-navy/60 text-sm">
           <span>By {post.data.author}</span>
           <span>&bull;</span>
-          <time datetime={post.data.date.toISOString()}>{formattedDate}</time>
+          <time datetime={postDateISO(post.data.date)}>{formattedDate}</time>
         </div>
         <div class="w-16 h-1 bg-gold mt-6"></div>
       </header>
