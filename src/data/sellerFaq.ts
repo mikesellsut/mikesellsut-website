@@ -15,7 +15,7 @@ export const sellerFaq: SellerFaqItem[] = [
   {
     question: "How do you price a rural home, cabin, or land parcel when comps are thin?",
     answer:
-      "In Juab, Sanpete, Sevier, and Millard, the nearest true comp can be months old or a different lot. I walk the property and price from what drives price here — access, water, outbuildings, condition — not just an online estimate. Appraiser background means fewer surprises when the buyer’s appraisal lands.",
+      "In Juab, Sanpete, Millard, and Sevier, the nearest true comp can be months old or a different lot. I walk the property and price from what drives price here — access, water, outbuildings, condition — not just an online estimate. Appraiser background means fewer surprises when the buyer’s appraisal lands.",
   },
   {
     question: "Should I list high and negotiate down?",

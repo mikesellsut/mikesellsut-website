@@ -88,7 +88,7 @@ const faqs = [
     answer: "No. Water rights and irrigation shares can be sold separately from the land. Check the Utah Division of Water Rights records and the irrigation company's books, and make sure the purchase contract says exactly what transfers.",
   },
   {
-    question: "Who approves septic systems in Sanpete, Juab, Sevier and Millard County?",
+    question: "Who approves septic systems in Juab, Sanpete, Millard and Sevier County?",
     answer: "Central Utah Public Health Department handles septic permits and soil testing for these counties. On vacant land, get the soil or perc test done before you count on building.",
   },
   {
@@ -114,7 +114,7 @@ const howToSchema = {
 
 <BaseLayout
   title="Rural Land Checklist: Water Rights, Wells, Septic & Access"
-  description="Buying or selling land in Sanpete, Juab, Sevier or Millard County? Check water rights, well, septic, road access and zoning before you sign."
+  description="Buying or selling land in Juab, Sanpete, Millard or Sevier County? Check water rights, well, septic, road access and zoning before you sign."
 >
   <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
@@ -214,7 +214,7 @@ const howToSchema = {
           <div class="t-field">
             <label class="t-label" for="lc-county">County</label>
             <select id="lc-county" name="county">
-              {["Sanpete", "Juab", "Sevier", "Millard", "Utah County", "Other"].map((c) => <option value={c}>{c}</option>)}
+              {["Juab", "Sanpete", "Millard", "Sevier", "Other"].map((c) => <option value={c}>{c}</option>)}
             </select>
           </div>
         </div>

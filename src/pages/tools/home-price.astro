@@ -4,7 +4,7 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import FAQAccordion from "../../components/FAQAccordion.astro";
 import "../../styles/tools.css";
 
-const counties = ["Sanpete", "Juab", "Sevier", "Millard", "Utah County", "Other Utah"];
+const counties = ["Juab", "Sanpete", "Millard", "Sevier", "Other Utah"];
 const types = [
   { v: "Home on a town lot", d: "House in town, typical lot" },
   { v: "Home on acreage", d: "House with land around it" },
@@ -14,18 +14,18 @@ const types = [
 ];
 
 const disclaimer =
-  "This tool gives an automated, rough price range for general information only. It is not an appraisal, is not prepared under the Uniform Standards of Professional Appraisal Practice (USPAP), and should not be used for lending, legal, tax, or estate purposes. Mike Price is an active Utah Certified Residential Appraiser, but no appraisal assignment is created by using this tool. For a real market opinion, Mike can provide a free comparative market analysis as your realtor (Heritage Realty Group); a formal appraisal is a separate, paid service.";
+  "This tool gives an automated, rough price range for general information only. It is not an appraisal, is not prepared under the Uniform Standards of Professional Appraisal Practice (USPAP), and should not be used for lending, legal, tax, or estate purposes. Mike Price is an active Utah Certified Residential Appraiser, but no appraisal assignment is created by using this tool. For a real market opinion, Mike can provide a free comparative market analysis as your REALTOR® (Heritage Realty Group); a formal appraisal is a separate, paid service.";
 
 const faqs = [
   {
     question: "Is this rough price range an appraisal?",
     answer:
-      "No. It's a simple formula that gives a wide ballpark for general information. It isn't prepared under USPAP and can't be used for a loan, estate, tax or legal purpose. I'm an active Utah Certified Residential Appraiser, but using this tool doesn't create an appraisal assignment. For a real market opinion, I'll pull the comps and give you a free CMA as your realtor.",
+      "No. It's a simple formula that gives a wide ballpark for general information. It isn't prepared under USPAP and can't be used for a loan, estate, tax or legal purpose. I'm an active Utah Certified Residential Appraiser, but using this tool doesn't create an appraisal assignment. For a real market opinion, I'll pull the comps and give you a free CMA as your REALTOR®.",
   },
   {
     question: "Why doesn't the tool just use price per square foot?",
     answer:
-      "Out here there aren't tract homes, so price per square foot falls apart fast. Basements don't count the same as above-grade living area, garages don't count as living area at all, and land, water and outbuildings move the price more than the house size. The tool starts from property type, county and acreage, and only shows a square-foot check as a rough side note.",
+      "Out here there aren't tract homes, so price per square foot falls apart fast. Basements don't count the same as above-grade living area, garages don't count as living area at all, and land, water and outbuildings move the price more than the house size. The tool starts from property type, county and acreage. It doesn't price from square footage, and it never shows a price-per-square-foot number.",
   },
   {
     question: "Why doesn't each extra acre add the same amount?",
@@ -47,7 +47,7 @@ const webAppSchema = {
   applicationCategory: "FinanceApplication",
   operatingSystem: "Any",
   description:
-    "Rough asking-price range for a home, cabin or land in Sanpete, Juab, Sevier and Millard County, Utah. Not an appraisal.",
+    "Rough asking-price range for a home, cabin or land in Juab, Sanpete, Millard and Sevier County, Utah. Not an appraisal.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   provider: { "@type": "RealEstateAgent", name: "Mike Price", url: "https://mikesellsut.com" },
 };
@@ -55,7 +55,7 @@ const webAppSchema = {
 
 <BaseLayout
   title="What's My Home or Land Worth? Rough Price Range"
-  description="Get a rough asking-price ballpark for a home, cabin or land in Sanpete, Juab, Sevier or Millard County — then a real comp-based market opinion from Mike Price."
+  description="Get a rough asking-price ballpark for a home, cabin or land in Juab, Sanpete, Millard or Sevier County — then a real comp-based market opinion from Mike Price."
 >
   <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
 
@@ -92,8 +92,6 @@ const webAppSchema = {
         </p>
         <input type="hidden" name="est_low" value="" />
         <input type="hidden" name="est_high" value="" />
-        <input type="hidden" name="ppsf_low" value="" />
-        <input type="hidden" name="ppsf_high" value="" />
         <input type="hidden" name="page_url" value="https://mikesellsut.com/tools/home-price/" />
 
         <p class="t-steplabel" id="hp-steplabel" aria-live="polite">Step 1 of 3</p>
@@ -154,7 +152,7 @@ const webAppSchema = {
               <div class="t-field">
                 <label class="t-label" for="hp-bsmt">Finished basement sq ft <span class="t-help" style="display:inline">(optional)</span></label>
                 <input id="hp-bsmt" type="number" name="sqft_basement" min="0" step="1" inputmode="numeric" placeholder="e.g. 800" />
-                <span class="t-help">Optional. Not counted the same as above-grade; used only in a rough secondary check, not as the main price.</span>
+                <span class="t-help">Optional. Mike uses this when he pulls comps. It isn't counted the same as above-grade space and isn't used to set the range.</span>
               </div>
             </div>
             <div class="t-grid2">
@@ -282,13 +280,11 @@ const webAppSchema = {
         <h3 class="t-h3" style="margin-top:1.25rem">What drove this</h3>
         <ul class="t-list" id="hp-drivers"></ul>
 
-        <div id="hp-ppsf" class="t-note" hidden></div>
-
-        <p><a class="t-link" href="/blog/price-per-square-foot-doesnt-always-work/">Why we don't lean on price per square foot alone &rarr;</a></p>
+        <p><a class="t-link" href="/blog/price-per-square-foot-doesnt-always-work/">Why price per square foot doesn't work for most rural homes &rarr;</a></p>
 
         <h3 class="t-h3" style="margin-top:1.25rem">Why Mike's number will be better</h3>
-        <p>I've been appraising and selling in Central Utah a long time. Water, access, outbuildings and the actual recent sales nearby move rural asking prices more than any formula. If you want a real number, I'll pull the comps and give you a free market opinion (CMA) as your realtor.</p>
-        <p class="t-help">Mike Price, Realtor | Heritage Realty Group · Active Utah Certified Residential Appraiser · 2026 President-Elect, <a class="t-link" href="https://utcap.org" target="_blank" rel="noopener">Utah Coalition of Appraisal Professionals</a></p>
+        <p>I've been appraising and selling in Central Utah a long time. Water, access, outbuildings and the actual recent sales nearby move rural asking prices more than any formula. If you want a real number, I'll pull the comps and give you a free market opinion (CMA) as your REALTOR®.</p>
+        <p class="t-help">Mike Price, REALTOR® | Heritage Realty Group · Active Utah Certified Residential Appraiser · 2026 President-Elect, <a class="t-link" href="https://utcap.org" target="_blank" rel="noopener">Utah Coalition of Appraisal Professionals</a></p>
 
         <div class="t-actions">
           <a class="t-btn t-btn-primary" href="tel:4356600401">Call Mike 435-660-0401</a>
@@ -319,20 +315,20 @@ const webAppSchema = {
   const CONFIG = {
     // Midpoint asking-price ballparks by property type + county
     baseMid: {
-      "Home on a town lot": { Sanpete: 280000, Juab: 320000, Sevier: 260000, Millard: 220000, "Utah County": 480000, "Other Utah": 300000 },
-      "Home on acreage": { Sanpete: 340000, Juab: 380000, Sevier: 310000, Millard: 260000, "Utah County": 550000, "Other Utah": 360000 },
-      "Cabin": { Sanpete: 240000, Juab: 260000, Sevier: 230000, Millard: 200000, "Utah County": 400000, "Other Utah": 250000 },
-      "Manufactured/modular on land": { Sanpete: 200000, Juab: 220000, Sevier: 190000, Millard: 170000, "Utah County": 320000, "Other Utah": 210000 },
+      "Home on a town lot": { Sanpete: 280000, Juab: 320000, Sevier: 260000, Millard: 220000, "Other Utah": 300000 },
+      "Home on acreage": { Sanpete: 340000, Juab: 380000, Sevier: 310000, Millard: 260000, "Other Utah": 360000 },
+      "Cabin": { Sanpete: 240000, Juab: 260000, Sevier: 230000, Millard: 200000, "Other Utah": 250000 },
+      "Manufactured/modular on land": { Sanpete: 200000, Juab: 220000, Sevier: 190000, Millard: 170000, "Other Utah": 210000 },
       // Vacant land: building-site floor, before the acreage tiers are added
-      "Vacant land": { Sanpete: 45000, Juab: 50000, Sevier: 40000, Millard: 30000, "Utah County": 120000, "Other Utah": 45000 },
+      "Vacant land": { Sanpete: 45000, Juab: 50000, Sevier: 40000, Millard: 30000, "Other Utah": 45000 },
     } as Record<string, Record<string, number>>,
     // Diminishing acreage: [upToAcres, weight]. Each slice of acres counts
     // less than the one before it. NOT flat $/acre x total acres.
     acreageTiersHome: [[1, 1.0], [5, 0.55], [20, 0.35], [80, 0.2], [Infinity, 0.12]] as [number, number][],
     acreageTiersLand: [[1, 1.0], [5, 0.7], [20, 0.5], [80, 0.35], [Infinity, 0.25]] as [number, number][],
     homeIncludedAcres: 0.5, // acreage homes/cabins/manufactured: first 0.5 ac is in the base
-    landPerAcreRef: { Sanpete: 12000, Juab: 11000, Sevier: 9000, Millard: 5000, "Utah County": 60000, "Other Utah": 9000 } as Record<string, number>,
-    homeAcreAddPerWeightedAcre: { Sanpete: 8000, Juab: 9000, Sevier: 7000, Millard: 5000, "Utah County": 25000, "Other Utah": 8000 } as Record<string, number>,
+    landPerAcreRef: { Sanpete: 12000, Juab: 11000, Sevier: 9000, Millard: 5000, "Other Utah": 9000 } as Record<string, number>,
+    homeAcreAddPerWeightedAcre: { Sanpete: 8000, Juab: 9000, Sevier: 7000, Millard: 5000, "Other Utah": 8000 } as Record<string, number>,
     minLandPrice: 25000,
     condition: { "Needs major work": 0.75, "Dated but livable": 0.9, "Average/well kept": 1.0, "Updated/remodeled": 1.1 } as Record<string, number>,
     water: { "City/culinary": 1.0, "Private well": 1.0, "Shares/water rights": 1.05, "None/unknown": 0.85 } as Record<string, number>,
@@ -340,14 +336,10 @@ const webAppSchema = {
     access: { Yes: 1.0, Seasonal: 0.85, "Not sure": 0.95 } as Record<string, number>,
     // Water/power/access count fully on vacant land, half as much on homes
     siteFactorWeightHome: 0.5,
-    // SECONDARY above-grade sq-ft check only. Labeled rough. Never the main range.
-    ppsfAboveGrade: { Sanpete: 210, Juab: 230, Sevier: 200, Millard: 175, "Utah County": 330, "Other Utah": 220 } as Record<string, number>,
-    basementPpsfFactor: 0.5, // finished basement counts at half in the side check
     spreadPct: 0.2,
     thinSpreadPct: 0.3, // Other Utah, or very large acreage (few sales to compare)
     thinAcres: 80,
     roundTo: 5000,
-    ppsfDisagreePct: 0.25,
   };
   // ================================================================
 
@@ -497,20 +489,12 @@ const webAppSchema = {
     let high = Math.ceil((mid * (1 + spread)) / r) * r;
     if (high <= low) high = low + r;
 
-    // Secondary above-grade sq-ft check (never the main range)
-    let ppsf: null | { low: number; high: number; far: boolean } = null;
-    const sqft = num("sqft_above_grade");
-    if (!land && sqft > 0) {
-      const p = CONFIG.ppsfAboveGrade[county];
-      const fc = CONFIG.condition[val("condition")] ?? 1;
-      const pm = (sqft * p + num("sqft_basement") * p * CONFIG.basementPpsfFactor) * fc;
-      ppsf = {
-        low: Math.floor((pm * (1 - CONFIG.spreadPct)) / r) * r,
-        high: Math.ceil((pm * (1 + CONFIG.spreadPct)) / r) * r,
-        far: Math.abs(pm - mid) / mid > CONFIG.ppsfDisagreePct,
-      };
+    // Square footage is NOT used to set the range (no price-per-square-foot math).
+    // It is passed to Mike with the lead for his own comp work.
+    if (!land && num("sqft_above_grade") > 0) {
+      drivers.push("Square footage: passed along to Mike for when he pulls comps. It isn't used to set this range.");
     }
-    return { mid, low, high, drivers, ppsf };
+    return { mid, low, high, drivers };
   }
 
   function render(res: ReturnType<typeof calc>, sent: boolean) {
@@ -522,25 +506,6 @@ const webAppSchema = {
       li.textContent = d;
       ul.appendChild(li);
     });
-    const box = document.getElementById("hp-ppsf")!;
-    if (res.ppsf) {
-      box.hidden = false;
-      box.innerHTML = "";
-      const p1 = document.createElement("p");
-      p1.innerHTML = `<strong>Rough above-grade sq-ft check:</strong> about ${money(res.ppsf.low)} – ${money(res.ppsf.high)}. This is not the main range. It ignores land, water and outbuildings, and finished basement space counts at half. Basements and garages aren't full living area.`;
-      box.appendChild(p1);
-      if (res.ppsf.far) {
-        const p2 = document.createElement("p");
-        p2.style.marginTop = ".5rem";
-        p2.textContent = "This sq-ft check often disagrees with rural asking prices — trust the main range more, then get comps from Mike.";
-        box.appendChild(p2);
-      }
-      const ul2 = document.createElement("li");
-      ul2.textContent = "A rough above-grade sq-ft check is shown below as a side note only. It isn't blended into the range.";
-      ul.appendChild(ul2);
-    } else {
-      box.hidden = true;
-    }
     (document.getElementById("hp-sent") as HTMLElement).hidden = !sent;
     form.hidden = true;
     result.hidden = false;
@@ -555,8 +520,6 @@ const webAppSchema = {
     const res = calc();
     (form.elements.namedItem("est_low") as HTMLInputElement).value = String(res.low);
     (form.elements.namedItem("est_high") as HTMLInputElement).value = String(res.high);
-    (form.elements.namedItem("ppsf_low") as HTMLInputElement).value = res.ppsf ? String(res.ppsf.low) : "";
-    (form.elements.namedItem("ppsf_high") as HTMLInputElement).value = res.ppsf ? String(res.ppsf.high) : "";
     (form.elements.namedItem("page_url") as HTMLInputElement).value = window.location.href;
     const btn = document.getElementById("hp-submit") as HTMLButtonElement;
     btn.disabled = true;
