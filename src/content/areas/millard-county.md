@@ -41,6 +41,6 @@ Fillmore is about two hours from Provo — workable for buyers who commute only 
 Nearly all of Millard County qualifies for USDA Rural Development loans, making it one of the strongest 0%-down markets in the region.
 
 ### Are there manufactured homes for sale in Millard County?
-Yes, manufactured and modular homes are common in both Fillmore and Delta and are typically financeable when permanently affixed to a foundation on land you own.
+Yes, HUD-code manufactured homes are common in both Fillmore and Delta and are typically financeable when permanently affixed to a foundation on land you own (while modular homes are built off-site to the same building code as a site-built stick home).
 
 If space and price matter more to you than being close to anything, Millard County deserves a serious look — and I can tell you honestly whether a specific property or price point makes sense before you make an offer.

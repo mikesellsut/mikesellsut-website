@@ -10,7 +10,7 @@ const types = [
   { v: "Home on acreage", d: "House with land around it" },
   { v: "Cabin", d: "Mountain or recreation cabin" },
   { v: "Vacant land", d: "No house on it" },
-  { v: "Manufactured/modular on land", d: "Manufactured or modular home with the land" },
+  { v: "Manufactured home on land", d: "HUD-code manufactured home with the land (for a modular home built to site-built code, choose Home on a town lot or Home on acreage)" },
 ];
 
 const disclaimer =
@@ -281,6 +281,7 @@ const webAppSchema = {
         <ul class="t-list" id="hp-drivers"></ul>
 
         <p><a class="t-link" href="/blog/price-per-square-foot-doesnt-always-work/">Why price per square foot doesn't work for most rural homes &rarr;</a></p>
+        <p><a class="t-link" href="/blog/detached-shop-barn-outbuilding-sale-price-central-utah/">How much a detached shop, barn, or outbuilding adds to a home's sale price (+ UAD 3.6 rules) &rarr;</a></p>
 
         <h3 class="t-h3" style="margin-top:1.25rem">Why Mike's number will be better</h3>
         <p>I've been appraising and selling in Central Utah a long time. Water, access, outbuildings and the actual recent sales nearby move rural asking prices more than any formula. If you want a real number, I'll pull the comps and give you a free market opinion (CMA) as your REALTOR®.</p>
@@ -318,6 +319,7 @@ const webAppSchema = {
       "Home on a town lot": { Sanpete: 280000, Juab: 320000, Sevier: 260000, Millard: 220000, "Other Utah": 300000 },
       "Home on acreage": { Sanpete: 340000, Juab: 380000, Sevier: 310000, Millard: 260000, "Other Utah": 360000 },
       "Cabin": { Sanpete: 240000, Juab: 260000, Sevier: 230000, Millard: 200000, "Other Utah": 250000 },
+      "Manufactured home on land": { Sanpete: 200000, Juab: 220000, Sevier: 190000, Millard: 170000, "Other Utah": 210000 },
       "Manufactured/modular on land": { Sanpete: 200000, Juab: 220000, Sevier: 190000, Millard: 170000, "Other Utah": 210000 },
       // Vacant land: building-site floor, before the acreage tiers are added
       "Vacant land": { Sanpete: 45000, Juab: 50000, Sevier: 40000, Millard: 30000, "Other Utah": 45000 },

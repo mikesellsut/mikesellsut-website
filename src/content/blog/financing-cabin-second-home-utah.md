@@ -106,7 +106,7 @@ Seller financing is more common in rural mountain markets than in suburban real 
 
 ## Manufactured Homes as Cabins
 
-If you are considering a [manufactured or modular home as a cabin](/blog/manufactured-modular-homes-central-utah-financing), financing follows the same permanently-affixed-to-a-foundation-on-owned-land rule as any manufactured home purchase — and lenders scrutinize this even more closely for a non-primary-residence purchase. You need:
+First, separate manufactured from modular: a **modular home** is built off-site to the same or similar building code as a site-built stick home (and costs more to build and install than a manufactured home even with the same floor plan), whereas a **manufactured home** is built to federal HUD code and must be compared to other manufactured homes in an appraisal. If you are considering a [HUD-code manufactured home as a cabin](/blog/manufactured-modular-homes-central-utah-financing), financing follows the permanently-affixed-to-a-foundation-on-owned-land rule—and lenders scrutinize this closely for a second home. You need:
 - The home permanently affixed to a foundation meeting lender standards
 - Real property title (not personal property/vehicle title)
 - The land owned by you, not leased

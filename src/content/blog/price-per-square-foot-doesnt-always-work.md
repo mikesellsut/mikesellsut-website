@@ -24,11 +24,16 @@ Price per square foot is a measure of the *structure*, but a meaningful part of 
 
 ## Problem Two: Outbuildings and Shops Don't Count as Square Footage
 
-A finished shop, a barn, a detached garage with living space above it — none of that typically counts toward a home's square footage, but all of it adds to what a buyer will pay. Two homes with identical living space, one with a 30x40 shop and one without, are not worth the same amount. Price per square foot has no way to capture that difference, because by definition it only measures the house.
+A finished shop, a barn, a detached garage with living space above it — none of that typically counts toward a home's square footage, but all of it adds to what a buyer will pay. Two homes with identical living space, one with a 30x40 shop and one without, do not sell for the same price. Price per square foot has no way to capture that difference, because by definition it only measures the house. See my full breakdown on [how much a detached shop, barn, or outbuilding adds to a home's sale price in Central Utah](/blog/detached-shop-barn-outbuilding-sale-price-central-utah/).
 
 ## Problem Three: Construction Type Skews the Comparison
 
-Stick-built homes, manufactured and modular homes, and log or timber cabin construction all have different cost structures and different buyer expectations, even at identical square footage. Comparing a price-per-square-foot figure across construction types without adjusting for it — which I still see happen — produces a number that doesn't reflect what either property is actually worth. If you're specifically weighing a manufactured or modular property, [financing and pricing work differently there too](/blog/manufactured-modular-homes-central-utah-financing) and are worth understanding before you rely on a square-footage comparison.
+Stick-built homes, modular homes, HUD-code manufactured homes, and log or timber cabin construction all have different cost structures, building codes, and buyer expectations, even at identical square footage—and you cannot lump manufactured and modular homes together:
+
+- **Manufactured homes** are built in a factory to a lesser code (the federal HUD code). In an appraisal, a manufactured home **must be compared to other manufactured homes**, and it is priced that way in the market.
+- **Modular homes** are built off-site to the **same or similar building code as a site-built stick home**, then delivered and set on a permanent foundation. A modular home costs more to build and install than a manufactured home even when it has the exact same floor plan, and it is appraised and financed alongside site-built homes rather than HUD-code manufactured homes.
+
+Comparing a price-per-square-foot figure across construction types without adjusting for it—or lumping manufactured and modular homes into the same bucket—produces a number that doesn't reflect what either property will actually sell or appraise for. If you're weighing a factory-built property, [financing and pricing rules for manufactured vs. modular homes](/blog/manufactured-modular-homes-central-utah-financing) are critical to understand before you rely on a square-footage comparison.
 
 ## Problem Four: Finished vs. Unfinished Space Gets Averaged Away
 

@@ -7,9 +7,9 @@ import BlogCard from "../components/BlogCard.astro";
 import { getCollection } from "astro:content";
 
 const relatedSlugs = [
+  "water-shares-vs-well-permits-central-utah",
   "how-to-buy-land-rural-utah-zoning-wells-septic",
   "buying-acreage-homesteading-central-utah",
-  "buying-land-home-utah-sight-unseen-out-of-state",
 ];
 
 const allPosts = await getCollection("blog");
@@ -181,7 +181,7 @@ const faqs = [
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="p-5 bg-cream rounded-lg border border-navy/5">
           <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Water</h3>
-          <p class="text-sm text-navy/70">Water rights, well permits, and irrigation shares can dramatically change a parcel's price and usability.</p>
+          <p class="text-sm text-navy/70">Water rights, well permits, and irrigation shares can dramatically change a parcel's price and usability. Read my <a href="/blog/water-shares-vs-well-permits-central-utah/" class="text-gold font-semibold hover:underline">Central Utah water shares vs. domestic well permits guide</a>.</p>
         </div>
         <div class="p-5 bg-cream rounded-lg border border-navy/5">
           <h3 class="font-heading text-navy uppercase tracking-wide mb-2">Access</h3>

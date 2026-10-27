@@ -8,7 +8,7 @@ excerpt: "Why pricing a home correctly in a small rural market like Sanpete, Sev
 published: true
 ---
 
-Pricing a home correctly in a small rural market works differently than it does in a large metro area, and treating the two the same is one of the most common mistakes I see sellers make. I've spent over 20 years working in Central Utah real estate — as both a certified appraiser and a REALTOR — and I can tell you that the way most people think about home prices does not match how prices are actually set in our market.
+Pricing a home correctly in a small rural market works differently than it does in a large metro area, and treating the two the same is one of the most common mistakes I see sellers make. I've spent over 20 years working in Central Utah real estate — as both a certified appraiser and a REALTOR® — and I can tell you that the way most people think about home prices does not match how prices are actually set in our market.
 
 Here's how it actually works.
 

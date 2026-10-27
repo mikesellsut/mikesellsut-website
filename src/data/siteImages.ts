@@ -158,6 +158,16 @@ export const siteImages: SiteImage[] = [
     alt: "The historic limestone Charles Crawforth farmhouse under large shade trees in evening light in Spring City, Sanpete County, Utah",
     credit: { title: "Charles Crawforth Farmstead in June", author: "Aminglish", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", sourceUrl: "https://commons.wikimedia.org/wiki/File:Charles_Crawforth_Farmstead_in_June.jpg", modified: "resized" },
   },
+  {
+    src: "/images/areas/sanpete-mt-pleasant-creek-acreage.jpg",
+    alt: "Aerial view of a rural home, outbuilding, tree-lined creek corridor, and pasture outside Mt. Pleasant in Sanpete County, Utah, with valley farmland and mountains behind",
+    credit: { title: "Mt. Pleasant creek corridor and rural acreage", author: "Mike Price", license: "All rights reserved", modified: "resized" },
+  },
+  {
+    src: "/images/areas/juab-mona-outbuilding-nebo.jpg",
+    alt: "Detached wooden outbuilding and fenced pasture on rural acreage in Mona, Juab County, Utah, with Mount Nebo rising in the background",
+    credit: { title: "Rural outbuilding and pasture in Mona with Mt. Nebo", author: "Mike Price", license: "All rights reserved", modified: "resized" },
+  },
 ];
 
 const bySrc = new Map(siteImages.map((i) => [i.src, i]));

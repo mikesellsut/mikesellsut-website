@@ -1,5 +1,7 @@
 # Redirect old generic pages to new cornerstone pages
-/buyers    /buying-rural    301
-/buyers/   /buying-rural    301
-/sellers   /selling         301
-/sellers/  /selling         301
+/buyers                /buying-rural    301
+/buyers/               /buying-rural    301
+/sellers               /selling         301
+/sellers/              /selling         301
+/land-cabins-acreage   /land            301
+/land-cabins-acreage/  /land            301

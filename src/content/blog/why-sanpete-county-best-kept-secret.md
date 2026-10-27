@@ -70,7 +70,7 @@ Sits at the north end of the valley with incredible mountain views and the most 
 ### Moroni and Gunnison
 Anchor the southern end of the county with agricultural heritage and wide-open spaces. These towns offer the most affordable housing in Sanpete County and appeal to buyers who want a working-agricultural community rather than the slightly more "discovered" character of Ephraim or Spring City.
 
-**For buyers:** Maximum value per dollar in Sanpete County. [Manufactured and modular homes](/blog/manufactured-modular-homes-central-utah-financing) are more common here than in the northern Sanpete towns. Acreage and agricultural properties are available at price points well below what you'd find further north in the valley.
+**For buyers:** Maximum value per dollar in Sanpete County. [Manufactured homes](/blog/manufactured-modular-homes-central-utah-financing) are more common here than in the northern Sanpete towns. Acreage and agricultural properties are available at price points well below what you'd find further north in the valley.
 
 ## Outdoor Recreation Without the Crowds
 

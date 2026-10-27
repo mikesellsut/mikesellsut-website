@@ -1,24 +1,24 @@
 ---
-title: "Buying a Manufactured or Modular Home in Central Utah: Financing and What to Know"
+title: "Manufactured vs. Modular Homes in Central Utah: Code, Appraisal, and Financing Differences"
 date: 2026-10-06
 author: "Mike Price"
 category: "Buyer Tips"
 featured_image: "/images/areas/millard-delta-aerial-farms.jpg"
-excerpt: "What buyers need to know about purchasing and financing manufactured or modular homes in Sanpete, Sevier, Millard, and Juab Counties."
+excerpt: "Manufactured and modular homes are built to completely different codes and are appraised and priced differently. Here is what buyers and sellers need to know in Juab, Sanpete, Millard, and Sevier Counties."
 published: true
 ---
 
-Manufactured and modular homes are a realistic, financeable option across Central Utah — common in Gunnison, Moroni, Delta, Aurora, and Salina in particular — and they represent some of the most affordable housing available in the region. But financing depends on specifics that differ meaningfully from a typical site-built home purchase, and getting those details wrong can derail a transaction.
+Factory-built housing is common across Central Utah—especially in towns like Gunnison, Moroni, Delta, Aurora, and Salina—but you should never lump **manufactured homes** and **modular homes** together. A manufactured home is built to a lesser federal code (HUD code), **must be compared to other manufactured homes in an appraisal**, and is priced that way. A modular home is built off-site to the **same or similar building code as a site-built stick home**, and costs more to build and install than a manufactured home even when it has the exact same floor plan.
 
-As both a certified appraiser and a REALTOR, I have evaluated and sold numerous manufactured and modular homes across Sanpete, Sevier, Millard, and Juab counties. Here's what you need to know before you buy.
+As both an active Certified Residential Appraiser (MK Appraisals) and a REALTOR® (Heritage Realty Group), I have evaluated and sold properties across Juab, Sanpete, Millard, and Sevier Counties for over 20 years. Here is how the two differ—and how financing and pricing work for HUD-code manufactured homes.
 
 ## Manufactured vs. Modular: Know the Difference
 
 This distinction is the first thing to clarify, because it changes how the home is financed, appraised, and valued:
 
-**Manufactured homes** are built entirely in a factory to federal HUD code (the Housing and Urban Development standards established in 1976) and transported to the site as one or more sections on a steel chassis. The HUD code is a national standard, separate from state or local building codes. These homes carry a HUD certification label — a metal tag usually located near the electrical panel or on the exterior — that confirms they meet federal standards.
+**Manufactured homes** are built in a factory to a lesser code—the federal HUD code (Housing and Urban Development standards established in 1976)—and transported to the site on a permanent steel chassis. Because they are built to HUD code rather than state and local residential building codes, **a manufactured home must be compared to other manufactured homes in an appraisal**, and it is priced that way in the market. Each section carries a metal HUD certification label on the exterior and a data plate inside.
 
-**Modular homes** are also factory-built but are constructed to the **same state and local building codes** as site-built homes. Once delivered and assembled on-site on a permanent foundation, they are treated virtually identically to a traditional stick-built home for financing, appraisal, and resale purposes. A modular home should have documentation showing state inspection and code compliance.
+**Modular homes** are built off-site in sections to the **same or similar state and local building code as a site-built stick home** (such as the International Residential Code adopted in Utah). Even when a builder offers the exact same floor plan in both versions, **a modular home costs more to build and install than a manufactured home**. Once set on a permanent foundation, a modular home is appraised, financed, and priced alongside site-built stick homes—never lumped in with HUD-code manufactured homes.
 
 **Why this matters for you as a buyer:** Modular homes generally qualify for the same financing as site-built homes without additional requirements. Manufactured homes have specific requirements around foundations, title conversion, and inspection standards that you need to verify before committing.
 
@@ -98,7 +98,7 @@ Confirm that the seller owns both the manufactured home **and** the land it sits
 As an appraiser, I can tell you that manufactured home appraisals are among the most nuanced in real estate. The appraiser must determine:
 
 - Whether the home is real property (permanently affixed on owned land) or personal property
-- What comparable sales to use — ideally other manufactured homes of similar age, size, and foundation type, but these can be scarce in rural markets
+- What comparable sales to use — a HUD-code manufactured home **must be compared to other manufactured homes** of similar age, size, and foundation type (never treated as equivalent to a site-built or modular home)
 - How the home's value relates to site-built alternatives in the area
 - Whether the foundation, installation, and overall condition meet the specific financing program's requirements
 
@@ -106,7 +106,7 @@ Manufactured homes generally do not appreciate at the same rate as site-built ho
 
 ## Where Manufactured Homes Make Sense in Central Utah
 
-Manufactured and modular homes are a practical choice for many [buyers in Central Utah](/buying-rural), particularly:
+HUD-code manufactured homes are a practical choice for many [buyers in Central Utah](/buying-rural) when priced and financed appropriately, particularly:
 
 - **First-time buyers** looking for affordable homeownership — manufactured homes on permanent foundations can be an excellent entry point
 - **Buyers who need more space per dollar** — a modern manufactured home often offers more square footage per dollar than a comparable site-built home
@@ -119,7 +119,7 @@ Manufactured and modular homes are a practical choice for many [buyers in Centra
 Yes, through FHA, USDA (in qualifying rural areas), or conventional financing, provided the home is permanently affixed to a foundation on land you own, has a real property title, and meets the relevant program's construction and condition standards. If these conditions are not met, personal property (chattel) financing, cash, or seller financing may apply instead.
 
 ### What's the difference between manufactured and modular homes for financing?
-Modular homes are built to the same codes as site-built homes and are generally financed exactly like traditional homes — no additional requirements. Manufactured homes are built to federal HUD code and have specific requirements around foundation type, title status, and construction standards that vary by loan program.
+A modular home is built off-site to the same or similar building code as a site-built stick home, costs more to build and install than a manufactured home even with the same floor plan, and is financed and appraised like a site-built home. A manufactured home is built to a lesser code (federal HUD code), must be compared to other manufactured homes in an appraisal, is priced that way, and has specific foundation, HUD tag, and title-retirement rules.
 
 ### Can I finance a manufactured home on rented land?
 Generally no, not through standard mortgage financing. A manufactured home on leased land typically requires personal property (chattel) financing instead, which carries higher interest rates, shorter terms, and larger down payments. FHA's Title I program may be an option in some cases.
@@ -133,4 +133,4 @@ Well-maintained manufactured homes on permanent foundations on owned land can ap
 ### What does it cost to convert a manufactured home title from personal property to real property?
 The cost varies but is typically a few hundred dollars for the DMV title retirement and county recording fees, plus any costs for foundation certification if needed. The process takes several weeks and should be started early in the transaction.
 
-Looking at a manufactured or modular home? [Browse current listings](/listings) to see what's on the market, and I'll help you confirm foundation status, title status, and financing eligibility upfront so you know exactly which path applies before you make an offer. [Get in touch](/contact).
+Looking at a manufactured home—or trying to verify whether a factory-built home is HUD-code manufactured or code-built modular? [Browse current listings](/listings) to see what's on the market, and I'll help you confirm foundation status, title status, and financing eligibility upfront so you know exactly which path applies before you make an offer. [Get in touch](/contact).

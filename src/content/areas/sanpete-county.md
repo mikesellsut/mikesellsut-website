@@ -31,7 +31,7 @@ I work in conventional, FHA, USDA, manufactured home, and land financing — her
 - **USDA Rural Development loans (0% down)** are available across nearly all of Sanpete County, since the towns here fall under USDA's rural population thresholds. This is one of the most underused financing tools for buyers moving in from the Wasatch Front who assume they need a large down payment.
 - **FHA loans** work well for buyers purchasing existing homes in town — Ephraim, Manti, and Mt. Pleasant all have inventory that qualifies.
 - **Conventional loans** are the norm for higher-value properties and acreage purchases where USDA or FHA limits or property-type restrictions don't apply.
-- **Manufactured and modular homes** are common and financeable in Sanpete, particularly in Gunnison and Moroni — lenders will want the home permanently affixed to a foundation on owned land.
+- **Manufactured homes** (built to HUD code) are common and financeable in Sanpete, particularly in Gunnison and Moroni, when permanently affixed to a foundation on owned land—and **modular homes** (built off-site to the same building code as a stick-built home) finance just like site-built homes.
 - **Land loans** for raw acreage typically require a larger down payment than a home purchase; I can walk you through which lenders in the region actually do this well, since not all do.
 
 ## Town-by-Town Notes
@@ -50,7 +50,7 @@ Most of Sanpete County qualifies for USDA Rural Development financing, which all
 Ephraim and Manti are roughly 90 minutes to two hours from Salt Lake City, depending on traffic and destination, making Sanpete more of a relocation or second-home market than a daily-commute option.
 
 ### Are manufactured homes allowed in Sanpete County?
-Yes, manufactured and modular homes are common throughout the county, particularly in Gunnison and Moroni. Financing requires the home be permanently affixed to a foundation on land you own.
+Yes. HUD-code manufactured homes are common throughout the county, particularly in Gunnison and Moroni, and require a permanent foundation on land you own for mortgage financing (while modular homes are built to the same code as site-built stick homes and follow standard home rules).
 
 Ready to see what's actually available in Sanpete County right now, or want a straight answer on whether a property you found qualifies for USDA financing? Reach out — that's exactly the kind of question I answer every week.
 

@@ -94,7 +94,7 @@ Across all four counties, [land](/land) price appreciation has generally outpace
 
 ## The Appraisal Perspective
 
-As both a REALTOR and a certified appraiser, I see the market from both sides. Here's what the appraisal data shows that listing-based market reports often miss:
+As both a REALTOR® and a certified appraiser, I see the market from both sides. Here's what the appraisal data shows that listing-based market reports often miss:
 
 **Comparable sales tell the real story.** Listing prices and "median home price" headlines can mislead. What properties actually sell for — and how that relates to their specific characteristics (condition, location, acreage, water rights, access) — is the data that matters. I use this data every day in both my appraisal and real estate practice.
 
@@ -129,6 +129,6 @@ Generally, yes, over the long term — driven by demand from cabin buyers, homes
 I do not give generic timing advice because the answer depends on your specific situation — your financing, your goals, and which part of Central Utah you are targeting. What I can tell you is that the structural demand drivers are strong and persistent, inventory is limited, and the buyers who have done best over my 20 years are the ones who bought when they found the right property rather than trying to time the market.
 
 ### How do I get an accurate price read on a specific property?
-Talk to someone who works this market daily and understands appraisal methodology. County-wide averages and online estimates are nearly useless for rural Central Utah properties where the price depends heavily on specific factors like water rights, access, condition, and acreage quality. As a certified appraiser and REALTOR, I can give you a market opinion grounded in actual comparable sales data. That's a realtor's CMA, not an appraisal.
+Talk to someone who works this market daily and understands appraisal methodology. County-wide averages and online estimates are nearly useless for rural Central Utah properties where the price depends heavily on specific factors like water rights, access, condition, and acreage quality. As a certified appraiser and REALTOR®, I can give you a market opinion grounded in actual comparable sales data. That's a REALTOR®'s CMA, not an appraisal.
 
 If you want a market read that is specific to your target town rather than a county-wide average, that is the conversation I have with buyers and [sellers](/selling) every week — [let's have it](/contact).

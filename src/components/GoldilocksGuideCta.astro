@@ -1,0 +1,184 @@
+---
+import "../styles/tools.css";
+
+interface Props {
+  sourcePage?: string;
+  postTitle?: string;
+  heading?: string;
+  subheading?: string;
+}
+
+const {
+  sourcePage = "",
+  postTitle = "",
+  heading = "Get an Appraiser-Eye Pre-Listing Price Range or Acreage & Water Check",
+  subheading = "Skip the automated guesswork and 10-step chatbots. Tell me what you're looking at in Juab, Sanpete, Millard, or Sevier County, and I'll send you a straight, comp-backed take on price, water, or outbuildings.",
+} = Astro.props;
+---
+
+<aside class="msut-tool my-10" aria-label="Property price and water check request">
+  <div class="t-card" style="border-top: 4px solid #D4A629; background: #FBF9F5;">
+    <p class="t-steplabel" style="color: #9a7612; margin: 0 0 0.35rem;">
+      Direct to Mike · No 10-Step Bot · No Forced IDX Signup
+    </p>
+    <h2 class="t-h2" style="font-size: 1.35rem; line-height: 1.25; margin-bottom: 0.5rem;">
+      {heading}
+    </h2>
+    <p style="margin: 0 0 1.1rem; color: rgba(27, 46, 90, 0.85);">
+      {subheading}
+    </p>
+
+    <form
+      class="js-goldilocks-form"
+      name="goldilocks-guide-cta"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      novalidate
+    >
+      <input type="hidden" name="form-name" value="goldilocks-guide-cta" />
+      <p class="t-hidden-honeypot" aria-hidden="true">
+        <label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <input type="hidden" name="source_page" value={sourcePage} />
+      <input type="hidden" name="post_title" value={postTitle} />
+
+      <div class="t-grid2">
+        <div class="t-field">
+          <label class="t-label" for="gg-name">Name <span class="t-req">*</span></label>
+          <input
+            id="gg-name"
+            type="text"
+            name="name"
+            autocomplete="name"
+            required
+            placeholder="Your name"
+            style="background: #FFFFFF;"
+          />
+          <p class="t-err" data-err="name"></p>
+        </div>
+
+        <div class="t-field">
+          <label class="t-label" for="gg-contact">Phone or Email <span class="t-req">*</span></label>
+          <input
+            id="gg-contact"
+            type="text"
+            name="contact_info"
+            autocomplete="tel"
+            required
+            placeholder="Best phone number or email"
+            style="background: #FFFFFF;"
+          />
+          <p class="t-err" data-err="contact_info"></p>
+        </div>
+      </div>
+
+      <div class="t-field">
+        <label class="t-label" for="gg-town">Town or County <span class="t-req">*</span></label>
+        <input
+          id="gg-town"
+          type="text"
+          name="town_county"
+          required
+          placeholder="e.g. Nephi / Juab, Manti / Sanpete, Delta / Millard, Richfield / Sevier"
+          style="background: #FFFFFF;"
+        />
+        <p class="t-err" data-err="town_county"></p>
+      </div>
+
+      <div class="t-field">
+        <label class="t-label" for="gg-summary">
+          What are you buying or selling? <span class="t-req">*</span>
+        </label>
+        <input
+          id="gg-summary"
+          type="text"
+          name="property_summary"
+          required
+          placeholder="e.g. 5 acres + shop in Sanpete, land with water shares in Juab"
+          style="background: #FFFFFF;"
+        />
+        <p class="t-err" data-err="property_summary"></p>
+      </div>
+
+      <div class="t-actions" style="align-items: center;">
+        <button type="submit" class="t-btn t-btn-primary js-gg-submit">
+          Send to Mike
+        </button>
+        <span class="t-help" style="margin: 0;">
+          Or call/text Mike directly at <a class="t-link" href="tel:4356600401">435-660-0401</a>
+        </span>
+      </div>
+
+      <p class="t-disclaimer" style="background: #FFFFFF;">
+        Mike Price, REALTOR®, Heritage Realty Group · Certified Residential Appraiser, MK Appraisals (active since July 2005) · 2026 President-Elect, UTCAP. A pre-listing price range, comparative market analysis, or property check provided as a REALTOR® with Heritage Realty Group is for market guidance only and is not a formal certified appraisal.
+      </p>
+    </form>
+
+    <div class="js-goldilocks-thanks" hidden tabindex="-1" aria-live="polite">
+      <p class="t-success" style="margin-bottom: 0.75rem;">
+        Thanks — Mike got your property details and will follow up personally with a straight answer.
+      </p>
+      <p style="margin: 0 0 0.75rem;">
+        Want to talk it through right now? Call or text Mike at <a class="t-link" href="tel:4356600401">435-660-0401</a>.
+      </p>
+      <p class="t-disclaimer" style="background: #FFFFFF;">
+        Mike Price, REALTOR®, Heritage Realty Group · Certified Residential Appraiser, MK Appraisals (active since July 2005) · 2026 President-Elect, UTCAP. Market guidance as a REALTOR® is not a formal certified appraisal.
+      </p>
+    </div>
+  </div>
+</aside>
+
+<script>
+  import { submitLead } from "../scripts/submitLead";
+
+  document.querySelectorAll<HTMLFormElement>(".js-goldilocks-form").forEach((form) => {
+    const card = form.closest(".t-card")!;
+    const thanks = card.querySelector<HTMLElement>(".js-goldilocks-thanks")!;
+    const btn = form.querySelector<HTMLButtonElement>(".js-gg-submit")!;
+
+    const setErr = (field: string, msg: string) => {
+      const input = form.elements.namedItem(field) as HTMLInputElement | null;
+      const errEl = form.querySelector<HTMLElement>(`[data-err="${field}"]`);
+      if (errEl) errEl.textContent = msg;
+      if (input) input.setAttribute("aria-invalid", msg ? "true" : "false");
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fields: [string, string][] = [
+        ["name", "Enter your name."],
+        ["contact_info", "Enter a phone number or email address so Mike can reply."],
+        ["town_county", "Enter the town or county."],
+        ["property_summary", "Enter a quick one-line description of what you're buying or selling."],
+      ];
+      let ok = true;
+      for (const [name, msg] of fields) {
+        const input = form.elements.namedItem(name) as HTMLInputElement | null;
+        const v = input ? input.value.trim() : "";
+        setErr(name, v ? "" : msg);
+        if (!v) ok = false;
+      }
+      if (!ok) {
+        const firstInvalid = form.querySelector<HTMLElement>('[aria-invalid="true"]');
+        firstInvalid?.focus();
+        return;
+      }
+
+      const srcInput = form.elements.namedItem("source_page") as HTMLInputElement | null;
+      if (srcInput && !srcInput.value) {
+        srcInput.value = window.location.pathname;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      await submitLead(form);
+      btn.disabled = false;
+      btn.textContent = "Send to Mike";
+
+      form.hidden = true;
+      thanks.hidden = false;
+      thanks.focus({ preventScroll: true });
+    });
+  });
+</script>

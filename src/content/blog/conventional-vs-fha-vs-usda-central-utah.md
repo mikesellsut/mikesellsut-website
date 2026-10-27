@@ -42,7 +42,7 @@ FHA loans are backed by the Federal Housing Administration and are designed to m
 
 This is not necessarily a deal-killer — sellers can sometimes make repairs before closing, or you can negotiate a credit. But it is something to be aware of, especially with older homes or properties that have deferred maintenance. As someone with appraisal experience, I can usually spot potential FHA issues before you get deep into a transaction.
 
-FHA loans also work for **manufactured homes on permanent foundations**, which is relevant in Central Utah where manufactured and modular homes are common. The home must be on a permanent foundation and meet HUD standards.
+FHA loans also work for **manufactured homes on permanent foundations**, which is relevant in Central Utah where HUD-code manufactured homes are common (unlike modular homes, which are built to the same code as site-built homes and follow standard mortgage rules). A manufactured home must be on a permanent foundation and meet HUD standards.
 
 ## USDA Rural Development Loans
 
@@ -77,7 +77,7 @@ If you are a veteran or active-duty military, VA loans offer zero down payment w
 
 ## How the Appraisal Fits In
 
-Regardless of which loan type you choose, the property will need to appraise at or near the purchase price. As a certified appraiser and REALTOR, I have a unique perspective on this step — I understand how appraisers evaluate properties and what issues can cause problems.
+Regardless of which loan type you choose, the property will need to appraise at or near the purchase price. As a certified appraiser and REALTOR®, I have a unique perspective on this step — I understand how appraisers evaluate properties and what issues can cause problems.
 
 For FHA and USDA loans, the appraisal also serves as a property condition inspection with minimum standards the home must meet. For conventional loans, the condition requirements are less strict, but the value still needs to be supported by comparable sales.
 

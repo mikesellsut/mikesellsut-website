@@ -79,7 +79,7 @@ Across all four counties, my advice is the same:
 
 If you've been thinking about selling, spring 2026 is a strong time to list. Buyer demand is healthy across the region, and inventory remains relatively low.
 
-The key to maximizing your sale price is [accurate pricing from day one](/selling). Overpricing in a market like this means sitting on the market while well-priced homes sell quickly. My 20 years of pricing homes as a realtor and appraiser means I can help you price your home right the first time.
+The key to maximizing your sale price is [accurate pricing from day one](/selling). Overpricing in a market like this means sitting on the market while well-priced homes sell quickly. My 20 years of pricing homes as a REALTOR® and appraiser means I can help you price your home right the first time.
 
 ## Let's Talk
 

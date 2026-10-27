@@ -10,7 +10,7 @@ published: true
 
 Horse property in Juab County is priced off comparable sales like any other home, but there are fewer of them, they're spread across more miles, and the things horse buyers care about (zoning, water, access, outbuildings) don't show up in a square-footage number. So the price comes from careful adjustments and a clear explanation, not a quick average.
 
-I'm a realtor, and I'm also an active Utah Certified Residential Appraiser. That second job shapes how I look at these properties. Here's the process, in plain terms.
+I'm a REALTOR®, and I'm also an active Utah Certified Residential Appraiser. That second job shapes how I look at these properties. Here's the process, in plain terms.
 
 ## Is the property actually horse-legal?
 
@@ -65,7 +65,7 @@ Yes. My current [Mona brick rambler listing](/listings#mona-brick-rambler) (MLS 
 
 ## Is this an appraisal?
 
-No. This post is general information, not an appraisal of any property. When I price a home as your realtor, I'm giving you a market opinion and a suggested list price range. A formal appraisal is a separate, paid assignment with its own rules. I hold both licenses, and I keep the two jobs separate.
+No. This post is general information, not an appraisal of any property. When I price a home as your REALTOR®, I'm giving you a market opinion and a suggested list price range. A formal appraisal is a separate, paid assignment with its own rules. I hold both licenses, and I keep the two jobs separate.
 
 ## Frequently Asked Questions
 
@@ -82,8 +82,8 @@ Because acreage has diminishing returns, and water, zoning, access and the impro
 Yes, often a lot. Shares that reliably deliver water to the pasture can change what a buyer will pay more than a barn will. Confirm which company, how many shares, and whether they convey with the land.
 
 ### Can you give me a price range for my horse property?
-Yes. As your realtor, I'll pull the comparable sales, walk the property and give you a market opinion and a suggested list price range. It's not an appraisal, and I'll tell you how I got there.
+Yes. As your REALTOR®, I'll pull the comparable sales, walk the property and give you a market opinion and a suggested list price range. It's not an appraisal, and I'll tell you how I got there.
 
 Thinking about selling or buying horse property in Juab County? [Contact me](/contact) and I'll give you a straight answer on where your property fits.
 
-*Mike Price, Realtor, Heritage Realty Group; Utah Certified Residential Appraiser; 2026 President-Elect, Utah Coalition of Appraisal Professionals (UTCAP). Serving Juab, Sanpete, Sevier, Millard and southern Utah County.*
+*Mike Price, REALTOR®, Heritage Realty Group · Certified Residential Appraiser, MK Appraisals · 2026 President-Elect, Utah Coalition of Appraisal Professionals (UTCAP). Serving Juab, Sanpete, Millard, and Sevier Counties.*

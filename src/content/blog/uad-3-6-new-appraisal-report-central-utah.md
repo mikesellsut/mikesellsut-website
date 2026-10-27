@@ -43,7 +43,7 @@ The old forms leaned on checkboxes and add-on pages. 3.6 uses structured data fi
 
 Square footage is measured to the ANSI Z765 standard.
 
-For rural Central Utah, that list matters. Shops, barns, private roads, water and mineral rights, solar and manufactured-home HUD labels each have dedicated fields now. Those are the details that make properties out here different, and the report captures them instead of burying them in a comment.
+For rural Central Utah, that list matters. Shops, barns, private roads, water and mineral rights, solar and manufactured-home HUD labels each have dedicated fields now. Those are the details that make properties out here different, and the report captures them instead of burying them in a comment. (For a deeper look at how shops and barns get priced and documented, read [how much a detached shop, barn, or outbuilding adds to a home's sale price in Central Utah](/blog/detached-shop-barn-outbuilding-sale-price-central-utah/).)
 
 Photos are more defined too. Always required: the front, a street scene, all kitchens, all baths, and the main living areas including every bedroom. When they apply: below-grade areas, recent updates, views that affect value, the inside and outside of outbuildings, each defect, and manufactured-home HUD labels and the data plate. A rear photo is required only when the client or the scope of work calls for it. The appraiser is also expected to include a sketch or floor plan, or explain why there isn't one.
 

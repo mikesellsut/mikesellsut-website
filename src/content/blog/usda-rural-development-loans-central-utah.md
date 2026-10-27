@@ -10,7 +10,7 @@ published: true
 
 A USDA Rural Development loan lets eligible buyers purchase a primary residence with **0% down** in qualifying rural areas — and most of Sanpete, Sevier, and Millard Counties, along with parts of Juab County, qualify. It is one of the most underused financing tools I see, mostly because buyers assume it does not apply to them or simply do not know it exists.
 
-As a REALTOR who works across all four of these counties, I bring up USDA financing with nearly every primary-residence buyer I work with. When it fits, it is often the strongest loan option available — period.
+As a REALTOR® who works across all four of these counties, I bring up USDA financing with nearly every primary-residence buyer I work with. When it fits, it is often the strongest loan option available — period.
 
 ## How USDA Loan Eligibility Actually Works
 

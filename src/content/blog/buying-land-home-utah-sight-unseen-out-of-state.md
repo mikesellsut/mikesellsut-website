@@ -106,7 +106,7 @@ Financing works the same whether you visit in person or not — the lender evalu
 
 **For cabins and second homes:** [Cabin financing](/blog/financing-cabin-second-home-utah) requires conventional loans with 10-20%+ down. USDA and FHA do not apply to non-primary residences.
 
-**Appraisal challenges:** In rural Central Utah, comparable sales can be limited, especially for unique properties or vacant land. As a certified appraiser and REALTOR, I understand this process from the inside and can help you anticipate potential appraisal issues before they affect your financing.
+**Appraisal challenges:** In rural Central Utah, comparable sales can be limited, especially for unique properties or vacant land. As a certified appraiser and REALTOR®, I understand this process from the inside and can help you anticipate potential appraisal issues before they affect your financing.
 
 ## Protecting Yourself as a Remote Buyer
 
@@ -144,7 +144,7 @@ Yes, ideally. A generalist home inspector may not have deep experience with well
 No. Water rights are a separate legal asset from land ownership in Utah and must be specifically documented and transferred. Never assume they are included in a land sale — verify through the State Engineer's records and the title company.
 
 ### How do I verify a property's value from out of state?
-The lender's independent appraisal provides a professional opinion of value. Beyond that, I can give you comparative market analysis showing what similar properties have sold for. As a certified appraiser and REALTOR, I bring both perspectives to help you evaluate whether a price is fair.
+The lender's independent appraisal provides a professional opinion of value. Beyond that, I can give you comparative market analysis showing what similar properties have sold for. As a certified appraiser and REALTOR®, I bring both perspectives to help you evaluate whether a price is fair.
 
 ### What if I can only visit once before buying?
 One visit is significantly better than none. Use it to see the property in person, drive the access roads, visit the nearest town for a realistic feel for the area, and meet your inspector on-site. Do your document verification (title, water rights, county records) remotely before the visit so you can focus the trip on the things that require your physical presence.

@@ -84,7 +84,7 @@ As someone with [appraisal experience](/selling), I can usually identify potenti
 
 ## FHA for Manufactured Homes in Central Utah
 
-FHA loans can finance [manufactured homes](/blog/manufactured-modular-homes-central-utah-financing), which is particularly relevant in Central Utah where manufactured and modular housing is common in towns like Gunnison, Moroni, Delta, Aurora, and Salina.
+FHA loans can finance [manufactured homes](/blog/manufactured-modular-homes-central-utah-financing), which is particularly relevant in Central Utah where HUD-code manufactured housing is common in towns like Gunnison, Moroni, Delta, Aurora, and Salina (modular homes, by contrast, are built off-site to the same code as site-built stick homes and follow standard site-built FHA rules).
 
 **FHA requirements for manufactured homes:**
 - Built after June 15, 1976 (post-HUD code)

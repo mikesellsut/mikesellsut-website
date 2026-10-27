@@ -10,7 +10,7 @@ published: true
 
 Buying land in rural Central Utah comes down to four things that determine whether a parcel is actually usable for what you want: zoning, water, septic, and access. Get any one of these wrong, and you can end up owning a beautiful piece of ground that you cannot build on, cannot get water to, or cannot legally reach.
 
-I have worked with [land buyers and sellers across Central Utah](/land) for over 20 years — as both a REALTOR and a certified appraiser — and I have seen every one of these issues catch buyers off guard. Here's what each one means in practice, and what I check before recommending any land purchase.
+I have worked with [land buyers and sellers across Central Utah](/land) for over 20 years — as both a REALTOR® and a certified appraiser — and I have seen every one of these issues catch buyers off guard. Here's what each one means in practice, and what I check before recommending any land purchase.
 
 ## Zoning
 
