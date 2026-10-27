@@ -22,7 +22,7 @@ const costs = [
 const faqs = [
   {
     question: "What commission does the seller net estimator use?",
-    answer: "It starts at 6%, which covers both the listing side and the buyer's side combined. That's a common starting point, not a set rate. Commission is negotiable and your listing agreement may be different, so change the number to match yours.",
+    answer: "Whatever percentage you enter. Real estate commissions are not set by law and are fully negotiable. Enter any total percentage you want to model based on your listing agreement.",
   },
   {
     question: "What closing costs does a Utah seller usually pay?",
@@ -80,8 +80,8 @@ const faqs = [
           <div class="t-grid2">
             <div class="t-field">
               <label class="t-label" for="sn-comm">Commission (%)</label>
-              <input id="sn-comm" type="number" min="0" max="15" step="0.25" inputmode="decimal" value="6" />
-              <span class="t-help">6% is a common starting point for both sides combined — not set in stone; commission is negotiable and your agreement may differ.</span>
+              <input id="sn-comm" type="number" min="0" max="15" step="0.25" inputmode="decimal" value="" placeholder="Enter % to model" />
+              <span class="t-help">Enter any total commission % you want to model. Real estate commissions are not set by law and are fully negotiable.</span>
             </div>
             <div class="t-field">
               <label class="t-label" for="sn-title">Title / escrow / closing (%)</label>
@@ -196,7 +196,7 @@ const faqs = [
 <script>
   import { submitLead, money } from "../../scripts/submitLead";
 
-  // Defaults (Mike to edit): commission 6% both sides combined, negotiable.
+  // Commission input starts blank so sellers enter any % they want to model (not set by law; fully negotiable).
   const CONFIG = { bandPct: 0.02, colors: ["#2E7D32", "#1B2E5A", "#D4A629", "#4A9BD9", "#C62828"] };
 
   const n = (id: string) => {
@@ -206,7 +206,9 @@ const faqs = [
 
   function calc() {
     const price = n("sn-price");
+    const commRaw = (document.getElementById("sn-comm") as HTMLInputElement).value.trim();
     const commPct = n("sn-comm");
+    const commLabel = commRaw === "" ? "Commission (enter % to model)" : `Commission (${commPct}%)`;
     const comm = price * (commPct / 100);
     const title = price * (n("sn-title") / 100);
     const loans = n("sn-payoff") + n("sn-heloc");
@@ -220,7 +222,7 @@ const faqs = [
       (net < 0 ? " At these numbers you'd need to bring money to closing." : "");
     const rows: [string, number][] = [
       ["Sale price", price],
-      [`Commission (${commPct}%)`, -comm],
+      [commLabel, -comm],
       [`Title / escrow / closing (${n("sn-title")}%)`, -title],
       ["Loan payoffs", -loans],
       ["Concessions, repairs, taxes, other", -other],
