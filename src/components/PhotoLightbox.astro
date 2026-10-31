@@ -1,0 +1,163 @@
+---
+// Site-wide full-size photo viewer (rule: every listing photo gallery uses this).
+// Usage: render <PhotoLightbox /> once on a page, then mark each photo link:
+//   <a href={full} data-lightbox="group-id" data-full={full} data-alt="..." data-altered="true">
+// Links in the same data-lightbox group page together (wrapping last -> first).
+// Without JS the links still open the image file directly.
+// Swipe left/right, arrow buttons, Left/Right keys, Esc, swipe down / X / backdrop
+// to close, neighbour preloading, body scroll lock, and Back closes the viewer.
+---
+
+<div
+  id="plb"
+  class="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-navy/95 select-none"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Photo viewer"
+  style="touch-action: pinch-zoom; overscroll-behavior: contain;"
+>
+  <p id="plb-counter" class="absolute top-4 left-1/2 -translate-x-1/2 font-heading tracking-wider text-sm text-gold bg-navy/70 px-3 py-1 rounded-full" aria-live="polite"></p>
+  <div id="plb-stage" class="relative flex items-center justify-center w-full px-2">
+    <span id="plb-frame" class="relative inline-block transition-transform duration-150 will-change-transform">
+      <img id="plb-img" src="" alt="" draggable="false" class="block max-w-[94vw] max-h-[74vh] w-auto h-auto rounded-md mx-auto" />
+      <span id="plb-altered" class="hidden absolute bottom-3 left-3 px-2 py-0.5 rounded bg-navy/80 text-white font-body text-sm">Digitally altered</span>
+    </span>
+  </div>
+  <p id="plb-caption" class="mt-3 px-4 max-w-[94vw] text-center font-body text-sm text-white"></p>
+  <p class="mt-1 px-4 text-center font-body text-xs text-white/50">Swipe or use the arrows &middot; swipe down to close</p>
+  <button type="button" id="plb-prev" aria-label="Previous photo" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-navy/85 text-white border-2 border-white/80 shadow-lg hover:bg-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+    <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+  </button>
+  <button type="button" id="plb-next" aria-label="Next photo" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-navy/85 text-white border-2 border-white/80 shadow-lg hover:bg-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+    <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+  </button>
+  <button type="button" id="plb-close" aria-label="Close photo viewer" class="absolute top-3 right-3 w-12 h-12 flex items-center justify-center rounded-full bg-navy/85 text-white text-3xl leading-none border-2 border-white/80 shadow-lg hover:bg-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">&times;</button>
+</div>
+
+<script>
+  const root = document.getElementById("plb");
+  const img = document.getElementById("plb-img") as HTMLImageElement | null;
+  const frame = document.getElementById("plb-frame");
+  const stage = document.getElementById("plb-stage");
+  const altered = document.getElementById("plb-altered");
+  const caption = document.getElementById("plb-caption");
+  const counter = document.getElementById("plb-counter");
+  const prevBtn = document.getElementById("plb-prev") as HTMLButtonElement | null;
+  const nextBtn = document.getElementById("plb-next") as HTMLButtonElement | null;
+  const closeBtn = document.getElementById("plb-close") as HTMLButtonElement | null;
+
+  if (root && img && frame) {
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>("a[data-lightbox]"));
+    let group: HTMLAnchorElement[] = [];
+    let index = 0;
+    let isOpen = false;
+    let pushed = false;
+    let ignorePop = false; // popstate caused by our own history.back()
+    let opener: HTMLElement | null = null;
+    const full = (l: HTMLAnchorElement) => l.dataset.full || l.href;
+
+    const show = (i: number) => {
+      if (!group.length) return;
+      index = (i + group.length) % group.length;
+      const link = group[index];
+      frame.style.transform = "";
+      img.src = full(link);
+      img.alt = link.dataset.alt || "";
+      altered?.classList.toggle("hidden", link.dataset.altered !== "true");
+      if (caption) caption.textContent = link.dataset.alt || "";
+      if (counter) counter.textContent = `${index + 1} / ${group.length}`;
+      const single = group.length < 2;
+      prevBtn?.classList.toggle("hidden", single);
+      nextBtn?.classList.toggle("hidden", single);
+      [index + 1, index - 1].forEach((n) => {
+        const l = group[(n + group.length) % group.length];
+        if (l) new Image().src = full(l);
+      });
+    };
+    const step = (d: number) => show(index + d);
+
+    const open = (link: HTMLAnchorElement) => {
+      group = links.filter((l) => l.dataset.lightbox === link.dataset.lightbox);
+      opener = link;
+      show(group.indexOf(link));
+      root.classList.remove("hidden");
+      root.classList.add("flex");
+      isOpen = true;
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+      try { history.pushState({ plb: true }, "", location.href); pushed = true; } catch { pushed = false; }
+      (group.length > 1 ? nextBtn : closeBtn)?.focus({ preventScroll: true });
+    };
+    const close = (fromPop = false) => {
+      if (!isOpen) return;
+      isOpen = false;
+      root.classList.add("hidden");
+      root.classList.remove("flex");
+      img.removeAttribute("src");
+      frame.style.transform = "";
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      if (pushed && !fromPop) { ignorePop = true; history.back(); }
+      pushed = false;
+      opener?.focus({ preventScroll: true });
+    };
+
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+        e.preventDefault();
+        open(link);
+      });
+    });
+    prevBtn?.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+    nextBtn?.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+    closeBtn?.addEventListener("click", (e) => { e.stopPropagation(); close(); });
+    root.addEventListener("click", (e) => {
+      if (e.target === root || e.target === stage) close();
+    });
+    window.addEventListener("popstate", () => {
+      if (ignorePop) { ignorePop = false; return; }
+      if (isOpen) close(true);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!isOpen) return;
+      if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+      else if (e.key === "Escape") { e.preventDefault(); close(); }
+      else if (e.key === "Tab") {
+        const f = [closeBtn, prevBtn, nextBtn].filter(
+          (b): b is HTMLButtonElement => !!b && !b.classList.contains("hidden")
+        );
+        if (!f.length) return;
+        const cur = f.indexOf(document.activeElement as HTMLButtonElement);
+        e.preventDefault();
+        const n = e.shiftKey ? (cur <= 0 ? f.length - 1 : cur - 1) : (cur + 1) % f.length;
+        f[n].focus();
+      }
+    });
+
+    // Touch: swipe left/right to change photos, swipe down to close.
+    let sx = 0, sy = 0, tracking = false;
+    root.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) { tracking = false; frame.style.transform = ""; return; }
+      tracking = true;
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+    }, { passive: true });
+    root.addEventListener("touchmove", (e) => {
+      if (!tracking || e.touches.length !== 1) return;
+      const dx = e.touches[0].clientX - sx, dy = e.touches[0].clientY - sy;
+      if (Math.abs(dx) > Math.abs(dy)) frame.style.transform = `translateX(${dx}px)`;
+      else if (dy > 0) frame.style.transform = `translateY(${dy}px)`;
+    }, { passive: true });
+    root.addEventListener("touchend", (e) => {
+      if (!tracking) return;
+      tracking = false;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - sx, dy = t.clientY - sy;
+      frame.style.transform = "";
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) step(dx < 0 ? 1 : -1);
+      else if (dy > 80 && dy > Math.abs(dx) * 1.2) close();
+    }, { passive: true });
+  }
+</script>

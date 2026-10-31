@@ -4,6 +4,7 @@
 // header (netlify.toml "/p/*"). Do not add to nav, llms.txt, or any links.
 import { Image } from "astro:assets";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PhotoLightbox from "../../../components/PhotoLightbox.astro";
 import heritageLogo from "../../../assets/heritage-logo.png";
 
 const base = "/p/b2duvkx38sz5kbac6dbk";
@@ -184,13 +185,13 @@ const sections: { title: string; items: string[] }[] = [
   <section class="bg-white px-4 sm:px-6 lg:px-8 py-10 md:py-14">
     <div class="max-w-6xl mx-auto">
       <h2 class="font-display text-2xl md:text-3xl text-navy mb-2">Photo Gallery</h2>
-      <p class="text-navy/60 text-sm mb-6">All 64 listing photos. Tap any photo to view it full size.</p>
+      <p class="text-navy/60 text-sm mb-6">All 64 listing photos. Tap any photo to view it full size, then swipe or use the arrows to browse.</p>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
-        <a href={`${base}/photos/${hero[0]}`} target="_blank" rel="noopener" class="block overflow-hidden rounded bg-cream aspect-[4/3]">
+        <a href={`${base}/photos/${hero[0]}`} data-full={`${base}/photos/${hero[0]}`} data-alt="Ghost Town Getaway Ranch photo 1 of 64" target="_blank" rel="noopener" data-lightbox="ranch" class="block overflow-hidden rounded bg-cream aspect-[4/3]">
           <img src={`${base}/photos/${hero[0]}`} width={hero[1]} height={hero[2]} alt="Ranch photo 1 of 64" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" data-gallery-img />
         </a>
         {gallery.map(([f, w, h], i) => (
-          <a href={`${base}/photos/${f}`} target="_blank" rel="noopener" class="block overflow-hidden rounded bg-cream aspect-[4/3]">
+          <a href={`${base}/photos/${f}`} data-full={`${base}/photos/${f}`} data-alt={`Ghost Town Getaway Ranch photo ${i + 2} of 64`} target="_blank" rel="noopener" data-lightbox="ranch" class="block overflow-hidden rounded bg-cream aspect-[4/3]">
             <img src={`${base}/photos/${f}`} width={w} height={h} alt={`Ranch photo ${i + 2} of 64`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" data-gallery-img />
           </a>
         ))}
@@ -209,4 +210,5 @@ const sections: { title: string; items: string[] }[] = [
       <p>Mike Price, REALTOR&reg; | Sales Agent, Heritage Realty Group, LLC | Agent License 5957476-LA00 | Brokerage License 6232680-CN00</p>
     </div>
   </section>
+  <PhotoLightbox />
 </BaseLayout>
