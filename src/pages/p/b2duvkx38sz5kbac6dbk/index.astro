@@ -1,0 +1,212 @@
+---
+// PRIVATE, LINK-ONLY PAGE. Not linked anywhere on the site, excluded from the
+// sitemap (astro.config.mjs filter), noindex/nofollow meta + X-Robots-Tag
+// header (netlify.toml "/p/*"). Do not add to nav, llms.txt, or any links.
+import { Image } from "astro:assets";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import heritageLogo from "../../../assets/heritage-logo.png";
+
+const base = "/p/b2duvkx38sz5kbac6dbk";
+const photos: [string, number, number][] = [["01.jpg", 1024, 576], ["02.jpg", 1024, 576], ["03.jpg", 1024, 576], ["04.jpg", 1024, 576], ["05.jpg", 1024, 576], ["06.jpg", 1024, 576], ["07.jpg", 1024, 576], ["08.jpg", 1024, 576], ["09.jpg", 1024, 576], ["10.jpg", 1024, 576], ["11.jpg", 1024, 576], ["12.jpg", 1024, 576], ["13.jpg", 1024, 576], ["14.jpg", 1024, 576], ["15.jpg", 1024, 576], ["16.jpg", 1024, 576], ["17.jpg", 1024, 576], ["18.jpg", 1024, 576], ["19.jpg", 1024, 576], ["20.jpg", 1024, 576], ["21.jpg", 1024, 576], ["22.jpg", 1024, 576], ["23.jpg", 1024, 576], ["24.jpg", 1024, 576], ["25.jpg", 1024, 576], ["26.jpg", 1024, 576], ["27.jpg", 1024, 576], ["28.jpg", 1024, 576], ["29.jpg", 1024, 576], ["30.jpg", 1024, 576], ["31.jpg", 1024, 576], ["32.jpg", 1024, 576], ["33.jpg", 1024, 576], ["34.jpg", 1024, 576], ["35.jpg", 1024, 576], ["36.jpg", 1024, 576], ["37.jpg", 1024, 576], ["38.jpg", 1024, 576], ["39.jpg", 1024, 576], ["40.jpg", 1024, 576], ["41.jpg", 1024, 576], ["42.jpg", 1024, 576], ["43.jpg", 1024, 576], ["44.jpg", 1024, 576], ["45.jpg", 1024, 576], ["46.jpg", 1024, 576], ["47.jpg", 1024, 576], ["48.jpg", 1024, 576], ["49.jpg", 1024, 576], ["50.jpg", 1024, 576], ["51.jpg", 1024, 576], ["52.jpg", 1024, 576], ["53.jpg", 1024, 576], ["54.jpg", 1024, 576], ["55.jpg", 1024, 576], ["56.jpg", 1024, 576], ["57.jpg", 1024, 576], ["58.jpg", 1024, 576], ["59.jpg", 907, 724], ["60.jpg", 921, 731], ["61.jpg", 882, 731], ["62.jpg", 718, 704], ["63.jpg", 855, 736], ["64.jpg", 693, 768]];
+const hero = photos[0];
+const gallery = photos.slice(1);
+const pdf = `${base}/Ghost-Town-Getaway-Ranch-MLS-2140143-Breakdown.pdf`;
+
+const keyFacts: [string, string][] = [
+  ["List Price", "$1,800,000 (reduced from $2,100,000)"],
+  ["Acres", "748 (multiple parcels)"],
+  ["Status", "Active"],
+  ["Home", "Log-style cabin, built 1995, 4,000+ sq ft, 8 bed / 9 bath"],
+  ["Est. Taxes", "$3,790/yr"],
+  ["Zoning", "C-2, A (Commercial; Agricultural); no HOA"],
+];
+
+const sections: { title: string; items: string[] }[] = [
+  {
+    title: "Property Highlights",
+    items: [
+      "About 748 acres of mountain ranch land just outside Helper, with the historic Latuda and Rains coal-mining ghost towns on the property",
+      "Mature trees and pines mixed with scrub oak, sage and pasture; wooded, mountain terrain with valley and mountain views, secluded canyons, and dramatic elevation changes",
+      "Log-style lodge (built 1995) of 4,000+ sq ft with 8 bedrooms, 9 baths, a great room, wrap-around porch, covered parking, sauna, and a separate guest entrance",
+      "More than 4 miles of UTV trails reach the private back portions of the ranch",
+      "BLM land immediately south and east connects to more than 8,800 contiguous acres of public ground",
+      "Limited-entry Manti hunting unit; elk and mule deer winter range. The property has been entitled to 1 buck deer and up to 7 cow elk tags yearly",
+      "Used recreationally for 30+ years, with past commercial / short-term rental use",
+    ],
+  },
+  {
+    title: "Water",
+    items: [
+      "Private developed spring, connected for culinary use (MLS: 1 certified developed spring)",
+      "Surface water right (MLS: 1 certified surface right); water rights owned",
+      "Listing states the water rights are sufficient for multiple cabins and for livestock-focused agricultural use",
+      "Buyer to verify water right details with the Utah Division of Water Rights",
+    ],
+  },
+  {
+    title: "Access",
+    items: [
+      "Spring Canyon Road, county-maintained, with year-round access directly to the cabin",
+      "Concrete and gravel driveway; the ranch is partly fenced",
+      "Minutes to Helper; about 15 miles to Price; about 120 miles to Salt Lake City",
+    ],
+  },
+  {
+    title: "Utilities",
+    items: [
+      "Power, natural gas, and water are connected (per MLS)",
+      "Culinary water from the private spring (well not health-inspected per MLS)",
+      "Outbuildings on the property",
+    ],
+  },
+  {
+    title: "Taxes, Zoning & Legal",
+    items: [
+      "Estimated property taxes: $3,790 per year",
+      "Tax ID 2A-1036-0002 (multiple parcels); Township 13 S, Range 9 E, Section 7",
+      "Zoning C-2, A (Commercial; Agricultural); no HOA and no CC&Rs",
+      "Mineral rights and oil/gas rights are excluded from the sale",
+      "Terms: cash or conventional",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Ghost Town Getaway Ranch | 748 Acres, Helper, Utah"
+  description="Private listing breakdown: 748-acre Ghost Town Getaway Ranch with log lodge in Spring Canyon, Helper, Carbon County, Utah."
+  image={`${base}/photos/${hero[0]}`}
+  noindex={true}
+>
+  <!-- Hero -->
+  <section class="relative bg-navy">
+    <img
+      src={`${base}/photos/${hero[0]}`}
+      width={hero[1]}
+      height={hero[2]}
+      alt="Ghost Town Getaway Ranch, Spring Canyon, Helper, Utah"
+      class="w-full h-[52vh] min-h-[280px] max-h-[620px] object-cover opacity-80"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 px-4 sm:px-6 lg:px-8 pb-8 md:pb-12">
+      <div class="max-w-6xl mx-auto">
+        <p class="font-heading text-xs sm:text-sm uppercase tracking-[0.2em] text-gold mb-2">Private Listing Breakdown</p>
+        <h1 class="font-display text-3xl sm:text-4xl md:text-6xl text-white leading-tight">Ghost Town Getaway Ranch</h1>
+        <p class="mt-2 text-base sm:text-lg md:text-xl text-cream/90">748 Acres with Log Lodge | Spring Canyon, Helper, Carbon County, Utah</p>
+      </div>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <!-- Key facts -->
+  <section class="px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+        <div>
+          <p class="font-heading text-xs uppercase tracking-[0.2em] text-navy/60">List Price</p>
+          <p class="font-display text-4xl md:text-5xl text-navy">$1,800,000</p>
+          <p class="text-navy/60 text-sm">Reduced from $2,100,000 &middot; MLS #2140143</p>
+        </div>
+        <a
+          href={pdf}
+          download
+          class="inline-flex items-center justify-center gap-2 bg-gold text-navy font-semibold uppercase tracking-wide text-sm px-5 py-3 rounded hover:bg-navy hover:text-white transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" /></svg>
+          Download the Full Breakdown (PDF)
+        </a>
+      </div>
+      <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {keyFacts.map(([k, v]) => (
+          <div class="bg-white rounded-lg p-4 shadow-sm border border-navy/5">
+            <dt class="font-heading text-xs uppercase tracking-[0.15em] text-gold font-semibold">{k}</dt>
+            <dd class="mt-1 text-navy">{v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- Description + details -->
+  <section class="px-4 sm:px-6 lg:px-8 pb-10 md:pb-14">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div>
+          <h2 class="font-display text-2xl md:text-3xl text-navy mb-4">About the Ranch</h2>
+          <p class="text-navy/80 leading-relaxed text-lg">
+            Located just outside Helper, Utah, this 748-plus-acre ranch combines history, recreation, and wildlife habitat in Carbon County's mountain country. Known as the Ghost Town Getaway Ranch, the land holds portions of the historic Latuda and Rains mining towns, and relics of Utah's coal-country heritage remain across the property. It has been used for recreation for more than three decades: hiking, hunting, camping, rock climbing, and exploring. The current owners have expanded the road and trail system, including over 4 miles of UTV trails leading to secluded, private parts of the ranch well screened from the main road. Elk and mule deer use the property as winter range, with black bear, mountain lion, and upland birds also in the area. The centerpiece is a large log-style lodge built for group use, with a great room, wrap-around porch, sauna, and separate guest entrance, which makes it a strong fit for family gatherings, retreats, or potential short-term rental use.
+          </p>
+        </div>
+        {sections.map((s) => (
+          <div>
+            <h2 class="font-display text-2xl text-navy mb-3 pb-2 border-b-2 border-gold/60">{s.title}</h2>
+            <ul class="space-y-2">
+              {s.items.map((i) => (
+                <li class="flex gap-3 text-navy/80 leading-relaxed">
+                  <span class="mt-2 w-2 h-2 flex-shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
+                  <span>{i}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <!-- Contact card -->
+      <aside class="lg:col-span-1">
+        <div class="lg:sticky lg:top-24 bg-navy text-white rounded-lg p-6 shadow-md">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="/images/site/mike-headshot.jpg" alt="Mike Price, REALTOR®" width="80" height="80" class="w-20 h-20 rounded-full object-cover border-2 border-gold" loading="lazy" decoding="async" />
+            <div>
+              <p class="font-display text-xl">Mike Price</p>
+              <p class="text-cream/80 text-sm">REALTOR&reg; | Sales Agent</p>
+              <p class="text-cream/80 text-sm">Heritage Realty Group, LLC</p>
+            </div>
+          </div>
+          <p class="text-cream/90 mb-5">For questions or a private showing, contact Mike directly.</p>
+          <div class="space-y-3">
+            <a href="tel:4356600401" class="block text-center bg-gold text-navy font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-white transition-colors">Call or Text 435-660-0401</a>
+            <a href="mailto:mikesellsut@gmail.com?subject=Ghost%20Town%20Getaway%20Ranch%20(MLS%20%232140143)" class="block text-center border border-gold text-gold font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-gold hover:text-navy transition-colors">Email mikesellsut@gmail.com</a>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/15 flex justify-center">
+            <div class="bg-white rounded px-3 py-2">
+              <Image src={heritageLogo} alt="Heritage Realty Group, LLC" width={200} class="h-12 w-auto" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="bg-white px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-display text-2xl md:text-3xl text-navy mb-2">Photo Gallery</h2>
+      <p class="text-navy/60 text-sm mb-6">All 64 listing photos. Tap any photo to view it full size.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+        <a href={`${base}/photos/${hero[0]}`} target="_blank" rel="noopener" class="block overflow-hidden rounded bg-cream aspect-[4/3]">
+          <img src={`${base}/photos/${hero[0]}`} width={hero[1]} height={hero[2]} alt="Ranch photo 1 of 64" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" data-gallery-img />
+        </a>
+        {gallery.map(([f, w, h], i) => (
+          <a href={`${base}/photos/${f}`} target="_blank" rel="noopener" class="block overflow-hidden rounded bg-cream aspect-[4/3]">
+            <img src={`${base}/photos/${f}`} width={w} height={h} alt={`Ranch photo ${i + 2} of 64`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" data-gallery-img />
+          </a>
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href={pdf} download class="inline-flex items-center gap-2 text-navy font-semibold underline decoration-gold decoration-2 underline-offset-4 hover:text-gold">Download the full listing breakdown (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Small print -->
+  <section class="px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-6xl mx-auto text-xs text-navy/60 leading-relaxed space-y-1">
+      <p>Listing courtesy of Whitetail Properties Real Estate LLC. Also listed as MLS #2140214. Source: UtahRealEstate.com MLS #2140143.</p>
+      <p>Information deemed reliable but not guaranteed; buyer to verify all information, including acreage, water rights, and taxes.</p>
+      <p>Mike Price, REALTOR&reg; | Sales Agent, Heritage Realty Group, LLC | Agent License 5957476-LA00 | Brokerage License 6232680-CN00</p>
+    </div>
+  </section>
+</BaseLayout>

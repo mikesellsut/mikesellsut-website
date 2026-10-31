@@ -9,3 +9,9 @@
   for = "/sitemap*.xml"
   [headers.values]
     Content-Type = "application/xml; charset=utf-8"
+
+# Private, link-only pages (and their photos/PDFs): keep out of search engines.
+[[headers]]
+  for = "/p/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
