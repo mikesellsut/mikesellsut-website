@@ -52,7 +52,7 @@ export const listings: Listing[] = [
     title: "Brick Rambler on 1.13 Acres with Nebo Views",
     status: "Active",
     type: "Home",
-    price: 869900,
+    price: 859000,
     beds: 7,
     baths: 4.5,
     sqft: 4118,
