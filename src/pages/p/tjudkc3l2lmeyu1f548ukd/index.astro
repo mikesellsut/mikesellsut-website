@@ -24,40 +24,24 @@ const sources = [
   },
 ];
 
-const snapshot: [string, string][] = [
-  ["List price", "$3,975,000"],
+const facts: [string, string][] = [
+  ["MLS list price", "$3,975,000 for the advertised ~100-acre offering only"],
   ["MLS", "#2184902"],
-  ["Status", "Active on public listing sources checked November 6, 2026"],
   ["Address", "11550 Pigeon Hollow Rd, Spring City, UT 84662"],
-  ["County", "Sanpete County"],
-  ["Approx. acres", "100.00, with final acreage to be created by a boundary-line adjustment before closing (listing)"],
-  ["Parcel / tax ID", "27340"],
-  ["Est. taxes", "$10,385 / year"],
-  ["Year built", "1990, effective year 2000 (listing)"],
-  ["Courtesy counts", "23 bedrooms, 17 baths, and 16,412 sq ft. Listing marks bed, bath, room, and square-footage counts as a courtesy only. Buyer to verify."],
-  ["Subdivision", "Walker Guest Ranch"],
-  ["Zoning", "Agricultural; short-term rental allowed (listing — verify)"],
-  ["Water", "Shares and well. See the water note below."],
-  ["Utilities", "Electricity connected, natural gas connected, septic, and water connected (listing)"],
-  ["Garage", "4-car, detached (listing)"],
-  ["Pool", "Yes — fenced, in-ground (listing)"],
-  ["Listing office", "Berkshire Hathaway HomeServices Utah Properties (St George) · Lance May"],
+  ["Holding reported by Mike", "169.06 acres under common ownership. Not the priced MLS offer."],
 ];
 
-const described = [
-  "Five primary structures plus specialty and support buildings: a main house, manager’s quarters, ranchette and studio units, specialty cottages, RV sites, and tent camping. The remarks also refer to 50+ beds on site, separate from the courtesy 23-bedroom count.",
-  "Gathering space includes a dining and event hall, commercial kitchen, pavilion, fire pit, lawn, and indoor and outdoor areas.",
-  "The remarks say the property has hosted corporate retreats, weddings, family reunions, and group events, and that portions are approved for nightly short-term rentals. Every approval has to be verified.",
-  "Recreation named in the listing: a swimming pool with a silo bathhouse, a pickleball and basketball court, and open acreage, with hiking, mountain biking, OHV riding, fishing, and climbing nearby.",
-  "Other features named: gardens, a greenhouse, animal areas, a geodesic dome, artist spaces, workshops, and garages.",
-  "Infrastructure named: two wells, irrigation shares, multiple septic systems, electrical distribution, propane capacity, irrigation improvements, and more than a mile of internal roads.",
+const checks = [
+  "Sale scope and terms. Whether the full holding will be sold, which boundaries are included, and the price for that holding. The $3,975,000 figure is the MLS price for the advertised acreage only.",
+  "Water inventory. Rights, shares, wells, what is included, transfer, and how water would be allocated if portions are sold later.",
+  "Buffer-zone development parameters. The Spring City buffer map, jurisdiction, zoning, permitted density, subdivision requirements, access, and water and septic approvals.",
 ];
 ---
 
 <BaseLayout
   title={pageTitle}
   exactTitle={true}
-  description="Unlisted property brief for Spring City - Wind Walker Ranch Properties, 11550 Pigeon Hollow Rd, Spring City. MLS #2184902, listed at $3,975,000. Public listing facts for anyone with this link. Buyer to verify."
+  description="Unlisted property brief for Spring City - Wind Walker Ranch Properties. MLS #2184902 lists about 100 acres at $3,975,000. Acquisition concept is the larger common-owner holding reported by Mike. Confirm scope, price, and water."
   noindex={true}
 >
   <section class="bg-navy px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -68,109 +52,81 @@ const described = [
       <p class="mt-2 text-base sm:text-lg text-cream/80">
         Wind Walker Homestead · MLS #2184902 · Listed at $3,975,000
       </p>
-      <p class="mt-4 max-w-3xl text-sm sm:text-base text-cream/75 leading-relaxed">
-        Anyone with this link can read this brief. It restates the public MLS listing and public syndication, checked November 6, 2026. Sanpete County · about 100 acres (see the acreage note) · agricultural zoning, per the listing. Buyer to verify everything.
+      <p class="mt-5 max-w-3xl text-base sm:text-lg text-cream leading-relaxed">
+        Whole-property acquisition. Buy the common-owner holding, keep the land and water you want, and sell off what you do not.
       </p>
     </div>
   </section>
   <div class="h-1 bg-gold"></div>
 
   <section class="px-4 sm:px-6 lg:px-8 py-10 md:py-14">
-    <div class="max-w-6xl mx-auto">
-      <div class="mb-6">
-        <p class="font-heading text-xs uppercase tracking-[0.2em] text-navy/60">List price</p>
-        <p class="font-display text-4xl sm:text-5xl text-navy">$3,975,000</p>
-        <p class="text-navy/60 text-sm mt-1">MLS #2184902 · Active on public sources checked November 6, 2026</p>
-      </div>
-      <h2 class="font-display text-2xl md:text-3xl text-navy mb-4">Snapshot</h2>
-      <p class="text-navy/70 text-sm mb-4 max-w-3xl">Figures below are what the public listing states. They are a starting point for review, and the buyer verifies each one.</p>
-      <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {snapshot.map(([label, value]) => (
-          <div class="bg-white rounded-lg p-4 shadow-sm border border-navy/5">
-            <dt class="font-heading text-xs uppercase tracking-[0.15em] text-gold font-semibold">{label}</dt>
-            <dd class="mt-1 text-navy text-sm sm:text-base leading-relaxed">{value}</dd>
-          </div>
-        ))}
-      </dl>
-    </div>
-  </section>
-
-  <section class="px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
       <div class="lg:col-span-2 space-y-10 order-2 lg:order-1">
         <div>
-          <h2 class="font-display text-2xl md:text-3xl text-navy mb-4">Property description</h2>
-          <p class="text-navy/80 leading-relaxed text-base sm:text-lg">
-            The public listing markets this address as Wind Walker Homestead: a Spring City property of about 100 acres combining lodging, gathering space, recreation, and ranch infrastructure. The notes in this section are claims from the public listing remarks. They are not independently verified on this page.
+          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Whole-property acquisition</h2>
+          <p class="text-navy/80 leading-relaxed">
+            The concept is to acquire the entire common-owner holding, retain the desired land and water, and sell non-core portions and improvements to recover capital.
           </p>
-          <ul class="mt-5 space-y-3">
-            {described.map((item) => (
-              <li class="flex gap-3 text-navy/80 leading-relaxed">
-                <span class="mt-2 w-2 h-2 flex-shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
-                <span>{item}</span>
-              </li>
+          <p class="mt-3 text-navy/80 leading-relaxed">
+            Mike’s review of Sanpete County records identified 169.06 acres under common ownership. The MLS currently advertises approximately 100 acres, subject to a boundary adjustment, at $3,975,000. That price applies to the advertised MLS offering only.
+          </p>
+          <p class="mt-3 text-navy/80 leading-relaxed">
+            Willingness to sell the full holding, the price for it, and the water included with it have to be confirmed. This is a proposed acquisition strategy. It is not the listing’s current sale terms, and it is not an approved subdivision.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Land, water, and what you keep</h2>
+          <p class="text-navy/80 leading-relaxed">
+            The hold is control of the acreage you retain, with the water that serves it. Buildings and surplus land are candidates to sell after closing, not the reason to buy.
+          </p>
+          <p class="mt-3 text-navy/80 leading-relaxed">
+            Mike reports additional water is available with the sale; exact rights, quantities, included interests and transfer terms remain to be documented.
+          </p>
+          <p class="mt-3 text-navy/80 leading-relaxed">
+            The listing also mentions 3.00 water shares and two wells. That note is not the water inventory. The amount of additional water is unknown. Nothing here promises supply, yield, or that every right conveys.
+          </p>
+          <p class="mt-3 text-navy/80 leading-relaxed">
+            Selling buildings or non-core acreage depends on legal boundaries, approvals, access, and water allocation. No resale yield, return, or timeline is stated.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Development position</h2>
+          <p class="text-navy/80 leading-relaxed">
+            Mike reports that part of the property lies within the Spring City buffer zone and allows development. Confirm the applicable jurisdiction, zoning, permitted density, subdivision requirements, access and water/septic approvals before underwriting a development plan.
+          </p>
+          <p class="mt-3 text-navy/80 leading-relaxed">
+            That report is not an entitled subdivision and not a lot yield.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Confirm these three</h2>
+          <ol class="space-y-3 list-decimal pl-5 text-navy/80 leading-relaxed">
+            {checks.map((item) => (
+              <li>{item}</li>
             ))}
-          </ul>
-          <p class="mt-5 text-navy/80 leading-relaxed">
-            Uses named in the listing — a legacy or family retreat, hospitality, agritourism, a corporate retreat, a camp, wellness, events, and similar ideas — are marketing concepts. Each one depends on approvals.
-          </p>
+          </ol>
         </div>
 
-        <div>
-          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3 pb-2 border-b-2 border-gold/60">Due diligence</h2>
-          <p class="text-navy/70 leading-relaxed mb-6">
-            Treat income, the conditional use permit, water, zoning, courtesy counts, and acreage as listing statements. Confirm them with the survey, title, the county, the water company, and the buyer’s own advisors.
-          </p>
-          <div class="space-y-6">
-            <div>
-              <h3 class="font-display text-xl text-navy mb-2">Listing-reported income</h3>
-              <p class="text-navy/80 leading-relaxed">
-                The listing states current income from lodging and events of $170,000–$186,000 annually. That is listing-reported income. It is not verified net income, and it is not independently verified on this page.
-              </p>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {facts.map(([label, value]) => (
+            <div class="bg-white rounded-lg p-4 shadow-sm border border-navy/5">
+              <dt class="font-heading text-xs uppercase tracking-[0.15em] text-gold font-semibold">{label}</dt>
+              <dd class="mt-1 text-navy leading-relaxed">{value}</dd>
             </div>
-            <div>
-              <h3 class="font-display text-xl text-navy mb-2">Zoning and conditional use</h3>
-              <p class="text-navy/80 leading-relaxed">
-                The listing states an agricultural zone and a conditional use permit in place for over 20 years for the current operations, including nightly rental of individual units and group retreat use. Zoning on the listing is agricultural, with short-term rental allowed. The buyer has to independently verify zoning, licensing, permitted uses, and approvals for any intended use.
-              </p>
-            </div>
-            <div>
-              <h3 class="font-display text-xl text-navy mb-2">Water</h3>
-              <p class="text-navy/80 leading-relaxed">
-                The listing states 3.00 water shares and two wells that have historically supported the property. Public syndication shows the water source as shares and well, an irrigation water-rights figure of 3.0 acres, and remarks that two wells and irrigation shares have historically supported the property. Share count, transfer, well yield, conversion, and adequacy for any future use are for the buyer to verify. This brief makes no promise on those points.
-              </p>
-            </div>
-            <div>
-              <h3 class="font-display text-xl text-navy mb-2">Acreage</h3>
-              <p class="text-navy/80 leading-relaxed">
-                The MLS position is about 100 acres, with final acreage created by a boundary-line adjustment between currently owned parcels before closing. The property’s own site, <a href="https://windwalkerhomestead.com/" class="underline decoration-gold decoration-2 underline-offset-4 hover:text-gold" target="_blank" rel="noopener noreferrer">windwalkerhomestead.com</a>, describes a larger operating ranch (about 170 acres). That venue figure is separate from the acreage offered under MLS #2184902. Use 100 acres plus the boundary-line adjustment as the listing position unless title and survey say otherwise.
-              </p>
-            </div>
-            <div>
-              <h3 class="font-display text-xl text-navy mb-2">Courtesy counts</h3>
-              <p class="text-navy/80 leading-relaxed">
-                23 bedrooms, 17 baths, and 16,412 square feet are courtesy combined counts. The listing says bed, bath, room, and square-footage counts are a courtesy only and the buyer is to verify them. Public syndication does not agree on the bath total: some pages show 17 baths, and the listing office page shows 17 full baths plus partial baths in a higher combined total. Measure and confirm before relying on any of these numbers.
-              </p>
-            </div>
-          </div>
-        </div>
+          ))}
+        </dl>
 
         <div>
-          <h2 class="font-display text-2xl text-navy mb-3 pb-2 border-b-2 border-gold/60">About this brief</h2>
-          <ul class="space-y-2">
-            <li class="flex gap-3 text-navy/80 leading-relaxed">
-              <span class="mt-2 w-2 h-2 flex-shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
-              <span>This is an unlisted property brief for reviewing public MLS #2184902. Mike Price, REALTOR&reg;, Heritage Realty Group, is the local contact.</span>
-            </li>
-            <li class="flex gap-3 text-navy/80 leading-relaxed">
-              <span class="mt-2 w-2 h-2 flex-shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
-              <span>Anyone with this link can read it. It is a summary of public listing facts.</span>
-            </li>
-            <li class="flex gap-3 text-navy/80 leading-relaxed">
-              <span class="mt-2 w-2 h-2 flex-shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
-              <span>It is not an appraisal, an income guarantee, a zoning opinion, or a water-rights opinion.</span>
-            </li>
-          </ul>
+          <h2 class="font-display text-2xl text-navy mb-3 pb-2 border-b-2 border-gold/60">Buildings, as context</h2>
+          <p class="text-navy/80 leading-relaxed">
+            The listing describes lodging, event space, and ranch buildings, including a main house, plus retreat and short-term rental use. Useful if a later sale of improvements is part of the plan. Not the acquisition thesis.
+          </p>
+          <p class="mt-3 text-navy/80 leading-relaxed">
+            The listing states lodging and event income of $170,000–$186,000 a year. That is listing-reported income, not verified net income.
+          </p>
         </div>
 
         <div>
@@ -182,6 +138,9 @@ const described = [
               </li>
             ))}
           </ul>
+          <p class="mt-4 text-sm text-navy/70 leading-relaxed">
+            Unlisted brief for anyone with this link. Mike Price, REALTOR&reg;, Heritage Realty Group, is the local contact. Mike’s acreage, water, and buffer notes are his reports, not a survey, a water decree, or an approval. This is not an appraisal or a zoning opinion.
+          </p>
         </div>
       </div>
 
@@ -217,7 +176,7 @@ const described = [
   <section class="px-4 sm:px-6 lg:px-8 py-8">
     <div class="max-w-6xl mx-auto text-xs text-navy/60 leading-relaxed space-y-2">
       <p>Listing courtesy of Berkshire Hathaway HomeServices Utah Properties (St George) / Lance May. Source: public MLS #2184902.</p>
-      <p>Information is not guaranteed. Buyer to verify all information, including price, acreage, boundary-line adjustment, courtesy bed, bath, and square-footage counts, listing-reported income, conditional use, water, taxes, and zoning.</p>
+      <p>Information is not guaranteed. The $3,975,000 price is the MLS price for the advertised acreage. Full-holding availability, price, boundaries, and included water are unconfirmed. Disposition of buildings or surplus acreage depends on boundaries, approvals, access, and water allocation.</p>
       <p>Mike Price, REALTOR&reg; | Heritage Realty Group, LLC | P.O. Box 431, Spring City, UT 84662 | Agent License 5957476-LA00 | Brokerage License 6232680-CN00</p>
     </div>
   </section>
