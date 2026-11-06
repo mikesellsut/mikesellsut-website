@@ -18,9 +18,10 @@ interface Props {
   type?: string;
   suppressAgentSchema?: boolean;
   noindex?: boolean;
+  exactTitle?: boolean;
 }
 
-const { title, description, image, canonicalUrl, type, suppressAgentSchema, noindex } = Astro.props;
+const { title, description, image, canonicalUrl, type, suppressAgentSchema, noindex, exactTitle } = Astro.props;
 
 // Site-wide RealEstateAgent structured data — establishes the business
 // entity for search engines and AI systems on every page.
@@ -103,6 +104,7 @@ const realEstateAgentSchema = {
       canonicalUrl={canonicalUrl}
       type={type}
       noindex={noindex}
+      exactTitle={exactTitle}
     />
 
     <!-- Google Analytics 4 -->
