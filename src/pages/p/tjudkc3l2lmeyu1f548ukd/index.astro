@@ -5,12 +5,134 @@
 // Anyone with the link can read this public listing brief. No login.
 import { Image } from "astro:assets";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PhotoLightbox from "../../../components/PhotoLightbox.astro";
 import heritageLogo from "../../../assets/heritage-logo.png";
 
 const pageTitle = "Spring City - Wind Walker Ranch Properties";
+const base = "/p/tjudkc3l2lmeyu1f548ukd";
 const mapQuery = "11550 Pigeon Hollow Rd, Spring City, UT 84662";
 const aerialEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&hl=en&t=k&z=15&output=embed`;
 const aerialLink = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=k&z=15`;
+
+const photos: [string, number, number][] = [
+  ["01.jpg", 1024, 681],
+  ["02.jpg", 1024, 576],
+  ["03.jpg", 1024, 683],
+  ["04.jpg", 1024, 576],
+  ["05.jpg", 1024, 576],
+  ["06.jpg", 1024, 576],
+  ["07.jpg", 1024, 576],
+  ["08.jpg", 1024, 576],
+  ["09.jpg", 1024, 576],
+  ["10.jpg", 1024, 576],
+  ["11.jpg", 1024, 576],
+  ["12.jpg", 1024, 576],
+  ["13.jpg", 1024, 576],
+  ["14.jpg", 1024, 577],
+  ["15.jpg", 1024, 576],
+  ["16.jpg", 1024, 683],
+  ["17.jpg", 1024, 682],
+  ["18.jpg", 1024, 683],
+  ["19.jpg", 1024, 683],
+  ["20.jpg", 1024, 683],
+  ["21.jpg", 1024, 684],
+  ["22.jpg", 1024, 684],
+  ["23.jpg", 1024, 683],
+  ["24.jpg", 1024, 683],
+  ["25.jpg", 1024, 683],
+  ["26.jpg", 1024, 682],
+  ["27.jpg", 1024, 683],
+  ["28.jpg", 1024, 683],
+  ["29.jpg", 1024, 683],
+  ["30.jpg", 1024, 683],
+  ["31.jpg", 1024, 683],
+  ["32.jpg", 1024, 682],
+  ["33.jpg", 1024, 576],
+  ["34.jpg", 1024, 682],
+  ["35.jpg", 1024, 683],
+  ["36.jpg", 1024, 682],
+  ["37.jpg", 1024, 682],
+  ["38.jpg", 1024, 576],
+  ["39.jpg", 1024, 683],
+  ["40.jpg", 1024, 682],
+  ["41.jpg", 1024, 683],
+  ["42.jpg", 1024, 683],
+  ["43.jpg", 1024, 576],
+  ["44.jpg", 1024, 683],
+  ["45.jpg", 1024, 682],
+  ["46.jpg", 1024, 683],
+  ["47.jpg", 1024, 683],
+  ["48.jpg", 1024, 683],
+  ["49.jpg", 1024, 683],
+  ["50.jpg", 1024, 683],
+  ["51.jpg", 1024, 683],
+  ["52.jpg", 1024, 683],
+  ["53.jpg", 1024, 683],
+  ["54.jpg", 1024, 683],
+  ["55.jpg", 1024, 683],
+  ["56.jpg", 1024, 683],
+  ["57.jpg", 1024, 683],
+  ["58.jpg", 1024, 683],
+  ["59.jpg", 1024, 683],
+  ["60.jpg", 1024, 683],
+  ["61.jpg", 1024, 683],
+  ["62.jpg", 1024, 683],
+  ["63.jpg", 1024, 683],
+  ["64.jpg", 1024, 683],
+  ["65.jpg", 1024, 683],
+  ["66.jpg", 1024, 682],
+  ["67.jpg", 1024, 682],
+  ["68.jpg", 1024, 682],
+  ["69.jpg", 1024, 576],
+  ["70.jpg", 1024, 683],
+  ["71.jpg", 1024, 576],
+  ["72.jpg", 1024, 576],
+  ["73.jpg", 1024, 576],
+  ["74.jpg", 1024, 683],
+  ["75.jpg", 1024, 576],
+  ["76.jpg", 1024, 576],
+  ["77.jpg", 1024, 577],
+  ["78.jpg", 1024, 576],
+  ["79.jpg", 1024, 576],
+  ["80.jpg", 1024, 576],
+  ["81.jpg", 1024, 576],
+  ["82.jpg", 1024, 576],
+  ["83.jpg", 1024, 576],
+  ["84.jpg", 1024, 576],
+  ["85.jpg", 1024, 576],
+];
+const hero = photos[1];
+const total = photos.length;
+
+const jumps = [
+  ["The holding", "#holding"],
+  ["Water", "#water"],
+  ["Aerial", "#aerial"],
+  ["Photos", "#photos"],
+  ["Next steps", "#next"],
+];
+
+const facts: [string, string][] = [
+  ["Broader holding", "169.06 acres under common ownership"],
+  ["MLS asking price", "$3,975,000 for the advertised ~100 acres"],
+  ["Sale structure", "All or part. Whole purchase is the cleaner path."],
+  ["Water", "Hundreds of shares reported, surface and wells"],
+];
+
+const steps = [
+  "Obtain full and partial sale terms, and a whole-package price. $3,975,000 is the MLS asking price for the advertised ~100 acres.",
+  "Obtain the water-right and share documents: share inventory, well rights, authorized uses, and the interests included in the sale.",
+  "Review buffer-zone development parameters, access, and subdivision requirements.",
+];
+
+const improvements = [
+  ["Lodging", "Main house, manager quarters, ranchette and studio units, cottages"],
+  ["Gathering", "Dining and event hall, commercial kitchen, pavilion, fire pit, lawn"],
+  ["Recreation", "Pool with silo bathhouse, pickleball and basketball court, open acreage"],
+  ["Grounds", "Gardens, greenhouse, animal areas, geodesic dome, workshops, garages"],
+  ["Site work", "RV sites, tent camping, more than a mile of internal roads"],
+  ["Utilities", "Power, gas, septic, and water connected, per the listing"],
+];
 
 const sources = [
   {
@@ -26,165 +148,218 @@ const sources = [
     href: "https://search.slchomes.com/details-res?listingid=2184902",
   },
 ];
-
-const facts: [string, string][] = [
-  ["MLS asking price", "$3,975,000 for the advertised ~100 acres"],
-  ["Broader holding", "169.06 acres. Terms to negotiate."],
-  ["MLS", "#2184902"],
-  ["Address", "11550 Pigeon Hollow Rd, Spring City, UT 84662"],
-];
-
-const steps = [
-  "Obtain full and partial sale terms, and a whole-package price. $3,975,000 is the MLS asking price for the advertised ~100 acres.",
-  "Obtain the water-right and share documents: share inventory, well rights, authorized uses, and the interests included in the sale.",
-  "Review buffer-zone development parameters, access, and subdivision requirements.",
-];
 ---
 
 <BaseLayout
   title={pageTitle}
   exactTitle={true}
-  description="Unlisted acquisition brief for Spring City - Wind Walker Ranch Properties. Broader holding of 169.06 acres. MLS #2184902 asks $3,975,000 for the advertised ~100 acres. Full acquisition terms to negotiate."
+  description="Unlisted acquisition brief for Spring City - Wind Walker Ranch Properties. 169.06-acre broader holding. MLS #2184902 asks $3,975,000 for the advertised ~100 acres. Photos and aerial context included."
+  image={`${base}/photos/${hero[0]}`}
   noindex={true}
 >
-  <section class="bg-navy px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-    <div class="max-w-6xl mx-auto">
-      <p class="font-heading text-xs sm:text-sm uppercase tracking-[0.2em] text-gold mb-3">Unlisted property brief</p>
-      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl text-white leading-tight">{pageTitle}</h1>
-      <p class="mt-4 text-lg sm:text-xl text-cream/95">11550 Pigeon Hollow Rd, Spring City, UT 84662</p>
-      <p class="mt-2 text-base sm:text-lg text-cream/80">
-        Wind Walker Homestead · MLS #2184902 · Listed at $3,975,000
-      </p>
-      <p class="mt-5 max-w-3xl text-base sm:text-lg text-cream leading-relaxed">
-        Acquire the 169.06-acre holding. Keep the land and water. Sell the acreage and buildings you do not want.
-      </p>
+  <section class="relative bg-navy">
+    <img
+      src={`${base}/photos/${hero[0]}`}
+      width={hero[1]}
+      height={hero[2]}
+      alt="Wind Walker Homestead, 11550 Pigeon Hollow Rd, Spring City, Utah"
+      class="w-full h-[68vh] min-h-[320px] max-h-[760px] object-cover"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/45 to-navy/10"></div>
+    <div class="absolute inset-x-0 bottom-0 px-4 sm:px-6 lg:px-8 pb-8 md:pb-12">
+      <div class="max-w-6xl mx-auto">
+        <p class="font-heading text-xs sm:text-sm uppercase tracking-[0.2em] text-gold mb-2">Unlisted property brief</p>
+        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl text-white leading-tight max-w-4xl">{pageTitle}</h1>
+        <p class="mt-3 text-base sm:text-lg text-cream/95">11550 Pigeon Hollow Rd, Spring City, UT 84662</p>
+        <p class="mt-1 text-sm sm:text-base text-cream/80">Wind Walker Homestead · MLS #2184902 · Listed at $3,975,000</p>
+        <p class="mt-4 max-w-2xl text-base sm:text-lg text-white leading-snug">Acquire the 169.06-acre holding. Keep the land and water. Sell the acreage and buildings you do not want.</p>
+        <p class="mt-5 pointer-events-auto">
+          <a href="#photos" class="inline-block bg-gold text-navy font-semibold uppercase tracking-wide text-sm px-5 py-3 rounded hover:bg-white">View {total} photos</a>
+        </p>
+      </div>
     </div>
   </section>
   <div class="h-1 bg-gold"></div>
 
-  <section class="px-4 sm:px-6 lg:px-8 pt-8 md:pt-10" aria-labelledby="aerial-heading">
+  <nav class="sticky top-16 md:top-20 z-40 bg-cream/95 backdrop-blur border-b border-navy/10" aria-label="On this page">
+    <ul class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-1 sm:gap-2 overflow-x-auto py-2">
+      {jumps.map(([label, href]) => (
+        <li class="shrink-0">
+          <a href={href} class="inline-block font-heading text-xs sm:text-sm uppercase tracking-wider text-navy px-3 py-2 rounded hover:bg-navy hover:text-white">{label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <section id="holding" class="px-4 sm:px-6 lg:px-8 py-10 md:py-14 scroll-mt-32">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2">
+        <h2 class="font-display text-3xl text-navy mb-4">Whole-property acquisition</h2>
+        <p class="text-navy/85 leading-relaxed text-lg">
+          The broader holding is 169.06 acres under common ownership. Acquire it, keep the land and water that matter, and sell non-core acreage and buildings to recover capital.
+        </p>
+        <p class="mt-4 text-navy/85 leading-relaxed text-lg">
+          The seller is reported to be open to a sale of all or part of the property. A whole-property purchase offers the simplest transaction structure and a basis to negotiate a discount in exchange for a cleaner sale.
+        </p>
+        <p class="mt-4 text-navy/85 leading-relaxed">
+          The MLS asking price is $3,975,000 for the advertised ~100 acres, subject to a boundary adjustment. Whole-package pricing is still to negotiate.
+        </p>
+      </div>
+      <aside class="bg-navy text-white rounded-lg p-6 shadow-md">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="/images/site/mike-headshot.jpg" alt="Mike Price, REALTOR®" width="72" height="72" class="w-16 h-16 rounded-full object-cover border-2 border-gold" decoding="async" />
+          <div>
+            <p class="font-display text-xl">Mike Price</p>
+            <p class="text-cream/80 text-sm">REALTOR&reg;</p>
+            <p class="text-cream/80 text-sm">Heritage Realty Group, LLC</p>
+          </div>
+        </div>
+        <p class="text-cream/90 mb-4">The local contact for this acquisition.</p>
+        <address class="not-italic text-cream/80 text-sm leading-relaxed mb-5">
+          P.O. Box 431<br />Spring City, UT 84662
+        </address>
+        <div class="space-y-3">
+          <a href="tel:4356600401" class="block text-center bg-gold text-navy font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-white">Call or Text 435-660-0401</a>
+          <a href="mailto:mikesellsut@gmail.com?subject=Spring%20City%20-%20Wind%20Walker%20Ranch%20Properties%20(MLS%20%232184902)" class="block text-center border border-gold text-gold font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-gold hover:text-navy break-words">Email mikesellsut@gmail.com</a>
+        </div>
+        <div class="mt-6 pt-5 border-t border-white/15 flex justify-center">
+          <div class="bg-white rounded px-3 py-2">
+            <Image src={heritageLogo} alt="Heritage Realty Group, LLC" width={200} class="h-10 w-auto" />
+          </div>
+        </div>
+      </aside>
+    </div>
+    <dl class="max-w-6xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      {facts.map(([label, value]) => (
+        <div class="bg-white rounded-lg p-4 shadow-sm border border-navy/5">
+          <dt class="font-heading text-xs uppercase tracking-[0.14em] text-gold font-semibold">{label}</dt>
+          <dd class="mt-2 text-navy leading-snug">{value}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3">
+      {photos.slice(0, 3).map(([file, w, h], i) => (
+        <a href="#photos" class="block overflow-hidden rounded-lg bg-navy aspect-[4/3]">
+          <img src={`${base}/photos/${file}`} width={w} height={h} alt={`Wind Walker Homestead listing photo ${i + 1} of ${total}`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="water" class="px-4 sm:px-6 lg:px-8 py-10 md:py-14 scroll-mt-32">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+      <article class="bg-white rounded-lg p-6 border border-navy/5 shadow-sm md:col-span-1">
+        <h2 class="font-display text-2xl text-navy mb-3">Land</h2>
+        <p class="text-navy/80 leading-relaxed">169.06 acres under common ownership is the holding to acquire. The MLS offer is about 100 acres, with the final acreage set by a boundary adjustment. Keep what you want. Sell the rest.</p>
+      </article>
+      <article class="bg-navy text-white rounded-lg p-6 shadow-sm md:col-span-1">
+        <h2 class="font-display text-2xl mb-3">Water</h2>
+        <p class="text-cream/90 leading-relaxed">Water is reported to include hundreds of shares, with both surface-water and well interests. Establish the exact share inventory, well rights, authorized uses and interests included in the sale.</p>
+      </article>
+      <article class="bg-white rounded-lg p-6 border border-navy/5 shadow-sm md:col-span-1">
+        <h2 class="font-display text-2xl text-navy mb-3">Buffer zone</h2>
+        <p class="text-navy/80 leading-relaxed">Part of the property is in the Spring City buffer zone. Permitted uses, density, access, and subdivision requirements are the development file.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="aerial" class="px-4 sm:px-6 lg:px-8 pb-10 md:pb-14 scroll-mt-32" aria-labelledby="aerial-heading">
     <div class="max-w-6xl mx-auto">
-      <h2 id="aerial-heading" class="font-display text-2xl md:text-3xl text-navy mb-2">Aerial overview</h2>
-      <p class="text-navy/75 text-sm sm:text-base leading-relaxed mb-4 max-w-3xl">
-        Aerial view of 11550 Pigeon Hollow Rd, Spring City. Location context, not a boundary survey.
-      </p>
+      <h2 id="aerial-heading" class="font-display text-3xl text-navy mb-2">Aerial overview</h2>
+      <p class="text-navy/70 mb-4 max-w-3xl">Aerial view of 11550 Pigeon Hollow Rd, Spring City. Location context, not a boundary survey.</p>
       <div class="rounded-lg overflow-hidden border border-navy/10 bg-white h-80 sm:h-96 lg:h-[420px]">
         <iframe
           src={aerialEmbed}
           title="Aerial view of 11550 Pigeon Hollow Rd, Spring City, Utah. Location context only, not sale boundaries."
           class="w-full h-full"
           style="border:0;"
-          loading="eager"
+          loading="lazy"
           allowfullscreen
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <p class="mt-3 text-sm sm:text-base">
-        <a href={aerialLink} class="text-navy font-semibold underline decoration-gold decoration-2 underline-offset-4 hover:text-gold break-words" target="_blank" rel="noopener noreferrer">Open 11550 Pigeon Hollow Rd in Google Maps</a>
+      <p class="mt-3">
+        <a href={aerialLink} class="text-navy font-semibold underline decoration-gold decoration-2 underline-offset-4 hover:text-gold" target="_blank" rel="noopener noreferrer">Open 11550 Pigeon Hollow Rd in Google Maps</a>
       </p>
-      <p class="mt-1 text-xs text-navy/60 leading-relaxed">
-        Aerial imagery: Google Maps. Provider credits are on the map.
-      </p>
+      <p class="mt-1 text-xs text-navy/55">Aerial imagery: Google Maps. Provider credits are on the map.</p>
     </div>
   </section>
 
-  <section class="px-4 sm:px-6 lg:px-8 py-10 md:py-14">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
-      <div class="lg:col-span-2 space-y-10 order-2 lg:order-1">
-        <div>
-          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Whole-property acquisition</h2>
-          <p class="text-navy/80 leading-relaxed">
-            The broader holding is 169.06 acres under common ownership. Acquire it, keep the land and water that matter, and sell non-core acreage and buildings to recover capital.
-          </p>
-          <p class="mt-3 text-navy/80 leading-relaxed">
-            The seller is reported to be open to a sale of all or part of the property. A whole-property purchase offers the simplest transaction structure and a basis to negotiate a discount in exchange for a cleaner sale.
-          </p>
-          <p class="mt-3 text-navy/80 leading-relaxed">
-            The MLS asking price is $3,975,000 for the advertised ~100 acres, subject to a boundary adjustment. Whole-package pricing is still to negotiate.
-          </p>
-        </div>
+  <section class="px-4 sm:px-6 lg:px-8 pb-10 md:pb-14">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-display text-3xl text-navy mb-2">Improvements</h2>
+      <p class="text-navy/70 mb-6 max-w-3xl">Buildings support the hold. They are also the inventory you can sell. Listing-reported lodging and event receipts are $170,000–$186,000 a year. That is not net income.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {improvements.map(([title, copy]) => (
+          <div class="bg-white rounded-lg p-4 border border-navy/5">
+            <h3 class="font-heading text-xs uppercase tracking-[0.14em] text-gold font-semibold">{title}</h3>
+            <p class="mt-2 text-navy/80 leading-relaxed">{copy}</p>
+          </div>
+        ))}
+      </div>
+      <details class="mt-4 bg-white rounded-lg border border-navy/5 px-4 py-3">
+        <summary class="cursor-pointer font-semibold text-navy">Courtesy counts and listing notes</summary>
+        <p class="mt-3 text-sm text-navy/75 leading-relaxed">The listing’s courtesy combined counts are 23 bedrooms, 17 baths, and 16,412 sq ft. Public sites do not agree on the bath total. The remarks also refer to 50+ beds on site, separate from that courtesy count. Short-term rental use and a long-standing conditional use are listing statements. Confirm the approvals you intend to rely on.</p>
+      </details>
+    </div>
+  </section>
 
+  <section id="photos" class="bg-white px-4 sm:px-6 lg:px-8 py-10 md:py-14 scroll-mt-32">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6">
         <div>
-          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Land, water, and what you keep</h2>
-          <p class="text-navy/80 leading-relaxed">
-            Keep the acreage and the water that serves it. Non-core acreage and the buildings are the pieces to sell.
-          </p>
-          <p class="mt-3 text-navy/80 leading-relaxed">
-            Water is reported to include hundreds of shares, with both surface-water and well interests. Establish the exact share inventory, well rights, authorized uses and interests included in the sale.
-          </p>
-        </div>
-
-        <div>
-          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Development position</h2>
-          <p class="text-navy/80 leading-relaxed">
-            Part of the property is in the Spring City buffer zone.
-          </p>
-        </div>
-
-        <div>
-          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Next steps</h2>
-          <ol class="space-y-3 list-decimal pl-5 text-navy/80 leading-relaxed">
-            {steps.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ol>
-        </div>
-
-        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {facts.map(([label, value]) => (
-            <div class="bg-white rounded-lg p-4 shadow-sm border border-navy/5">
-              <dt class="font-heading text-xs uppercase tracking-[0.15em] text-gold font-semibold">{label}</dt>
-              <dd class="mt-1 text-navy leading-relaxed">{value}</dd>
-            </div>
-          ))}
-        </dl>
-
-        <div>
-          <h2 class="font-display text-2xl text-navy mb-3 pb-2 border-b-2 border-gold/60">Public sources</h2>
-          <ul class="space-y-2">
-            {sources.map((source) => (
-              <li>
-                <a href={source.href} class="text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold break-words" target="_blank" rel="noopener noreferrer">{source.label}</a>
-              </li>
-            ))}
-          </ul>
+          <h2 class="font-display text-3xl text-navy">Listing photos</h2>
+          <p class="text-navy/60 text-sm mt-1">{total} photos from the public MLS #2184902 set. Tap any photo to open it, then swipe or use the arrows.</p>
         </div>
       </div>
-
-      <aside class="lg:col-span-1 order-1 lg:order-2">
-        <div class="lg:sticky lg:top-24 bg-navy text-white rounded-lg p-6 shadow-md">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="/images/site/mike-headshot.jpg" alt="Mike Price, REALTOR®" width="80" height="80" class="w-20 h-20 rounded-full object-cover border-2 border-gold" loading="lazy" decoding="async" />
-            <div>
-              <p class="font-display text-xl">Mike Price</p>
-              <p class="text-cream/80 text-sm">REALTOR&reg;</p>
-              <p class="text-cream/80 text-sm">Heritage Realty Group, LLC</p>
-            </div>
-          </div>
-          <p class="text-cream/90 mb-4">Questions about this listing? Contact Mike.</p>
-          <address class="not-italic text-cream/80 text-sm leading-relaxed mb-5">
-            P.O. Box 431<br />
-            Spring City, UT 84662
-          </address>
-          <div class="space-y-3">
-            <a href="tel:4356600401" class="block text-center bg-gold text-navy font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-white transition-colors">Call or Text 435-660-0401</a>
-            <a href="mailto:mikesellsut@gmail.com?subject=Spring%20City%20-%20Wind%20Walker%20Ranch%20Properties%20(MLS%20%232184902)" class="block text-center border border-gold text-gold font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-gold hover:text-navy transition-colors break-words">Email mikesellsut@gmail.com</a>
-          </div>
-          <div class="mt-6 pt-5 border-t border-white/15 flex justify-center">
-            <div class="bg-white rounded px-3 py-2">
-              <Image src={heritageLogo} alt="Heritage Realty Group, LLC" width={200} class="h-12 w-auto" loading="lazy" />
-            </div>
-          </div>
-        </div>
-      </aside>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+        {photos.map(([file, w, h], i) => (
+          <a href={`${base}/photos/${file}`} data-full={`${base}/photos/${file}`} data-alt={`Wind Walker Homestead listing photo ${i + 1} of ${total}`} data-lightbox="windwalker" class="block overflow-hidden rounded bg-cream aspect-[4/3]">
+            <img src={`${base}/photos/${file}`} width={w} height={h} alt={`Listing photo ${i + 1} of ${total}`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="px-4 sm:px-6 lg:px-8 py-8">
+  <section id="next" class="px-4 sm:px-6 lg:px-8 py-10 md:py-14 scroll-mt-32">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2">
+        <h2 class="font-display text-3xl text-navy mb-4">Next steps</h2>
+        <ol class="space-y-4">
+          {steps.map((item, i) => (
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-gold font-heading flex items-center justify-center">{i + 1}</span>
+              <p class="text-navy/85 leading-relaxed pt-1">{item}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div>
+        <h2 class="font-display text-2xl text-navy mb-3">Sources</h2>
+        <ul class="space-y-2">
+          {sources.map((source) => (
+            <li>
+              <a href={source.href} class="text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold break-words" target="_blank" rel="noopener noreferrer">{source.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-10">
     <div class="max-w-6xl mx-auto text-xs text-navy/60 leading-relaxed space-y-2">
-      <p>Listing courtesy of Berkshire Hathaway HomeServices Utah Properties (St George) / Lance May. MLS #2184902. The listing notes lodging, event space, and ranch buildings, listing-reported lodging and event income of $170,000–$186,000 a year, and 3.00 water shares plus two wells.</p>
+      <p>Listing photos and listing data: UtahRealEstate.com, MLS #2184902. Copyright © UtahRealEstate.com. All rights reserved. Watermarks on the photos are the source marks. Listing courtesy of Berkshire Hathaway HomeServices Utah Properties (St George) / Lance May.</p>
+      <p>The MLS listing notes 3.00 water shares and two wells, separate from the reported larger share position. Courtesy bed, bath, and square-footage counts are the listing’s combined figures.</p>
       <p>Acreage, water rights, permitted development, and transaction terms are subject to document verification.</p>
       <p>Mike Price, REALTOR&reg; | Heritage Realty Group, LLC | P.O. Box 431, Spring City, UT 84662 | Agent License 5957476-LA00 | Brokerage License 6232680-CN00</p>
     </div>
   </section>
+  <PhotoLightbox />
 </BaseLayout>
