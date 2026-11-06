@@ -1,0 +1,224 @@
+---
+// UNLISTED, LINK-ONLY PAGE. Not linked from the public site, excluded from the
+// sitemap (astro.config.mjs filter), noindex/nofollow meta + X-Robots-Tag
+// header (netlify.toml "/p/*"). Do not add to nav, llms.txt, or any links.
+// Anyone with the link can read this public listing brief. No login.
+import { Image } from "astro:assets";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import heritageLogo from "../../../assets/heritage-logo.png";
+
+const pageTitle = "Spring City - Wind Walker Ranch Properties";
+
+const sources = [
+  {
+    label: "UtahRealEstate.com MLS #2184902",
+    href: "https://www.utahrealestate.com/2184902/direction/11550++PIGEON+HOLLOW+RD/location/Spring+City+UT+84662",
+  },
+  {
+    label: "Compass listing",
+    href: "https://www.compass.com/homedetails/11550-Pigeon-Hollow-Rd-Spring-City-UT-84662/2851O9_pid/",
+  },
+  {
+    label: "SLC Homes listing",
+    href: "https://search.slchomes.com/details-res?listingid=2184902",
+  },
+];
+
+const snapshot: [string, string][] = [
+  ["List price", "$3,975,000"],
+  ["MLS", "#2184902"],
+  ["Status", "Active on public listing sources checked November 6, 2026"],
+  ["Address", "11550 Pigeon Hollow Rd, Spring City, UT 84662"],
+  ["County", "Sanpete County"],
+  ["Approx. acres", "100.00, with final acreage to be created by a boundary-line adjustment before closing (listing)"],
+  ["Parcel / tax ID", "27340"],
+  ["Est. taxes", "$10,385 / year"],
+  ["Year built", "1990, effective year 2000 (listing)"],
+  ["Courtesy counts", "23 bedrooms, 17 baths, and 16,412 sq ft. Listing marks bed, bath, room, and square-footage counts as a courtesy only. Buyer to verify."],
+  ["Subdivision", "Walker Guest Ranch"],
+  ["Zoning", "Agricultural; short-term rental allowed (listing — verify)"],
+  ["Water", "Shares and well. See the water note below."],
+  ["Utilities", "Electricity connected, natural gas connected, septic, and water connected (listing)"],
+  ["Garage", "4-car, detached (listing)"],
+  ["Pool", "Yes — fenced, in-ground (listing)"],
+  ["Listing office", "Berkshire Hathaway HomeServices Utah Properties (St George) · Lance May"],
+];
+
+const described = [
+  "Five primary structures plus specialty and support buildings: a main house, manager’s quarters, ranchette and studio units, specialty cottages, RV sites, and tent camping. The remarks also refer to 50+ beds on site, separate from the courtesy 23-bedroom count.",
+  "Gathering space includes a dining and event hall, commercial kitchen, pavilion, fire pit, lawn, and indoor and outdoor areas.",
+  "The remarks say the property has hosted corporate retreats, weddings, family reunions, and group events, and that portions are approved for nightly short-term rentals. Every approval has to be verified.",
+  "Recreation named in the listing: a swimming pool with a silo bathhouse, a pickleball and basketball court, and open acreage, with hiking, mountain biking, OHV riding, fishing, and climbing nearby.",
+  "Other features named: gardens, a greenhouse, animal areas, a geodesic dome, artist spaces, workshops, and garages.",
+  "Infrastructure named: two wells, irrigation shares, multiple septic systems, electrical distribution, propane capacity, irrigation improvements, and more than a mile of internal roads.",
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  exactTitle={true}
+  description="Unlisted property brief for Spring City - Wind Walker Ranch Properties, 11550 Pigeon Hollow Rd, Spring City. MLS #2184902, listed at $3,975,000. Public listing facts for anyone with this link. Buyer to verify."
+  noindex={true}
+>
+  <section class="bg-navy px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="max-w-6xl mx-auto">
+      <p class="font-heading text-xs sm:text-sm uppercase tracking-[0.2em] text-gold mb-3">Unlisted property brief</p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl text-white leading-tight">{pageTitle}</h1>
+      <p class="mt-4 text-lg sm:text-xl text-cream/95">11550 Pigeon Hollow Rd, Spring City, UT 84662</p>
+      <p class="mt-2 text-base sm:text-lg text-cream/80">
+        Wind Walker Homestead · MLS #2184902 · Listed at $3,975,000
+      </p>
+      <p class="mt-4 max-w-3xl text-sm sm:text-base text-cream/75 leading-relaxed">
+        Anyone with this link can read this brief. It restates the public MLS listing and public syndication, checked November 6, 2026. Sanpete County · about 100 acres (see the acreage note) · agricultural zoning, per the listing. Buyer to verify everything.
+      </p>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <section class="px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-6">
+        <p class="font-heading text-xs uppercase tracking-[0.2em] text-navy/60">List price</p>
+        <p class="font-display text-4xl sm:text-5xl text-navy">$3,975,000</p>
+        <p class="text-navy/60 text-sm mt-1">MLS #2184902 · Active on public sources checked November 6, 2026</p>
+      </div>
+      <h2 class="font-display text-2xl md:text-3xl text-navy mb-4">Snapshot</h2>
+      <p class="text-navy/70 text-sm mb-4 max-w-3xl">Figures below are what the public listing states. They are a starting point for review, and the buyer verifies each one.</p>
+      <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {snapshot.map(([label, value]) => (
+          <div class="bg-white rounded-lg p-4 shadow-sm border border-navy/5">
+            <dt class="font-heading text-xs uppercase tracking-[0.15em] text-gold font-semibold">{label}</dt>
+            <dd class="mt-1 text-navy text-sm sm:text-base leading-relaxed">{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10 order-2 lg:order-1">
+        <div>
+          <h2 class="font-display text-2xl md:text-3xl text-navy mb-4">Property description</h2>
+          <p class="text-navy/80 leading-relaxed text-base sm:text-lg">
+            The public listing markets this address as Wind Walker Homestead: a Spring City property of about 100 acres combining lodging, gathering space, recreation, and ranch infrastructure. The notes in this section are claims from the public listing remarks. They are not independently verified on this page.
+          </p>
+          <ul class="mt-5 space-y-3">
+            {described.map((item) => (
+              <li class="flex gap-3 text-navy/80 leading-relaxed">
+                <span class="mt-2 w-2 h-2 flex-shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-5 text-navy/80 leading-relaxed">
+            Uses named in the listing — a legacy or family retreat, hospitality, agritourism, a corporate retreat, a camp, wellness, events, and similar ideas — are marketing concepts. Each one depends on approvals.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3 pb-2 border-b-2 border-gold/60">Due diligence</h2>
+          <p class="text-navy/70 leading-relaxed mb-6">
+            Treat income, the conditional use permit, water, zoning, courtesy counts, and acreage as listing statements. Confirm them with the survey, title, the county, the water company, and the buyer’s own advisors.
+          </p>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-display text-xl text-navy mb-2">Listing-reported income</h3>
+              <p class="text-navy/80 leading-relaxed">
+                The listing states current income from lodging and events of $170,000–$186,000 annually. That is listing-reported income. It is not verified net income, and it is not independently verified on this page.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-display text-xl text-navy mb-2">Zoning and conditional use</h3>
+              <p class="text-navy/80 leading-relaxed">
+                The listing states an agricultural zone and a conditional use permit in place for over 20 years for the current operations, including nightly rental of individual units and group retreat use. Zoning on the listing is agricultural, with short-term rental allowed. The buyer has to independently verify zoning, licensing, permitted uses, and approvals for any intended use.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-display text-xl text-navy mb-2">Water</h3>
+              <p class="text-navy/80 leading-relaxed">
+                The listing states 3.00 water shares and two wells that have historically supported the property. Public syndication shows the water source as shares and well, an irrigation water-rights figure of 3.0 acres, and remarks that two wells and irrigation shares have historically supported the property. Share count, transfer, well yield, conversion, and adequacy for any future use are for the buyer to verify. This brief makes no promise on those points.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-display text-xl text-navy mb-2">Acreage</h3>
+              <p class="text-navy/80 leading-relaxed">
+                The MLS position is about 100 acres, with final acreage created by a boundary-line adjustment between currently owned parcels before closing. The property’s own site, <a href="https://windwalkerhomestead.com/" class="underline decoration-gold decoration-2 underline-offset-4 hover:text-gold" target="_blank" rel="noopener noreferrer">windwalkerhomestead.com</a>, describes a larger operating ranch (about 170 acres). That venue figure is separate from the acreage offered under MLS #2184902. Use 100 acres plus the boundary-line adjustment as the listing position unless title and survey say otherwise.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-display text-xl text-navy mb-2">Courtesy counts</h3>
+              <p class="text-navy/80 leading-relaxed">
+                23 bedrooms, 17 baths, and 16,412 square feet are courtesy combined counts. The listing says bed, bath, room, and square-footage counts are a courtesy only and the buyer is to verify them. Public syndication does not agree on the bath total: some pages show 17 baths, and the listing office page shows 17 full baths plus partial baths in a higher combined total. Measure and confirm before relying on any of these numbers.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-navy mb-3 pb-2 border-b-2 border-gold/60">About this brief</h2>
+          <ul class="space-y-2">
+            <li class="flex gap-3 text-navy/80 leading-relaxed">
+              <span class="mt-2 w-2 h-2 flex-shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
+              <span>This is an unlisted property brief for reviewing public MLS #2184902. Mike Price, REALTOR&reg;, Heritage Realty Group, is the local contact.</span>
+            </li>
+            <li class="flex gap-3 text-navy/80 leading-relaxed">
+              <span class="mt-2 w-2 h-2 flex-shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
+              <span>Anyone with this link can read it. It is a summary of public listing facts.</span>
+            </li>
+            <li class="flex gap-3 text-navy/80 leading-relaxed">
+              <span class="mt-2 w-2 h-2 flex-shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
+              <span>It is not an appraisal, an income guarantee, a zoning opinion, or a water-rights opinion.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-navy mb-3 pb-2 border-b-2 border-gold/60">Public sources</h2>
+          <ul class="space-y-2">
+            {sources.map((source) => (
+              <li>
+                <a href={source.href} class="text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold break-words" target="_blank" rel="noopener noreferrer">{source.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <aside class="lg:col-span-1 order-1 lg:order-2">
+        <div class="lg:sticky lg:top-24 bg-navy text-white rounded-lg p-6 shadow-md">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="/images/site/mike-headshot.jpg" alt="Mike Price, REALTOR®" width="80" height="80" class="w-20 h-20 rounded-full object-cover border-2 border-gold" loading="lazy" decoding="async" />
+            <div>
+              <p class="font-display text-xl">Mike Price</p>
+              <p class="text-cream/80 text-sm">REALTOR&reg;</p>
+              <p class="text-cream/80 text-sm">Heritage Realty Group, LLC</p>
+            </div>
+          </div>
+          <p class="text-cream/90 mb-4">Questions about this listing? Contact Mike.</p>
+          <address class="not-italic text-cream/80 text-sm leading-relaxed mb-5">
+            P.O. Box 431<br />
+            Spring City, UT 84662
+          </address>
+          <div class="space-y-3">
+            <a href="tel:4356600401" class="block text-center bg-gold text-navy font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-white transition-colors">Call or Text 435-660-0401</a>
+            <a href="mailto:mikesellsut@gmail.com?subject=Spring%20City%20-%20Wind%20Walker%20Ranch%20Properties%20(MLS%20%232184902)" class="block text-center border border-gold text-gold font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-gold hover:text-navy transition-colors break-words">Email mikesellsut@gmail.com</a>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/15 flex justify-center">
+            <div class="bg-white rounded px-3 py-2">
+              <Image src={heritageLogo} alt="Heritage Realty Group, LLC" width={200} class="h-12 w-auto" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-6xl mx-auto text-xs text-navy/60 leading-relaxed space-y-2">
+      <p>Listing courtesy of Berkshire Hathaway HomeServices Utah Properties (St George) / Lance May. Source: public MLS #2184902.</p>
+      <p>Information is not guaranteed. Buyer to verify all information, including price, acreage, boundary-line adjustment, courtesy bed, bath, and square-footage counts, listing-reported income, conditional use, water, taxes, and zoning.</p>
+      <p>Mike Price, REALTOR&reg; | Heritage Realty Group, LLC | P.O. Box 431, Spring City, UT 84662 | Agent License 5957476-LA00 | Brokerage License 6232680-CN00</p>
+    </div>
+  </section>
+</BaseLayout>
