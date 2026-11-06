@@ -8,6 +8,9 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import heritageLogo from "../../../assets/heritage-logo.png";
 
 const pageTitle = "Spring City - Wind Walker Ranch Properties";
+const mapQuery = "11550 Pigeon Hollow Rd, Spring City, UT 84662";
+const aerialEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&hl=en&t=k&z=15&output=embed`;
+const aerialLink = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=k&z=15`;
 
 const sources = [
   {
@@ -25,23 +28,23 @@ const sources = [
 ];
 
 const facts: [string, string][] = [
-  ["MLS list price", "$3,975,000 for the advertised ~100-acre offering only"],
+  ["MLS asking price", "$3,975,000 for the advertised ~100 acres"],
+  ["Broader holding", "169.06 acres. Terms to negotiate."],
   ["MLS", "#2184902"],
   ["Address", "11550 Pigeon Hollow Rd, Spring City, UT 84662"],
-  ["Holding reported by Mike", "169.06 acres under common ownership. Not the priced MLS offer."],
 ];
 
-const checks = [
-  "Sale scope and terms. Whether the full holding will be sold, which boundaries are included, and the price for that holding. The $3,975,000 figure is the MLS price for the advertised acreage only.",
-  "Water inventory. Rights, shares, wells, what is included, transfer, and how water would be allocated if portions are sold later.",
-  "Buffer-zone development parameters. The Spring City buffer map, jurisdiction, zoning, permitted density, subdivision requirements, access, and water and septic approvals.",
+const steps = [
+  "Set whole-holding sale scope and terms: boundaries, included acreage, and price. $3,975,000 is the MLS asking price for the advertised ~100 acres.",
+  "Obtain the water-right and share records and mark the interests that convey.",
+  "Review buffer-zone development parameters, access, and subdivision requirements.",
 ];
 ---
 
 <BaseLayout
   title={pageTitle}
   exactTitle={true}
-  description="Unlisted property brief for Spring City - Wind Walker Ranch Properties. MLS #2184902 lists about 100 acres at $3,975,000. Acquisition concept is the larger common-owner holding reported by Mike. Confirm scope, price, and water."
+  description="Unlisted acquisition brief for Spring City - Wind Walker Ranch Properties. Broader holding of 169.06 acres. MLS #2184902 asks $3,975,000 for the advertised ~100 acres. Full acquisition terms to negotiate."
   noindex={true}
 >
   <section class="bg-navy px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -53,11 +56,37 @@ const checks = [
         Wind Walker Homestead · MLS #2184902 · Listed at $3,975,000
       </p>
       <p class="mt-5 max-w-3xl text-base sm:text-lg text-cream leading-relaxed">
-        Whole-property acquisition. Buy the common-owner holding, keep the land and water you want, and sell off what you do not.
+        Acquire the 169.06-acre holding. Keep the land and water. Sell the acreage and buildings you do not want.
       </p>
     </div>
   </section>
   <div class="h-1 bg-gold"></div>
+
+  <section class="px-4 sm:px-6 lg:px-8 pt-8 md:pt-10" aria-labelledby="aerial-heading">
+    <div class="max-w-6xl mx-auto">
+      <h2 id="aerial-heading" class="font-display text-2xl md:text-3xl text-navy mb-2">Aerial overview</h2>
+      <p class="text-navy/75 text-sm sm:text-base leading-relaxed mb-4 max-w-3xl">
+        Aerial view of 11550 Pigeon Hollow Rd, Spring City. Location context, not a boundary survey.
+      </p>
+      <div class="rounded-lg overflow-hidden border border-navy/10 bg-white h-80 sm:h-96 lg:h-[420px]">
+        <iframe
+          src={aerialEmbed}
+          title="Aerial view of 11550 Pigeon Hollow Rd, Spring City, Utah. Location context only, not sale boundaries."
+          class="w-full h-full"
+          style="border:0;"
+          loading="eager"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <p class="mt-3 text-sm sm:text-base">
+        <a href={aerialLink} class="text-navy font-semibold underline decoration-gold decoration-2 underline-offset-4 hover:text-gold break-words" target="_blank" rel="noopener noreferrer">Open 11550 Pigeon Hollow Rd in Google Maps</a>
+      </p>
+      <p class="mt-1 text-xs text-navy/60 leading-relaxed">
+        Aerial imagery: Google Maps. Provider credits are on the map.
+      </p>
+    </div>
+  </section>
 
   <section class="px-4 sm:px-6 lg:px-8 py-10 md:py-14">
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -65,46 +94,34 @@ const checks = [
         <div>
           <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Whole-property acquisition</h2>
           <p class="text-navy/80 leading-relaxed">
-            The concept is to acquire the entire common-owner holding, retain the desired land and water, and sell non-core portions and improvements to recover capital.
+            The broader holding is 169.06 acres under common ownership. Acquire it, keep the land and water that matter, and sell non-core acreage and buildings to recover capital.
           </p>
           <p class="mt-3 text-navy/80 leading-relaxed">
-            Mike’s review of Sanpete County records identified 169.06 acres under common ownership. The MLS currently advertises approximately 100 acres, subject to a boundary adjustment, at $3,975,000. That price applies to the advertised MLS offering only.
-          </p>
-          <p class="mt-3 text-navy/80 leading-relaxed">
-            Willingness to sell the full holding, the price for it, and the water included with it have to be confirmed. This is a proposed acquisition strategy. It is not the listing’s current sale terms, and it is not an approved subdivision.
+            The MLS asking price is $3,975,000 for the advertised ~100 acres, subject to a boundary adjustment. Full acquisition terms are still to negotiate.
           </p>
         </div>
 
         <div>
           <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Land, water, and what you keep</h2>
           <p class="text-navy/80 leading-relaxed">
-            The hold is control of the acreage you retain, with the water that serves it. Buildings and surplus land are candidates to sell after closing, not the reason to buy.
+            Keep the acreage and the water that serves it. Non-core acreage and the buildings are the pieces to sell.
           </p>
           <p class="mt-3 text-navy/80 leading-relaxed">
-            Mike reports additional water is available with the sale; exact rights, quantities, included interests and transfer terms remain to be documented.
-          </p>
-          <p class="mt-3 text-navy/80 leading-relaxed">
-            The listing also mentions 3.00 water shares and two wells. That note is not the water inventory. The amount of additional water is unknown. Nothing here promises supply, yield, or that every right conveys.
-          </p>
-          <p class="mt-3 text-navy/80 leading-relaxed">
-            Selling buildings or non-core acreage depends on legal boundaries, approvals, access, and water allocation. No resale yield, return, or timeline is stated.
+            Additional water is part of this acquisition. The listing notes 3.00 water shares and two wells. Rights, quantities, and transfer terms come from the water file.
           </p>
         </div>
 
         <div>
           <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Development position</h2>
           <p class="text-navy/80 leading-relaxed">
-            Mike reports that part of the property lies within the Spring City buffer zone and allows development. Confirm the applicable jurisdiction, zoning, permitted density, subdivision requirements, access and water/septic approvals before underwriting a development plan.
-          </p>
-          <p class="mt-3 text-navy/80 leading-relaxed">
-            That report is not an entitled subdivision and not a lot yield.
+            Part of the property is in the Spring City buffer zone.
           </p>
         </div>
 
         <div>
-          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Confirm these three</h2>
+          <h2 class="font-display text-2xl md:text-3xl text-navy mb-3">Next steps</h2>
           <ol class="space-y-3 list-decimal pl-5 text-navy/80 leading-relaxed">
-            {checks.map((item) => (
+            {steps.map((item) => (
               <li>{item}</li>
             ))}
           </ol>
@@ -120,16 +137,6 @@ const checks = [
         </dl>
 
         <div>
-          <h2 class="font-display text-2xl text-navy mb-3 pb-2 border-b-2 border-gold/60">Buildings, as context</h2>
-          <p class="text-navy/80 leading-relaxed">
-            The listing describes lodging, event space, and ranch buildings, including a main house, plus retreat and short-term rental use. Useful if a later sale of improvements is part of the plan. Not the acquisition thesis.
-          </p>
-          <p class="mt-3 text-navy/80 leading-relaxed">
-            The listing states lodging and event income of $170,000–$186,000 a year. That is listing-reported income, not verified net income.
-          </p>
-        </div>
-
-        <div>
           <h2 class="font-display text-2xl text-navy mb-3 pb-2 border-b-2 border-gold/60">Public sources</h2>
           <ul class="space-y-2">
             {sources.map((source) => (
@@ -138,9 +145,6 @@ const checks = [
               </li>
             ))}
           </ul>
-          <p class="mt-4 text-sm text-navy/70 leading-relaxed">
-            Unlisted brief for anyone with this link. Mike Price, REALTOR&reg;, Heritage Realty Group, is the local contact. Mike’s acreage, water, and buffer notes are his reports, not a survey, a water decree, or an approval. This is not an appraisal or a zoning opinion.
-          </p>
         </div>
       </div>
 
@@ -175,8 +179,8 @@ const checks = [
 
   <section class="px-4 sm:px-6 lg:px-8 py-8">
     <div class="max-w-6xl mx-auto text-xs text-navy/60 leading-relaxed space-y-2">
-      <p>Listing courtesy of Berkshire Hathaway HomeServices Utah Properties (St George) / Lance May. Source: public MLS #2184902.</p>
-      <p>Information is not guaranteed. The $3,975,000 price is the MLS price for the advertised acreage. Full-holding availability, price, boundaries, and included water are unconfirmed. Disposition of buildings or surplus acreage depends on boundaries, approvals, access, and water allocation.</p>
+      <p>Listing courtesy of Berkshire Hathaway HomeServices Utah Properties (St George) / Lance May. MLS #2184902. The listing notes lodging, event space, and ranch buildings, and listing-reported lodging and event income of $170,000–$186,000 a year.</p>
+      <p>Acreage, water rights, permitted development, and transaction terms are subject to document verification.</p>
       <p>Mike Price, REALTOR&reg; | Heritage Realty Group, LLC | P.O. Box 431, Spring City, UT 84662 | Agent License 5957476-LA00 | Brokerage License 6232680-CN00</p>
     </div>
   </section>
