@@ -1,0 +1,454 @@
+---
+// UNLISTED, LINK-ONLY PAGE. Not linked from the public site, excluded from the
+// sitemap (astro.config.mjs filter), noindex/nofollow meta + X-Robots-Tag
+// header (netlify.toml "/p/*"). Do not add to nav, llms.txt, or any links.
+// Anyone with the link can read this public listing brief. No login.
+// Photos: the 37-file public UtahRealEstate.com gallery for MLS #2184160,
+// saved 2026-11-11 from the assets.utahrealestate.com set, in gallery order.
+import { Image } from "astro:assets";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PhotoLightbox from "../../../components/PhotoLightbox.astro";
+import heritageLogo from "../../../assets/heritage-logo.png";
+
+const pageTitle = "Clements Lane, Fairview";
+const base = "/p/25dacfb15312ad0ca2fb8401";
+const mapQuery = "25800 N Clements Ln, Fairview, UT 84629";
+const aerialEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&hl=en&t=k&z=17&output=embed`;
+const aerialLink = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=k&z=17`;
+
+const photos: [string, number, number][] = [
+  ["01.jpg", 1024, 576],
+  ["02.jpg", 1024, 576],
+  ["03.jpg", 1024, 576],
+  ["04.jpg", 355, 768],
+  ["05.jpg", 355, 768],
+  ["06.jpg", 1024, 473],
+  ["07.jpg", 1024, 473],
+  ["08.jpg", 355, 768],
+  ["09.jpg", 355, 768],
+  ["10.jpg", 355, 768],
+  ["11.jpg", 355, 768],
+  ["12.jpg", 355, 768],
+  ["13.jpg", 1024, 473],
+  ["14.jpg", 355, 768],
+  ["15.jpg", 1024, 473],
+  ["16.jpg", 1024, 473],
+  ["17.jpg", 355, 768],
+  ["18.jpg", 355, 768],
+  ["19.jpg", 1024, 473],
+  ["20.jpg", 355, 768],
+  ["21.jpg", 355, 768],
+  ["22.jpg", 355, 768],
+  ["23.jpg", 1024, 473],
+  ["24.jpg", 1024, 424],
+  ["25.jpg", 1024, 768],
+  ["26.jpg", 1024, 768],
+  ["27.jpg", 1024, 768],
+  ["28.jpg", 1024, 768],
+  ["29.jpg", 1024, 768],
+  ["30.jpg", 1024, 768],
+  ["31.jpg", 1024, 768],
+  ["32.jpg", 1024, 562],
+  ["33.jpg", 1024, 576],
+  ["34.jpg", 1024, 576],
+  ["35.jpg", 1024, 576],
+  ["36.jpg", 1024, 576],
+  ["37.jpg", 1024, 473],
+];
+const hero = photos[0];
+const total = photos.length;
+
+const jumps = [
+  ["The property", "#property"],
+  ["Land and water", "#land"],
+  ["Aerial", "#aerial"],
+  ["House", "#house"],
+  ["Photos", "#photos"],
+  ["Next steps", "#next"],
+];
+
+const facts: [string, string][] = [
+  ["Asking price", "$849,000. Reduced from $899,000 on September 28, 2026."],
+  ["Acreage", "3.02 acres. Parcel 00021021X4."],
+  ["Water", "Well, spring, and 3 Gooseberry shares, as the listing states them."],
+  ["Access", "End of Clements Lane. The listing marks the road unpaved."],
+];
+
+const pillars: [string, string, string][] = [
+  [
+    "Land",
+    "bg-white text-navy border border-navy/5",
+    "3.02 acres on a gradual slope. Partial fence, partial landscaping, mature trees, and wooded ground. Mountain and valley views. Horse property. The remarks include animal rights. Listing zoning is single-family and agricultural. No HOA. The county tax roll class is residential, and the county acreage matches at 3.02.",
+  ],
+  [
+    "Water",
+    "bg-navy text-white",
+    "The remarks state a new well, a tankless water heater, and 3 shares of Gooseberry irrigation. The feature list also marks irrigation, shares, spring, and well, with water connected. An owned water softener is included.",
+  ],
+  [
+    "Utilities and access",
+    "bg-white text-navy border border-navy/5",
+    "Power and gas are listed as connected. Sewer is a septic tank. Heat is electric, forced air, heat pump, propane, and wood. Cooling is central air. The public road centerline for Clements Lane ends at this parcel. The road is unpaved.",
+  ],
+];
+
+const improvements: [string, string][] = [
+  ["Main floor", "1,473 sq ft. Two bedrooms, one full bath, great room with a wood-burning fireplace, updated kitchen, den, bar, and laundry."],
+  ["Upper floor", "1,544 sq ft. One bedroom suite, one full bath with a separate shower and tub, a den, and a loft over the main room."],
+  ["Basement", "1,473 sq ft, unfinished, with an entrance and a fireplace. The remarks describe plumbing for a kitchen and room for laundry, a family room, a bedroom, and a bath."],
+  ["Garage", "Capacity 3. Built-in and detached, extra height and width, heated, with a workbench and an RV electrical hookup. The remarks add a one-car garage, an RV dump, and 220 power."],
+  ["Deck and grounds", "One wraparound deck, an open porch, skylights, double-pane windows, and a partial automatic sprinkler. The lot is partly fenced."],
+  ["Also listed", "Roof, flooring, and appliances are described as new. Sauna, hot tub, security alarm, and video cameras. Some furniture is listed as included."],
+];
+
+const specGroups: { title: string; rows: [string, string][] }[] = [
+  {
+    title: "Price and status",
+    rows: [
+      ["List price", "$849,000"],
+      ["Price history", "Listed September 9, 2026 at $899,000. Reduced September 28, 2026 to $849,000."],
+      ["Status", "Active"],
+      ["Days on UtahRealEstate.com", "63, as of November 11, 2026"],
+      ["MLS #", "2184160"],
+      ["Terms", "Cash or conventional"],
+      ["HOA", "None"],
+      ["Taxes", "$3,874 per year, per the listing"],
+      ["Type", "Single family"],
+      ["Style", "2-story, with a main floor, an upper floor, and a full basement"],
+    ],
+  },
+  {
+    title: "Land, zoning, and access",
+    rows: [
+      ["Address", "25800 N Clements Ln, Fairview, UT 84629"],
+      ["County", "Sanpete"],
+      ["MLS area", "Fairview; Thistle; Mt Pleasant"],
+      ["Neighborhood", "MORROW"],
+      ["Lot size", "3.02 acres (131,551 sq ft)"],
+      ["Parcel", "00021021X4"],
+      ["Zoning, listing field", "Single-family, agricultural"],
+      ["Lot", "Partial fence, unpaved road, partial auto sprinkler, gradual slope, mountain view, valley view, wooded"],
+      ["Landscape", "Partial landscaping, mature trees"],
+      ["Use", "Horse property. Animal rights are stated in the remarks."],
+      ["Road", "Clements Lane, unpaved. The mapped centerline ends at this parcel."],
+    ],
+  },
+  {
+    title: "Size and rooms",
+    rows: [
+      ["Year built", "1986"],
+      ["Bedrooms", "3. Two on the main floor, one on the upper floor."],
+      ["Bathrooms", "2 full. One on the main floor, one on the upper floor."],
+      ["Main floor", "1,473 sq ft. Family room, den, kitchen, bar, laundry."],
+      ["Upper floor", "1,544 sq ft. One den, in addition to the bedroom and bath."],
+      ["Basement", "1,473 sq ft. 0% finished. Entrance and full. A laundry room is counted. The remarks add a fireplace, storage, and plumbing for a kitchen."],
+      ["Listed total", "4,490 sq ft"],
+      ["Finished above grade", "3,017 sq ft"],
+      ["Listed area per square foot of the total", "$189"],
+    ],
+  },
+  {
+    title: "Interior",
+    rows: [
+      ["Kitchen", "Updated. Granite counters. Gas range and oven. Built-in dishwasher."],
+      ["Living", "Great room. Vaulted ceilings. Wood-burning heat."],
+      ["Floors", "Hardwood, tile, and vinyl (LVP)"],
+      ["Windows", "Double pane. Skylights. Window coverings: part."],
+      ["Other", "Walk-in closet. Separate tub and shower. Security alarm. Video cameras."],
+      ["Amenities", "Sauna / steam room. Gas dryer hookup."],
+      ["Cooling", "Central air, electric"],
+      ["Heating", "Electric, forced air, heat pump, propane, wood burning"],
+    ],
+  },
+  {
+    title: "Exterior, parking, and construction",
+    rows: [
+      ["Construction", "Brick and cedar"],
+      ["Roof", "Asphalt shingles. The remarks call the roof new."],
+      ["Exterior", "Basement entrance, entry foyer, open porch, sliding glass doors, horse property"],
+      ["Deck", "1 deck"],
+      ["Garage capacity", "3"],
+      ["Parking", "3 covered spaces. Built-in, detached, extra height, extra width, heated, workbench, RV electrical hookup."],
+      ["Remarks on the garage", "Oversized, extra width and height, heated and air conditioned, 220 power. An additional one-car garage. RV dump."],
+    ],
+  },
+  {
+    title: "Water and utilities",
+    rows: [
+      ["Remarks", "New well. Tankless water heater. 3 shares of Gooseberry irrigation."],
+      ["Water fields", "Irrigation, shares, spring, and well. Water connected."],
+      ["Power", "Connected"],
+      ["Gas", "Connected"],
+      ["Sewer", "Septic tank"],
+    ],
+  },
+  {
+    title: "Included in the sale",
+    rows: [
+      ["Included", "Alarm system, ceiling fan, hot tub, microwave, range, range hood, refrigerator, storage shed or sheds, owned water softener, video cameras"],
+      ["Remarks", "Some furniture is to be included."],
+    ],
+  },
+  {
+    title: "Schools, designated",
+    rows: [
+      ["Elementary", "Fairview"],
+      ["Middle", "North Sanpete"],
+      ["High", "North Sanpete"],
+      ["District", "North Sanpete"],
+    ],
+  },
+  {
+    title: "County parcel record",
+    rows: [
+      ["Source", "Utah parcel layer, Sanpete LIR, current as of October 23, 2025"],
+      ["Parcel / serial", "00021021X4 / R030128"],
+      ["Acres on the roll", "3.02"],
+      ["Class", "Residential"],
+      ["Tax district", "15"],
+      ["Primary-residence flag", "No"],
+      ["Building records", "2,196 sq ft, built 1986, and a second record of 144 sq ft. Structure count: 2."],
+    ],
+  },
+];
+
+const steps = [
+  "Get the well log, the spring documentation, and the Gooseberry share certificates. The remarks state three shares. Confirm those shares transfer.",
+  "Walk the unfinished basement, both garages, the septic, and the unpaved approach. Reconcile the 4,490 sq ft listing total with the 2,196 sq ft county building record.",
+  "Match parcel 00021021X4 to the project. The listing acreage is 3.02. Listing zoning is single-family and agricultural. Terms are cash or conventional.",
+];
+
+const sources = [
+  {
+    label: "UtahRealEstate.com MLS #2184160",
+    href: "https://www.utahrealestate.com/2184160",
+  },
+  {
+    label: "Sanpete County parcels, Utah Geospatial Resource Center",
+    href: "https://gis.utah.gov/products/sgid/cadastre/parcels/",
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  exactTitle={true}
+  description="Unlisted property brief for 25800 N Clements Ln, Fairview, Sanpete County. MLS #2184160 asks $849,000 for the 1986 house on 3.02 acres. Photos and aerial context included."
+  image={`${base}/photos/${hero[0]}`}
+  noindex={true}
+>
+  <section class="relative bg-navy">
+    <img
+      src={`${base}/photos/${hero[0]}`}
+      width={hero[1]}
+      height={hero[2]}
+      alt="25800 N Clements Ln, Fairview, Utah, from the public listing photos"
+      class="w-full h-[68vh] min-h-[320px] max-h-[760px] object-cover"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/45 to-navy/10"></div>
+    <div class="absolute inset-x-0 bottom-0 px-4 sm:px-6 lg:px-8 pb-8 md:pb-12">
+      <div class="max-w-6xl mx-auto">
+        <p class="font-heading text-xs sm:text-sm uppercase tracking-[0.2em] text-gold mb-2">Unlisted property brief</p>
+        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl text-white leading-tight max-w-4xl">{pageTitle}</h1>
+        <p class="mt-3 text-base sm:text-lg text-cream/95">25800 N Clements Ln, Fairview, UT 84629</p>
+        <p class="mt-1 text-sm sm:text-base text-cream/80">Sanpete County · MLS #2184160 · Listed at $849,000</p>
+        <p class="mt-4 max-w-2xl text-base sm:text-lg text-white leading-snug">1986 house on 3.02 acres at the end of Clements Lane. Well, spring, and three Gooseberry irrigation shares are what the listing states.</p>
+        <p class="mt-5 pointer-events-auto">
+          <a href="#photos" class="inline-block bg-gold text-navy font-semibold uppercase tracking-wide text-sm px-5 py-3 rounded hover:bg-white">View {total} photos</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <div class="h-1 bg-gold"></div>
+
+  <nav class="sticky top-16 md:top-20 z-40 bg-cream/95 backdrop-blur border-b border-navy/10" aria-label="On this page">
+    <ul class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-1 sm:gap-2 overflow-x-auto py-2">
+      {jumps.map(([label, href]) => (
+        <li class="shrink-0">
+          <a href={href} class="inline-block font-heading text-xs sm:text-sm uppercase tracking-wider text-navy px-3 py-2 rounded hover:bg-navy hover:text-white">{label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <section id="property" class="px-4 sm:px-6 lg:px-8 py-10 md:py-14 scroll-mt-32">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2">
+        <h2 class="font-display text-3xl text-navy mb-4">25800 N Clements Lane</h2>
+        <p class="text-navy/85 leading-relaxed text-lg">
+          The house sits at the end of Clements Lane, north of Fairview, in Sanpete County. MLS #2184160 asks $849,000. The price was $899,000 when it came on the market September 9, 2026, and dropped to $849,000 on September 28.
+        </p>
+        <p class="mt-4 text-navy/85 leading-relaxed text-lg">
+          Built in 1986. Brick and cedar. Three bedrooms and two full baths on the finished floors, and a full unfinished basement. The listing total is 4,490 sq ft. Finished area above grade is 3,017 sq ft. Garage capacity is three, with a separate one-car garage in the remarks.
+        </p>
+        <p class="mt-4 text-navy/85 leading-relaxed">
+          Read the water before the finishes. The remarks state a new well and three shares of Gooseberry irrigation. The feature list also marks a spring. Power, gas, and water are listed as connected. Sewer is a septic tank.
+        </p>
+      </div>
+      <aside class="bg-navy text-white rounded-lg p-6 shadow-md">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="/images/site/mike-headshot.jpg" alt="Mike Price, REALTOR®" width="72" height="72" class="w-16 h-16 rounded-full object-cover border-2 border-gold" decoding="async" />
+          <div>
+            <p class="font-display text-xl">Mike Price</p>
+            <p class="text-cream/80 text-sm">REALTOR&reg;</p>
+            <p class="text-cream/80 text-sm">Heritage Realty Group, LLC</p>
+          </div>
+        </div>
+        <p class="text-cream/90 mb-4">The local contact for this property.</p>
+        <address class="not-italic text-cream/80 text-sm leading-relaxed mb-5">
+          P.O. Box 431<br />Spring City, UT 84662
+        </address>
+        <div class="space-y-3">
+          <a href="tel:4356600401" class="block text-center bg-gold text-navy font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-white">Call or Text 435-660-0401</a>
+          <a href="mailto:mikesellsut@gmail.com?subject=Clements%20Lane%2C%20Fairview%20(MLS%20%232184160)" class="block text-center border border-gold text-gold font-semibold uppercase tracking-wide text-sm px-4 py-3 rounded hover:bg-gold hover:text-navy break-words">Email mikesellsut@gmail.com</a>
+        </div>
+        <div class="mt-6 pt-5 border-t border-white/15 flex justify-center">
+          <div class="bg-white rounded px-3 py-2">
+            <Image src={heritageLogo} alt="Heritage Realty Group, LLC" width={200} class="h-10 w-auto" />
+          </div>
+        </div>
+      </aside>
+    </div>
+    <dl class="max-w-6xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      {facts.map(([label, value]) => (
+        <div class="bg-white rounded-lg p-4 shadow-sm border border-navy/5">
+          <dt class="font-heading text-xs uppercase tracking-[0.14em] text-gold font-semibold">{label}</dt>
+          <dd class="mt-2 text-navy leading-snug">{value}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3">
+      {photos.slice(0, 3).map(([file, w, h], i) => (
+        <a href="#photos" class="block overflow-hidden rounded-lg bg-navy aspect-[4/3]">
+          <img src={`${base}/photos/${file}`} width={w} height={h} alt={`Clements Lane listing photo ${i + 1} of ${total}`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="land" class="px-4 sm:px-6 lg:px-8 py-10 md:py-14 scroll-mt-32">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+      {pillars.map(([title, tone, copy]) => (
+        <article class:list={["rounded-lg p-6 shadow-sm", tone]}>
+          <h2 class="font-display text-2xl mb-3">{title}</h2>
+          <p class:list={["leading-relaxed", title === "Water" ? "text-cream/90" : "text-navy/80"]}>{copy}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="aerial" class="px-4 sm:px-6 lg:px-8 pb-10 md:pb-14 scroll-mt-32" aria-labelledby="aerial-heading">
+    <div class="max-w-6xl mx-auto">
+      <h2 id="aerial-heading" class="font-display text-3xl text-navy mb-2">Aerial overview</h2>
+      <p class="text-navy/70 mb-4 max-w-3xl">Aerial view of 25800 N Clements Ln, Fairview. Location context, not a boundary survey.</p>
+      <div class="rounded-lg overflow-hidden border border-navy/10 bg-white h-80 sm:h-96 lg:h-[420px]">
+        <iframe
+          src={aerialEmbed}
+          title="Aerial view of 25800 N Clements Ln, Fairview, Utah. Location context only, not sale boundaries."
+          class="w-full h-full"
+          style="border:0;"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <p class="mt-3">
+        <a href={aerialLink} class="text-navy font-semibold underline decoration-gold decoration-2 underline-offset-4 hover:text-gold" target="_blank" rel="noopener noreferrer">Open 25800 N Clements Ln in Google Maps</a>
+      </p>
+      <p class="mt-1 text-xs text-navy/55">Aerial imagery: Google Maps. Provider credits are on the map.</p>
+    </div>
+  </section>
+
+  <section id="house" class="px-4 sm:px-6 lg:px-8 pb-10 md:pb-14 scroll-mt-32">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-display text-3xl text-navy mb-2">The house</h2>
+      <p class="text-navy/70 mb-6 max-w-3xl">Main floor, upper floor, and a full basement. The basement is unfinished. The county building record is smaller than the listing total. Both numbers are in the specifications.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {improvements.map(([title, copy]) => (
+          <div class="bg-white rounded-lg p-4 border border-navy/5">
+            <h3 class="font-heading text-xs uppercase tracking-[0.14em] text-gold font-semibold">{title}</h3>
+            <p class="mt-2 text-navy/80 leading-relaxed">{copy}</p>
+          </div>
+        ))}
+      </div>
+      <details class="mt-4 bg-white rounded-lg border border-navy/5 px-4 py-4 sm:px-6" open>
+        <summary class="cursor-pointer font-display text-2xl text-navy">Full listing specifications</summary>
+        <p class="mt-2 text-sm text-navy/60">Every public field from the listing, plus the county parcel record.</p>
+        <div class="mt-6 space-y-8">
+          {specGroups.map((group) => (
+            <div>
+              <h4 class="font-display text-xl text-navy mb-3 pb-2 border-b-2 border-gold/60">{group.title}</h4>
+              <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                {group.rows.map(([label, value]) => (
+                  <div>
+                    <dt class="font-heading text-xs uppercase tracking-[0.14em] text-gold font-semibold">{label}</dt>
+                    <dd class="mt-1 text-navy/85 leading-snug">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          ))}
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="photos" class="bg-white px-4 sm:px-6 lg:px-8 py-10 md:py-14 scroll-mt-32">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6">
+        <div>
+          <h2 class="font-display text-3xl text-navy">Listing photos</h2>
+          <p class="text-navy/60 text-sm mt-1">{total} photos from the public MLS #2184160 set. Tap any photo to open it, then swipe or use the arrows.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+        {photos.map(([file, w, h], i) => (
+          <a href={`${base}/photos/${file}`} data-full={`${base}/photos/${file}`} data-alt={`Clements Lane listing photo ${i + 1} of ${total}`} data-lightbox="clements" class="block overflow-hidden rounded bg-cream aspect-[4/3]">
+            <img src={`${base}/photos/${file}`} width={w} height={h} alt={`Listing photo ${i + 1} of ${total}`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="next" class="px-4 sm:px-6 lg:px-8 py-10 md:py-14 scroll-mt-32">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2">
+        <h2 class="font-display text-3xl text-navy mb-4">Next steps</h2>
+        <ol class="space-y-4">
+          {steps.map((item, i) => (
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-gold font-heading flex items-center justify-center">{i + 1}</span>
+              <p class="text-navy/85 leading-relaxed pt-1">{item}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div>
+        <h2 class="font-display text-2xl text-navy mb-3">Sources</h2>
+        <ul class="space-y-2">
+          {sources.map((source) => (
+            <li>
+              <a href={source.href} class="text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold break-words" target="_blank" rel="noopener noreferrer">{source.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 lg:px-8 pb-10">
+    <div class="max-w-6xl mx-auto text-xs text-navy/60 leading-relaxed space-y-2">
+      <p>Listing photos and listing data: UtahRealEstate.com, MLS #2184160. Copyright © UtahRealEstate.com. All rights reserved. Watermarks on the photos are the source marks.</p>
+      <p>County parcel 00021021X4, serial R030128, is 3.02 acres on the 2025 tax roll. Building area on that roll is 2,196 sq ft, plus a 144 sq ft record. The listing total is 4,490 sq ft, including an unfinished basement.</p>
+      <p>Acreage, water shares, the well, septic, access, and zoning are subject to the documents.</p>
+      <p>Mike Price, REALTOR&reg; | Heritage Realty Group, LLC | P.O. Box 431, Spring City, UT 84662 | Agent License 5957476-LA00 | Brokerage License 6232680-CN00</p>
+    </div>
+  </section>
+  <PhotoLightbox />
+</BaseLayout>
