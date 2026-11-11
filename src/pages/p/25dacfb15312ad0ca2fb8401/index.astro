@@ -1,8 +1,8 @@
 ---
-// UNLISTED, LINK-ONLY PAGE. Not linked from the public site, excluded from the
-// sitemap (astro.config.mjs filter), noindex/nofollow meta + X-Robots-Tag
-// header (netlify.toml "/p/*"). Do not add to nav, llms.txt, or any links.
-// Anyone with the link can read this public listing brief. No login.
+// LINK-ONLY PAGE for an active MLS listing. Not linked from the public site,
+// excluded from the sitemap (astro.config.mjs filter), noindex/nofollow meta
+// + X-Robots-Tag header (netlify.toml "/p/*"). Do not add to nav, llms.txt,
+// or any links. Anyone with the link can read this page. No login.
 // Photos: the 37-file public UtahRealEstate.com gallery for MLS #2184160,
 // saved 2026-11-11 from the assets.utahrealestate.com set, in gallery order.
 import { Image } from "astro:assets";
@@ -233,7 +233,7 @@ const sources = [
 <BaseLayout
   title={pageTitle}
   exactTitle={true}
-  description="Unlisted property brief for 25800 N Clements Ln, Fairview, Sanpete County. MLS #2184160 asks $849,000 for the 1986 house on 3.02 acres. Photos and aerial context included."
+  description="Active listing for 25800 N Clements Ln, Fairview, Sanpete County, presented by Mike Price, REALTOR®, Heritage Realty Group. MLS #2184160 asks $849,000 for the 1986 house on 3.02 acres. Photos and aerial context included."
   image={`${base}/photos/${hero[0]}`}
   noindex={true}
 >
@@ -250,10 +250,11 @@ const sources = [
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/45 to-navy/10"></div>
     <div class="absolute inset-x-0 bottom-0 px-4 sm:px-6 lg:px-8 pb-8 md:pb-12">
       <div class="max-w-6xl mx-auto">
-        <p class="font-heading text-xs sm:text-sm uppercase tracking-[0.2em] text-gold mb-2">Unlisted property brief</p>
+        <p class="font-heading text-xs sm:text-sm uppercase tracking-[0.2em] text-gold mb-2">Active listing</p>
         <h1 class="font-display text-3xl sm:text-4xl md:text-5xl text-white leading-tight max-w-4xl">{pageTitle}</h1>
         <p class="mt-3 text-base sm:text-lg text-cream/95">25800 N Clements Ln, Fairview, UT 84629</p>
         <p class="mt-1 text-sm sm:text-base text-cream/80">Sanpete County · MLS #2184160 · Listed at $849,000</p>
+        <p class="mt-1 text-sm sm:text-base text-cream/80">Presented by Mike Price, REALTOR&reg;, Heritage Realty Group</p>
         <p class="mt-4 max-w-2xl text-base sm:text-lg text-white leading-snug">1986 house on 3.02 acres at the end of Clements Lane. Well, spring, and three Gooseberry irrigation shares are what the listing states.</p>
         <p class="mt-5 pointer-events-auto">
           <a href="#photos" class="inline-block bg-gold text-navy font-semibold uppercase tracking-wide text-sm px-5 py-3 rounded hover:bg-white">View {total} photos</a>
@@ -296,7 +297,7 @@ const sources = [
             <p class="text-cream/80 text-sm">Heritage Realty Group, LLC</p>
           </div>
         </div>
-        <p class="text-cream/90 mb-4">The local contact for this property.</p>
+        <p class="text-cream/90 mb-4">For this listing, contact Mike.</p>
         <address class="not-italic text-cream/80 text-sm leading-relaxed mb-5">
           P.O. Box 431<br />Spring City, UT 84662
         </address>
@@ -448,6 +449,7 @@ const sources = [
       <p>County parcel 00021021X4, serial R030128, is 3.02 acres on the 2025 tax roll. Building area on that roll is 2,196 sq ft, plus a 144 sq ft record. The listing total is 4,490 sq ft, including an unfinished basement.</p>
       <p>Acreage, water shares, the well, septic, access, and zoning are subject to the documents.</p>
       <p>Mike Price, REALTOR&reg; | Heritage Realty Group, LLC | P.O. Box 431, Spring City, UT 84662 | Agent License 5957476-LA00 | Brokerage License 6232680-CN00</p>
+      <p>Listing courtesy of Equity Real Estate (Utah).</p>
     </div>
   </section>
   <PhotoLightbox />
