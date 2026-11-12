@@ -1,0 +1,20 @@
+---
+// PRIVATE, LINK-ONLY detail page. Not linked from the public site, excluded
+// from the sitemap (astro.config.mjs filter), noindex/nofollow meta +
+// X-Robots-Tag header (netlify.toml "/p/*"). Do not add to nav, llms.txt,
+// or any public page.
+import PrivateListingDetail from "../../../components/PrivateListingDetail.astro";
+import { listings, photosFor } from "../../../data/debbiePortfolio";
+
+export function getStaticPaths() {
+  return listings.map((listing) => ({
+    params: { mls: listing.mls },
+    props: { listing },
+  }));
+}
+
+const { listing } = Astro.props;
+const photos = photosFor(listing.mls);
+---
+
+<PrivateListingDetail listing={listing} photos={photos} />
