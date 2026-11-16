@@ -24,6 +24,26 @@ const isSold = card.status === "Sold";
 // Active cards sit under the page h1; sold cards sit under the "Recently Sold" h2.
 const Heading = isSold ? "h3" : "h2";
 
+// Index stays light: hero plus up to five thumbs. The rest stay in the
+// lightbox group (same DOM order as the gallery) without loading on the card.
+// If a digitally altered photo would otherwise be hidden, keep it as a thumb
+// so its label still shows on the card.
+const THUMB_CAP = 5;
+const more = card.images.slice(1);
+const firstAltered = more.findIndex((p) => p.digitallyAltered);
+const visibleIdx = new Set<number>();
+const reserve = firstAltered >= THUMB_CAP ? 1 : 0;
+for (let i = 0; i < more.length && visibleIdx.size < THUMB_CAP - reserve; i++) {
+  if (reserve && i === firstAltered) continue;
+  visibleIdx.add(i);
+}
+if (reserve && firstAltered >= 0) visibleIdx.add(firstAltered);
+const lastVisible = visibleIdx.size ? Math.max(...visibleIdx) : -1;
+// Keep the "+N" badge off a digitally altered thumb so the disclosure label stays readable.
+const plusCandidates = [...visibleIdx].filter((i) => i !== firstAltered);
+const plusIdx = plusCandidates.length ? Math.max(...plusCandidates) : lastVisible;
+const extra = more.length - visibleIdx.size;
+
 const statusClass: Record<ListingStatus, string> = {
   Active: "bg-gold text-white",
   "Under Contract": "bg-red text-white",
@@ -49,7 +69,7 @@ const statusClass: Record<ListingStatus, string> = {
         data-full={card.images[0].src.src}
         data-alt={card.images[0].alt}
         data-altered={card.images[0].digitallyAltered ? "true" : undefined}
-        aria-label={`View photos: ${card.title}`}
+        aria-label={`View all ${card.images.length} photos: ${card.title}`}
       >
         <Image
           src={card.images[0].src}
@@ -66,6 +86,11 @@ const statusClass: Record<ListingStatus, string> = {
           Digitally altered
         </span>
       )}
+      {extra > 0 && (
+        <span class="pointer-events-none absolute bottom-3 right-3 px-2 py-0.5 rounded bg-navy/80 text-white font-body text-xs">
+          {card.images.length} photos
+        </span>
+      )}
       <span
         class:list={[
           "pointer-events-none absolute top-4 left-4 rounded-md font-heading uppercase tracking-wider font-bold shadow-md",
@@ -76,36 +101,48 @@ const statusClass: Record<ListingStatus, string> = {
         {card.status}
       </span>
     </div>
-    {card.images.length > 1 && (
+    {more.length > 0 && (
       <ul class="grid grid-cols-5 gap-1 p-1 bg-white" aria-label={`More photos: ${card.title}`}>
-        {card.images.slice(1).map((photo) => (
-          <li>
-            <a
-              href={photo.src.src}
-              target="_blank"
-              rel="noopener"
-              class="listing-photo-link relative block aspect-[4/3] overflow-hidden rounded-sm group"
-              data-listing={card.id}
-              data-lightbox={card.id}
-              data-full={photo.src.src}
-              data-alt={photo.alt}
-              data-altered={photo.digitallyAltered ? "true" : undefined}
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                width={320}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-              />
-              {photo.digitallyAltered && (
-                <span class="absolute inset-x-0 bottom-0 bg-navy/80 text-white font-body text-[10px] leading-tight text-center px-1 py-0.5">
-                  Digitally altered
-                </span>
-              )}
-            </a>
-          </li>
-        ))}
+        {more.map((photo, i) => {
+          const shown = visibleIdx.has(i);
+          return (
+            <li class:list={[!shown && "hidden"]}>
+              <a
+                href={photo.src.src}
+                target="_blank"
+                rel="noopener"
+                class="listing-photo-link relative block aspect-[4/3] overflow-hidden rounded-sm group"
+                data-listing={card.id}
+                data-lightbox={card.id}
+                data-full={photo.src.src}
+                data-alt={photo.alt}
+                data-altered={photo.digitallyAltered ? "true" : undefined}
+                aria-hidden={shown ? undefined : "true"}
+                tabindex={shown ? undefined : -1}
+              >
+                {shown && (
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={320}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                )}
+                {shown && photo.digitallyAltered && (
+                  <span class="absolute inset-x-0 bottom-0 bg-navy/80 text-white font-body text-[10px] leading-tight text-center px-1 py-0.5">
+                    Digitally altered
+                  </span>
+                )}
+                {shown && i === plusIdx && extra > 0 && (
+                  <span class="pointer-events-none absolute top-1 right-1 px-1.5 py-0.5 rounded bg-navy/85 text-white font-heading text-[11px] tracking-wide">
+                    +{extra}
+                  </span>
+                )}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     )}
   </div>
