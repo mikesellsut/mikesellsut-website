@@ -1,0 +1,33 @@
+{
+  "contact": {
+    "name": "Mike Price",
+    "title": "Sales Agent",
+    "brokerage": "Heritage Realty Group, LLC",
+    "phone": "435-660-0401",
+    "email": "mikesellsut@gmail.com",
+    "website": "https://mikesellsut.com",
+    "website_label": "mikesellsut.com",
+    "agent_license": "5957476-LA00",
+    "brokerage_license": "6232680-CN00",
+    "cta_label": "Contact Mike",
+    "cta_note": "For questions or a private showing, contact Mike directly."
+  },
+  "branding": {
+    "brokerage": "Heritage Realty Group, LLC",
+    "site_name": "MikeSellsUT",
+    "logo": "brand/heritage-logo.png",
+    "headshot": "brand/mike-headshot.jpg",
+    "colors": {
+      "navy": "#1B2E5A",
+      "gold": "#D4A629",
+      "cream": "#F5F0E8"
+    },
+    "fonts": {
+      "display": "Playfair Display",
+      "body": "Source Sans 3"
+    }
+  },
+  "disclaimer": "Information is deemed reliable but not guaranteed. Buyer to verify all information, including acreage, water rights, access, and taxes. This is a private, unlisted page prepared for a specific buyer. It is not an MLS display and is not an offer of cooperation or compensation.",
+  "generated": "2026-11-17",
+  "count": 64
+}
