@@ -1,7 +1,7 @@
 {
   "generated": "2026-11-17",
   "timezone": "America/Denver",
-  "count": 64,
+  "count": 65,
   "criteria": "Utah recreational / ranch land, about 40+ acres, about $400,000–$4,500,000. Farm and agricultural operations are excluded. Pines and water are preferred.",
   "contact": {
     "name": "Mike Price",
@@ -2531,6 +2531,47 @@
       "featured": false,
       "sort_priority": 4,
       "courtesy_brokerage": "KW WESTFIELD"
+    },
+    {
+      "hrg_code": "HRG-68",
+      "name": "Kent Canyon retreat",
+      "area": "Wanship / Rockport Reservoir area",
+      "county": "Summit County",
+      "acres": 80.0,
+      "price": 2100000,
+      "price_per_acre": 26250,
+      "tier": "Good",
+      "water_note": "A well is already in place (pumped). The land overlooks Rockport Reservoir; it does not appear to include reservoir frontage. Buyer should verify the well and water rights.",
+      "has_water": true,
+      "forest_note": "A stand of mature evergreen trees (spruce/fir) around the well and outbuildings, with open sage and pasture on the surrounding hillsides.",
+      "short_description": "About 80 acres of private canyon land near Wanship, with a well in place, a stand of mature evergreens, and views over Rockport Reservoir. One homesite, no HOA, and room for a mountain retreat or RV setup.",
+      "buildings": "no",
+      "hero_photo": "HRG-68_01.jpg",
+      "photos": [
+        "HRG-68_01.jpg",
+        "HRG-68_02.jpg",
+        "HRG-68_03.jpg",
+        "HRG-68_04.jpg",
+        "HRG-68_05.jpg",
+        "HRG-68_06.jpg",
+        "HRG-68_07.jpg",
+        "HRG-68_08.jpg",
+        "HRG-68_09.jpg",
+        "HRG-68_10.jpg",
+        "HRG-68_11.jpg",
+        "HRG-68_12.jpg",
+        "HRG-68_13.jpg",
+        "HRG-68_14.jpg",
+        "HRG-68_15.jpg",
+        "HRG-68_16.jpg",
+        "HRG-68_17.jpg",
+        "HRG-68_18.jpg",
+        "HRG-68_19.jpg"
+      ],
+      "badge": "NEW",
+      "featured": false,
+      "sort_priority": 1,
+      "courtesy_brokerage": "ERA Brokers Consolidated (Ogden)"
     }
   ]
 }
