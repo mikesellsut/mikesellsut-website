@@ -4,6 +4,7 @@
 // non-disclosure state, so sold prices stay private).
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
+import SellerAnalysisCta from "./SellerAnalysisCta.astro";
 import type { Listing, ListingPhoto, ListingStatus } from "../data/listings";
 
 export interface ListingCardData extends Listing {
@@ -171,7 +172,7 @@ const statusClass: Record<ListingStatus, string> = {
     <p class="font-body text-navy/80 leading-relaxed mb-6">{card.blurb}</p>
 
     <div class="mt-auto">
-      <div class="flex flex-col sm:flex-row gap-3">
+      <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3">
         {!isSold && card.mlsUrl && (
           <a
             href={card.mlsUrl}
@@ -188,11 +189,12 @@ const statusClass: Record<ListingStatus, string> = {
         >
           {isSold ? "Selling Something Similar?" : "Contact Mike"}
         </a>
+        <SellerAnalysisCta variant="button" />
       </div>
       <p class="mt-4 font-body text-xs text-navy/50">
         {isSold
-          ? "Sold · Listed with Heritage Realty Group"
-          : `${card.mlsNumber ? `MLS #${card.mlsNumber} · ` : ""}Listed with Heritage Realty Group`}
+          ? "Sold · Listed with Heritage Realty Group, LLC"
+          : `${card.mlsNumber ? `MLS #${card.mlsNumber} · ` : ""}Listed with Heritage Realty Group, LLC`}
       </p>
     </div>
   </div>

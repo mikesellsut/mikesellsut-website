@@ -10,9 +10,9 @@ export interface SiteTool {
 export const tools: SiteTool[] = [
   {
     slug: "home-price",
-    name: "What's My Home or Land Worth?",
-    blurb: "A rough asking-price range for a home, cabin or land in Central Utah. Not an appraisal, just a starting point before real comps.",
-    cta: "Get a rough price range",
+    name: "What Could Your Land or Home Sell For?",
+    blurb: "Mike Price has spent over two decades working in Central Utah real estate. This is a real estate agent's market analysis of likely sale price. It is not an appraisal.",
+    cta: "What could your land/home sell for?",
   },
   {
     slug: "land-checklist",

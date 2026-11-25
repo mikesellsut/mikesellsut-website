@@ -27,9 +27,4 @@ export const sellerFaq: SellerFaqItem[] = [
     answer:
       "Well-priced homes in good condition often sell in about 30–90 days. Land and cabins can take longer — smaller buyer pool, financing quirks. Price and condition matter more than hoping rates drop.",
   },
-  {
-    question: "Why use an agent who’s also a certified residential appraiser?",
-    answer:
-      "Most agents estimate from recent sales. On hard-to-price Central Utah property I support the number the way an appraiser would, so sellers don’t overreach and buyers don’t overpay.",
-  },
 ];
