@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "What should I know about buying a historic home in Spring City?",
-    answer: "Spring City has a large concentration of 19th-century pioneer architecture, including adobe, sandstone, and brick structures on the National Register of Historic Places. That character is part of what makes the town special, but it comes with practical considerations: older construction, possible deferred maintenance, and in some cases preservation covenants that affect what you can alter. A thorough inspection is non-negotiable. As a certified residential appraiser, I can help you understand what the property is worth in its current condition versus what restoration or repairs would cost — before you are under contract.",
+    answer: "Spring City has a large concentration of 19th-century pioneer architecture, including adobe, sandstone, and brick structures on the National Register of Historic Places. That character is part of what makes the town special, but it comes with practical considerations: older construction, possible deferred maintenance, and in some cases preservation covenants that affect what you can alter. A thorough inspection is non-negotiable. I can help you understand what the property is likely to sell for in its current condition, and what restoration or repairs would cost, before you are under contract.",
   },
   {
     question: "Can I use USDA financing to buy in Spring City?",
@@ -25,7 +25,7 @@ const agentSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "Mike Price",
-  description: "Central & rural Utah REALTOR® and certified residential appraiser serving Spring City and Sanpete County. Service area: Juab, Sanpete, Millard & Sevier Counties.",
+  description: "Central & rural Utah REALTOR® serving Spring City and Sanpete County. Service area: Juab, Sanpete, Millard & Sevier Counties.",
   url: "https://mikesellsut.com",
   image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
   telephone: "+14356600401",
@@ -52,18 +52,11 @@ const agentSchema = {
       name: "Utah Real Estate Agent License",
       recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
     },
-    {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "license",
-      name: "Certified Residential Appraiser",
-      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
-    },
   ],
   knowsAbout: [
     "Residential real estate",
     "Land and rural property",
     "Cabin and mountain properties",
-    "Property appraisal and valuation",
     "Rural property pricing",
     "Water rights in Utah",
     "Agricultural land",
@@ -90,7 +83,7 @@ const agentSchema = {
 <BaseLayout
   suppressAgentSchema={true}
   title="Spring City UT Real Estate — Historic Homes, Land & Rural Property"
-  description="Mike Price helps buyers and sellers in Spring City, Utah. Local REALTOR® and certified appraiser with deep Sanpete County knowledge — historic homes, land, USDA financing, and straight talk."
+  description="Mike Price helps buyers and sellers in Spring City, Utah. Local REALTOR® with deep Sanpete County knowledge — historic homes, land, USDA financing, and straight talk."
 >
   <script type="application/ld+json" set:html={JSON.stringify(agentSchema)} />
 

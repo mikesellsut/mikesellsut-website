@@ -29,8 +29,26 @@ const { title, description, image, canonicalUrl, type, suppressAgentSchema, omit
 // Private investor / other-broker pages are noindex and live under /p/.
 // The public seller CTA stays off those pages.
 const pathname = Astro.url.pathname;
+const normalizedPath = pathname.replace(/\/+$/, "") || "/";
 const isPrivate = Boolean(noindex) || pathname.startsWith("/p/");
-const onSellerTool = pathname.replace(/\/+$/, "") === "/tools/home-price";
+const hideSellerCta = isPrivate || normalizedPath === "/about";
+const onSellerTool = normalizedPath === "/tools/home-price";
+// Seller, price, listing, and area routes omit the appraiser credential.
+// Blog posts and /about keep it.
+const omitAppraiserByRoute =
+  normalizedPath === "/" ||
+  normalizedPath === "/selling" ||
+  normalizedPath === "/listings" ||
+  normalizedPath === "/land" ||
+  normalizedPath === "/cabins" ||
+  normalizedPath === "/buying-rural" ||
+  normalizedPath === "/contact" ||
+  normalizedPath === "/areas" ||
+  normalizedPath.startsWith("/areas/") ||
+  normalizedPath === "/tools" ||
+  normalizedPath === "/tools/home-price" ||
+  normalizedPath === "/tools/seller-net";
+const omitAppraiser = omitAppraiserSchema || omitAppraiserByRoute;
 
 // Site-wide RealEstateAgent structured data — establishes the business
 // entity for search engines and AI systems on every page.
@@ -41,7 +59,7 @@ const agentCredentials = [
     name: "Utah Real Estate Agent License",
     recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
   },
-  ...(omitAppraiserSchema
+  ...(omitAppraiser
     ? []
     : [
         {
@@ -57,7 +75,7 @@ const realEstateAgentSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "Mike Price",
-  description: omitAppraiserSchema
+  description: omitAppraiser
     ? "Mike Price has spent over two decades working in Central Utah real estate. Central Utah REALTOR®. Service area: Juab, Sanpete, Millard & Sevier Counties."
     : "Central & rural Utah REALTOR® and certified residential appraiser with 20 years of local market expertise. Service area: Juab, Sanpete, Millard & Sevier Counties.",
   url: "https://mikesellsut.com",
@@ -148,7 +166,7 @@ const realEstateAgentSchema = {
     <main class="flex-1">
       <slot />
     </main>
-    {!isPrivate && <SellerAnalysisCta onToolPage={onSellerTool} />}
+    {!hideSellerCta && <SellerAnalysisCta onToolPage={onSellerTool} />}
     <Footer />
 
     <!-- Netlify Identity redirect after login -->
