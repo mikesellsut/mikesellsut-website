@@ -18,11 +18,13 @@ interface Props {
   canonicalUrl?: string;
   type?: string;
   suppressAgentSchema?: boolean;
+  /** Price and CMA pages omit the appraiser credential from hidden schema. */
+  omitAppraiserSchema?: boolean;
   noindex?: boolean;
   exactTitle?: boolean;
 }
 
-const { title, description, image, canonicalUrl, type, suppressAgentSchema, noindex, exactTitle } = Astro.props;
+const { title, description, image, canonicalUrl, type, suppressAgentSchema, omitAppraiserSchema = false, noindex, exactTitle } = Astro.props;
 
 // Private investor / other-broker pages are noindex and live under /p/.
 // The public seller CTA stays off those pages.
@@ -32,11 +34,32 @@ const onSellerTool = pathname.replace(/\/+$/, "") === "/tools/home-price";
 
 // Site-wide RealEstateAgent structured data — establishes the business
 // entity for search engines and AI systems on every page.
+const agentCredentials = [
+  {
+    "@type": "EducationalOccupationalCredential",
+    credentialCategory: "license",
+    name: "Utah Real Estate Agent License",
+    recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+  },
+  ...(omitAppraiserSchema
+    ? []
+    : [
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "license",
+          name: "Certified Residential Appraiser",
+          recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+        },
+      ]),
+];
+
 const realEstateAgentSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "Mike Price",
-  description: "Central & rural Utah REALTOR® and certified residential appraiser with 20 years of local market expertise. Service area: Juab, Sanpete, Millard & Sevier Counties.",
+  description: omitAppraiserSchema
+    ? "Mike Price has spent over two decades working in Central Utah real estate. Central Utah REALTOR®. Service area: Juab, Sanpete, Millard & Sevier Counties."
+    : "Central & rural Utah REALTOR® and certified residential appraiser with 20 years of local market expertise. Service area: Juab, Sanpete, Millard & Sevier Counties.",
   url: "https://mikesellsut.com",
   image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
   telephone: "+14356600401",
@@ -55,20 +78,7 @@ const realEstateAgentSchema = {
     { "@type": "AdministrativeArea", name: "Millard County, Utah" },
     { "@type": "AdministrativeArea", name: "Juab County, Utah" },
   ],
-  hasCredential: [
-    {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "license",
-      name: "Utah Real Estate Agent License",
-      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "license",
-      name: "Certified Residential Appraiser",
-      recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
-    },
-  ],
+  hasCredential: agentCredentials,
   knowsAbout: [
     "Residential real estate",
     "Land and rural property",
@@ -87,7 +97,7 @@ const realEstateAgentSchema = {
   ],
   memberOf: {
     "@type": "Organization",
-    name: "Heritage Realty Group LLC",
+    name: "Heritage Realty Group, LLC",
   },
   sameAs: [
     "https://www.instagram.com/mikesellsut",

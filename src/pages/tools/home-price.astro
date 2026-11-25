@@ -14,13 +14,15 @@ const types = [
 ];
 
 const disclaimer =
-  "This is a REALTOR® opinion of price based on recent sales, for listing purposes only. This is not an appraisal. It is not for a loan, legal, tax, or estate purpose. The range this page shows right away is a wide starting ballpark from a simple formula. The Seller Market Analysis I send after I look at recent sales is the one to use if you are thinking about listing.";
+  "This is a real estate agent's market analysis of likely sale price. It is not an appraisal.";
+const formulaNote =
+  "The range this page shows right away is a wide starting ballpark from a simple formula. The Seller Market Analysis I send after I look at recent sales is the one to use if you are thinking about listing.";
 
 const faqs = [
   {
     question: "Is this Seller Market Analysis an appraisal?",
     answer:
-      "No. A Seller Market Analysis is my opinion of price as a REALTOR®, based on recent sales, for listing purposes only. This is not an appraisal. It is not for a loan, legal, tax, or estate purpose. The range you see on this page right away is a wide ballpark from a simple formula. When I follow up, I look at the recent sales that actually compare and send the market analysis.",
+      "No. This is a real estate agent's market analysis of likely sale price. It is not an appraisal. It is not for a loan, legal, tax, or estate purpose. The range you see on this page right away is a wide ballpark from a simple formula. When I follow up, I look at the recent sales that actually compare and send the market analysis.",
   },
   {
     question: "Why doesn't the tool just use price per square foot?",
@@ -35,7 +37,7 @@ const faqs = [
   {
     question: "How do I get a real number for my property?",
     answer:
-      "Use the form on this page, or call or text me at 435-660-0401. I'll look at the property, pull the recent sales that actually compare, and send a free Seller Market Analysis (CMA) for listing purposes only. This is not an appraisal.",
+      "Use the form on this page, or call or text me at 435-660-0401. I'll look at the property, pull the recent sales that actually compare, and send a free Seller Market Analysis (CMA). This is a real estate agent's market analysis of likely sale price. It is not an appraisal.",
   },
 ];
 
@@ -47,7 +49,7 @@ const webAppSchema = {
   applicationCategory: "FinanceApplication",
   operatingSystem: "Any",
   description:
-    "Request a free REALTOR® Seller Market Analysis (CMA) for a home, cabin, or land in Juab, Sanpete, Millard, and Sevier County, Utah. For listing purposes only. This is not an appraisal.",
+    "Request a free REALTOR® Seller Market Analysis (CMA) for a home, cabin, or land in Juab, Sanpete, Millard, and Sevier County, Utah. This is a real estate agent's market analysis of likely sale price. It is not an appraisal.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   provider: { "@type": "RealEstateAgent", name: "Mike Price", url: "https://mikesellsut.com" },
 };
@@ -57,7 +59,7 @@ const realtorSchema = {
   "@type": "RealEstateAgent",
   name: "Mike Price",
   description:
-    "Mike Price, REALTOR®, who has spent decades studying Central Utah land and home prices. Free Seller Market Analysis (CMA) for homes, cabins, and land, for listing purposes only. This is not an appraisal.",
+    "Mike Price has spent over two decades working in Central Utah real estate. REALTOR® with Heritage Realty Group, LLC. This is a real estate agent's market analysis of likely sale price. It is not an appraisal.",
   url: "https://mikesellsut.com",
   image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
   telephone: "+14356600401",
@@ -82,13 +84,13 @@ const realtorSchema = {
     name: "Utah Real Estate Agent License",
     recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
   },
-  memberOf: { "@type": "Organization", name: "Heritage Realty Group LLC" },
+  memberOf: { "@type": "Organization", name: "Heritage Realty Group, LLC" },
 };
 ---
 
 <BaseLayout
   title="What Could Your Land or Home Sell For?"
-  description="Request a free REALTOR® Seller Market Analysis (CMA) for a home, cabin, or land in Juab, Sanpete, Millard, or Sevier County. For listing purposes only. This is not an appraisal."
+  description="Mike Price has spent over two decades working in Central Utah real estate. Request a free REALTOR® Seller Market Analysis (CMA) for a home, cabin, or land in Juab, Sanpete, Millard, or Sevier County. This is a real estate agent's market analysis of likely sale price. It is not an appraisal."
   suppressAgentSchema={true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
@@ -100,7 +102,7 @@ const realtorSchema = {
         What Could Your Land or Home Sell For?
       </h1>
       <p class="font-body text-lg text-white/85 max-w-2xl mx-auto">
-        Request a free REALTOR® Seller Market Analysis (CMA). I'll look at recent sales and send a price range for listing purposes only. This is not an appraisal. The range you see on this page today is a starting ballpark from a simple formula, so you are not waiting on me for a first look.
+        Mike Price has spent over two decades working in Central Utah real estate. Request a free REALTOR® Seller Market Analysis (CMA). I'll look at recent sales and send a price range. This is a real estate agent's market analysis of likely sale price. It is not an appraisal. The range you see on this page today is a starting ballpark from a simple formula, so you are not waiting on me for a first look.
       </p>
     </div>
   </section>
@@ -293,7 +295,7 @@ const realtorSchema = {
           <div class="t-field">
             <label class="t-check">
               <input type="checkbox" id="hp-ack" name="ack_not_appraisal" value="yes" required />
-              <span>I understand this is a REALTOR® opinion of price for listing purposes only, and the on-page range is a starting ballpark. This is not an appraisal. <span class="t-req">*</span></span>
+              <span>I understand. This is a real estate agent's market analysis of likely sale price. It is not an appraisal. <span class="t-req">*</span></span>
             </label>
             <p class="t-err" id="hp-ack-err"></p>
           </div>
@@ -302,6 +304,7 @@ const realtorSchema = {
             <button type="submit" class="t-btn t-btn-primary" id="hp-submit">Request my seller market analysis</button>
           </div>
           <p class="t-disclaimer">{disclaimer}</p>
+          <p class="t-help">{formulaNote}</p>
         </div>
       </form>
 
@@ -310,7 +313,7 @@ const realtorSchema = {
         <p class="t-success" id="hp-sent">Thanks — I got your info and I'll follow up with a Seller Market Analysis.</p>
         <p class="t-steplabel" style="margin-top:1rem">Starting price range</p>
         <p class="t-big" id="hp-range">$0 – $0</p>
-        <p>This on-page range is a starting point from a simple formula. It is not built from the recent sales, and it is not an appraisal.</p>
+        <p>This on-page range is a starting point from a simple formula. It is not built from the recent sales.</p>
 
         <h3 class="t-h3" style="margin-top:1.25rem">What drove this</h3>
         <ul class="t-list" id="hp-drivers"></ul>
@@ -319,8 +322,8 @@ const realtorSchema = {
         <p><a class="t-link" href="/blog/detached-shop-barn-outbuilding-sale-price-central-utah/">How much a detached shop, barn, or outbuilding adds to a home's sale price (+ UAD 3.6 rules) &rarr;</a></p>
 
         <h3 class="t-h3" style="margin-top:1.25rem">What I'll send next</h3>
-        <p>Mike Price, REALTOR®, who has spent decades studying Central Utah land and home prices. I sell homes, cabins, and land out here. Water, access, outbuildings, and the recent sales nearby move the price more than any formula. I'll pull those sales and send a free REALTOR® Seller Market Analysis (CMA) for listing purposes only. This is not an appraisal.</p>
-        <p class="t-help">Mike Price, REALTOR®, who has spent decades studying Central Utah land and home prices. Heritage Realty Group · P.O. Box 431, Spring City, UT 84662</p>
+        <p>Mike Price has spent over two decades working in Central Utah real estate. I sell homes, cabins, and land out here. Water, access, outbuildings, and the recent sales nearby move the price more than any formula. I'll pull those sales and send a free REALTOR® Seller Market Analysis (CMA).</p>
+        <p class="t-help">REALTOR® · Heritage Realty Group, LLC · P.O. Box 431, Spring City, UT 84662</p>
 
         <div class="t-actions">
           <a class="t-btn t-btn-primary" href="tel:4356600401">Call Mike 435-660-0401</a>
@@ -437,7 +440,7 @@ const realtorSchema = {
       setErr("hp-name-err", name.value.trim() ? "" : "Enter your first name.", name);
       const emailOk = email.value.trim() !== "" && email.checkValidity();
       setErr("hp-email-err", emailOk ? "" : "Enter a valid email address.", email);
-      setErr("hp-ack-err", ack.checked ? "" : "Please check the box to confirm this is not an appraisal.", ack);
+      setErr("hp-ack-err", ack.checked ? "" : "Please check the box. This is a real estate agent's market analysis of likely sale price. It is not an appraisal.", ack);
       ok = !!name.value.trim() && emailOk && ack.checked;
     }
     if (!ok) {

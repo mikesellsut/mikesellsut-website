@@ -11,7 +11,7 @@ export const tools: SiteTool[] = [
   {
     slug: "home-price",
     name: "What Could Your Land or Home Sell For?",
-    blurb: "A free REALTOR® Seller Market Analysis (CMA) for a home, cabin, or land in Central Utah. For listing purposes only. This is not an appraisal.",
+    blurb: "Mike Price has spent over two decades working in Central Utah real estate. This is a real estate agent's market analysis of likely sale price. It is not an appraisal.",
     cta: "What could your land/home sell for?",
   },
   {
