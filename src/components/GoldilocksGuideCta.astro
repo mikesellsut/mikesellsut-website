@@ -11,9 +11,12 @@ interface Props {
 const {
   sourcePage = "",
   postTitle = "",
-  heading = "Get an Appraiser-Eye Pre-Listing Price Range or Acreage & Water Check",
-  subheading = "Skip the automated guesswork and 10-step chatbots. Tell me what you're looking at in Juab, Sanpete, Millard, or Sevier County, and I'll send you a straight, comp-backed take on price, water, or outbuildings.",
+  heading = "Get Mike's Price Opinion or an Acreage & Water Check",
+  subheading = "Skip the automated guesswork and 10-step chatbots. Tell me what you're looking at in Juab, Sanpete, Millard, or Sevier County, and I'll send a straight take on price, water, or outbuildings.",
 } = Astro.props;
+
+const disclaimer =
+  "Mike Price, REALTOR®, Heritage Realty Group. A price opinion or Seller Market Analysis from me is a REALTOR® opinion of price based on recent sales, for listing purposes only. This is not an appraisal.";
 ---
 
 <aside class="msut-tool my-10" aria-label="Property price and water check request">
@@ -111,7 +114,7 @@ const {
       </div>
 
       <p class="t-disclaimer" style="background: #FFFFFF;">
-        Mike Price, REALTOR®, Heritage Realty Group · Certified Residential Appraiser, MK Appraisals (active since July 2005) · 2026 President-Elect, UTCAP. A pre-listing price range, comparative market analysis, or property check provided as a REALTOR® with Heritage Realty Group is for market guidance only and is not a formal certified appraisal.
+        {disclaimer}
       </p>
     </form>
 
@@ -123,14 +126,14 @@ const {
         Want to talk it through right now? Call or text Mike at <a class="t-link" href="tel:4356600401">435-660-0401</a>.
       </p>
       <p class="t-disclaimer" style="background: #FFFFFF;">
-        Mike Price, REALTOR®, Heritage Realty Group · Certified Residential Appraiser, MK Appraisals (active since July 2005) · 2026 President-Elect, UTCAP. Market guidance as a REALTOR® is not a formal certified appraisal.
+        {disclaimer}
       </p>
     </div>
   </div>
 </aside>
 
 <script>
-  import { submitLead } from "../scripts/submitLead";
+  import { submitLead, trackSellerCmaSubmit } from "../scripts/submitLead";
 
   document.querySelectorAll<HTMLFormElement>(".js-goldilocks-form").forEach((form) => {
     const card = form.closest(".t-card")!;
@@ -172,7 +175,8 @@ const {
 
       btn.disabled = true;
       btn.textContent = "Sending…";
-      await submitLead(form);
+      const sent = await submitLead(form);
+      if (sent) trackSellerCmaSubmit("goldilocks-guide-cta");
       btn.disabled = false;
       btn.textContent = "Send to Mike";
 

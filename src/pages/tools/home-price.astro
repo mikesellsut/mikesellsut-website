@@ -14,13 +14,13 @@ const types = [
 ];
 
 const disclaimer =
-  "This tool gives an automated, rough price range for general information only. It is not an appraisal, is not prepared under the Uniform Standards of Professional Appraisal Practice (USPAP), and should not be used for lending, legal, tax, or estate purposes. Mike Price is an active Utah Certified Residential Appraiser, but no appraisal assignment is created by using this tool. For a real market opinion, Mike can provide a free comparative market analysis as your REALTOR® (Heritage Realty Group); a formal appraisal is a separate, paid service.";
+  "This is a REALTOR® opinion of price based on recent sales, for listing purposes only. This is not an appraisal. It is not for a loan, legal, tax, or estate purpose. The range this page shows right away is a wide starting ballpark from a simple formula. The Seller Market Analysis I send after I look at recent sales is the one to use if you are thinking about listing.";
 
 const faqs = [
   {
-    question: "Is this rough price range an appraisal?",
+    question: "Is this Seller Market Analysis an appraisal?",
     answer:
-      "No. It's a simple formula that gives a wide ballpark for general information. It isn't prepared under USPAP and can't be used for a loan, estate, tax or legal purpose. I'm an active Utah Certified Residential Appraiser, but using this tool doesn't create an appraisal assignment. For a real market opinion, I'll pull the comps and give you a free CMA as your REALTOR®.",
+      "No. A Seller Market Analysis is my opinion of price as a REALTOR®, based on recent sales, for listing purposes only. This is not an appraisal. It is not for a loan, legal, tax, or estate purpose. The range you see on this page right away is a wide ballpark from a simple formula. When I follow up, I look at the recent sales that actually compare and send the market analysis.",
   },
   {
     question: "Why doesn't the tool just use price per square foot?",
@@ -35,51 +35,86 @@ const faqs = [
   {
     question: "How do I get a real number for my property?",
     answer:
-      "Call or text me at 435-660-0401, or send a message. I'll look at the property, pull the recent sales that actually compare, and give you a free comparative market analysis. If you need a formal appraisal for a lender, estate or legal reason, that's a separate, paid assignment.",
+      "Use the form on this page, or call or text me at 435-660-0401. I'll look at the property, pull the recent sales that actually compare, and send a free Seller Market Analysis (CMA) for listing purposes only. This is not an appraisal.",
   },
 ];
 
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "What's My Home or Land Worth? Rough Price Range Tool",
+  name: "Free REALTOR® Seller Market Analysis",
   url: "https://mikesellsut.com/tools/home-price/",
   applicationCategory: "FinanceApplication",
   operatingSystem: "Any",
   description:
-    "Rough asking-price range for a home, cabin or land in Juab, Sanpete, Millard and Sevier County, Utah. Not an appraisal.",
+    "Request a free REALTOR® Seller Market Analysis (CMA) for a home, cabin, or land in Juab, Sanpete, Millard, and Sevier County, Utah. For listing purposes only. This is not an appraisal.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   provider: { "@type": "RealEstateAgent", name: "Mike Price", url: "https://mikesellsut.com" },
+};
+
+const realtorSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Mike Price",
+  description:
+    "Central Utah REALTOR® with Heritage Realty Group. Free Seller Market Analysis (CMA) for homes, cabins, and land, for listing purposes only. This is not an appraisal.",
+  url: "https://mikesellsut.com",
+  image: "https://mikesellsut.com/images/site/mike-headshot.jpg",
+  telephone: "+14356600401",
+  email: "mikesellsut@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    postOfficeBoxNumber: "431",
+    addressLocality: "Spring City",
+    addressRegion: "UT",
+    postalCode: "84662",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Sanpete County, Utah" },
+    { "@type": "AdministrativeArea", name: "Sevier County, Utah" },
+    { "@type": "AdministrativeArea", name: "Millard County, Utah" },
+    { "@type": "AdministrativeArea", name: "Juab County, Utah" },
+  ],
+  hasCredential: {
+    "@type": "EducationalOccupationalCredential",
+    credentialCategory: "license",
+    name: "Utah Real Estate Agent License",
+    recognizedBy: { "@type": "Organization", name: "Utah Division of Real Estate" },
+  },
+  memberOf: { "@type": "Organization", name: "Heritage Realty Group LLC" },
 };
 ---
 
 <BaseLayout
-  title="What's My Home or Land Worth? Rough Price Range"
-  description="Get a rough asking-price ballpark for a home, cabin or land in Juab, Sanpete, Millard or Sevier County — then a real comp-based market opinion from Mike Price."
+  title="What Could Your Land or Home Sell For?"
+  description="Request a free REALTOR® Seller Market Analysis (CMA) for a home, cabin, or land in Juab, Sanpete, Millard, or Sevier County. For listing purposes only. This is not an appraisal."
+  suppressAgentSchema={true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(realtorSchema)} />
 
   <section class="bg-navy py-14 md:py-16 px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto text-center">
       <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
-        What's My Home or Land Worth?
+        What Could Your Land or Home Sell For?
       </h1>
       <p class="font-body text-lg text-white/85 max-w-2xl mx-auto">
-        Get a rough price range in about two minutes. It's a starting point from a simple formula, not an appraisal and not a substitute for real comps.
+        Request a free REALTOR® Seller Market Analysis (CMA). I'll look at recent sales and send a price range for listing purposes only. This is not an appraisal. The range you see on this page today is a starting ballpark from a simple formula, so you are not waiting on me for a first look.
       </p>
     </div>
   </section>
   <div class="h-1 bg-gold"></div>
 
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-    <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Tools", url: "/tools/" }, { name: "Rough Price Range" }]} />
+    <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Tools", url: "/tools/" }, { name: "Seller Market Analysis" }]} />
   </div>
 
   <section class="px-4 sm:px-6 lg:px-8 pb-12 pt-4">
-    <div class="msut-tool max-w-3xl mx-auto" id="hp-tool">
+    <div class="msut-tool max-w-3xl mx-auto scroll-mt-24" id="hp-tool">
       <form
         id="hp-form"
-        class="t-card"
+        class="t-card scroll-mt-24"
         name="home-price"
         method="POST"
         data-netlify="true"
@@ -141,7 +176,7 @@ const webAppSchema = {
           <h2 class="t-h2">Details</h2>
           <div data-house-only>
             <div class="t-note">
-              <strong>Square footage, the way an appraiser counts it:</strong> use above-grade living area only. Finished basements don't count the same as main-floor space. Garages don't count toward living square footage at all.
+              <strong>Square footage, the way a listing usually reports it:</strong> use above-grade living area only. Finished basements don't count the same as main-floor space. Garages don't count toward living square footage at all.
             </div>
             <div class="t-grid2">
               <div class="t-field">
@@ -222,8 +257,8 @@ const webAppSchema = {
 
         <!-- Step 3: Contact gate -->
         <div data-step="3" hidden>
-          <h2 class="t-h2">Where should Mike send this?</h2>
-          <p class="t-help" style="margin:0 0 1rem">Your range shows on this page right after you click the button. Mike gets a copy so he can follow up personally.</p>
+          <h2 class="t-h2">Where should I send the market analysis?</h2>
+          <p class="t-help" style="margin:0 0 1rem">Your starting price range shows on this page right after you click the button. I get a copy so I can follow up with a Seller Market Analysis based on recent sales.</p>
           <div class="t-grid2">
             <div class="t-field">
               <label class="t-label" for="hp-name">First name <span class="t-req">*</span></label>
@@ -258,13 +293,13 @@ const webAppSchema = {
           <div class="t-field">
             <label class="t-check">
               <input type="checkbox" id="hp-ack" name="ack_not_appraisal" value="yes" required />
-              <span>I understand this is a rough automated price range, not an appraisal. <span class="t-req">*</span></span>
+              <span>I understand this is a REALTOR® opinion of price for listing purposes only, and the on-page range is a starting ballpark. This is not an appraisal. <span class="t-req">*</span></span>
             </label>
             <p class="t-err" id="hp-ack-err"></p>
           </div>
           <div class="t-actions">
             <button type="button" class="t-btn t-btn-secondary" data-back="2">Back</button>
-            <button type="submit" class="t-btn t-btn-primary" id="hp-submit">Show my rough price range</button>
+            <button type="submit" class="t-btn t-btn-primary" id="hp-submit">Request my seller market analysis</button>
           </div>
           <p class="t-disclaimer">{disclaimer}</p>
         </div>
@@ -272,10 +307,10 @@ const webAppSchema = {
 
       <!-- Result -->
       <div id="hp-result" class="t-card" aria-live="polite" hidden tabindex="-1">
-        <p class="t-success" id="hp-sent">Thanks — Mike got your info and will follow up personally.</p>
-        <p class="t-steplabel" style="margin-top:1rem">Rough price range</p>
+        <p class="t-success" id="hp-sent">Thanks — I got your info and I'll follow up with a Seller Market Analysis.</p>
+        <p class="t-steplabel" style="margin-top:1rem">Starting price range</p>
         <p class="t-big" id="hp-range">$0 – $0</p>
-        <p>This is a starting point from a simple formula — not comps, not MLS data, and not an appraisal.</p>
+        <p>This on-page range is a starting point from a simple formula. It is not built from the recent sales, and it is not an appraisal.</p>
 
         <h3 class="t-h3" style="margin-top:1.25rem">What drove this</h3>
         <ul class="t-list" id="hp-drivers"></ul>
@@ -283,13 +318,13 @@ const webAppSchema = {
         <p><a class="t-link" href="/blog/price-per-square-foot-doesnt-always-work/">Why price per square foot doesn't work for most rural homes &rarr;</a></p>
         <p><a class="t-link" href="/blog/detached-shop-barn-outbuilding-sale-price-central-utah/">How much a detached shop, barn, or outbuilding adds to a home's sale price (+ UAD 3.6 rules) &rarr;</a></p>
 
-        <h3 class="t-h3" style="margin-top:1.25rem">Why Mike's number will be better</h3>
-        <p>I've been appraising and selling in Central Utah a long time. Water, access, outbuildings and the actual recent sales nearby move rural asking prices more than any formula. If you want a real number, I'll pull the comps and give you a free market opinion (CMA) as your REALTOR®.</p>
-        <p class="t-help">Mike Price, REALTOR® | Heritage Realty Group · Active Utah Certified Residential Appraiser · 2026 President-Elect, <a class="t-link" href="https://utcap.org" target="_blank" rel="noopener">Utah Coalition of Appraisal Professionals</a></p>
+        <h3 class="t-h3" style="margin-top:1.25rem">What I'll send next</h3>
+        <p>I've spent years studying Central Utah land values, and I sell homes, cabins, and land out here. Water, access, outbuildings, and the recent sales nearby move the price more than any formula. I'll pull those sales and send a free REALTOR® Seller Market Analysis (CMA) for listing purposes only. This is not an appraisal.</p>
+        <p class="t-help">Mike Price, REALTOR® | Heritage Realty Group · P.O. Box 431, Spring City, UT 84662</p>
 
         <div class="t-actions">
           <a class="t-btn t-btn-primary" href="tel:4356600401">Call Mike 435-660-0401</a>
-          <a class="t-btn t-btn-secondary" href="/contact/">Get a free comp-based market opinion</a>
+          <a class="t-btn t-btn-secondary" href="/contact/">Contact Mike</a>
         </div>
         <p class="t-disclaimer">{disclaimer}</p>
         <p style="margin-top:1rem"><button type="button" class="t-link" id="hp-again" style="background:none;border:0;padding:0;cursor:pointer;min-height:44px">Change my answers</button></p>
@@ -297,7 +332,7 @@ const webAppSchema = {
     </div>
   </section>
 
-  <FAQAccordion items={faqs} heading="Rough Price Range Questions" />
+  <FAQAccordion items={faqs} heading="Seller Market Analysis Questions" />
 
   <section class="py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mx-auto text-center font-body text-navy/80">
@@ -307,7 +342,7 @@ const webAppSchema = {
 </BaseLayout>
 
 <script>
-  import { submitLead, money } from "../../scripts/submitLead";
+  import { submitLead, money, trackSellerCmaSubmit } from "../../scripts/submitLead";
 
   // ================================================================
   // PLACEHOLDERS — Mike to edit. Rough starting numbers only; not comps,
@@ -402,7 +437,7 @@ const webAppSchema = {
       setErr("hp-name-err", name.value.trim() ? "" : "Enter your first name.", name);
       const emailOk = email.value.trim() !== "" && email.checkValidity();
       setErr("hp-email-err", emailOk ? "" : "Enter a valid email address.", email);
-      setErr("hp-ack-err", ack.checked ? "" : "Please check the box to confirm this isn't an appraisal.", ack);
+      setErr("hp-ack-err", ack.checked ? "" : "Please check the box to confirm this is not an appraisal.", ack);
       ok = !!name.value.trim() && emailOk && ack.checked;
     }
     if (!ok) {
@@ -527,8 +562,9 @@ const webAppSchema = {
     btn.disabled = true;
     btn.textContent = "Working…";
     const sent = await submitLead(form);
+    if (sent) trackSellerCmaSubmit("home-price");
     btn.disabled = false;
-    btn.textContent = "Show my rough price range";
+    btn.textContent = "Request my seller market analysis";
     render(res, sent);
   });
 

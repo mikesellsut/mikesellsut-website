@@ -1,0 +1,40 @@
+---
+// Public seller CTA. One block, used from BaseLayout on every indexed page
+// and from listing cards. Private /p/ pages do not render it.
+interface Props {
+  /** On the seller-analysis tool, the button stays on the page and opens the form. */
+  onToolPage?: boolean;
+  /** Compact row for a listing card. The full band is the default. */
+  variant?: "band" | "button";
+}
+
+const { onToolPage = false, variant = "band" } = Astro.props;
+const href = onToolPage ? "#hp-form" : "/tools/home-price/";
+const label = "What Could Your Land/Home Sell For?";
+---
+
+{
+  variant === "button" ? (
+    <a
+      href={href}
+      class="inline-block px-6 py-3 border-2 border-navy text-navy font-heading uppercase tracking-wider text-sm rounded-md hover:bg-navy hover:text-white transition-colors duration-200 text-center"
+    >
+      {label}
+    </a>
+  ) : (
+    <section class="py-10 px-4 sm:px-6 lg:px-8" aria-label="Seller market analysis">
+      <div class="max-w-3xl mx-auto bg-navy rounded-lg p-6 md:p-8 text-center shadow-md border-b-4 border-gold">
+        <h2 class="font-heading text-2xl text-white uppercase tracking-wide mb-2">Free Seller Market Analysis</h2>
+        <p class="font-body text-white/80 mb-5 max-w-2xl mx-auto">
+          A REALTOR® opinion of price based on recent sales, for listing purposes only. This is not an appraisal.
+        </p>
+        <a
+          href={href}
+          class="inline-block px-6 py-3 bg-gold text-white font-heading uppercase tracking-wider text-sm rounded-md hover:brightness-110 transition-all duration-200 shadow-md"
+        >
+          {label}
+        </a>
+      </div>
+    </section>
+  )
+}

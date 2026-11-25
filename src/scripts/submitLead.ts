@@ -20,5 +20,12 @@ export async function submitLead(form: HTMLFormElement): Promise<boolean> {
   }
 }
 
+/** GA4 key event. Uses the site tag already in BaseLayout (G-QMXYY3Z3FT). */
+export function trackSellerCmaSubmit(formName: string) {
+  const w = window as Window & { gtag?: (...args: unknown[]) => void };
+  if (typeof w.gtag !== "function") return;
+  w.gtag("event", "seller_cma_submit", { form_name: formName });
+}
+
 export const money = (n: number) =>
   "$" + Math.round(n).toLocaleString("en-US");
