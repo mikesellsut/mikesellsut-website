@@ -4,13 +4,18 @@ date: 2026-10-26
 author: "Mike Price"
 category: "Buyer Tips"
 featured_image: "/images/areas/sanpete-mt-pleasant-creek-acreage.jpg"
-excerpt: "Two five-acre parcels in Juab, Sanpete, Millard, or Sevier County can sell for tens of thousands of dollars apart based on water alone. Here is how irrigation company shares and Utah domestic well permits actually work—from a REALTOR® and Certified Residential Appraiser."
+excerpt: "Two five-acre parcels in Juab, Sanpete, Millard, or Sevier County can sell for tens of thousands of dollars apart based on water alone. Here is how irrigation company shares and Utah domestic well permits actually work."
 published: true
 ---
 
 In Juab, Sanpete, Millard, and Sevier Counties, two five-acre parcels sitting across the road from each other can easily sell for tens of thousands of dollars apart—and the difference is almost always the water. One parcel comes with an underground domestic well right and deeded irrigation company shares that keep five acres of pasture green; the other is "dry dirt" where you cannot drill a well or turn a ditch gate until you track down and buy water on the open market.
 
-I sell rural homes, cabins, and land across Central Utah as a REALTOR® with Heritage Realty Group, and I have appraised properties in these four counties since July 2005 as a Certified Residential Appraiser with MK Appraisals. When I walk a parcel with a buyer or price a listing for a seller, water is the very first line item I verify. Here is how water shares and domestic well permits actually work on the ground in Ephraim, Manti, Mt. Pleasant, Spring City, Fountain Green, Nephi, Mona, Delta, Fillmore, and Richfield.
+<aside class="not-prose my-8 rounded-md border-l-4 border-gold bg-white px-5 py-4 shadow-sm" aria-label="Quick answer">
+  <p class="font-heading tracking-wider text-sm text-gold mb-2">Quick answer</p>
+  <p class="text-navy/90 leading-relaxed m-0">Water shares and a well right aren't the same thing, and buyers pay for the difference. A standard domestic well right usually covers the house, a small yard and a few animals. Irrigation shares are what keep pasture green. Land with verified, transferable water typically sells for more than dry ground, so know exactly what you have before you list.</p>
+</aside>
+
+I sell rural homes, cabins, and land across Central Utah as a REALTOR® with Heritage Realty Group. Mike Price has spent over two decades working in Central Utah real estate. When I walk a parcel with a buyer or price a listing for a seller, water is the very first line item I verify. Here is how water shares and domestic well permits actually work on the ground in Ephraim, Manti, Mt. Pleasant, Spring City, Fountain Green, Nephi, Mona, Delta, Fillmore, and Richfield.
 
 ## Why Do Two Identical 5-Acre Parcels Sell for Tens of Thousands of Dollars Apart?
 
@@ -82,6 +87,9 @@ You can also walk through my interactive [rural land buyer & seller checklist](/
 
 ## Frequently Asked Questions
 
+### How do water shares vs. a well permit affect what my land will sell for in Central Utah?
+Water shares and a well right aren't the same thing, and buyers pay for the difference. A standard domestic well right usually covers the house, a small yard and a few animals. Irrigation shares are what keep pasture green. Land with verified, transferable water typically sells for more than dry ground, so know exactly what you have before you list.
+
 ### How much do Sanpete County water shares cost, and how do they affect land sale price?
 Irrigation share prices vary widely by company, town, and whether the water is reliable late-season storage or spring runoff only. Because many shares can only be used inside a specific company's canal or pressurized pipeline boundary, there is no single county-wide price—two parcels just a few miles apart in Ephraim, Manti, Mt. Pleasant, or Spring City can sell for tens of thousands of dollars apart depending on the exact shares included.
 
@@ -94,4 +102,11 @@ A standard Utah domestic well right for a single-family home typically covers in
 ### Do irrigation company water shares transfer automatically with the deed in Utah?
 No. Shares in a mutual irrigation company are personal property (corporate stock) and must be listed on the purchase contract and transferred by endorsing the share certificate and registering the transfer with the irrigation company secretary at closing.
 
-*Mike Price, REALTOR®, Heritage Realty Group · Certified Residential Appraiser, MK Appraisals (active since July 2005) · 2026 UTCAP President-Elect. Mailing address: P.O. Box 431, Spring City, UT 84662. This guide is general market education as a REALTOR®, not legal water-rights advice or a formal certified appraisal.*
+<!-- faq-end -->
+
+<div class="not-prose my-10">
+  <a href="/tools/home-price/" class="inline-block px-6 py-3 bg-gold text-white font-heading tracking-wider text-sm rounded-md hover:brightness-110 transition-all duration-200 shadow-md">What could your land or home sell for?</a>
+  <p class="mt-3 text-sm text-navy/70 leading-relaxed m-0">This is a real estate agent's market analysis of likely sale price. It is not an appraisal.</p>
+</div>
+
+<p class="not-prose font-semibold text-navy">Mike Price · REALTOR®, Heritage Realty Group, LLC · 435-660-0401</p>

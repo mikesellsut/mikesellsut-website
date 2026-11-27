@@ -32,6 +32,10 @@ const related = allPosts
 const shareUrl = `https://mikesellsut.com/blog/${post.slug}`;
 const shareText = encodeURIComponent(post.data.title);
 
+// This post links to the seller price tool, so the shared agent schema on
+// this page only drops the appraiser credential. Other posts are unchanged.
+const sellerPricePost = post.slug === "water-shares-vs-well-permits-central-utah";
+
 // Extract a "## Frequently Asked Questions" section (if present) from the
 // raw markdown body and emit it as FAQPage JSON-LD, same schema shape as
 // FAQAccordion uses on /buyers and /sellers. Posts without an FAQ section
@@ -46,8 +50,15 @@ const stripMarkdown = (text: string) =>
 let faqSchema: Record<string, unknown> | null = null;
 const faqSectionMatch = post.body.match(/##\s+Frequently Asked Questions\r?\n([\s\S]*?)(?:\r?\n##\s|$)/i);
 if (faqSectionMatch) {
+  let faqBody = faqSectionMatch[1];
+  // Keep the closing CTA and sign-off out of the last answer so JSON-LD
+  // matches the visible questions on this post only.
+  if (sellerPricePost) {
+    const endMarker = faqBody.indexOf("<!-- faq-end -->");
+    if (endMarker !== -1) faqBody = faqBody.slice(0, endMarker);
+  }
   const faqItems: { question: string; answer: string }[] = [];
-  const qaBlocks = faqSectionMatch[1].split(/\r?\n###\s+/).slice(1);
+  const qaBlocks = faqBody.split(/\r?\n###\s+/).slice(1);
   for (const block of qaBlocks) {
     const [firstLine, ...rest] = block.split("\n");
     const question = stripMarkdown(firstLine);
@@ -73,6 +84,7 @@ if (faqSectionMatch) {
   description={post.data.excerpt}
   image={post.data.featured_image}
   type="article"
+  omitAppraiserSchema={sellerPricePost}
 >
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
